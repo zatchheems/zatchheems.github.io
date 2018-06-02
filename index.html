@@ -1,1 +1,297 @@
-<h1>Hello World</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Going Live</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' type='text/css' href="./css/reset.css" >
+    <link rel='stylesheet' type='text/css' href="./css/styles.css" >
+    <link rel='stylesheet' type='text/css' href="./css/new-styles.css" >
+  </head>
+  <body>
+    <header>
+      <div><pre style='line-height:79%'>
+ ::::::::   ::::::::  ::::::::::: ::::    :::  ::::::::  
+:+:    :+: :+:    :+:     :+:     :+:+:   :+: :+:    :+: 
++:+        +:+    +:+     +:+     :+:+:+  +:+ +:+        
+:#:        +#+    +:+     +#+     +#+ +:+ +#+ :#:        
++#+   +#+# +#+    +#+     +#+     +#+  +#+#+# +#+   +#+# 
+#+#    #+# #+#    #+#     #+#     #+#   #+#+# #+#    #+# 
+ ########   ########  ########### ###    ####  ########  
+
+:::        ::::::::::: :::     ::: ::::::::::            
+:+:            :+:     :+:     :+: :+:                   
++:+            +:+     +:+     +:+ +:+                   
++#+            +#+     +#+     +:+ +#++:++#              
++#+            +#+      +#+   +#+  +#+                   
+#+#            #+#       #+#+#+#   #+#                   
+########## ###########     ###     ##########            </pre></div>
+      <h2 class='date'>June 2nd, 2018</h2>
+    </header>
+    <article>
+      <section id="todo">
+        <h1>To Do's:</h1>
+        <ul>
+          <li>Administrivia</li>
+          <li>Recap!</li>
+          <li>Double take at some HTML</li>
+          <li>Developer Tools</li>
+          <li>CSS Resets</li>
+          <li>Deployment: GitHub Pages</li>
+        </ul>
+      </section>
+      <section>
+        <h1>Administrivia</h1>
+        <p>First Saturday class! It's early and getting up early on a Saturday
+          <span class="special">sucks</span>
+          but it's definitely worth it!
+        </p>
+        <p>Slower pace, longer activities, more time to clear up confusion. More time to
+          learn cool stuff! (Ask me about &#x2728;CSS keyframes&#x2728; sometime!)
+        </p>
+        <div class='line-break'></div>
+        <div class='activity'>
+          <p>How are we doing so far? Let's take a couple of quick polls and see how everyone feels.</p>
+          <p>Homework Q&amp;A!</p>
+          <p>General Q&amp;A!</p>
+        </div>
+        <h2>General note:</h2>
+        <p>You all are doing amazing! The amount of mastery you've shown over a mere two weeks
+          is phenomenal!</p>
+        </p>
+      </section>
+      <section>
+        <h1>Recap</h1>
+        <div class='recap'>
+          <h2>Full-Stack Development Conceptually</h2>
+          <p>Front-end, back-end, database.</p>
+          <p>MERN stack (briefly!).</p>
+          <h2>Terminal/Git Bash</h2>
+          <p>Basic commands:</p>
+          <pre>
+$ cd directory
+$ mv file directory/file
+$ cp file file-copy
+$ mkdir new-dir
+$ pwd
+$ ls -la
+          </pre>
+          <small class='italic'>(The "<code>$</code>" represents your terminal!)</small>
+          <h2>HTML Syntax</h2>
+          <pre>
+&lt;title>Hello!&lt;/title>
+
+&lt;div class='my-class my-other-class' id='unique-id'>
+  ...
+&lt;/div>
+
+&lt;section class='my-class my-other-class' id='another-id'>
+  ...
+&lt;/section>
+
+&lt;a href='#'>Link to #&lt;/a>
+          </pre>
+          <h2>Git Concepts and Commands</h2>
+          <p><code>pull</code> to fetch changes, <code>clone</code> to copy a repo to your
+          local machine, <code>add</code> to track changes, <code>commit -m "changes"</code>
+          to commit a new set of changes, <code>push</code> to upload files.</p>
+          <pre>
+$ git clone https://github.com/my-repo.git
+$ git add ./html
+$ git add styles.css
+$ git commit -m "Added html directory and stylesheet"
+$ git push
+
+...(some time goes by, others make changes)...
+
+$ git pull
+          </pre>
+          <h2>CSS Purpose, Syntax, and Styles</h2>
+          <p>HTML is the content, CSS makes it pretty.</p>
+          <span class='selector'>selector</span>
+          <span class='bracket'>{</span>
+          <span class='property'>property</span>
+          <span class='special-char'>:</span>
+          <span class='value'>value</span>
+          <span class='special-char'>;</span>
+          <span class='bracket'>}</span>
+          <p>We can add styles to elements by referencing them directly,
+            adding classes, referencing them by ID. We can also reference
+            their children with <code>></code>.
+          </p>
+          <p>Editable CSS properties: <code>margin, padding, border,
+            width, height, color, background-color, font, font-size...
+          </code></p>
+          <h2>Floating</h2>
+          <p><code>Float</code>ing an element removes it from the regular flow
+          of content. Elements can be floated left or right, or <code>clear</code>
+        can be specified to ignore floated elements.</p>
+          <p class="italic gray">Floats are weird! Use with caution.</p>
+          <p><span class='bold'>display:</span>
+          <ul>
+            <li><code>inline</code></li>
+            <li><code>block</code></li>
+          </ul></p>
+          <h2>Positioning</h2>
+          <p><code>static</code>, <code>relative</code>, <code>absolute</code>,
+          and <code>fixed</code>.</p>
+          <p><code>static</code> is the default positioning.</p>
+          <p><code>relative</code> sets an element for <code>absolute</code> elements to
+          be positioned against.
+          </p>
+          <p><code>fixed</code> fixes an element to the viewport.</p>          
+          <h2>Box Model</h2>
+          <svg viewBox="0 0 50 25" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="2.5" width="40" height="20" rx="1" ry="1" stroke='black' stroke-width='0.5' fill='darkorange' />
+            <rect x="10" y="5" width="30" height="15" rx="1" ry="1" stroke='black' stroke-width='0.5' fill='lightseagreen' />
+            <rect x="15" y="7.5" width="20" height="10" rx="1" ry="1" stroke='black' stroke-width='0.5' fill='purple' />
+            <rect x="20" y="10" width="10" height="5" rx="1" ry="1" stroke='black' stroke-width='0.5' fill='orangered' />
+          </svg>
+          <p>
+            <span class='bold'>Total width</span> =
+            <span class='margin'>margin-left</span> +
+            <span class='border'>border-left</span>
+            +
+            <span class='padding'>padding-left</span> +
+            <span class='size'>width</span> +
+            <span class='padding'>padding-right</span>
+            +
+            <span class='border'>border-right</span> +
+            <span class='margin'>margin-right</span>
+          </p>
+          <p>
+            <span class='bold'>Total height</span> =
+            <span class='margin'>margin-top</span> +
+            <span class='border'>border-top</span>
+            +
+            <span class='padding'>padding-top</span> +
+            <span class='size'>width</span> +
+            <span class='padding'>padding-bottom</span>
+            +
+            <span class='border'>border-bottom</span> +
+            <span class='margin'>margin-bottom</span>
+          </p>
+          <h2>Dev Tools</h2>
+          <p>Using the element inspector, CSS tools, and more.</p>
+          <p>Visit <a href='https://developers.google.com/web/tools/chrome-devtools/css/'>
+            https://developers.google.com/web/tools/chrome-devtools/css/</a>
+          for a recap. Poke around more of the dev tools docs for more fun stuff!</p>
+        </div>
+        <div class='line-break'></div>
+        <h1>The Double Take</h1>
+        <p>Why use <code>div</code>s vs. <code>section</code>s and other HTML5 semantic tags 
+        <span class='italic'>(header, nav, section, aside, article, details, summary, footer)</span>?
+        It turns out neither is more "correct" per se. Most sites still stick to just divs. Semantic tags
+        keep things clean and organized and help with search engine optimization, but regular
+        divs can be styled semantically with classes/IDs.</p>
+        <p>Difference between <code>class</code>es and <code>ID</code>s?</p>
+      </section>
+      <section><h1>Developer Tools</h1>
+      <div class='activity'>
+        <h2>Instructor activity...</h2>
+        <p>A quick demo of the power of the element inspector and CSS editor.</p>
+      </div>
+      <div class='line-break'></div>
+      <div class='student-activity'>
+        <h2>Student activity!</h2>
+        <p>Take any website you visit frequently and heavily modify it with the dev tools.</p>
+        <p>Be sure to modify:
+          <ul>
+            <li>Content</li>
+            <li>Colors</li>
+            <li>Spacing</li>
+          </ul>
+        </p>
+        <p>Slack a screenshot to the Saturday class channel when you're done!</p>
+      </div>
+      <div class='student-activity'>
+        <h2>...and now, the same activity with a twist!</h2>
+        <p>Open a website you've designed for homework or for fun and heavily modify it
+          with the dev tools.</p>
+        <p>Be sure to modify:
+          <ul>
+            <li>Content</li>
+            <li>Colors</li>
+            <li>Spacing</li>
+          </ul>
+        </p>
+        <p class='italic'>(No screenshot needed this time!)</p>
+      </div>
+     </section>
+      <section><h1>CSS Resets</h1>
+        <h2>Loading multiple CSS files simultaneously:</h2>
+        <pre>
+&lt;link rel='stylesheet' href='assets/main.css'>
+&lt;link rel='stylesheet' href='assets/extra.css'>
+&lt;link rel='stylesheet' href='assets/even-more.css'>
+        </pre>
+        <p>We can use multiple stylesheets to create extremely sophisticated styling
+          for our sites and have fine-grained control over how our content is styled.
+          What we get is a totally unique page that doesn't need to change the main CSS for the
+          other pages. It's a great trick!
+        </p>
+        <p>This HTML document uses the previous notes' CSS file plus another that overrides
+        some of the first while adding some more stuff. We can demonstrate that by just
+      commenting out the new <code>&lt;link ...href='new-styles.css'></code> tag in the head.</p>
+        <p class='italic bold gray'>Loading order matters!</p>
+      <div class='line-break'></div>
+      <h1>CSS Resets for Browser Compatibility</h1>
+      <h2>Quick vote: what browser do you use the most?</h2>
+      <p>Each browser has a different rendering engine under the hood. Things
+        will often look different between Chrome, Firefox, Safari, Edge, Opera, etc.
+        We can combat this with a <code class='bold'>reset.css</code> stylesheet.
+        Basically, what this does is ensures that your page renders identically between
+        all browsers by overriding all browser-specific default CSS.
+      </p>
+      <p>The main caveat? Everything has to be re-styled from there. (It's a good trade-off!)</p>
+      <div class='activity'>
+        <h2>Instructor activity...</h2>
+        <p>How is a <code>reset.css</code> good for cross-browser compatibility?
+        Why do we care about that?</p>
+        <p>(This is a common front-end question!)</p>
+      </div>
+      <div class='student-activity'>
+        <h2>Student activity!</h2>
+        <p>Incorporate a <code>reset.css</code> file into a basic HTML file.</p>
+        <p>Focus on how it makes changes to unstyled pages. What changes are made?</p>
+        <p><span class='bold gray'>Bonus:</span> encorporate this file into one of
+        your own HTML files.</p>
+      </div>
+    </section>
+    <section>
+      <h1>Deployment</h1>
+      <h2>What does this mean, exactly?</h2>
+      <p>Right now, your HTML is available only on your local machine. This is just
+        fine for testing purposes, but how will others be able to access it?
+      </p>
+      <p>We have to actually upload it to a server whwere it can be hosted before
+        we can show it off elsewhere. A <span class='gray'>host</span> in this case
+        is a web server capable of hosting our content and delivering it when given
+        a properly-formed HTTP request it understands—when you navigate to a
+        URL, your browser sends HTTP requests to download content and render it in the viewport
+         (amongst a wealth of other things that happen under the hood).
+      </p>
+      <div class='activity'>
+        <h2>Instructor activity...</h2>
+        <p>We've been concerned just with the rendered part, so lets tackle hosting.</p>
+        <p>Let's use <a href='https://pages.github.com/'>GitHub Pages</a>
+        to serve some content. The idea is that we can turn a GitHub repo into a live webpage
+        without having to upload our code anywhere else.
+         The steps to do so are relatively simple:
+        <ol>
+          <li>Create a new repo, <code>github-username.github.io</code></li>
+          <li>Navigate into a folder and clone the repo into it</li>
+          <li>Add an HTML file named <code>index.html</code> containing the code for your webpage</li>
+          <li>Add, commit, and push your changes into the repository</li>
+          <li>Navigate your browser to <code>github-username.github.io</code> and we're live!</li>
+        </ol>
+      </p>
+      </div>
+      <div class='student-activity'>
+        <h2>Student activity!</h2>
+        <p>Give <a href='https://pages.github.com/'>GitHub Pages</a> a shot!</p>
+      </div>
+    </section>
+    </article>
+  </body>
+</html>

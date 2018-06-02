@@ -1,0 +1,167 @@
+body {
+  margin:0;
+  color: #fff;
+  text-shadow:#000 0px 2px 1px; /* Fresh text shadow. Color, left offset, top offset, blur. */
+  font-family:Helvetica Neue, Helvetica, Arial, sans-serif; /* What font do we want? */
+  font-size:1.75em; /* 1.75 times the default size. */
+  background-color:#d05050; /* Make the background a soft red. */
+}
+
+code, pre {
+  font-family: monospace;
+}
+
+pre {
+  padding:25px;
+  background-color:#252525;
+  color:#5f5;
+  font-size: 2vw; /* View Width. Depends on width of browser window */
+  width: max-content;
+  width: -moz-max-content;
+  width: -webkit-max-content;
+  white-space: pre;
+  line-height:130%;
+  margin: 10px 0;
+}
+
+h1 {
+  font-weight:800;
+  margin: 30px 0px;
+  font-size: 1.5em;
+}
+
+h2 {
+  font-weight:800;
+  margin: 30px 0px;
+  font-size:1.25em;
+}
+
+p {
+  margin:20px 0px;
+}
+
+a {
+  text-decoration: none; /* anchor tags have underscores by default; those are ugly. */
+  color:#5050d0;
+  transition: color 0.25s ease-in;
+  font-weight: 700; /* 100-extralight 200-light 400-regular 700-bold 800-black */
+}
+
+a:hover {
+  color:#7070ff;
+}
+
+code {
+  font-weight:800; 
+  color:#808080;
+}
+
+.bold {
+  font-weight:700;
+}
+
+.gray {
+  color:#808080;
+}
+
+.line-break {
+  border-bottom:solid 5px #d05050; /* add a nice border at the bottom */
+}
+
+.italic {
+  font-style:italic;
+}
+
+header {
+  padding-left:40px;
+  padding-top:40px;
+  padding-bottom:10px;
+  background-color:#404040;
+}
+
+section {
+  color:#252525;
+  background-color:#fff;
+  text-shadow:none;
+  padding:25px;
+  margin:25px;
+  border-radius:5px; /* Nice rounded borders! */
+  box-shadow:#404040 0px 2px 1px; /* shadow color, left offset, top offset, blur. */
+}
+
+blockquote {
+  font-style: italic;
+  font-size:1.5em;
+  color:#999;
+}
+
+fieldset,pre {
+  border: none;
+  margin:5px;
+  border-radius: 5px;
+}
+
+fieldset, .activity, .student-activity {
+  background-color:#e4e0e3;
+  border-radius:5px;
+  padding:5px 25px;
+  margin-top:25px;
+}
+
+li {
+  margin-left:30px;
+  list-style: circle;
+}
+
+li:first-child {
+  /* list-style:  */
+}
+
+.student-activity {
+  background-color:#f0f0f0;
+}
+
+label {
+  display: block;
+  width:200px;
+}
+
+label > input[type='radio'] {
+  float:right; /* force elements to "float" to the right side of the containing element */
+}
+
+.selector, .margin {
+  color: darkorange;
+}
+
+.property {
+  color: lightsalmon;
+}
+
+.value, .padding  {
+  color: lightseagreen;
+}
+
+.special-char, .border {
+  color: purple;
+}
+
+.bracket {
+  color: plum;
+}
+
+.id, .size {
+  color:orangered;
+}
+
+.class {
+  color:darkslateblue;
+}
+
+.left {
+  float:left;
+}
+
+.right {
+  /* float:right; */
+}

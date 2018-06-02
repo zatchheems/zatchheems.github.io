@@ -1,0 +1,64 @@
+.special {
+  color:slategray;
+  font-weight:800;
+
+  animation: 1000ms infinite alternate special;
+  -moz-animation: 1000ms infinite alternate special;
+  -webkit-animation: 1000ms infinite alternate special;
+}
+
+@keyframes special {
+  from {
+    color:#252525;
+    text-shadow:#000 0 0 2px;
+  }
+
+  to {
+    color:#fff;
+    text-shadow:#000 0 0 15px;
+  }
+}
+
+body {
+  background-color:cornflowerblue;
+}
+
+a {
+  color:darkred;
+}
+
+a:hover {
+  color:lightcoral;
+}
+
+a:active {
+  color:#500e03;
+}
+
+pre {
+  color: #cf3;
+}
+
+code {
+  color:rgb(255, 68, 130);
+}
+
+.date {
+  font-style:italic;
+}
+
+fieldset, .activity {
+  background-color:#e0e0e8;
+}
+
+.activity > h2 {
+  border-bottom: dashed #00ad31;
+}
+
+.student-activity {
+  background-color:#c9c9d3;
+}
+
+.recap > h2 {
+  border-bottom:solid 5px skyblue;
+}
