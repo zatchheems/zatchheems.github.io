@@ -13,5 +13,5 @@
 * [Going Live](./02-css-bootstrap/html/going-live.html)
 
 ### Unit 3: Javascript
-* [Joys of Javascript](./02-css-bootstrap/html/joys-of-javascript.html)
+* [Joys of Javascript](./03-javascript/html/joys-of-javascript.html)
 * [Jumping for Javascript](./03-javascript/html/jumping-for-javascript.html)
