@@ -15,7 +15,7 @@ pre {
   padding:25px;
   background-color:#252525;
   color:#5f5;
-  font-size: 2vw; /* View Width. Depends on width of browser window */
+  font-size: 1.7vw; /* View Width. Depends on width of browser window */
   width: max-content;
   width: -moz-max-content;
   width: -webkit-max-content;
@@ -163,5 +163,5 @@ label > input[type='radio'] {
 }
 
 .right {
-  /* float:right; */
+  float:right;
 }

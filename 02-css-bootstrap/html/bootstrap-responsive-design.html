@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap Layouts and Responsive Design</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=BioRhyme:400,700,800" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href="../css/reset.css" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' href="../css/styles.css" >
+    <link rel='stylesheet' type='text/css' href="../css/new-styles.css" >
+  </head>
+  <body>
+    <header>
+      <div><pre id='ascii-title' style='line-height:85%'>
+  ____              _       _                                              
+ |  _ \            | |     | |                                             
+ | |_) | ___   ___ | |_ ___| |_ _ __ __ _ _ __                             
+ |  _ < / _ \ / _ \| __/ __| __| '__/ _` | '_ \                            
+ | |_) | (_) | (_) | |_\__ \ |_| | | (_| | |_) |                           
+ |____/ \___/ \___/ \__|___/\__|_| _\__,_| .__/                            
+    | |                           | |    | |                               
+    | |     __ _ _   _  ___  _   _| |_ __|_|                               
+    | |    / _` | | | |/ _ \| | | | __/ __|                                
+    | |___| (_| | |_| | (_) | |_| | |_\__ \                                
+    |______\__,_|\__, |\___/ \__,_|\__|___/                                
+                  __/ |                                                    
+                 |___/
+                  _      _____                                 _           
+                 | |    |  __ \                               (_)          
+   __ _ _ __   __| |    | |__) |___  ___ _ __   ___  _ __  ___ ___   _____ 
+  / _` | '_ \ / _` |    |  _  // _ \/ __| '_ \ / _ \| '_ \/ __| \ \ / / _ \
+ | (_| | | | | (_| |    | | \ \  __/\__ \ |_) | (_) | | | \__ \ |\ V /  __/
+  \__,_|_| |_|\__,_|    |_| _\_\___||___/ .__/ \___/|_| |_|___/_| \_/ \___|
+                           |  __ \      | | (_)                            
+                           | |  | | ___ |_|_ _  __ _ _ __                  
+                           | |  | |/ _ \/ __| |/ _` | '_ \                 
+                           | |__| |  __/\__ \ | (_| | | | |                
+                           |_____/ \___||___/_|\__, |_| |_|                
+                                                __/ |                      
+                                               |___/                       
+</pre></div>
+      <h2 class='date'> June 6th, 2018</h2>
+    </header>
+    <article class='container'>
+      <section id="todo" >
+        <h1>To Do's:</h1>
+        <ul>
+          <li>Administrivia</li>
+          <li>Bootstrap Recap</li>
+          <li>Sketching/Grid Layouts</li>
+          <li>Grid Design With Bootstrap</li>
+          <li>Building Bootstrap Layouts</li>
+          <li>Mobile Responsiveness</li>
+        </ul>
+      </section>
+      <section>
+        <h1>Administrivia</h1>
+        <p>Question time:
+          <ul>
+            <li>Coming to class feeling anxious?</li>
+            <li>Feel left behind? If so, behind other students? Not learning
+              fast enough to get a job/as fast as expected? 
+            </li>
+          </ul>
+        </p>
+        <p>Y'all are awesome. Remember that as the material gets more difficult.
+          You can do this! &#x1F320;
+        </p>
+      </section>
+      <section>
+        <h1>Bootstrap Recap</h1>
+        <p>We need two things to get Bootstrap up and running:
+          <ol>
+            <li>CSS link from the CDN (<code>&lt;link ...></code>
+              from Bootstrap site)</li>
+            <li>Specific classes: <code>container, row, col, btn</code> etc.</li>
+          </ol>
+        </p>
+        <p>Example:
+          <div class='form-group'>
+            <div class="btn-group">
+              <button class='btn btn-primary'>oh hi I'm a button</button>
+            </div>
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-secondary">Lefty</button>
+              <button type="button" class="btn btn-secondary">Mid</button>
+              <button type="button" class="btn btn-secondary">Righty</button>
+            </div>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text" id="btnGroupAddon">&#x1F324;</div>
+              </div>
+              <input class='form-control' placeholder='Look at meee' />
+            </div>
+          </div>
+        </p>
+        <blockquote>Why is this a big deal?</blockquote>
+        <p>We get to utilize pre-defined CSS, an incredibly important
+          concept we will be revisiting repeatedly.
+        </p>
+        <blockquote>What are the two big advantages of Bootstrap?</blockquote>
+        <p>The UI kit and mobile responsiveness are Bootstrap's biggest
+          advantages.</p>
+          <p>The UI kit provides us with a "palette" of different
+          components and styles we can pick and choose from. Mobile
+          responsiveness optimizes users' experience on mobile devices with
+          smaller display sizes and different aspect ratios.
+        </p>
+        <div class='activity'>
+          <h2>Student activity!</h2>
+          <p>As a warmup, let's do exactly what we did close to the
+            end of last class: practice with Bootstrap. We'll be taking
+            5min. just as a refresher.
+          </p>
+          <ul>
+            <li>Quickly create an HTML web page.</li>
+            <li>Add in a Bootstrap component of your choosing.</li>
+          </ul>
+          <small><span class='bold gray'>Hint:</span> Copy the Bootstrap CSS link.
+            Then copy the code from any Bootstrap element or CSS.</li></small>
+        </div>
+        
+      </section>
+      <section>
+        <h1>Sketching/Grid Layouts</h1>
+        <p>We focused on using Bootstrap components last time, briefly touching on
+          layout. Today, we focus on using Bootstrap to create layouts.
+        </p>
+        <p>These next two sections are incredibly important, and contain arguably some of the most
+          important concepts in the class.</p>
+          <hr class='line-break'>
+        <h2>Sketching</h2>
+        <p>Every site is defined by its <span class='italic'>look</span>. Having a basic sketch
+        of how you want your site to look is incredibly important! Instead of
+        just messing around until something looks good, you can work off of a detailed 
+        sketch and really try to nail the look you want without guessing and checking.</p>
+        <p>Nav bars, main content, images, footers, etc. should all be considered.
+          They don't have to be super well-drawn (and you can make sketches on your machine
+          if you want!) but should give a good idea of how you want things to be laid out.
+        </p>
+        <figure class="figure">
+          <img src='https://upload.wikimedia.org/wikipedia/commons/6/63/Pixel_grid_4000x2000.svg'
+          width='100%' height='300px' alt='A pixel grid.'/>
+          <figcaption class="figure-caption">You can design a site with this!</figcaption>
+        </figure>
+        <p>It also helps to design elements on a <span class='bold gray'>grid</span>.
+        Grids serve to align items in an aesthetically pleasing and logical way—e.g. aligning
+        content with the header, making a large block of content scroll smoothly into a few 
+        columns of content, etc.</p>
+        <p>Facebook, LinkedIn, Instagram and other social media sites as well as many news sites
+          champion the usage of a grid layout: content is aligned via clearly-set "lines".
+          Content, containers, images, etc. align in an aesthetically pleasing way.
+        </p>
+        <hr class='line-break'>
+        <p>A few wireframing tools:
+          <ul>
+            <li>Balsalmiq — <a href="https://balsamiq.com/" target="_blank">https://balsamiq.com/</a></li>
+            <li>Framebox — <a href="http://framebox.org/" target="_blank">http://framebox.org/</a></li>
+            <li>Illustrator/Photoshop with grid tools (or without, but turn the grid view/align on!)
+              <ul>
+                <li>960 Grid System — <a href='https://960.gs/' target="_blank">https://960.gs/</a></li>
+                <li>GuideGuide (paid w/free trial) — <a href='https://guideguide.me/' target="_blank">
+                  https://guideguide.me/</a></li>
+              </ul>
+            </li>
+            <li>By hand in a notebook</li>
+          </ul>
+        </p>
+        <p>Google is your friend when learning how to design by grid. There's also 
+          <a href="http://www.designbygrid.com/" target="_blank"> http://www.designbygrid.com/</a>.</p>
+      </section>
+      <section>
+        <h1>Rows and Columns Workshop</h1>
+        <div class='activity'>
+          <h2>Class activity</h2>
+          <p>Let's look at several wireframes and break them up into their component 
+            <span class='bold gray'>rows</span> and <span class='bold gray'>columns</span>.
+            This may seem pretty simple at first but some of the examples will be
+            trickier.
+          </p>
+          <small class='gray'>Back to some slides for now...</small>
+        </div>
+      </section>
+      <section>
+        <h1>Grid Design With Bootstrap</h1>
+        <p>We covered this briefly last time, but as a refresher:
+          Bootstrap lets you organize content based on the number of columns. This
+          is always treated as a fraction out of 12.
+        </p>
+        <div class="container">
+          <div class="row">
+            <div class='col col-12 alert alert-primary'>Full width (12)</div>
+          </div>
+          <div class="row">
+            <div class='col col-6 alert alert-secondary'>Half width (6)</div>
+            <div class='col col-6 alert alert-secondary'>Half width (6)</div>
+          </div>
+          <div class="row">
+            <div class='col col-4 alert alert-success'>Thirds (4)</div>
+            <div class='col col-4 alert alert-success'>Thirds (4)</div>
+            <div class='col col-4 alert alert-success'>Thirds (4)</div>
+          </div>
+          <div class="row">
+            <div class='col col-3 alert alert-warning'>1/4</div>
+            <div class='col col-3 alert alert-warning'>1/4</div>
+            <div class='col col-3 alert alert-warning'>1/4</div>
+            <div class='col col-3 alert alert-warning'>1/4</div>
+          </div>
+          <div class="row">
+            <div class='col col-8 alert alert-danger'>Two thirds</div>
+            <div class='col col-4 alert alert-success'>One third</div>
+          </div>
+          <div class="row">
+            <div class='col col-10 alert alert-info'>5/6</div>
+            <div class='col col-2 alert alert-dark'>1/6</div>
+          </div>
+          <div class="row">
+            <div class='col col-2 alert alert-dark'>1/6</div>
+            <div class='col col-7 alert alert-light'>7/12</div>
+            <div class='col col-3 alert alert-warning'>1/4</div>
+          </div>
+        </div>
+        <p>A Bootstrap grid is comprised of:
+          <ul>
+            <li><span class='bold'>Containers</span>: wrap around entire grid</li>
+            <li><span class='bold'>Rows</span>: defined first, contain columns</li>
+            <li><span class='bold'>Columns</span>: must add up to 12</li>
+          </ul>
+        </p>
+        <p>
+           They are implemented using elements such as divs/sections and
+           just adding classes.
+        </p>
+        <hr class='line-break'>
+        <div class='activity'>
+          <h2>Instructor activity...</h2>
+          <p>Let's do a quick breakdown of the columns above and play with sizing
+            sizing, add some more. Suggestions?
+          </p>
+          <div class='container'>
+            <p class='gray italic'>[Let's build a grid here!]</p>
+          </div>
+        </div>
+        <h2>Syntax:</h2>
+        <pre>
+&lt;div class='container'>
+  &lt;div class='row'>
+    &lt;div class='col col-sz-#'>
+    &lt;div class='col col-sz-#'>
+    &lt;div class='col col-sz-#'>
+  &lt;/div>
+&lt;/div>
+        </pre>
+      <div class='student-activity'>
+        <h2>Student activity!</h2>
+        <p>Using Bootstrap, create a layout that looks like a given image.</p>
+        <p>Tips:
+          <ul>
+            <li>Create a sketch prior to building</li>
+            <li>Count the number of rows and columns</li>
+            <li>Use Bootstrap syntax to code it out</li>
+            <li>Slack a screenshot to the M/W channel when done</li>
+          </ul>
+        </p>
+        <p>You don't have to use Lorem Ipsum text either. Feel free to
+          use a more fun version, like <a href="http://hipsum.co" target="_blank">Hipsum</a>,
+          <a href="http://slipsum.com/lite/" target="_blank">Slipsum lite</a>,
+          <a href="http://www.randomtextgenerator.com/" target="_blank">Random Text Generator</a>
+          (not Lipsum!) or any dummy text generator. If you want to use Lipsum that's okay, too!
+        </p>
+      </div>
+      </section>
+      <section>
+        <h1>Building Bootstrap Layouts</h1>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <p>Let's take a quick look at a demo layout and see how it all
+            fits together. Pay special attention to the <code>card</code> elements.</p>
+        </div>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <p>Let's work in pairs to replicate another layout using Bootstrap.
+            Be sure to note the:
+            <ul>
+              <li class='bold'>Grid layout</li>
+              <li class='bold'>Navbar</li>
+              <li>Sidebar <span class='bold'>card</span></li>
+              <li class='bold'>Thumbnail</li>
+            </ul>
+
+            More details on Slack.
+          </p>
+        </div>
+      </section>
+      <section>
+        <h1>Mobile Responsiveness</h1>
+        <h2>Media queries</h2>
+        <p><span class='bold gray'>Media queries</span> define how CSS styles are
+        applied based on the characteristics of the device viewport. They change how
+        a page is displayed based on width, height, orientation, and media type.
+        Bootstrap uses these extensively!</p>
+        <p>Media queries must be declared at the very bottom of your stylesheet.</p>
+        <div class='activity'>
+          <h2>Instructor activity...</h2>
+          <p>Let's bring up a quick demo of how this works. What does the rule imply?</p>
+        </div>
+        <div class='student-activity'>
+          <h2>Student activity!</h2>
+          <p>Build your own mobile responsive HTML/CSS page using media queries.</p>
+          <p>The steps will be sent out via Slack.</p>
+        </div>
+        <h2>Viewport</h2>
+        <p>The <span class='bold gray'>viewport</span> refers to the display being used
+        to view a website. Mobile devices with small screens and high resolution
+        render at desktop sizes. We can change this with a <code>meta</code> tag that
+        tells the page to render based on the current viewport:</p>
+        <pre>
+&lt;-- HTML -->
+&lt;meta name='viewport' content='width=device-width, initial-scale=1'>
+
+/* CSS */
+@media screen and (max-width: 900px){
+  /* ... */
+}
+
+@media screen and (max-width: 500px){
+  /* ... */
+}
+        </pre>
+        <p>Try using the developer tools to emulate different screen sizes and devices
+          on your favorite sites to see how they respond.</p>
+      </section>
+    </article>
+  </body>
+</html>

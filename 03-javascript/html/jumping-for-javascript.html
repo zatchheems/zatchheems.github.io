@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jumping for Javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=BioRhyme:400,700,800" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href="../css/reset.css" >
+    <link rel='stylesheet' type='text/css' href="../css/theme.css">
+    <link rel='stylesheet' type='text/css' href="../css/styles.css" >
+    <link rel='stylesheet' type='text/css' href="../css/new-styles.css" >
+  </head>
+  <body>
+    <header>
+      <pre id='ascii-title' style='line-height:1.125em; letter-spacing: -0.05em'>
+                                                    ,__              
+     .  ,   . , _ , _   \,___, ` , __     ___.      /  `   __.  .___ 
+     \  |   | |' `|' `. |    \ | |'  `. .'   `      |__  .'   \ /   \
+     |  |   | |   |   | |    | | |    | |    |      |    |    | |   '
+ /`  |  `._/| /   '   / |`---' / /    |  `---|      |     `._.' /    
+ \___/`                 \                \___/      /                
+                                                           .         
+     .    ___  _   __   ___    ____   ___  .___  ` \,___, _/_        
+     \   /   ` |   /   /   `  (     .'   ` /   \ | |    \  |         
+     |  |    | `  /   |    |  `--.  |      |   ' | |    |  |         
+ /`  |  `.__/|  \/    `.__/| \___.'  `._.' /     / |`---'  \__/      
+ \___/`                                            \                 
+</pre>
+      <h2 class='date'> June 11th, 2018</h2>
+    </header>
+    <article class='container'>
+      <section id="todo" >
+        <h1>To Do's:</h1>
+        <ul>
+          <li>Quick Note...</li>
+          <li>Recap!</li>
+          <li>For Loops</li>
+          <li>Browser Events</li>
+        </ul>
+      </section>
+      <section>
+        <h1>Quick note...</h1>
+        <p>Today is an extremely activity-dense lesson. We will be going over
+          a few very critical topics that will require a lot of practice.
+        </p>
+        <p>First, we review!</p>
+      </section>
+      <section>
+        <h1>Recap!</h1>
+          <h2>What exactly
+            <span class='italic'>is</span> Javascript?</h2>
+          <p>JS is what we use to
+            <span class='bold gray'>do things</span>.
+          <p>In short:</p>
+          <p>HTML &RightArrow; content</p>
+          <p>CSS &RightArrow; style</p>
+          <p>JS &RightArrow; interactivity</p>
+          <h2>Variables</h2>
+          <p>Syntax: <span class='property'>var</span>
+            <span class='selector'><span class='selector'>myVar</span>
+          <span class='special-char'>=</span>
+          <span class='value'>2</span><span class='special-char'>;</span>
+          </span></p></p>
+          <pre class="brush: javascript">
+// boolean: true/false
+// idea: is Zak wearing a hat today?
+
+var wearingAHat = true;
+
+// number: integers and floats
+
+var nonagon_sides = 9;
+var e = 2.7182818; // constant "e"
+
+// string: quote type sometimes does not matter
+
+var fartInsult = 'I fart in your general direction';
+var motherInsult = "your mother was a hamster";
+var fatherInsult = `your father smelt of elderberries`;
+
+// String concatenation with + for an oft-quoted joke
+
+var fullInsult = fartInsult + ", " + motherInsult + ", and " + fatherInsult + "!";
+          </pre>
+          <h2 id='alerts-prompts-confirms'>Alerts, Prompts, Confirms</h2>
+          <p><a href="#alerts-prompts-confirms" id="alertMe">Alerts</a> show a simple dialog box to the user.</p>
+          <p><a href="#alerts-prompts-confirms" id="promptMe">Prompts</a> ask the user for text input.</p>
+          <p><a href="#alerts-prompts-confirms" id="confirmMe">Confirms</a> ask the user to confirm or cancel something.</p>
+          <p>What do each of the above functions return? How do we store the user's input?</p>
+          <p>Another useful function is <code>document.write()</code>, which allows us
+          to write text (or HTML!) directly to the browser (the document). We won't be using this
+          very much in the future, however.</p>
+          <h2>Conditionals</h2>
+          <blockquote>if some condition is met, do something; else, do a different something.</blockquote>
+          <pre class="brush: javascript">
+if ( condition ){
+  // Do a thing or two or several
+}
+else if ( other_condition ) {
+  // Otherwise do something completely different
+}
+else {
+  // If all else fails, do something different
+}
+
+/* Examples of in/equalities / in/equivalences
+   These were executed in a console; ignore beginning angle bracket */
+> 1 > 2
+false
+> 1 <= 2
+true
+> 1 != 2
+true
+> 0 >= 1
+false
+> 0 < 1
+true
+> 1 === 1
+true
+> 1 == "1"
+true
+> 1 === "1"
+false
+> 1 !== "1"
+true
+> null == undefined
+true
+> null === undefined
+false
+          </pre>
+          <h2>Arrays</h2>
+          <p>Syntax for declaring an array:</p>
+          <span class='monospace'>
+            <span class='property'>var</span>
+            <span class='selector'>metasyntacticVariableNames</span>
+            <span class='special-char'>=</span>
+            <span class='special-char'>[</span>
+            <span class='value'>foo</span><span class='special-char'>,</span>
+            <span class='value'>bar</span><span class='special-char'>,</span>
+            <span class='value'>baz</span><span class='special-char'>,</span>
+            <span class='value'>qux</span><span class='special-char'>,</span>
+            <span class='value'>quux</span><span class='special-char'>,</span>
+            <span class='value'>quuz</span><span class='special-char'>,</span>
+            <span class='value'>corge</span><span class='special-char'>,</span>
+            <span class='value'>grault</span><span class='special-char'>,</span>
+            <span class='value'>garply</span>
+            <span class='special-char'>]</span><span class='special-char'>;</span>
+          </span>
+          <hr>
+          <p>Syntax for retrieving an element:</p>
+          <span class='monospace'>
+            <span class='selector'>metasyntacticVariableNames</span>
+            <span class='special-char'>[</span>
+            <span class='value'>6</span>
+            <span class='special-char'>]</span><span class='special-char'>;</span>
+          </span>
+          <p>Each element in an array has a number,<span class='italic'>
+            starting from 0 and ending at length–1</span>.</p>
+          <p>Your 0th index element is the first element in the array.</p>
+          <pre class="brush: javascript">
+var flowers = [ "Daffodil", "Hyacinth", "Orchid", "Tulip", "Hosta" ];
+var tenPrimes = [ 2, 3, 5, 7, 11, 13, 17, 19, 23, 29 ];
+
+// Whitespace does not matter, and arrays can be as long as we want:
+
+var games = [
+  "Fortnite",
+  "Dark Souls Remastered",
+  "Hollow Knight",
+  "Celeste",
+  "Nuclear Throne",
+  "Bioshock",
+  "Bloodborne"
+];
+
+// We can rewrite the elements of arrays, too.
+// Replacing "Nuclear Throne" with something else:
+
+games[4] = "Antichamber";
+
+// We can nest arrays as well:
+
+var dogsAndCats = [
+  [ "French Bulldog", "Akita Inu", "Black Lab", "Samoyed", "Borzoi"],
+  [ "Russian Blue", "Sphynx", "British Shorthair", "Ragdoll", "Burmese"]
+];
+          </pre>
+          <div class="student-activity">
+            <h2>Student activity!</h2>
+            <p>Let"s quickly dissect a Javascript file. Discuss with a partner
+               what you think should happen when the code is run.
+            </p>
+            <p>We'll be going over this file shortly, so leave comments to keep
+              track of your thought process!
+            </p>
+            <pre class="brush: javascript">
+// Reminder: single line comments start with two slashes
+
+/* Multi-line comments start with "slash star"
+    ...
+    ...
+    ...and only end after "star slash". */</pre>
+          </div>
+          <div class='activity'>
+            <h2>Class activity!</h2>
+            <p>Let's live-code how to log each entry of an array to the console.</p>
+            <p>Remember how arrays are indexed and how one's length determines
+              its maximum index.
+            </p>
+          </div>
+          <hr class='line-break'>
+          <div class='activity'>
+            <h2>Class activity (again)!</h2>
+            <p>How about another one?</p>
+            <p>This time, let's modify an existing array and make all of the elements
+              lowercase.
+            </p>
+            <p><span class='bold gray'>Hint:</span> there are two ways you've learned
+            how to do this—<code>toLowerCase()</code> and manually overwriting 
+            a variable.</p>
+          </div>
+        </section>
+        <section>
+          <h1>For Loops</h1>
+          <p>Sometimes, it can be tedious to look at or modify many things sequentially.</p>
+          <p>It can also be a huge time-waster; if we're doing the same thing for multiple
+            elements in an array, for example, it would be nice to not have to copy and
+            paste the same line <span class='italic'>over</span> and
+            <span class='italic'>over</span> again. We can automate repeditive tasks with
+            <span class='bold gray'>loops</span>.
+          </p>
+          <p>Enter the <code>for</code> loop: it's a super common way to run the same line(s)
+          of code as many times as we'd like, using a counter to access, output, or 
+          manipulate data.</p>
+          <p>Syntax:</p>
+          <span class='monospace'>
+            <span class='selector'>for</span> <span class='special-char'>(</span><span class='value'>[counter]</span><span class='special-char'>;</span>
+            <span class='value'>[exit condition]</span><span class='special-char'>;</span>
+            <span class='value'>[iterator]</span><span class='special-char'>){</span><span class='gray'>...</span><span class='special-char'>}</span>
+          </span>
+          <pre class="brush: javascript">
+// Output each value of the counter
+
+console.log("Even numbers from 0 to 20: ");
+
+for(var i = 0; i <= 20; i += 2){
+  console.log(i);
+}
+
+var flowers = [ 'Daffodil', 'Hyacinth', 'Orchid', 'Tulip', 'Hosta' ];
+
+// Example, using flowers array declared earlier.
+//  1. Declare a new variable as a counter
+//  2. Loop until the counter = length of array
+//  3. Increment counter after loop
+
+for(var i = 0; i < flowers.length; i++){
+  console.log(flowers[i]+"s? Those are dope.");
+}</pre>
+        <div class='student-activity'>
+          <h2>Student activity!</h2>
+          <p>Let's do some <code>for</code> loop dissection. Grab a partner and explain
+            to each other exactly what's going on in a given file. Go line-by-line and make
+            sure you know what's happening. Feel free to research if you're stumped.
+          </p>
+        </div>
+        <p>For the given example, notice how <code>i</code> changes and allows us
+        to move from 0 to <code>length–1</code>. It <span class='bold'>does not</span>
+        continue when <code>i</code> equals the length of the array;
+        since our condition says to continue only when <code>i < array.length</code>,
+        we stop.</p>
+        <p>Notice that this is extremely important, since <code>array[array.length]</code>
+        is not a viable index.</p>
+        <div class='student-activity'>
+          <h2>Student activity!<br><small>(another one!)</small></h2>
+          <p>Use <code>for</code> loops  to rewrite a given file.
+          <p>If you need help, use the code from the previous example as a guide.</p>
+          <p>Once you think your code is functioning properly, share it with the person
+            sitting next to you.</p>
+          <p><span class="bold gray">Bonus:</span> try doing this with a function!</p>
+          <p>Remember that functions take inputs, just like <code>console.log()</code>.
+          (As a reminder, this is not something we have covered in-depth yet.)</p>
+          <p>Syntax: <pre class="brush: javascript">
+function doThing(argument){
+  /* do a thing using argument */
+}
+
+// Example:
+function sayHello(greeting){
+  alert(greeting);
+}
+
+// Function call:
+sayHello("Oh hey what's up");
+</pre></p>
+        </div>
+        <div class='student-activity'>
+          <h2>Student activity!<br><small>(one more!)</small></h2>
+          <p>Starting from scratch, create a <code>for</code> loop that console
+            logs the following lines:</p>
+      <pre>
+I am 0
+I am 1
+I am 2
+I am 3
+I am 4</pre>
+    <p><span class='bold'>Don't</span> use an array!</p>
+        </div>
+      </section>
+      <div class="page-break">
+        <h1>Break and review...</h1>
+      </div>
+      <section>
+        <div class='student-activity'>
+          <h2>Student activity!</h2>
+          <p>This activity uses both loops and conditional statements.</p>
+          <p>Starting from scratch, write code that loops through the following array
+            and that logs the name of each animal to the console:</p>
+<pre class="brush: javascript">
+var myFarm = ["chickens", "pigs", "cows", "horses", "ostriches"];</pre>
+          <p>Then, check if the first letter in the animal's name begins with a "c" or "o."
+            If it does, create an alert saying, "Starts with 'c' or 'o'!"</p>
+          <small><span class='bold gray'>Hint:</span> You can access the first character of a
+            string as if it were the first element of an array.</small>
+        </div>
+      </section>
+      <section>
+        <h1>Browser Events</h1>
+        <p>What happens when you...
+          <ul>
+            <li>move your cursor across the window?</li>
+            <li>scroll within the window?</li>
+            <li>click within the viewport?</li>
+            <li>press any key on your keyboard?</li>
+            <li>hover over an element?</li>
+          </ul>
+        </p>
+        <p>Your browser listens to all of the input that you give it, keeps track of it,
+          and can be programmed to respond accordingly. A lot of elements have default
+          ways to respond to these <span class='bold gray'>events</span>.
+        </p>
+        <p>There a couple of ways to get your browser to listen and respond to events, and you can 
+          add <span class='bold gray'>event listeners</span> to different elements.</p>
+        <p>The most common way to select an element—a <span class="bold gray">DOM node</span>—is
+          <code>document.getElementById("elementName")</code>.
+          Assign this to a variable and we can do something like the following:</p>
+<pre class="brush: javascript">
+// Look in the document for an element with ID #myElem.
+// Notice that we don't use the pound sign.
+
+var myElem = document.getElementById("myElem");
+
+// We can listen for clicks on the element like so:
+
+myElem.onClick = function(event){
+  // I got clicked on!
+  // Do a thing!
+}
+
+// You can also use a more general syntax:
+
+myElem.addEventListener("click", function(event){
+  // Same as above, but more general.
+  // We can replace "click" with other events, like
+  //  "hover" or "keyPressed".
+});
+
+// Here, we want the key pressed anywhere on the page:
+
+document.onkeyup = function(event){
+  // We can see the key that got pressed and use it!
+  console.log(event.key);
+}</pre>
+        <p>We can modify DOM nodes on the fly; properties such as <code>textContent</code>
+        can be changed for elements that can hold text, styles can be changed, etc.
+        Pretty much all of the information a DOM node has is editable!</p>
+        <p>Quick demo:</p>
+        <button id='click-me'>Click me!</button>
+        <pre class="brush: javascript">
+// Store button, number of button clicks
+ var numClicks = 0;
+ var button = document.getElementById("click-me");
+
+// Add an event listener for clicks on button
+button.onclick = function(event) {
+if (numClicks === 0){
+    button.textContent = "Alas! I am clicked!";
+    ++numClicks;
+  } else if(numClicks === 1) {
+    button.textContent = "You continue to click me! Why?";
+    ++numClicks;
+  } else {
+    button.textContent = "Have you no shame?! You clicked me "+
+      (numClicks+1)+" times already!";
+
+    ++numClicks;
+  }
+};
+        </pre>
+        <div class="activity">
+          <h2>Class activity</h2>
+          <p>Let's write an application that lets you play rock, paper, scissors.
+            First, let's have a demo of the final product to see what we want to build.
+          </p>
+          <hr class="line-break">
+          <p>We want to use a user's input ("r", "p", or "s") and then have a computer
+            player randomly choose something from that list. Whoever wins gets a point!
+          </p>
+        </div>
+        <div class="student-activity">
+          <h2>Student activity!<br><small>Prep work...</small></h2>
+          <p>Before we actually write any code, let's write some pseudocode for notes in 
+            a different text file. Do this in partners or groups to make it easier.
+          </p>
+          <p>Think about what we need for a game of rock, paper, scissors
+             and how we can achieve those things.</p>
+          <p>Don't worry about exact syntax.
+            Break each step into something you can code out, like <code>if</code> statements,
+            <code>for</code> loops and event handlers.
+          </p>
+        </div>
+        <div class="student-activity">
+          <h2>Student activity!<br><small>The real deal!</small></h2>
+          <p>In groups of 4, begin the process of coding out the rock-paper-scissors game.</p>
+          <p>Do as much as you can on your own, but don't be afraid to ask for help if you
+            feel your team is struggling.</p>
+
+    <p><span class="bold gray">Note:</span> Don't use <code>document.write</code> as it will
+      delete the contents of the body, including your JavaScript.</p>
+      <p>Instead, use
+      <code>document.getElementById</code> in conjunction with the <code>textContent</code>
+      property, as you were shown earlier.</p>
+    <hr class="line-break">
+    <p><span class="bold gray">Note:</span> Don’t worry. We know this is a very challenging
+      assignment.</p>
+      <p>We also know that you won’t know where to start. In fact, we haven’t
+      shown you <span class='italic'>everything</span> you need yet, but that’s okay.
+      Part of being a developer is figuring things out on your own through trial and error.
+          </p>
+        </div>
+      </section>
+    </article>
+  </body>
+  <script type='text/javascript' src="../js/examples.js"></script>
+  <!-- Script to make <pre> tags pretty -->
+  <script type='text/javascript' src="../js/syntaxhighlighter.js"></script>
+</html>
+

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Down 'n' Dirty CSS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=BioRhyme:400,700,800" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href="../css/reset.css" >
+    <link rel='stylesheet' type='text/css' href="../css/styles.css" >
+    <link rel='stylesheet' type='text/css' href="../css/new-styles.css" >
+  </head>
+  <body>
+    <header>
+      <div><pre id='ascii-title' style='line-height:90%'>
+ _______                                           __         __               
+|       \                                         |  \       |  \              
+| $$$$$$$\  ______   __   __   __  _______        | $$_______| $$              
+| $$  | $$ /      \ |  \ |  \ |  \|       \        \$|       \\$               
+| $$  | $$|  $$$$$$\| $$ | $$ | $$| $$$$$$$\         | $$$$$$$\                
+| $$  | $$| $$  | $$| $$ | $$ | $$| $$  | $$         | $$  | $$                
+| $$__/ $$| $$__/ $$| $$_/ $$_/ $$| $$  | $$         | $$  | $$                
+| $$    $$ \$$    $$ \$$   $$   $$| $$  | $$         | $$  | $$                
+ \$$$$$$$   \$$$$$$   \$$$$$\$$$$  \$$   \$$          \$$   \$$                
+                                                                               
+                                                                               
+                                                                               
+ _______   __             __                       ______    ______    ______  
+|       \ |  \           |  \                     /      \  /      \  /      \ 
+| $$$$$$$\ \$$  ______  _| $$_    __    __       |  $$$$$$\|  $$$$$$\|  $$$$$$\
+| $$  | $$|  \ /      \|   $$ \  |  \  |  \      | $$   \$$| $$___\$$| $$___\$$
+| $$  | $$| $$|  $$$$$$\\$$$$$$  | $$  | $$      | $$       \$$    \  \$$    \ 
+| $$  | $$| $$| $$   \$$ | $$ __ | $$  | $$      | $$   __  _\$$$$$$\ _\$$$$$$\
+| $$__/ $$| $$| $$       | $$|  \| $$__/ $$      | $$__/  \|  \__| $$|  \__| $$
+| $$    $$| $$| $$        \$$  $$ \$$    $$       \$$    $$ \$$    $$ \$$    $$
+ \$$$$$$$  \$$ \$$         \$$$$  _\$$$$$$$        \$$$$$$   \$$$$$$   \$$$$$$ 
+                                 |  \__| $$                                    
+                                  \$$    $$                                    
+                                   \$$$$$$                                     
+</pre></div>
+      <h2 class='date'> June 4th, 2018</h2>
+    </header>
+    <article>
+      <section id="todo">
+        <h1>To Do's:</h1>
+        <ul>
+          <li>Administrivia</li>
+          <li>Typography in CSS</li>
+          <li>Custom/Google fonts</li>
+          <li>CSS pseudoclasses (covered briefly last time)</li>
+          <li>Twitter Bootstrap CSS framework</li>
+        </ul>
+      </section>
+      <section>
+        <h1>Administrivia</h1>
+        <h2>Your feedback re:</h2>
+        <ul>
+          <li>Pacing</li>
+          <li>Notes availability</li>
+          <li>Assignment difficulty</li>
+        </ul>
+        <p>Since this course is so fast-paced and rigorous, focusing on
+          the <span class='italic gray bold'>big picture</span> is more important
+          than memorizing tiny details. If it's really small and you don't
+          remember it, google it! No judgement (seriously!). Taking time
+          outside of class to review and practice is &#x1F511;
+        </p>
+        <p>Your classmates are a valuable resource to you, and you're all here
+          for the same reason. Reach out, practice
+          together, work together. One team, one dream (&#x1f33D;)
+        </p>
+        <p><span class='bold'>Protips:</span> if you're staring at a blank screen
+          for an hour, reach out for help. Leave adequate time to complete assignments.
+          Turn in whatever you've got by the due date. We want to gauge your progress 
+          and can't do it without seeing your work.
+        </p>
+       </section>
+      <section>
+        <h1>CSS Typography</h1>
+        <p><span class='bold gray'>Typography</span> plays an enormous role in
+        determining the visual aesthetic and emotional identity of any type-heavy piece.
+        It's integral to the look and <span class='italic'>feel</span> of a webpage.</p>
+        <p>Some typographic properties:
+          <ul>
+            <li><span class='bold gray'>Line Height</span>: distance between lines</li>
+            <li><span class='bold gray'>Font-Size</span>: size of lettering. Does not
+            equate to line height; only size of letters themselves. At least 16px or
+            bigger</li>
+            <li><span class='bold gray'>Line Length</span>: not a CSS property; should be
+            about 50-75 characters per line and minimized for readability</li>
+            <li><span class='bold gray'>Letter Spacing</span>: spacing between letters</li>
+            <li><span class='bold gray'>Sans-Serif vs Serif</span>: differentiates
+            fonts with tails and fonts with no tails</li>
+          </ul>
+        </p>
+        <h3 class='big-serif'>Serif!</h3>
+        <h3 class='big-sans-serif'>Sans-serif.</h3>
+        <hr class='line-break'>
+        <div class='student-activity'><h2>Student activity!</h2>
+          <p>Create a block of text and incorporate it into an HTML Document.
+          You can use sample text like Lorem Ipsum
+          (<a href="https://www.lipsum.com/">https://www.lipsum.com/</a>)
+          or Hipsum (<a href="https://hipsum.co/">https://hipsum.co/</a>)
+          or anything you like.</p>
+          <p>Use CSS styling to modify:
+            <ul>
+              <li>Font-family</li>
+              <li>Font-size</li>
+              <li>Font-weight</li>
+              <li>Line-height</li>
+              <li>Letter-spacing</li>
+            </ul>
+          </p>
+        </div>
+        <hr class='line-break'>
+        <p>When actually deciding on all of these factors, it's bad practice to 
+          choose things randomly as it hurts the consistency and readability of
+          your text. This is just an example to get you warmed up.
+        </p>
+      </section>
+      <section>
+        <h1>Google Fonts</h1>
+        <div class='activity'>
+          <h2>Instructor activity...</h2>
+          <p>Let's do a quick overview and demo of Google fonts.</p>
+          <p>Google hosts a small library of fonts you can use on the web.
+            They're easy to use and, honestly, <span class='italic'>really nice</span>.
+            Let's play with some.
+          </p>
+          <p>Why might it be a good idea to use fonts hosted on the web?
+            What do we do if they stop working?
+          </p>
+        </div>
+        <div class='student-activity'>
+          <h2>Student activity!</h2>
+        <p>Create or reuse an HTML document (any will do!) and incorporate 2-3 custom
+          Google fonts into the page.
+        </p>
+        <p><span class='bold'>Bonus</span>: if you finish early, look up Font Awesome
+        icons and see if you can figure out how to incorporate one in your page.</p>
+        </div>
+      </section>
+      <section>
+        <h1>Pseudo Styles</h1>
+        <p><span class='bold gray'>Pseudo classes</span> are keywords that can be tacked onto
+        selectors. They highlight the special states of the selected element. Good
+        examples are <code>:hover</code> and <code>:active</code>, which are awesome
+        for anchor tags and buttons amongst other things.</p>
+        <p>Also includes ways to select children
+        of an element (<code>:nth-child()</code>, <code>:only-child</code>) or even
+        elements that <span class='italic'>don't</span> match something (<code>:not()</code>).</p>
+        <p>There is a pretty long list of pseudo-classes available here:
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#Index_of_standard_pseudo-classes">
+             https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#Index_of_standard_pseudo-classes
+          </a>
+        </p>
+        <div class='activity'>
+          <h2>Instructor activity...</h2>
+          <p>Let's style the various states of a button: normal, hover, focus, active.</p>
+          <button>henlo</button>
+        </div>
+        <p>These pseudo-classes are not limited to form elements and anchor tags, so
+          feel free to get creative. Maybe your page header changes colors when
+          you hover over it, images get bigger, etc.
+        </p>
+        <div class='student-activity'>
+          <h2>Student activity!</h2>
+          <p>Create a series of links and modify the pseudo-classes associated with
+            their default, active, hover and focus states.</p>
+          <p><span class='bold'>Bonus</span>: if you finish early, incorporate a
+          pseudo-class we haven't covered in your page. Then try working with pseudo-elements
+          (e.g. <code>::before</code>, <code>::after</code> and try to incorporate
+          one or two as well.</p>
+        </div>
+      </section>
+      <section>
+        <h1>Bootstrap</h1>
+        <div class='student-activity'>
+          <h2>Student activity!</h2>
+          <p>Let's look at a Bootstrap-powered HTML document together.</p>
+            <ol>
+              <li>Where does this HTML document draw its styles from?</li>
+              <li>How does the browser know which HTML element to style and how?</li>
+            </ol>
+            <p>It works similarly to how Google Fonts work.</p>
+        </div>
+        <p>Let's look at how things are linked and how that relates to the 
+          classes we can use, then take a moment to discuss why pre-defined CSS
+          is important.
+        </p>
+        <div class='page-break'></div>
+        <h2>Twitter Bootstrap</h2>
+        <p>It's a free collection of tools for creating websites and webapps.
+          It comes with a pre-built design template for typography, forms,
+          navigation, UI elements and JavaScript.
+          (Documentation: <a href="http://getbootstrap.com">http://getbootstrap.com</a>)
+        </p>
+        <p> Bootstrap is good for:
+          <ul>
+            <li>
+              <span class='bold gray'>UI kit</span>: when you are familiar with the UI features, you can
+              copy snippets from your code or the documentation instead of
+              creating elements yourself. This can be a time saver.
+            </li>
+            <li>
+              <span class='bold gray'>Mobile responsiveness</span>: resizes well based on screen size
+            </li>
+          </ul>
+        </p>
+        <h2>Bootstrap Components</h2>
+        <p>Bootstrap contains a wide range of pre-built components that have a
+          wide range of applications. Much of beginning development with
+          Bootstrap is just testing out components and seeing what will be
+          applicable—or just simply what you like!
+        </p>
+        <p>Let's flip through some of those real quick and see how they're used.</p>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <p>Let's put Bootstrap to work for us.</p>
+          <ol>
+            <li>Navigate to <a href="http://getbootstrap.com">http://getbootstrap.com</a></li>
+            <li>Copy the link to the Bootstrap CSS file into one of your
+              old HTML files.</li>
+            <li>Look through the Bootstrap CSS or Components list and
+              incorporate at least three Bootstrap elements onto your page.
+            </li>
+            <li>Slack a screenshot of your page to the M/W class channel</li>
+          </ol>
+        <p class='italic'>Hint: first include a link to Bootstrap's CSS. Then visit
+          the Bootstrap page on CSS or Components. Get the source first, see
+          what your environment is like, then set out to change it.
+        </p>
+        </div>
+      </section>
+    </article>
+  </body>
+</html>

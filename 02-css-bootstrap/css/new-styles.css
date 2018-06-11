@@ -1,0 +1,178 @@
+/* declare a few CSS variables */
+:root {
+  --main-blue: cornflowerblue;
+  --dark-blue: #105099;
+  --gray:slategray;
+}
+
+body {
+  font-family: 'Roboto Slab', Rockwell, serif;
+}
+
+h1, h2, h3 {
+  font-family: 'BioRhyme', Georgia, Cambria, serif;
+}
+
+header {
+  border-bottom:outset 20px var(--dark-blue);
+}
+
+/* Apply style to first h1 that appears in a section */
+section > h1:first-of-type {
+  color: var(--dark-blue);
+  text-shadow:rgba(25,25,25,0.5) 0px 2px 2px;
+}
+
+#ascii-title {
+  border: 25px ridge var(--dark-blue);
+}
+
+.special {
+  color:var(--gray);
+  font-weight:800;
+
+  animation: 1000ms infinite alternate special;
+  -moz-animation: 1000ms infinite alternate special;
+  -webkit-animation: 1000ms infinite alternate special;
+}
+
+@keyframes special {
+  from {
+    color:#252525;
+    text-shadow:#000 0 0 2px;
+  }
+
+  to {
+    color:#fff;
+    text-shadow:#000 0 0 15px;
+  }
+}
+
+body {
+  background-color:var(--main-blue);
+}
+
+a {
+  color:var(--main-blue);
+}
+
+button {
+  background-color: var(--main-blue);
+  color: #fff;
+  padding:10px 25px;
+  margin:10px;
+  box-shadow:rgba(25,25,25,0.5) 0px 2px 2px;
+  border:none;
+  border-radius:3%;
+  cursor: pointer;
+  font-size:0.75em;
+  text-shadow:rgba(25,25,25,0.5) 0px -2px 1px
+}
+
+a:hover {
+  color: var(--main-blue);
+}
+
+a:active {
+  color:var(--dark-blue);
+}
+
+pre {
+  color: #cf3;
+}
+
+code {
+  color:rgb(255, 68, 130);
+}
+
+.date {
+  font-style:italic;
+}
+
+h2.date::before {
+  content:"\1F5D3";
+  font-style: normal;
+}
+
+fieldset, .activity {
+  background-color:#e0e0e8;
+}
+
+.activity, .student-activity {
+  margin:20px 0;
+}
+
+.activity > h2 {
+  border-bottom: dashed #f0ad30;
+}
+
+.student-activity > h2 {
+  border-bottom: dashed #308df0;
+}
+
+.student-activity {
+  background-color:#c9c9d3;
+}
+
+.activity > h2::before {
+  content: "\1F538 ";
+  margin-right:5px;
+}
+
+.student-activity > h2::before {
+  content: "\1F539 ";
+  margin-right:5px;
+}
+
+.recap > h2 {
+  border-bottom:solid 5px skyblue;
+}
+
+.big-serif, .big-sans-serif {
+  font-size: 4em;
+  magin:0;
+  padding:5px;
+}
+
+.big-serif {
+  font-family: Georgia, Times, serif;
+}
+
+.big-sans-serif {
+  font-family: Futura, 'Century Gothic', AppleGothic, Arial, sans-serif;
+}
+
+button {
+  transition-property: all;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-out;
+}
+
+button:hover {
+  background-color:#1b518b;
+}
+
+button:active {
+  background-color:#17395e;
+}
+
+/* Example of every third child of a selector with class 'class-name' */
+/* Not used in this document, but a good example. */
+.class-name:nth-child(3n) {
+  color:#fff;
+}
+
+.container > section {
+  margin-left:0;
+  margin-right:0;
+}
+
+.btn-group, .btn {
+  margin:inherit;
+  box-shadow:inherit;
+}
+
+.alert-light {
+  background-color:#edecec;
+  border-color:#e4e4e4;
+}

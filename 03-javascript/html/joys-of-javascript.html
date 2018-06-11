@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Joys of Javascript</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=BioRhyme:400,700,800" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href="../css/reset.css" >
+    <link rel='stylesheet' type='text/css' href="../css/styles.css" >
+    <link rel='stylesheet' type='text/css' href="../css/new-styles.css" >
+  </head>
+  <body>
+    <header>
+      <div><pre id='ascii-title' style='line-height:87%;'>
+  ____   ___   __ __  _____      ___   _____                       
+ |    | /   \ |  |  |/ ___/     /   \ |     |                      
+ |__  ||     ||  |  (   \_     |     ||   __|                      
+ __|  ||  O  ||  ~  |\__  |    |  O  ||  |_                        
+/  |  ||     ||___, |/  \ |    |     ||   _]                       
+\  `  ||     ||     |\    |    |     ||  |                         
+ \____j \___/ |____/  \___|     \___/ |__|                         
+                                                                   
+  ____   ____  __ __   ____  _____   __  ____   ____  ____  ______ 
+ |    | /    ||  |  | /    |/ ___/  /  ]|    \ |    ||    \|      |
+ |__  ||  o  ||  |  ||  o  (   \_  /  / |  D  ) |  | |  o  )      |
+ __|  ||     ||  |  ||     |\__  |/  /  |    /  |  | |   _/|_|  |_|
+/  |  ||  _  ||  :  ||  _  |/  \ /   \_ |    \  |  | |  |    |  |  
+\  `  ||  |  | \   / |  |  |\    \     ||  .  \ |  | |  |    |  |  
+ \____j|__|__|  \_/  |__|__| \___|\____||__|\_||____||__|    |__|  
+
+</pre></div>
+      <h2 class='date'> June 9th, 2018</h2>
+    </header>
+    <article class='container'>
+      <section id="todo" >
+        <h1>To Do's:</h1>
+        <ul>
+          <li>How to Learn Javascript</li>
+          <li>What is Javascript?</li>
+          <li>The Console</li>
+          <li>Alerts, Prompts, Confirms</li>
+          <li>Conditionals</li>
+          <li>Arrays</li>
+        </ul>
+      </section>
+      <section>
+        <h1>How to Learn Javascript</h1>
+        <p>For many of you, Javascript will be your first proper programming language.
+          For others, some of this will seem familiar if you've ever worked in C/C++, Java
+          or Python.
+        </p>
+        <p>Learning this new language involves:
+          <ul>
+            <li><span class='bold gray'>Building blocks:</span> 
+             putting together many small pieces, figuring out how they fit together</li>
+            <li><span class='bold gray'>Taking notes</span>: how does <span class='gray'>[thing]</span> work?
+              When and why do I use it?</li>
+            <li><span class='bold gray'>Keeping organized</span>: keep your HTML in an HTML folder,
+              CSS in a CSS folder, etc.
+              Projects very quickly become huge and unwieldly. It's incredibly helpful to know
+              where everything is. (No organized chaos.)
+            </li>
+            <li><span class='bold gray'>Hands-on experience</span>: reading code is never a good substitute
+              for trying things out on your own. Try re-running coding exercises, not just rereading them.
+              You will retain more and for longer that way.
+            </li>
+          </ul>
+        </p>
+        <div class="activity">
+          <h2>Student activity!</h2>
+          <p>With a partner, take a look at the instructions being sent out to you via Slack.
+            Download this file and open it in Chrome, observing what happens.
+          </p>
+          <p>How does the code relate to what you observe in your browser? Talk with your
+            partner about this.
+          </p>
+          <p>Note: We haven't covered JavaScript before, but a big part of being a developer
+            is learning on the fly! We won't be going over this example quite yet, there's
+          more to come...</p>
+        </div>
+        </section>
+        <section>
+          <h1>What exactly
+            <span class='italic'>is</span> Javascript?</h1>
+          <p>If HTML is the content and CSS is the look and feel, where does Javascript fit in?</p>
+          <p>JS is what we use to
+            <span class='bold gray'>do things</span>. We can manupulate the browser's DOM (document object model), add new content, change styles, make complex
+            animations, fetch and store data, or even make browser games!</p>
+          <p>In short:</p>
+          <p>HTML &RightArrow; content</p>
+          <p>CSS &RightArrow; style</p>
+          <p>JS &RightArrow; interactivity</p>
+          <h2>Variables</h2>
+          <p>Syntax: <span class='property'>var</span>
+            <span class='selector'><span class='selector'>myVar</span>
+          <span class='special-char'>=</span>
+          <cpan class='value'>2</cpan><span class='special-char'>;</span>
+          </span></p></p>
+          <pre>
+/* boolean: true/false */
+var possibility = true;
+
+/* number */
+var number = 42;
+var two_pi = 6.28318; 
+
+/* string */
+var greeting = "what's good?";
+var otherGreeting = 'salutations, ya nerd';
+          </pre>
+          <p>Variables in JS can be: strings of text, numbers, or booleans—there are some more
+            data types but we won't cover them quite yet.
+            They are like boxes in which we can store information. How we declare them determines
+            how we can access them later. (We can just stick with <code>var</code> for now, to make
+            things easy.)
+          </p>
+          <div class='student-activity'>
+            <h2>Student activity!</h2>
+            <p>We're going to practice variable declaration by tinkering with
+              a file.
+            </p>
+            <ul>
+              <li>Fill in the missing Javascript code to create variables.</li>
+              <li>When you are finished, open the file in Chrome to check the output.</li>
+              <li>If you successfully completed the activity, you should see a series of 
+                pop-up windows with text inside.</li>
+              <li>Finally, look at the rest of the code and try to figure out why the text
+                displayed the way it did.</li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h1>The Console</h1>
+          <p>Your console is your best friend when it comes to developing and debugging
+            Javascript. It's a quick way to execute code on the fly and see what's going on
+            in your code.
+          </p>
+          <div class='activity'>
+            <h2>Instructor activity...</h2>
+            <p>Let's crack open our dev tools and play with the console! </p>
+            <p>We can display some text, look at the contents of variables and make new ones.</p>
+          </div>
+          <div class='student-activity'>
+            <h2>Student activity!</h2>
+            <p>Open up the file sent to you and modify the code such that it uses
+              <code>console.log()</code> instead of alerts to display messages.
+              Discuss with each other the difference between using <code>console.log()</code>
+              and <code>alert()</code>.
+            </p>
+          </div>
+        </section>
+        <section>
+          <h2>Alerts, Prompts, Confirms</h2>
+          <div class='activity'>
+            <h2>Instructor activity...</h2>
+            <p>Let's walk through a file to try to understand the difference between
+              these functions. <span class='bold gray'>Functions</span> are expected to
+              receive input and return <span class='italic'>something</span>.
+              <small>(More on
+              functions later.)</small>
+            </p>
+            <p>Pay close attention to which functions store input and of what type.
+              Also pay attention to what each function <span class='bold'>returns</span>.
+            </p>
+          </div>
+          <p>Taking a moment to step back a bit, what's the different between these
+            three functions? What do they return?
+          </p>
+          <div class='student-activity'>
+            <h2>Student activity!</h2>
+            <p>Write JavaScript code that does the following:
+      <li>Using a confirm, ask the user, "Do you like
+        <span class='underline'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>?" Store their response in a variable.</li>
+      <li>Using a prompt, ask the user, "What kind of
+        <span class='underline'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> do you like?"
+      Store their response in a variable.</li>
+      <li>Alert both variables to the screen.</li>
+            </p>
+          </div>
+          <p>Another useful function is <code>document.write()</code>, which allows us
+          to write text (or HTML!) directly to the browser (the document). More on that later.</p>
+        </section>
+        <section>
+          <h2>Conditionals</h2>
+          <p>An absolutely enormous amount of the code you will be writing will involve
+            the use of <span class='bold gray'>conditionals</span>, or statements that only
+            execute conditionally. Their structure:
+          </p>
+          <blockquote>if some condition is met, do something; else, do a different something.</blockquote>
+          <p>How does this look like in code?</p>
+          <pre>
+if ( condition ){
+  // Do a thing or two or several
+}
+else {
+  // Otherwise do something completely different
+}
+
+/* That condition can be anything that returns a boolean: */
+a == b;
+a !== b;
+c > d;
+c &lt;= d;
+e // e is a boolean
+          </pre>
+          <p>This concept is <span class='bold'>absolutely critical</span>! You will be
+          using it extensively throughout the rest of this course.</p>
+          <div class='student-activity'>
+            <h2>Student activity!</h2>
+            <p>This activity will allow you to practice with conditionals and prompts/confirms.</p>
+            <ul>
+              <li>Create a website (from scratch) that asks users if they eat steak.</li>
+
+    <li>If they respond with "yes", write the following to the page: "Here’s a Steak Sandwich!"</li>
+
+    <li>If they respond with "no", write the following to the page: "Here’s a Tofu Stir-Fry!"</li>
+
+    <li><span class='bold gray'>Bonus:</span> Ask what the user’s birth year is. If they are under 21, alert the following: "No Sake for you!"</li>
+
+            </ul>
+            <small><span class='bold gray'>Hint:</span> You will need to use <code>document.write()</code> from a little while back.</small>
+          </div>
+          <div class='activity'>
+            <h2>Class activity</h2>
+            <p>Let's look at a demo file with a set of conditionals and walk through it.
+            As we step through it, let's look at some <code>if</code> statements and determine 
+            if they will execute.</p>
+            <p>We'll run the file in our browser to see if it functions how we expected.</p>
+          </div>
+        </section>
+        <section>
+          <h1>Arrays</h1>
+          <p>Variables can also be <span class='bold gray'>arrays</span>, which are
+          collections of other data. You can think of arrays as variables containing
+          other variables.</p>
+          <p>Syntax for declaring an array:</p>
+          <span class='monospace'>
+            <span class='property'>var</span>
+            <span class='selector'>array</span>
+            <span class='special-char'>=</span>
+            <span class='special-char'>[</span>
+            <cpan class='value'>ham</cpan><span class='special-char'>,</span>
+            <cpan class='value'>spam</cpan><span class='special-char'>,</span>
+            <cpan class='value'>eggs</cpan>
+            <span class='special-char'>]</span><span class='special-char'>;</span>
+          </span>
+          <hr>
+          <p>Syntax for retrieving an element:</p>
+          <span class='monospace'>
+            <span class='selector'>array</span>
+            <span class='special-char'>[</span>
+            <cpan class='value'>index</cpan>
+            <span class='special-char'>]</span><span class='special-char'>;</span>
+          </span>
+          <p>Each element in an array has a number,<span class='italic'>
+            starting from 0 and ending at length–1</span>.</p>
+          <p>Your 0th index element is the first element in the array.</p>
+          <p>Which element is this: <span class='selector'>animals</span>
+          <span class='special-char'>[</span>
+          <cpan class='value'>2</cpan>
+          <span class='special-char'>]</span>
+          </span> ?</p>
+          <pre>
+var animals = [ 'axolotl', 'emu', 'pangolin', 'ibex' ];
+
+// Whitespace doesn't matter, so this might be neater:
+
+var animals = [
+  'axolotl',
+  'emu',
+  'pangolin',
+  'ibex'
+];
+
+// We can nest arrays as well:
+
+var odds_evens = [
+  [ 0, 2, 4, 6, 8],
+  [ 1, 3, 5, 7, 9]
+];
+          </pre>
+          <div class='activity'>
+            <h2>Student activity!</h2>
+            <p>With a partner, take a few moments to look over the given code. Above each
+              <code>console.log()</code> write a comment "predicting" what you think the
+              output will be.</p>
+            <p><span class='gray bold'>Hint</span>: Comments are the grayed lines that begin with
+              <code>//</code> (or <code>/* comment... */</code> like CSS).</p>
+            <p>These lines are ignored by JavaScript, and they allow you to explain your code.
+              Commenting your code is an extremely useful habit to get into as it
+              allows other developers to more easily read your code.
+              It will also help you better understand your own applications when
+              you look back at them.</p>
+          </div>
+          <div class="activity">
+            <h2>Challenge I</h2>
+            <p>Create a website that accomplishes the following:</p>
+            <ul>
+              <li>Create an array of your favorite bands.</li>
+              <li>With a prompt, ask the user's favorite band.</li>
+              <li>If it's one of your favorites, alert: "YEAH I LOVE THEM!"</li>
+              <li>If it's not, alert: "Nah. They're pretty lame."</li>
+            </ul>
+      <p><span class='gray bold'>Hint:</span> You will need to research how to use <code>.indexOf()</code>.
+        You will also need to research how to use <code>.toLowerCase()</code>.</p>
+          </div>
+        </section>
+    </article>
+  </body>
+  <!-- Uncomment below to run favBands.js example.
+       Output will appear below body becuase script is loaded after content renders. -->
+  <!-- <script type='text/javascript' src="../js/favBands.js"></script> -->
+</html>
+

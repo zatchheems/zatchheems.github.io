@@ -1,0 +1,125 @@
+<!--**************************************************************
+
+Wednesday, May 23rd, 2018:
+
+_____/\\\\\\\\\\\\________________________        
+ ___/\\\//////////_________________________       
+  __/\\\________________/\\\_______/\\\______      
+   _\/\\\____/\\\\\\\___\///_____/\\\\\\\\\\\_     
+    _\/\\\___\/////\\\____/\\\___\////\\\////__    
+     _\/\\\_______\/\\\___\/\\\______\/\\\______   
+      _\/\\\_______\/\\\___\/\\\______\/\\\_/\\__  
+       _\//\\\\\\\\\\\\/____\/\\\______\//\\\\\___ 
+        __\////////////______\///________\/////____
+
+"What is Git? How do I use this thing? Why are we using it?"
+
+****************************************************************-->
+
+<!-- Quick recap: HTML -->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Git and CSS Notes</title>
+<meta charset="UTF-8" />
+<link rel='stylesheet' href="./styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Git and CSS</h1>
+    <h2>May 23rd, 2018</h2>
+  </header>
+  <article id='content'>
+    <section>
+      <h1>Quick Administrivia...</h1>
+      <p>Remember to <span class='bold gray'>practice, review in-class materials and rewatch in-class videos</span>
+        if you need help. Also, stop by 45min early and 30min after class for offic hours. We're here to help you get
+        this stuff! You can also contact student success anytime.</p>
+    <p>You should also have access to the homework repository in GitHub.</p>
+    <p>As a reminder, <span class='bold gray'>Homework 1</span> is due next <span class='bold gray'>Wednesday, May 30th</span>.</span></p>
+    </section>
+    <section class="objectives-section">
+      <h1>What do we want to accomplish today?</h1>
+      <p>If you're totally new to this stuff: get good at HTML. Understand what CSS is and why we use it.
+        <span class='italic'>Be able to use Git and upload to GitHub.</span></p>
+        Be able to use Git and upload to GitHub.</p>
+      <p>For the more experienced, build up your skills. Clear up any questions or confusions about HTML.
+        Learn more HTML and CSS tags you may not be familiar with. Be able to selectively apply CSS.
+        <span class='italic'>Be able to use Git and upload to GitHub.</span></p>
+      <ol>
+      <h2>This session, we want you:</h2>
+        <li>To understand the value of Git version control</li>
+        <li>To gain initial exposure to the concept of "adding, committing, and pushing" code to GitHub</li>
+        <li>To gain initial exposure to HTML/CSS and how the two are linked using element selectors</li>
+      </ol>
+    </section>
+    <section class="git-section">
+      <h1>What is Git? How does it work?</h1>
+      <p>Here's a good link GitHub uses to teach the basics:
+        <a href='https://guides.github.com/activities/hello-world/' target="_blank">Hello World Activity</a>
+      </p>
+
+      <h2>Git is an ideal platform for collaboration.</h2>
+      <p>Teams are often large or separately by hundreds of miles. A centralized platform for collaboration is key! Otherwise,
+        we're stuck overwriting each other's changes, your own edits may get ignored, app-breaking bugs are costly to fix, etc.
+      </p>
+      <blockquote>We have multiple people accessing a set of files for the sake of collaboration.
+        How do we make sure we're not stepping on each-other's toes? How do we share these
+        files with each other? What is the development process like?</blockquote>
+        <div class='line-break'></div>
+      <p>Each collaborator can do a number of things on a git repository. You can upload files, download new edits to existing files,
+        create new branches (we'll get to what this means), fork projects, roll back changes...</p>
+        <p>The basics:</p>
+        <ul>
+          <li><code>git clone</code>: clone an existing repository (to begin)</li>
+          <li><code>git add</code>: add one or more files for inclusion in Git</li>
+          <li><code>git commit</code>: state the changes you've made, store them in local repo</li>
+          <li><code>git push</code>: send changes to hosting service</li>
+          <li><code>git pull</code>: get freshest version of repo</li>
+        </ul>
+        <h2>How about a quick demo?</h2>
+        <!-- "Pre"formatted tags. Whitespace is preserved within them. -->
+        <pre>git clone https://github.com/.../my-repo.git local-repo
+git add style.css
+git commit -m "Added fancy styling on section tags"
+git push -u origin master
+git pull</pre>
+    </section>
+    <section>
+      <h1>Sample form:</h1>
+      <form method="POST" id="sampleForm" name="sampleForm">
+        <!-- We use fieldsets to group fields together. These can be styled too!-->
+        <fieldset>
+          <input type='text' placeholder="Enter your name"></input>
+          <input type='button' value="Submit"></input>
+          <select name="settings">
+            <option value="one's">opt 1</option>
+            <option value="blue's team">opt 2</option>
+            <option value='Evanston'>opt 3</option>
+          </select>
+        </fieldset>
+        <fieldset>
+          <label>Yes!
+            <input type='radio' name='radio-options' value="yes" />
+          </label>
+          <label>No!!
+            <input type='radio' name='radio-options' value="no" />
+          </label>
+          <label>Whatever.
+            <input type='radio' name='radio-options' value="whatever" />
+          </label>
+        </fieldset>
+      </form>
+    </section>
+    <!--Demo time!-->
+    <section class="css-container">
+      <h1>HyperText Markup Language and Cascading Style Sheets</h1>
+      <h2>HTML and CSS!</h2>
+      <p>Let's go back to VS Code for this one.</p>
+      <p>We'll go over form elements and some less common tags. Remember that you don't have to remember every tag!
+        Sometimes you'll only be using a tag once in a while.
+      </p>
+    </section>
+  </article>
+</body>
+</html>

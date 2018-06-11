@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>More CSS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' type='text/css' href="../css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div><pre style='line-height:79%'>
+███╗   ███╗ ██████╗ ██████╗ ███████╗     ██████╗███████╗███████╗
+████╗ ████║██╔═══██╗██╔══██╗██╔════╝    ██╔════╝██╔════╝██╔════╝
+██╔████╔██║██║   ██║██████╔╝█████╗      ██║     ███████╗███████╗
+██║╚██╔╝██║██║   ██║██╔══██╗██╔══╝      ██║     ╚════██║╚════██║
+██║ ╚═╝ ██║╚██████╔╝██║  ██║███████╗    ╚██████╗███████║███████║
+╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝     ╚═════╝╚══════╝╚══════╝</pre></div>
+      <h2>May 30th, 2018</h2>
+    </header>
+    <article>
+      <section id="todo">
+        <h1>To Do's:</h1>
+        <ul>
+          <li>General bookkeeping: homework, Saturday class, how we're doing</li>
+          <li>Relative Paths</li>
+          <li>CSS:
+            <ul>
+              <li>Box model</li>
+              <li>Floats</li>
+              <li>Positioning</li>
+            </ul></li>
+        </ul>
+      </section>
+      <section>
+        <h1>HTML/CSS Refresher: Syntax and Selectors</h1>
+        <p><span class='bold'>HTML:</span> HyperText Markup Language: the <span class='bold gray'>content</span></p>
+        <p><span class='bold'>CSS:</span> Cascading Style Sheets: the <span class='bold gray'>sauce</span></p>
+        <div class='line-break'></div>
+        <h2>Syntax:</h2>
+        <blockquote><span class='selector'>selector</span>
+          <span class='bracket'>{</span>
+          <span class='property'>property</span>
+          <span class='special-char'>:</span> 
+          <span class='value'>value</span><span class='special-char'>;</span>
+          <span class='bracket'>}</span></blockquote>
+        <h2>Selectors:</h2>
+        <blockquote>
+          <p><span class='selector'>element</span></p>
+          <p><span class='id'>#id</span></p>
+          <p><span class='class'>.class</span></p>
+          <p><span class='selector'>element</span><span class='id'>#id</span></p>
+          <p><span class='selector'>element</span><span class='class'>.class</span></p>
+          <p><span class='selector'>element <span class='special-char'>></span> children</span></p>
+          <p><span class='selector'>element </span><span class='special-char'>></span> <span class='special-char'>*</span></p>
+          etc, etc, etc... (There are a ton of ways to select an element!)
+        </blockquote>
+      </section>
+      <section><h1>Relative Paths</h1>
+        <pre>user@computer$ cd ../.. #goes up two directories</pre>
+        <pre>&lt;link...src='/Users/zak/Desktop/new-site/assets/styles.css'>
+&lt;!-- Absolute filepath--></pre>
+        <pre>&lt;link rel='stylesheet' src='../assets/styles.css'>
+&lt;!-- File is in a different subdirectory--></pre>
+      <div class='activity'>
+        <h2>Quick instructor activity...</h2>
+        <p>Let's go through this quickly. We're going to take a look at using relative paths vs. absolute paths.</p>
+        <p>Why are absolute file paths bad? How do we mitigate their issues?</p>
+      </div>
+      <div class='student-activity'>
+        <h2>Student activity!</h2>
+        <p>Unzip the folder provided to you (or copy and paste the contents outside).</p>
+        <p>Then, modify each of the four `html-bio.html` pages such that you can access the CSS inside their folder. Don't move the CSS file, and don't move the HTML file. 
+        <p>Use relative linking to make it work!</p>
+        <span class='italic'>Hint</span> If you need some reading material on relative linking you can use <a href='https://css-tricks.com/quick-reminder-about-file-paths'>https://css-tricks.com/quick-reminder-about-file-paths</a>.
+        <p>If you finish early, help out those around you, or begin reading through the Learn CSS Layout Guide found here: <a href='http://learnlayout.com/no-layout.html'>http://learnlayout.com/no-layout.html></a></p>
+      </div>
+     </section>
+      <section><h1>The Box Model</h1>
+        <h3>
+          <p class='size'>Size</p>
+          <p class='padding'>Padding</p>
+          <p class='border'>Border</p>
+          <p class='margin'>Margin</p>
+        </h3>
+        <svg viewBox="0 0 50 25" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="2.5" width="40" height="20" rx="1" ry="1" stroke='black' stroke-width='0.5' fill='darkorange'/>
+          <rect x="10" y="5" width="30" height="15" rx="1" ry="1" stroke='black' stroke-width='0.5' fill='lightseagreen'/>
+          <rect x="15" y="7.5" width="20" height="10" rx="1" ry="1" stroke='black' stroke-width='0.5' fill='purple' />
+          <rect x="20" y="10" width="10" height="5" rx="1" ry="1" stroke='black' stroke-width='0.5' fill='orangered'/>
+        </svg>
+        <p>
+          <span class='bold'>Total width</span> =
+          <span class='margin'>margin-left</span> +
+          <span class='border'>border-left</span>
+          +
+          <span class='padding'>padding-left</span> +
+          <span class='size'>width</span> +
+          <span class='padding'>padding-right</span>
+          +
+          <span class='border'>border-right</span> +
+          <span class='margin'>margin-right</span>
+        </p>
+        <p>
+          <span class='bold'>Total height</span> =
+          <span class='margin'>margin-top</span> +
+          <span class='border'>border-top</span>
+          +
+          <span class='padding'>padding-top</span> +
+          <span class='size'>width</span> +
+          <span class='padding'>padding-bottom</span>
+          +
+          <span class='border'>border-bottom</span> +
+          <span class='margin'>margin-bottom</span>
+        </p>
+      </section>
+      <section><h1>"Flow" as a concept in CSS</h1>
+      <p>Back to the slides for a bit...</p>
+      </section>
+    </article>
+  </body>
+</html>
