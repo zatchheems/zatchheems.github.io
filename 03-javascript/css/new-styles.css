@@ -197,4 +197,5 @@ button:active {
   padding:10px;
   border-radius: 5px;
   font-size: 1.8vw!important;
+  width: inherit!important;
 }
