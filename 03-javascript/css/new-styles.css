@@ -7,6 +7,7 @@
   --bright-accent: lightgoldenrodyellow;
   --dark-accent: dodgerblue;
   --gray:slategray;
+  --light-gray:rgb(210, 210, 210);
 }
 
 body {
@@ -183,6 +184,10 @@ button:active {
 
 .line-break {
   border-color: var(--dark-accent);
+}
+
+.light-gray {
+  color: var(--light-gray);
 }
 
 .page-break{
