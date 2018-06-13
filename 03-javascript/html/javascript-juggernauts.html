@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Javascript Juggernauts</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=BioRhyme:400,700,800" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href="../css/reset.css" >
+    <link rel='stylesheet' type='text/css' href="../css/theme.css">
+    <link rel='stylesheet' type='text/css' href="../css/styles.css" >
+    <link rel='stylesheet' type='text/css' href="../css/new-styles.css" >
+  </head>
+  <body>
+    <header>
+      <pre id='ascii-title' style='line-height:0.95em; letter-spacing: -0.125em'>
+    _____                           __                                 _
+     | |   ____  _     ___  ____   /\ \   ____  __  ___  •   _____  --| |--
+ __  | |    _| |  \   / /    _| |  \ \   / |    | |/     _   | |  \   | |
+ ||  | |   / | |   \ / /    / | |   \ \ || |    | |     / \  | |  ||  | |
+  \__|_|  |__|_|    V_/    |__|_|  \_\/  \_|__  |_|     |_|  | |__/   |_|
+                                                             | |
+    _____                                                    |_|                 _     __
+     | |  __  ___   ____     ____     ____   __  __  __  __    ____  ___    _ --| |-- /\ \
+ __  | |  ||  | |  / |  \   / |  \   / |  \  | |/    | |/  \    _| | | |    |   | |   \ \
+ ||  | |  ||  | | || |  __ || |  __ || |__/  | |     | |   ||  / | | | |    |   | |    \ \
+  \__|_|   \__|_|  \_|__/   \_|__/   \_|__/  |_|     |_|   || |__|_|  \_\__/    |_|   \_\/ 
+</pre>
+      <h2 class='date'> June 11th, 2018</h2>
+    </header>
+    <article class='container'>
+      <section id="todo" >
+        <h1>To Do's:</h1>
+        <ul>
+          <li>Arrays and Loops Recap</li>
+          <li>Functions</li>
+          <li>Objects</li>
+          <li>Scope and Callbacks</li>
+        </ul>
+      </section>
+      <section>
+        <h1>Arrays and Loops Recap</h1>
+        <div class='student-activity'>
+          <h2>Student activity!</h2>
+          <p>Remember how crazy the rock, paper, scissors activity was?
+            Forget about that thing.</p>
+            <p>For now, let's just focus on arrays and
+            <code>for</code> loops.
+          </p>
+          <p>Open the given file (loop-tv-unsolved.html) in your browser.
+          <p>With a partner, fill in the missing comments for each line of code.
+            Explain what each line does in a short single-line comment.
+            Make sure both of you can fully explain what each line means.
+          </p>
+          <p>What does <code>.push()</code> do? Think about what type of variable
+            uses that method,
+            what arguments it takes, etc.</p>
+        </div>
+      </section>
+      <section>
+        <h1>Functions</h1>
+        <p>Just like <code>for</code> loops, <span class='bold gray'>functions</span> allow us to
+        do a task using a <span class='bold'>reusable block of code</span> with different
+        arguments.</p>
+        <p>It also allows us to develop with a 
+        <abbr class='bold gray' title="Don't Repeat Yourself">DRY</abbr>
+        methodology:</p>
+        <blockquote>Don't Repeat Yourself!</blockquote>
+        <p>This is absolutely huge! Think about keeping your code "DRY"
+        and you'll notice how nicely neat and organized things become.
+        </p>
+        <hr class="line-break">
+        <p>Function definition syntax:
+          <span class="monospace">
+            <span class='property'>function</span>
+            <span class='selector'>funcName</span>
+            <span class='special-char'>(</span>
+            <span class='value'>argument</span><span class='light-gray'>, arg2, ... ,argN</span>
+            <span class='special-char'>)</span>
+            <span class='special-char'>{</span>
+              <span class="gray">...</span>
+            <span class='special-char'>}</span>
+          </span>
+        </p>
+        <p>Function <span class='italic'>call</span> syntax:
+            <span class="monospace">
+              <span class='selector'>funcName</span>
+              <span class='special-char'>(</span>
+              <span class='value'>myArgs</span>
+              <span class='special-char'>)</span><span class='special-char'>;</span>
+            </span>
+        </p>
+        <p>Let's play with functions! Think about how functions make certain tasks
+          easier. They also make our code neater!
+        </p>
+        <pre class="brush: javascript">
+/* Basic function with no return value
+   (This is a somewhat contrived example): */
+function sayHi(greeting){
+  alert(greeting);
+}
+
+// Small function with no arguments to flip a coin:
+function coinToss(){
+  return Math.round(Math.random());
+}
+
+/* Our arguments can have whatever type we'd like.
+   Notice how here, we loop through whatever array we're
+   given and never have to worry about what the name of
+   the variable is.
+
+   Take an array of strings, return a sentence: */
+function arrayToString(words){
+  var sentence = "";
+
+  // Loop through words using nice "for each" shorthand
+  for(var i in words){
+    if(i < words.length-1)
+      sentence += words[i] + " ";
+    else
+      sentence += words[i] + ".";
+  }
+
+  // Return full sentence. This is critical!
+  return sentence;
+}
+
+/* We can add as many arguments as we'd like.
+   This is a rewrite of the Math.pow() function. */
+function pow(base, exponent){
+  var expValue = base;
+
+  for(var i = 1; i < exponent; i++)
+    expValue *= base;
+
+  return expValue;
+}
+        </pre>
+        <div class='student-activity'>
+          <h2>Student activity!</h2>
+          <p>Grab a partner and check out the given file.</p>
+          <p>Fill in the missing function definitions and function calls.
+            Remember the difference between the two.
+          </p>
+          <p><span class='bold gray'>Note:</span> try to finish all four
+          functions, but don't feel pressure to do them all.
+          If you only get one or two of them, that's totally fine! The most
+          important thing is that you just get one done.</p>
+        </div>
+      </section>
+      <section>
+        <h1>Arrays vs. Objects</h1>
+        <p>A Javascript <span class='bold gray'>object</span> is the most general
+        variable type. Arrays are objects with some special syntax and specific
+        methods. There are also many other different types of objects, but we'll 
+        just be focusing on the most versatile type.</p>
+        <div class='activity'>
+          <h2>Instructor activity...</h2>
+          <p>Let's look at a good example of array usage, then contrast that with
+            a more messy example. Feel free to follow along on your machines.
+          </p>
+          <p>The first example just uses a single array of numbers. Pretty simple stuff.</p>
+          <p>The second, however, uses two separate arrays that relate to each other and
+            are difficult to combine. How would we describe an association between
+             these two arrays? Is there a better way?
+          </p>
+        </div>
+        <p>In short, yes! Objects allow us to store data
+          <span class='bold gray'>associatively</span>. Instead of being
+        limited to numbered indices, we can actually give data names. Even better,
+        we can refer to each <span class='bold gray'>property</span> using array
+        or dot-syntax.</p>
+        <p>Why might we want to use array syntax?</p>
+        <p><span class="bold gray">Hint:</span>
+        two main reasons, one of which is why we don't put whitespace
+        in our directory names.</p>
+        <pre class="brush: javascript">
+// Store a person object
+var person = {
+  "age": 23,
+  "height": "5'6in",
+  "eyeColor": "hazel",
+  "alive": true,
+  "favoriteColors": ["cyan", "pink", "orange"]
+};
+
+// What does this refer to?
+// Are they different?
+console.log(person.eyeColor);
+console.log(person['eyeColor']);
+
+// What about this?
+console.log(person.favoriteColors[1]);
+        </pre>
+        <div class='activity'>
+          <h2>Class activity!</h2>
+          <p>Let's look at some great usage of objects and how data can be
+            organized neatly and succinctly. Notice how each property's name
+            matches up with its value instead of just an index with no semantic
+            value.
+          </p>
+          <p>We also use array notation whenever we want to pass a variable to be
+            interpreted as an object property. Remember that we can't access a property
+            using dot-syntax if it isn't declared as part of the object.</p>
+          <p>Open up this file and play with it. Add new properties, modify them, and
+            access them.
+          </p>
+        </div>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <p>Grab a partner and look at the given file.</p>
+          <p>Then write code below each comment to log the relevant information 
+            about the provided <code>car</code> object.</p>
+          <p><span class="bold gray">Bonus: </span>If you finish
+          early, create a brand new object of your own. Slack out a snippet of
+          the code to the class when you are done. Be creative!</p>
+        </div>
+      </section>
+      <div class="page-break">
+        <h1>Break and review...</h1>
+      </div>
+      <section>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <p>Using the code from the previous activity as a starting point,
+            create a complete application that meets the following specifications:</p>
+            <ul>
+              <li>Users can enter keyboard input (letters).</li>
+              <li>Each of the car's methods are assigned to a key.</li>
+              <li>When the user presses a key it calls the appropriate function.</li>
+              <li>These letters also trigger a global function called <code>reWriteStats()</code>
+                that logs the car’s make, model, color, mileage, and <code>isWorking</code>
+                status to the console.</li>
+            </ul>
+        <p><span class="bold gray">Hint:</span> You will need to use the
+          <code>document.onkeyup()</code> function to collect input from the
+          user's keyboard.
+        </p>
+        </div>
+      </section>
+      <section>
+        <h1>Scope and Callbacks</h1>
+        <p>Javascript has rules for where variables exist and how they can
+          be accessed; this changes depending on where they are defined, 
+          if they're nested in brackets, as function arguments, etc.
+          Where a variable can be accessed is referred to as its <span class="bold gray">
+            scope</span>.</p>
+        <p>Scope is a ridiculously important concept in Javascript!</p>
+        <h2>The Breakdown</h2>
+        <ul>
+          <li>Variables defined within scripts tags or otherwise outside of all
+            other functions/loop bodies/brackets: <span class="bold gray">global variables</span>
+          </li>
+          <li>Variables defined just within functions/loop bodies/brackets:
+            <span class="bold gray">local variables</span>. Visible <span class='italic'>only</span> within the brackets
+          </li>
+          <li><span class="bold gray">Global variables</span> can be accessed within
+          functions as well as outside. Belong to global scope</li>
+          <li><span class="bold gray">Local variables</span> disappear after 
+          functions return and loops break</li>
+        </ul>
+        <div class='activity'>
+          <h2>Class activity!</h2>
+          <p>Let's walk through our file on scope.</p>
+          <p>Open up the file on your machine and fill in the missing code and comments.
+            We'll go step by step and get your input.
+          </p>
+          <p>Notice how functions are a variable type and can be stored in variables.</p>
+          <p>When we get to <code>.forEach()</code>, we'll be using something called
+          <span class='bold gray'>callback functions</span>. It's a way to put the burden
+          of doing something on another function, which takes input and
+          does what we want instead.</p>
+        </div>
+      </section>
+    </article>
+  </body>
+  <!-- Script to make <pre> tags pretty -->
+  <script type='text/javascript' src="../js/syntaxhighlighter.js"></script>
+</html>
+
