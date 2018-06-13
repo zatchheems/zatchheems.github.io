@@ -15,3 +15,4 @@
 ### Unit 3: Javascript
 * [Joys of Javascript](./03-javascript/html/joys-of-javascript.html)
 * [Jumping for Javascript](./03-javascript/html/jumping-for-javascript.html)
+* [Javascript Juggernauts](./03-javascript/html/javascript-juggernauts.html)
