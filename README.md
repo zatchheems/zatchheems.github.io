@@ -16,3 +16,6 @@
 * [Joys of Javascript](./03-javascript/html/joys-of-javascript.html)
 * [Jumping for Javascript](./03-javascript/html/jumping-for-javascript.html)
 * [Javascript Juggernauts](./03-javascript/html/javascript-juggernauts.html)
+
+### Unit 4: jQuery
+* [jQuery Begins](./04-jquery/html/jquery-begins.html)
