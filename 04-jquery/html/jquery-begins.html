@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery Begins</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=BioRhyme:400,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono:400,800" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href="../css/reset.css" >
+    <link rel='stylesheet' type='text/css' href="../css/theme.css">
+    <link rel='stylesheet' type='text/css' href="../css/styles.css" >
+    <link rel='stylesheet' type='text/css' href="../css/new-styles.css" >
+  </head>
+  <body>
+    <header>
+      <pre id='ascii-title' style='font-size:4vw; line-height:0.75em; letter-spacing: -0.0125em'>
+ ▐▄▄▄.▄▄▄  ▄• ▄▌▄▄▄ .▄▄▄   ▄· ▄▌  
+  ·██▐▀•▀█ █▪██▌▀▄.▀·▀▄ █·▐█▪██▌  
+▪▄ ███▌·.█▌█▌▐█▌▐▀▀▪▄▐▀▀▄ ▐█▌▐█▪  
+▐▌▐█▌▐█▪▄█·▐█▄█▌▐█▄▄▌▐█•█▌ ▐█▀·.  
+ ▀▀▀•·▀▀█.  ▀▀▀  ▀▀▀ .▀  ▀  ▀ •   
+▄▄▄▄· ▄▄▄ . ▄▄ • ▪   ▐ ▄ .▄▄ · ▄▄ 
+▐█ ▀█▪▀▄.▀·▐█ ▀ ▪██ •█▌▐█▐█ ▀. ██▌
+▐█▀▀█▄▐▀▀▪▄▄█ ▀█▄▐█·▐█▐▐▌▄▀▀▀█▄▐█·
+██▄▪▐█▐█▄▄▌▐█▄▪▐█▐█▌██▐█▌▐█▄▪▐█.▀ 
+·▀▀▀▀  ▀▀▀ ·▀▀▀▀ ▀▀▀▀▀ █▪ ▀▀▀▀  ▀ 
+</pre>
+      <h2 class='date'> June 16th, 2018</h2>
+    </header>
+    <article class='container'>
+      <section id="todo" >
+        <h1>To Do's:</h1>
+        <ul>
+          <li>DOM Manipulation</li>
+          <li>What is jQuery?</li>
+          <li>jQuery:
+            <ul>
+              <li>Generating HTML</li>
+              <li>On Click Events</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h1>DOM Manipulation</h1>
+        <p><span class='bold'>Quick review:</span> what is the <abbr title='Document Object Model'>DOM</abbr>
+          ? What do we mean by a DOM node?</p>
+        <p>The DOM is how our browsers interpret CSS/HTML; individual elements or DOM nodes can 
+          be selected using "vanilla" JavaScript. We can change the content of an element,
+          add HTML on the fly, or even change CSS!
+        </p>
+        <h2>Example</h2>
+        <p>This is a simple example of a to-do list functionality, accomplished both with
+          vanilla JS and jQuery. We won't be going over how this works this quite yet,
+          but you have all the tools necessary to do it right now!
+        </p>
+        <div class='activity' id="dom-manipulation-ex">
+          <h3>To-Do List</h3>
+          <input id="to-do" placeholder="Type a to-do and press Enter!"></input>
+          <ul id="to-do-list">
+          </ul>
+        </div>
+        <pre class='brush: javascript'>
+// Add event handler using JS.
+// We use callback functions after our handler. This
+//  syntax should start to look familiar
+document.getElementById("to-do").addEventListener("keypress", function(e){
+  if(e.key === "Enter"){
+    let newElem = document.createElement("li"); // Create new HTML element
+    newElem.textContent = this.value;
+    document.getElementById("to-do-list").appendChild(newElem);
+    this.value = ""; // Clear input
+  }
+});
+
+// Add event handler using jQuery syntax.
+// Notice how we still need a callback function; this
+//  is identical to .addEventListener()
+
+$("#to-do").on("keypress",function(e){
+  if(e.key === "Enter"){
+    $("#to-do-list").append("<li>"+$(this).val()+"</li>");
+    $(this).val(""); // Clear input
+  }
+});
+
+        </pre>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <p>Let's step through a set of files designed to break down the
+            above process into more easily-digestible pieces.
+          </p>
+          <p>Our process in the upcoming example:</p>
+          <ol>
+            <li>Dynamically create a <code>&lt;div></code></li>
+            <li>Select the DOM node</li>
+            <li>Replace its content</li>
+            <li>Create and append a new child element</li>
+            <li>Change the new element's style</li>
+          </ol>
+        </div>
+        <div class='student-activity'>
+          <h2>Student activity!</h2>
+            <p>Check out <code>drinklist-unsolved.html</code>.
+            Add the missing code such that your JavaScript generates HTML content
+            that displays all of the drink options.</p>
+
+  <p><span class='note'>Hint:</span> You will need a <code>for</code> loop.
+  Inside your <code>for</code> loop you will need to use each of the following methods:
+  <code>createElement</code>, <code>.innerHTML</code>, and <code>.appendChild</code>.</p>
+
+  <p><span class='note'>Bonus:</span> Instead of using a <code>for</code> loop, try using <code>for...in</code>
+    syntax, <code>Array.forEach()</code>, or searching about the use of the jQuery <code>
+      .each</code> method.</p>
+        </div>
+      </section>
+      <section>
+        <h1>What is jQuery?</h1>
+         <p>We can use JavaScript libraries such as <span class='bold gray'>jQuery</span>
+        to select elements a little easier and use bundled functions that make
+        some operations more convenient. The syntax is simplified; we use jQuery kind 
+        of like Bootstrap, i.e. a library with pre-built stuff that makes development quicker.</p>
+        <p>As a general note, jQuery has gone out of fashion in the last
+        few years since most things can be done usings simplified ES6+ syntax; however, it has
+        many, many useful plugins that are still relevant today. 
+        jQuery is also great to learn to understand how to support
+        <span class="bold gray">legacy code</span>.</p>
+        <blockquote>Remember going forward that everything
+        you can do in jQuery you can do in vanilla javascript.
+        </blockquote>
+        <p>Syntax:
+          <span class='monospace'>
+          <span class='id'>$</span><span class='value'>(</span>
+          <span class='selector'>"dom-node"</span>
+          <span class='value'>)</span><span class='special-char'>.</span><span class='property'>builtinFunc</span><cpan class='value'>(...)</cpan><span class='special-char'>;</span>
+          </span></span>
+        </p>
+        <div class='activity'>
+          <h2>Class activity!</h2>
+          <p>Let's quickly go back up to that to-do list example and thorougly dissect the two
+          implementations we have: pure JS and jQuery versions.</p>
+          <p>Then, on your own machines, let's parse through the files in
+            <code>03-jQueryGenerators</code> to see how things are different.</p>
+        </div>
+      </section>
+      <div class='page-break'>
+        <h1>Break time!</h1>
+      </div>
+      <section>
+        <h1>jQuery Continued</h1>
+        <h2>Generating HTML</h2>
+        <div class='student-activity'>
+          <h2>Student activity!</h2>
+          <p>Let's go back to our drink list exercise. This time, let's use the file
+             <code>jquery-drink-list-unsolved.html</code> and—you guessed it—write a new
+             solution using jQuery.
+          </p>
+          <p>You are <span class='italic'>not allowed to use</span>: <code>createElement</code>,
+          <code>innerHTML</code>, or <code>appendChild</code>.</p>
+          <p><span class='note'>Hint: </span> don’t forget to "incorporate" jQuery before you begin.</p>
+        </div>
+        <h2>On Click Events</h2>
+        <p>We talked about this already, but let's go into more detail with some live examples.
+          We'll be using jQuery just like we used vanilla JS to handle clicks on DOM elements.</p>
+          <p>Notice that the syntax to select an element <span class='bold'>needs</span> a dot
+          or pound sign for IDs or classes, respectively. This is because the syntax works for
+          any type of selector, including just standard element names like <code>$("input")</code>.
+          CSS pseudoclasses also work, too! jQuery also implements some of these pseudoclasses with
+          its own special syntax. Check out the documentation for more.
+        </p>
+        <div class='student-activity'>
+          <h2>Student activity!</h2>
+          <p>Check out <code>sandwich-click-unsolved.html</code>. Fill in the missing code
+          such that clicking any of the sandwiches causes:</p>
+          <ul>
+            <li>An alert message to popup saying something snarky about the sandwich type.</li>
+            <li>A second alert message that displays to the user the number of that specific
+              sandwich they’ve eaten.</li>
+          </ul>
+          <p><span class='note'>Hint:</span> you'll need counter variables.</p>
+          <p><span class='note'>Bonus:</span> add an image to the <code>image-div</code> on the click event.</p>
+        </div>
+        <div class='student-activity'>
+          <h2>Partner activity!</h2>
+            <p>Grab a partner and open up <code>trigger-random-unsolved.html</code>.
+              Add in the missing code such that clicking the big blue button
+              triggers a random number (between 1 and 1000) to be selected and
+              prominently displayed in the random-number div.</p>
+            <p>Remember you've got all the tools you need for this one!</p>
+        </div>
+        <div class='student-activity'>
+          <h2>Partner activity! (again!)</h2>
+          <p>Using the code from the last activity, let's build a lottery generator!</p>
+          <p>In our case, the lottery number should pick 9 random numbers (and always 9 numbers).
+            As an example: <span class='gray'>886563264</span>.</p>
+          <p>Display this number in the random-number div. Then, when a user
+            clicks again, have the code create a new row with the latest number at the top.</p>
+        </div>
+        <div class="activity">
+          <h2>Bonus activity!</h2>
+          <p>We'll get to this one if we have enough time at the end of class.</p>
+        </div>
+      </section>
+    </article>
+  </body>
+  <!-- Script to make <pre> tags pretty -->
+  <script type='text/javascript' src="../js/syntaxhighlighter.js"></script>
+  <script type='text/javascript' src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script type='text/javascript' src="../js/js-examples.js"></script>
+</html>
+
