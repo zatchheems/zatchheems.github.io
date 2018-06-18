@@ -19,3 +19,4 @@
 
 ### Unit 4: jQuery
 * [jQuery Begins](./04-jquery/html/jquery-begins.html)
+* [jQuery Jubilee](./04-jquery/html/jquery-jubilee.html)
