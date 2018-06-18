@@ -5,7 +5,8 @@
   --accent: goldenrod;
   --alt-accent: gold;
   --bright-accent: lightyellow;
-  --dark-accent: darkcyan;
+  --mid-accent: darkcyan;
+  --dark-accent: midnightblue;
   --gray:slategray;
   --light-gray:rgb(210, 210, 210);
 }
@@ -58,11 +59,11 @@ body {
 }
 
 a {
-  color:var(--main-color);
+  color:var(--mid-accent);
 }
 
 button {
-  background-color: var(--alt-color);
+  background-color: var(--accent);
   color: #fff;
   padding:10px 25px;
   margin:10px;
@@ -85,11 +86,11 @@ input {
 }
 
 a:hover {
-  color: var(--alt-accent);
+  color: var(--alt-color);
 }
 
 a:active {
-  color:var(--alt-color);
+  color:var(--dark-accent);
 }
 
 pre {
@@ -97,7 +98,7 @@ pre {
 }
 
 code {
-  color:var(--dark-accent);
+  color:var(--mid-accent);
 }
 
 blockquote {
@@ -195,7 +196,7 @@ button:active {
 }
 
 .line-break {
-  border-color: var(--dark-accent);
+  border-color: var(--mid-accent);
 }
 
 .light-gray {
@@ -223,5 +224,5 @@ button:active {
 
 .note {
   font-weight: 800;
-  color: --var(--gray);
+  color: var(--gray);
 }

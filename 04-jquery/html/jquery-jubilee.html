@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery Jubilee</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=BioRhyme:400,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono:400,800" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href="../css/reset.css" >
+    <link rel='stylesheet' type='text/css' href="../css/theme.css">
+    <link rel='stylesheet' type='text/css' href="../css/styles.css" >
+    <link rel='stylesheet' type='text/css' href="../css/new-styles.css" >
+  </head>
+  <body>
+    <header>
+      <pre id='ascii-title' style='font-size:2.5vw; line-height:0.6em; letter-spacing: -0.3em'>
+   d8,                                              
+  `8P                                               
+                                                    
+  d88   .d88b,.88P ?88   d8P  d8888b   88bd88b  ?88   d8P 
+  ?88   88P  `88P' d88   88  d8b_,dP   88P'   ` d88   88  
+   88b  ?8b  d88   ?8(  d88  88b      d88       ?8(  d88  
+   `88b `?888888   `?88P'?8b `?888P' d88'       `?88P'?8b 
+    )88     `?88                                    )88
+   ,88P       88b                                  ,d8P
+`?888P        ?8P                               `?888P'
+
+   d8,            d8b        d8,    d8b                 
+  `8P             ?88       `8P    88P                 
+                   88b            d88                  
+  d88   ?88   d8P   888888b   88b 888   d8888b  d8888b  
+  ?88   d88   88    88P `?8b  88P ?88  d8b_,dP d8b_,dP  
+   88b  ?8(  d88   d88,  d88 d88   88b 88b     88b      
+   `88b `?88P'?8b d88'`?88P'd88'    88b`?888P' `?888P'  
+    )88                                             
+   ,88P                                             
+`?888P</pre>
+      <h2 class='date'> June 18th, 2018</h2>
+    </header>
+    <article class='container'>
+      <section id="todo" >
+        <h1>To Do's:</h1>
+        <ul>
+          <li>Administrivia</li>
+          <li>jQuery:
+            <ul>
+              <li>Practice</li>
+              <li>Recap</li>
+              <li>More practice!</li>
+            </ul>
+          </li>
+          <li>Lexical scope</li>
+        </ul>
+      </section>
+      <section>
+        <h1>Administrivia</h1>
+        <p>How do we feel about JavaScript thus far? Questions, comments,
+          concerns, laments, anxieties, exclamations, expletives, cheers, jeers,
+          fears?
+        </p>
+        <p>How about the homework?</p>
+        <p>If you feel like we're going really, really fast, <span class='italic'>we are!</span>
+        We're flying through JavaScript and jQuery.</p>
+        <p>This is a reminder that what you're doing
+        right now is incredible: you're learning a completely different language with its own
+        syntax, standards, and paradigms that are totally new and unfamiliar, so it's natural
+        to feel a little overwhelmed. Remember that you don't have to memorize
+        everything: that's what documentation is for. Learn syntax and general structure/patterns,
+        then put them together into something you can use.</p>
+        <p>In short: you probably don't realize how much you've learned in such a short
+          amount of time. This stuff is challenging and you're killin' it! &#x1F320;</p>
+        <h2>Today's Lesson</h2>
+        <p>We're going to be showcasing some of jQuery's greatest strengths by continuing our
+          study of JavaScript DOM manipulation. Remember that we want to add event handlers, select
+          DOM nodes and modify contents and properties so that we can <span class='note'>change
+            the DOM on the fly</span>.
+        </p>
+      </section>
+      <section>
+        <div class="activity">
+          <h2>Instructor demo...</h2>
+          <p>Our first activity will be making a kind of browser game using jQuery.</p>
+          <p>I'll demonstrate how it works first. Think about what you'll need to accomplish
+            this behavior.
+          </p>
+        </div>
+        <div class='student-activity'>
+          <h2>Student activity!</h2>
+          <h3>Prep work</h3>
+          <p>We're going to pseudocode out the game's logic and structure.</p>
+          <p>Then, let's talk about it! Let's hear from multiple people about how they
+            thought about the development process.
+          </p>
+          <h3>The real deal</h3>
+          <p>Dissect the given code and write additional code to create a new power for
+            Captain Planet.
+          </p>
+          <p>Reference the jQuery API documentation
+            <a href="https://api.jquery.com/" target="_blank">(https://api.jquery.com/)</a> to see what you'll
+          need that you haven't learned yet.</p>
+          <p>Example powers:</p>
+          <ul>
+            <li><span class="italic">Click to…</span> Stretch Captain Planet!</li>
+            <li><span class="italic">Click to…</span> Trigger a maniacal laugh!</li>
+            <li><span class="italic">Click to…</span> Create clones of Captain Planet!</li>
+            <li><span class="italic">Click to…</span> Create fire or water <span class='note'>(hint: images)</span>!</li>
+          </ul>
+        </div>
+      </section>
+      <section>
+        <h1>jQuery Recap</h1>
+        <p>jQuery's selector syntax "captures" HTML DOM elements using <code>$(...)</code>.
+        It comes bundled with all sorts of useful functions, some of which are properties of
+        these selected objects. When including <code>$()</code>, objects are treated as jQuery objects.
+        Thus, <code>this</code> and <code>$(this)</code> are different things. Use the latter syntax
+        to call jQuery-specific functions on these objects.</p>
+        <pre class="brush: javascript">
+// Select an element, store it
+var asciiTitle = $("#ascii-title");
+
+// Select an element, change its CSS
+$("#todo").css("color","darkorange");
+
+// Can also animate changes
+asciiTitle.animate({
+  "font-size": "2vw"
+}, 1200);
+
+// Append to all divs with class "student-activity"
+$(".student-activity").append("&lt;small>Activity time over!!&lt;/small>");
+
+// jQuery-style for each. Also works for objects!
+$.each(items, function(key, val){
+  console.log("Key "+key+" has value "+val+".");
+});
+
+// Add event handler for click
+$("h1").on("click", function(e){
+  $(this).animate({
+    "font-size": "3em"
+  },500);
+});
+
+        </pre>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <p>Let's look at another game, then you try to build it! Check out <code>11-FridgeGame</code>.</p>
+          <p>Working in groups of 3, complete the code for the fridge activity such that:</p>
+            <ol>
+              <li>JavaScript dynamically generates buttons for each of the letters on the screen.</li>
+              <li>Clicking any of the buttons leads the <span class='bold'>same</span> letter to be displayed on the screen.</li>
+              <li>Hitting the clear button erases all of the letters from the fridge.</li>
+            </ol>
+          <p><span class="note">Note:</span> This is a challenging exercise. You may want one person to type, while the other two
+            watch over to catch bugs and/or research necessary snippets.</p>
+        </div>
+        <div class="activity">
+          <h2>Solution and another example...</h2>
+          <p>The solution includes creating an array that holds all of the letters, a
+            <code>for</code> loop to take letters from the array, associate it with a 
+            data-attribute <span class='gray italic'>(super convenient!)</span> and text, then append them to the page.
+            We'll go over this code.
+          </p>
+          <hr class='line-break'>
+          <p>Let's look at the files in <code>12-CrystalExample</code>. Much of these files
+          are similar to your homework assignment due this week!</p>
+        </div>
+      </section>
+      <div class='page-break'>
+        <h1>Break time!</h1>
+      </div>
+      <section>
+        <h1>Lexical scope</h1>
+        <p><span class="note">Warning:</span> this section is very theory-heavy.</p>
+        <p>We define scope using curly braces <code class='selector'>{}</code>, which denote blocks of code.</p>
+        <p>Remember when we talked about local and global variables? We have to be extremely careful not to mix up
+          our variable names. Variables overwritten within functions may overwrite global variables.
+          This topic is in the same ballpark. Variables can be declared within functions, and
+          <span class="bold">so can other functions</span>! They are also a valid return type.</p>
+        <p>Functions that have nested functions are the <span class="note">parent</span> functions;
+          nested functions are <span class="note">child</span> functions.</p>
+        <p>Child functions have access to parent-described variables, but <span class="italic">
+          not</span> vice versa, so if a parent tries to access a child-described variable, it will
+          likely return <code>undefined</code>.
+        </p>
+        <p>Here's an example of what we mean by nesting functions:
+        </p>
+        <pre class="brush: javascript">
+// Examples from Mozilla docs
+// &lthttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures>
+
+function init() {
+  var name = 'Mozilla'; // name is a local variable created by init
+  function displayName() { // displayName() is the inner function, a closure
+    alert(name); // use variable declared in the parent function    
+  }
+  displayName();    
+}
+init();
+
+/*********************************************
+**********************************************/
+
+// More useful example
+function makeAdder(x) {
+  return function(y) {
+    return x + y;
+  };
+}
+
+var add5 = makeAdder(5);
+var add10 = makeAdder(10);
+
+console.log(add5(2));  // 7
+console.log(add10(2)); // 12
+        </pre>
+        <small>(This stuff has a tendency to melt brains, and is generally the bane
+          of people who who dislike JavaScript—right next to equality vs.
+          equivalence. Ask plenty of questions.)</small>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <h3>Lexical scope 1:</h3>
+          <p>Take a few moments dissecting what I just said.</p>
+          <p>Look at <code>lexical-scope-1-unsolved.html</code>, and explain to the person next to
+            you what is meant by:</p>
+          <ul>
+            <li>The terms
+              <span class='note'>parent function</span> and
+              <span class='note'>child function.</span>
+            </li>
+            <li>The concept that child functions can access parent variables,
+              but not vice versa.</li>
+          </ul>
+        </div>
+        <div class='student-activity'>
+          <h2>Student activity!</h2>
+          <h3>Lexical scope 2:</h3>
+          <p>Take a few moments dissecting <code>lexical-scope-2-unsolved.html</code>.</p>
+          <p>Try to predict what will be printed in each of the examples.</p>
+          <p><span class='note'>Note:</span> pay attention to the unsual use
+            of the keyword <code>this</code>.</p>
+        </div>
+        <div class='student-activity'>
+          <h2>Student activity!</h2>
+          <h3>Lexical scope 3:</h3>
+          <p>Take a few moments dissecting
+            <code>lexical-scope-3-unsolved.html</code>.</p>
+          <p>Try to predict what will be printed in each of the examples.</p>
+          <p>
+            <span class='note'>Note:</span> pay attention to the unsual use of the keyword
+            <code>this</code>.</p>
+        </div>
+      </section>
+    </article>
+  </body>
+  <!-- Script to make <pre> tags pretty -->
+  <script type='text/javascript' src="../js/syntaxhighlighter.js"></script>
+  <script type='text/javascript' src="https://code.jquery.com/jquery.js"></script>
+</html>
+
