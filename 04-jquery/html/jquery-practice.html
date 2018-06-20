@@ -49,19 +49,144 @@
       </section>
       <section>
         <h1>Administrivia</h1>
-        <p></p>
+        <h2>Today's Session</h2>
+        <p>This class will be a bit different. <span class='note'>There won't be any new material!</span></p>
+        <p>It's all activities and review today. Whether you're feeling shaky on JavaScript
+          and/or jQuery or you're a pro, there's something today for everyone of all skill levels.
+          The purpose of this session is to get everyone up to speed and test your skills.
+        </p>
+        <p>We'll be doing some smaller activities and then end on a challenging but fun one.</p>
+        <p>This saturday's session is a review session!</p>
+        <h2>Homework Submission</h2>
+        <p>Thank you for being patient when dealing with the due date weirdness on BCS.
+          If you haven't already submitted your assignment due today, please submit it under
+          <span class="bold id">June 27th</span>.
+        </p>
+        <h2>Status Check</h2>
+        <p>Let's take a look at the results of the poll on what's the most challenging and
+          how everyone is feeling about the material.
+        </p>
       </section>
       <section>
         <div class="student-activity">
           <h2>Student activity!</h2>
+          <h3>Scope quiz:</h3>
           <p>Our first activity will be a small quiz on scope.</p>
+          <p>Check out <code>17-ScopeQuiz/Unsolved</code> and try to parse it with a partner, then
+          run it in your browser. You should notice some differences between the two code blocks.</p>
+          <p>Talk about the behavior of each code block; which one operates how you expect it to? What
+            is causing the other to function outside of your expectations?
+          </p>
+          <p>Once you spot it, talk about what makes JavaScript handle it differently.</p>
         </div>
         <div class='student-activity'>
           <h2>Student activity!</h2>
-          <p>Now, let's do an example on <code>this</code>.</p
+          <h3>This example:</h3>
+          <p>Now, let's do an example on <code>this</code>. Check out <code>18-ThisExample</code>.</p>
+          <p>Answer each of the questions in the file asked by the comments. Try to wrap your
+            head around the concept, and why it's useful. Explain to a partner how this works.
+            Focus on the first three examples.
+          </p>
+        </div>
+        <div class='student-activity'>
+          <h2>Student activity!</h2>
+          <h3>"cobwebs" activity:</h3>
+          <p>Check out <code>19-Cobweb/cobweb-starter.html</code>.</p>
+          <p>Create the missing the code such that you can retrieve the requested item from the 
+            <code>theCobWeb</code> object.</p>
+          <p><span class="note">Note:</span> This exercise
+          is actually very relevant to work as a web developer, as data is often relayed across websites
+          in the form of deeply nested JavaScript objects like this one.
+          <p><span class='note'>Bonus:</span> If you finish early, begin pondering the bonus item.
+          This is a <span class='italic'>very</span> challenging
+          exercise. It's impossible to complete in the allotted time. If you're feeling valiant: complete
+          it outside of class and come back to us to go over it.
+          This will arm you for difficult interview questions in the future.
+          </p>
         </div>
       </section>
       <section>
+        <h1>jQuery Calculator</h1>
+        <p>We'll be devoting the majority of our class to this activity. It's a challenging exercise!</p>
+          <p>Let's begin by forming groups of four people. Feel free to move around the room to reconfigure.
+        </p>
+        <p>After everyone gets settled, we'll do a quick demo of the final product.</p>
+        <div class="activity">
+          <h2>The jQuery Calculator:</h2>
+          <p>Create the JavaScript logic necessary to add functionality to the jQuery Calculator.</p>
+          <p>Your calculator should be able to
+          handle basic mathematical operations like addition, subtraction, multiplication, etc.</p>
+          <p>You should be making use of the existing buttons.</p>
+          <p>You should be making use of the existing placeholders for entering content (i.e. 
+            <code>firstNumber</code>, <code>operator</code>, <code>secondNumber</code>, <code>result</code>).</p>
+            <p>You should have fun and push yourselves! This is a challenge activity—if you don't finish it,
+              no sweat. The important thing is that you learned at least a <span class="italic">few</span>
+              things along the way.</p>
+        </div>
+        <div class="student-activity">
+          <h2>Phase I:</h2>
+          <h3>Pseudocoding and prep time!</h3>
+          <p>For this first 20 minutes, your goals should be to:
+            <ul>
+              <li>Become familiar with the various elements of the HTML page as it is
+          written now. (Identify the classes and IDs that matter!)</li>
+              <li>Create a general strategy for how you will accomplish the tasks:
+                <ul>
+                  <li>How will you capture button clicks?</li>
+                  <li>What will you do with the numbers clicked?</li>
+                  <li>What will you do when the operator is clicked?</li>
+                  <li>How will you differentiate numbers from operators?</li>
+                  <li>How will you differentiate numbers from operators?</li>
+                  <li>How will you know the "value" of a number clicked?
+                    <span class="italic gray">(hint: maybe <code>data</code> attributes?)</span></li>
+                  <li>How will you know when a user is done entering the first number?</li>
+                  <li>Etc.</li>
+                </ul></li>
+          <li>Create a few test "on-click" events. These could just
+          trigger <code>alert</code> messages for now. If you get further along,
+          then have these buttons alert their "value".</li>
+        </div>
+        <div class="student-activity">
+          <h2>Phase II</h2>
+          <h3>Logic time!</h3>
+          <p>Time to start constructing this thing! Begin with variables you think you'll need—suggestions
+            include <code>firstNumber, secondNumber, operator, result</code>.
+          </p>
+          <p>Create code that captures the numbers from button clicks, and then displays them in the DOM.</p>
+          <p>Create code that captures an operator click, then immediately tells your code to begin recording the second number. (Example:
+          If a user clicks the "plus" button, you know they are done typing the first number).</p>
+          <p>Create code that checks which operator the user has clicked, then saves this operator for later use in a conditional statement.
+          (<span class="note">Example:</span> If a user clicks the "plus" button, you know you will need to be adding two numbers. If a user clicks the "minus"
+          button, you will need to be subtracting two numbers. <span class="note">Think:</span> if-else statements!)</p>
+        </div>
+      </section>
+      <div class="page-break">
+        <h1>Break time!</h1>
+      </div>
+      <section>
+        <div class="student-activity">
+          <h2>Phase III</h2>
+          <h3>Continue logic building</h3>
+          <p>Get the functionality you're still missing done. Spend some time assessing what needs
+            to get finished still, and work from there.
+          </p>
+          <p>Feel free to ask for priorities you may need still or how to complete them.</p>
+        </div>
+        <div class="student-activity">
+          <h2>Phase IV</h2>
+          <h3>Refinement</h3>
+          <p>Complete any remaining functionality you may be missing.</p>
+          <p>Handle bugs and edge cases (<span class="note">Example:</span> What if a user tries to type in more numbers
+            after getting the result? Will that mess up the screen?)</p>
+          <p>Create code to "restart" the calculator after a user clicks "clear".</p>
+        </div>
+      </section>
+      <section>
+        <h1>JavaScript Checkpoint</h1>
+        <p>We have another checkpoint; this time, we're testing your JavaScript chops!</p>
+        <p>Remember that this quiz is not graded, does not affect your ability to successfully
+          complete the course, does not affect your grade whatsoever; it's just a metric for us
+        </p>
       </section>
     </article>
   </body>
