@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS, jQuery, and Timers</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=BioRhyme:400,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono:400,800" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href="../css/reset.css" >
+    <link rel='stylesheet' type='text/css' href="../css/theme.css">
+    <link rel='stylesheet' type='text/css' href="../css/styles.css" >
+    <link rel='stylesheet' type='text/css' href="../css/new-styles.css" >
+  </head>
+  <body>
+    <header>
+      <pre id='ascii-title' style='font-size:2.25vw; line-height:0.95em; letter-spacing: -0.15em'>
+    _____   ______             _    ___                                       
+   |_   _|.' ____ \           (_) .'   `.                                     
+     | |  | (___ \_|          __ /  .-.  \  __   _   .---.  _ .--.  _   __    
+ _   | |  \_.____`.          [  || |   | | [  | | | / /__\\[ `/'`\][ \ [  ]   
+| |__' |  | \____) |  _    _  | |\  `-'  \_ | \_/ |,| \__., | |     \ '/ / _   
+`.____.'   \______.' )_/  [ \_| | `.___.\__|'.__.'_/ '.__.'[___]  [\_:  / )_/  
+                           \____/                                  \__.'    
+                       __   _________  _
+                      |  ] |  _   _  |(_)                                    
+ ,--._    _ .--. _.--.| |  |_/ | | \_|__   _ .--..--.  .---.  _ .--.  .--.   
+`.'_\ : [ `.-. |/ /'`\' |      | |   [  | [ `.-. .-. |/ /__\\[ `/'`\]( (`\]  
+/ / | |, | | | || \__/  |     _| |_   | |  | | | | | || \__., | |     `'.'.  
+\_'-;__/[___||__]'.__.;__]   |_____| [___][___||__||__]'.__.'[___]   [\__) ) 
+</pre>
+      <h2 class='date'> June 25th, 2018</h2>
+    </header>
+    <article class='container'>
+      <section id="todo" >
+        <h1>To Do's:</h1>
+        <ul>
+          <li>Administrivia</li>
+          <li>More Review Activities</li>
+          <li>Timers:
+            <ul>
+              <li>Timeouts</li>
+              <li>Intervals</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h1>Administrivia</h1>
+        <p>Welcome to our sixth(!) week of class! Today will consist of some
+          more review activities.</p>
+        <p>Later today, we'll be delving into <span class='note'>&#x23F1; timers &#x23F2;</span>,
+          which are essential for looping and executing code in a set interval
+          or after a specified delay.
+        </p>
+        <h2>Homework Status</h2>
+        <p>If anyone is having trouble with the jQuery assignment due Wednesday,
+          today's office hours will be the last point at which you can ask for help.</p>
+          <p>Please stay after if you're feeling shaky on it.
+        </p>
+      </section>
+      <section>
+        <h1>More Review Activities!</h1>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <h3>Coin Flipper</h3>
+          <p>Let's have a demo of an app that allows users to guess the outcome
+            of a coin flip, then track wins/losses.
+          </p>
+          <p>Let's build it! Check out <code>coin-flip.html</code> and follow the directions in it.</p>
+          <h3>How it works:</h3>
+          <p>The user chooses Heads or Tails, and the computer randomly selects heads or tails and
+            displays the outcome on the screen.
+          The app then displays whether or not the user won or lost.</p>
+          <div class="col">
+            <figure>
+            <p>If heads, use:</p>
+            <img style="border-radius:100%;" src='http://random-ize.com/coin-flip/us-quarter/us-quarter-front.jpg'/>
+              <figcaption><a href="http://random-ize.com/coin-flip/us-quarter/us-quarter-front.jpg">http://random-ize.com/coin-flip/us-quarter/us-quarter-front.jpg</a></figcaption>
+            </figure>
+            <figure>
+            <p>If tails, display:</p>
+              <img style="border-radius:100%;" src='http://random-ize.com/coin-flip/us-quarter/us-quarter-back.jpg' />
+              <figcaption><a href="http://random-ize.com/coin-flip/us-quarter/us-quarter-back.jpg">http://random-ize.com/coin-flip/us-quarter/us-quarter-back.jpg</a></figcaption>
+              </figure>
+          </div>
+          <hr class='line-break'>
+          <p><span class='note'>Bonus:</span></p>
+          <ul>
+            <li>Put your JavaScript in its own file and link to it in the HTML.</li>
+            <li>Keep track of the number of Heads or Tails and display the results on the screen.</li>
+            <li>Add CSS styling.</li>
+        </div>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <h3>This Review</h3>
+          <p>Grab a partner and open up <code>this.html</code>.
+          </p>
+          <p>Answer all the questions together.</p>
+        </div>
+      </section>
+      <section>
+        <h1>Timeouts</h1>
+        <p>What is <code>setTimeout</code>? Some of you may have seen it before.</p>
+        <p>We use <code>setTimeout()</code> with a callback function and a delay, allowing
+        us to execute the callback function after a set amount of milliseconds.</p>
+        <p>After setting a timeout to a variable, we can then use <code>clearTimeout()</code>
+        if we want to stop it before it finishes execution.</p>
+        <p>Please note that these are <span class='bold'>Vanilla JavaScript functions</span>!
+        jQuery is not necessary for this functionality.</p>
+        <pre class="brush: javascript">
+// Usage:
+
+// Set delay in milliseconds, store element to test with
+var delay = 2500;
+var aT = document.querySelector("#ascii-title");
+
+window.setTimeout(function(){
+  aT.textContent = "I waited "+ delay/1000 +" seconds for this!";
+}, delay);
+
+/************* Example with clearTimeout *************/
+
+// Test function
+function explode(){
+  alert("My head asplode!");
+}
+
+window.setTimeout(function(){
+  // Store timeout in a var
+  var explodeTimeout = window.setTimeout(explode, 5000);
+
+  clearTimeout(explodeTimeout); // Clear timeout
+  alert("Explosion averted!");  // Heads did not asplode.
+}, 4000);
+        </pre>
+        <div class="activity">
+          <h2>Instructor demos...</h2>
+          <p>Let's take a look at <code>timeout.html</code> and dissect the code.</p>
+          <hr class='line-break'>
+          <p>Then, let's look at <code>context.html</code> to get a feel for how
+          <code>this</code> works inside of <code>setTimeout</code> callback functions.
+          Remember that within functions, sometimes <code>this</code> is set to refer
+        to the window.</p>
+        </div>
+        <div class='student-activity'>
+          <h2>Student activity!</h2>
+          <p>This activity will allow you to practice writing timeouts. Check out
+            <code>simple-timer.html</code>  in <code>08-SimpleTimer/skeleton</code>.
+          </p>
+          <p>Make a page with a simple timer that sends an alert and plays a sound after
+            15 seconds. <span class='gray'>(Don't worry as much about the sound.)</span>
+          </p>
+          <p>Bring up an alert when 5 seconds have passed, 10 seconds have passed and
+            when the time is up.</p>
+        </div>
+      </section>
+      <div class="page-break">
+        <h1>Break time!</h1>
+      </div>
+      <section>
+        <h1>Intervals</h1>
+        <p><span class='note'>Intervals</span> have the exact same syntax as timeouts.
+        Super convenient!</p>
+        <p>What's the difference between <code>setTimeout()</code> and <code>setInterval()</code>?</p>
+        <button id="start-stop" data-running="0">Start</button>
+        <pre class="brush: javascript">
+// Keep timer, button in global scope
+var timer;
+var btn = document.querySelector("#start-stop");
+var counter = 0;
+
+// Event handler for button
+btn.addEventListener("click", function(e){
+
+  // Use data-running attribute to store state
+  if(btn.getAttribute("data-running") == 0){
+    // Reset previous counter 
+    counter = 0;
+    btn.textContent = "Stop (Started...)";
+
+    // Store interval, run for 1000ms at a time
+    timer = window.setInterval(function(){
+      btn.textContent = "Stop (Running for "+(++counter)+" seconds...)";
+    }, 1000);
+
+    // Change state to "running"
+    btn.setAttribute("data-running", 1);
+  } else {
+    // Clear interval, reset counter, change state to "not running"
+    clearInterval(timer);
+    btn.setAttribute("data-running", 0);
+    btn.textContent = "Start (Ran for " + counter + " seconds.)";
+  }
+});
+</pre>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <h3>Interval dissection</h3>
+          <p>Check out <code>interval-unsolved.html</code> in <code>09-Interval/Unsolved</code>.</p>
+          <p>Partner up and, just like with timeouts, explain to each other what's
+            going on in the file.
+          </p>
+        </div>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <h3>Stopwatch</h3>
+          <p>Let's demo a stopwatch app.</p>
+          <p>You'll be building the same one!</p>
+          <p>Crack open <code>stopwatch.js</code>; you won't have to write
+          or edit any HTML for this activity.</p>
+          <p>Use jQuery and the timing events you learned today to create a stopwatch
+            with Start, Stop and Reset buttons.
+          </p>
+          <p><span class='note'>Bonus: </span>Add a lap timer.</p>
+          <p><span class='note'>Bonus: </span>Use CSS to style the timer.</p>
+          <small><span class='note'>Ultra Bonus: </span>Use only vanilla JavaScript!
+            (<span class='italic'>Not recommended</span> if you're iffy on JS, but a fun challenge.)</small>
+        </div>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <h3>Slideshow</h3>
+          <p>This activity will challenge your new skills.</p>
+          <p>You'll be building a slideshow using jQuery and both timing events!</p>
+          <p>Check out <code>11-Slideshow/slideshow_skeleton</code>, select a few
+            images and make a slideshow.</p>
+          <p>Display the <code>loading.gif</code> image in between every picture
+          for one second.</p>
+          <p><span class='note'>Bonus: </span>add CSS styling.</p>
+        </div>
+      </section>
+    </article>
+  </body>
+  <script type='text/javascript'>
+  // Keep timer, button in global scope
+  var timer;
+  var btn = document.querySelector("#start-stop");
+  var counter = 0;
+
+  // Event handler for button
+  btn.addEventListener("click", function (e) {
+
+    // Use data-running attribute to store state
+    if (btn.getAttribute("data-running") == 0) {
+      // Reset previous counter 
+      counter = 0;
+      btn.textContent = "Stop (Started...)";
+      // Store interval, run for 1000ms at a time
+      timer = window.setInterval(function () {
+        btn.textContent = "Stop (Running for " + (++counter) + " seconds...)";
+      }, 1000);
+
+      // Change state to "running"
+      btn.setAttribute("data-running", 1);
+    } else {
+      // Clear interval, reset counter, change state to "not running"
+      clearInterval(timer);
+      btn.setAttribute("data-running", 0);
+      btn.textContent = "Start (Ran for " + counter + " seconds.)";
+    }
+  });
+  </script>
+  <!-- Script to make <pre> tags pretty -->
+  <script type='text/javascript' src="../js/syntaxhighlighter.js"></script>
+  <script type='text/javascript' src="https://code.jquery.com/jquery.js"></script>
+</html>

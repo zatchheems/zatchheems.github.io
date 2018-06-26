@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Progress Bar Test</title>
+  <link rel='stylesheet' href="../css/reset.css">
+  <style>
+    :root {
+      --bg: #252525;
+      --shadow: #151515;
+      --healthy: forestgreen;
+      --scratched: chartreuse;
+      --damaged: yellow;
+      --warning: orange;
+      --critical: orangered;
+      --ko: darkred;
+      --mana: cornflowerblue;
+
+      --transition-time: 1.5s;
+    }
+    body {
+      background-color: var(--bg);
+      color: cornsilk;
+      font-family: Rockwell, Helvetica, Arial, sans-serif;
+      font-size:2em;
+      padding:25px;
+    }
+
+    div {
+      margin:5px 0px;
+    }
+
+    h1 {
+      margin:10px 0px;
+      font-size:2.5em;
+    }
+    
+    h2 {
+      margin:10px 0px;
+      font-size:1.75em;
+    }
+    
+    .content, .btn-container {
+      padding:25px;
+      background-color: var(--shadow);
+      border-radius:10px;
+      margin: 5px 0;
+    }
+
+    .btn-container {
+      width:500px;
+    }
+
+    #health-meter, #mana-meter {
+      height: 8px;
+      border-radius: 3px;
+      transition: all var(--transition-time) ease 0s;
+      margin:3px;
+      box-shadow: black 0 2px 2px;
+    }
+    
+    #mana-meter {
+      background-color:cornflowerblue!important;
+    }
+
+    .btn {
+      color:blanchedalmond;
+      box-shadow: black 0 2px 2px;
+      text-shadow: black 0 2px 0px;
+      padding:10px 15px;
+      border:0;
+      border-radius:5px;
+      font-size:0.75em;
+      font-family: Rockwell, "Cooper Black";
+      cursor:pointer;
+    }
+
+    .mana-btn {
+      background-color: var(--mana);
+    }
+
+    .healthy, .healthy-btn {
+      background-color: var(--healthy);
+    }
+
+    .healthy, .full {
+      width: 100%;
+    }
+
+    .scratched, .scratched-btn {
+      background-color: var(--scratched);
+    }
+
+    .scratched, .eighty {
+      width: 80%;
+    }
+
+    .damaged, .damaged-btn {
+      background-color: var(--damaged);
+    }
+
+    .damaged, .sixty {
+      width: 60%;
+    }
+
+    .warning, .warning-btn {
+      background-color: var(--warning);
+    }
+
+    .warning, .forty {
+      width: 40%;
+    }
+
+    .critical, .critical-btn {
+      background-color: var(--critical);
+    }
+
+    .critical, .twenty {
+      width: 20%;
+    }
+
+    .ko, .ko-btn {
+      background-color: var(--ko);
+    }
+
+    .ko, .oom {
+      width: 1%;
+    }
+    
+  </style>
+</head>
+<body>
+  <h1>Vanilla JS Progress Bars</h1>
+  <h2>Health and Mana Meters Example</h2>
+  <div class="btn-container">
+    <div id="health-meter" class="healthy"></div>
+    <div id="mana-meter" class="healthy"></div>
+  </div>
+  <div class="content">
+    <div>
+      <button class='btn ko-btn' data-health="ko">KO</button>
+      <button class='btn critical-btn' data-health="critical">Critical</button>
+      <button class='btn warning-btn' data-health="warning">Warning</button>
+      <button class='btn damaged-btn' data-health="damaged">Damaged</button>
+      <button class='btn scratched-btn' data-health="scratched">Scratched</button>
+      <button class='btn healthy-btn' data-health="healthy">Healthy</button>
+    <div>
+      <div>
+        <button class='btn mana-oom-btn mana-btn' data-mana='oom'>OoM</button>
+        <button class='btn mana-twenty-btn mana-btn' data-mana='twenty'>20%</button>
+        <button class='btn mana-forty-btn mana-btn' data-mana='forty'>40%</button>
+        <button class='btn mana-sixty-btn mana-btn' data-mana='sixty'>60%</button>
+        <button class='btn mana-eighty-btn mana-btn' data-mana='eighty'>80%</button>
+        <button class='btn mana-full-btn mana-btn' data-mana='full'>100%</button>
+      <div>
+  </div>
+</body>
+<script>
+  // Store meter elements
+  var hm = document.getElementById("health-meter");
+  var mm = document.getElementById("mana-meter");
+
+  var healthBtns = [
+    document.querySelector(".healthy-btn"),
+    document.querySelector(".scratched-btn"),
+    document.querySelector(".damaged-btn"),
+    document.querySelector(".warning-btn"),
+    document.querySelector(".critical-btn"),
+    document.querySelector(".ko-btn")
+  ];
+
+  var manaBtns = [
+    document.querySelector(".mana-oom-btn"),
+    document.querySelector(".mana-twenty-btn"),
+    document.querySelector(".mana-forty-btn"),
+    document.querySelector(".mana-sixty-btn"),
+    document.querySelector(".mana-eighty-btn"),
+    document.querySelector(".mana-full-btn")
+  ];
+
+  // Add event listeners to health meter buttons
+  healthBtns.forEach(function(elem){
+    elem.addEventListener("click", function(e){
+      hm.className = "";                                 // Clear all other classes
+      hm.classList.add(this.getAttribute("data-health"));// Add new class
+    });
+  });
+
+  // Add event listeners to mana meter buttons
+  manaBtns.forEach(function(elem){
+    elem.addEventListener("click", function(e){
+      mm.className = "";                                 // Clear all other classes
+      mm.classList.add(this.getAttribute("data-mana"));// Add new class
+    });
+  });
+</script>
+</html>
