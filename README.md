@@ -21,3 +21,8 @@
 * [jQuery Begins](./04-jquery/html/jquery-begins.html)
 * [jQuery Jubilee](./04-jquery/html/jquery-jubilee.html)
 * [jQuery Practice](./04-jquery/html/jquery-practice.html)
+
+### Unit 5: Timers
+* [jQuery Practice](./05-timers/html/review.html)
+* [JS, jQuery, and Timers](./05-timers/html/js-timers.html)
+
