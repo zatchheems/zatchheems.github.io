@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Interview Blitz!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=BioRhyme:400,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono:400,800" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href="../css/reset.css" >
+    <link rel='stylesheet' type='text/css' href="../css/theme.css">
+    <link rel='stylesheet' type='text/css' href="../css/styles.css" >
+    <link rel='stylesheet' type='text/css' href="../css/new-styles.css" >
+  </head>
+  <body>
+    <header>
+      <pre id='ascii-title' style='font-size:4.25vw; line-height:0.95em; letter-spacing: 0.0em'>
+╦ ┌┐┌ ┌┬┐ ┌─┐ ┬─┐ ┬  ┬ ┬ ┌─┐ ┬ ┬
+║ │││  │  ├┤  ├┬┘ └┐┌┘ │ ├┤  │││
+╩ ┘└┘  ┴  └─┘ ┴└─  └┘  ┴ └─┘ └┴┘
+╔╗  ┬   ┬ ┌┬┐ ┌─┐ ┬
+╠╩╗ │   │  │  ┌─┘ │
+╚═╝ ┴─┘ ┴  ┴  └─┘ o
+</pre>
+      <h2 class='date'> June 27th, 2018</h2>
+    </header>
+    <article class='container'>
+      <section id="todo" >
+        <h1>To Do's:</h1>
+        <ul>
+          <li>Administrivia</li>
+          <li>The Importance of Visualization</li>
+          <li>Sample Interview Questions</li>
+          <li>Algorithms, In Brief</li>
+          <li>JS/jQuery Checkpoint</li>
+        </ul>
+      </section>
+      <section>
+        <h1>Administrivia</h1>
+        <p>Any questions or anything unclear from our last class?</p>
+        <h2>Homework</h2>
+        <p>Let's talk about and demo your next assignment: a JavaScript trivia app
+          that uses timing functions.</p>
+        <h2>Today's class</h2>
+        <p>We've been following a different format from our usual lessons the last few days;
+        today is going to be a completely different format before we move on to our next unit.</p>
+        <p>Today, you'll be working on activities based on the kinds of questions you may encounter
+          in job interview for developer positions.</p>
+      </section>
+      <section>
+        <h1></h1>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <h3>Practice Visualizing Problems</h3>
+          <p>Find a partner you don't usually work with and answer this question:</p>
+          <blockquote>In U.S. supermarkets, what is the highest selling product?</blockquote>
+          <p>You can't just come up with a random item&mdash;you will likely be flat-out wrong.
+            No Googling, either! Instead, imagine that a potential job is at stake. This may seem
+            silly, but visualizing problems is key to answering more of these types of questions.</p>
+          <p>Try visualizing yourself walking past the doors to get into a supermarket: if you
+            were making a weekly trip, which item near the entrance would you gravitate toward?
+            Remember that the produce section is often the first thing you'll see in a supermarket.</p>
+        </div>
+        <div class="activity">
+          <h2>Class activity</h2>
+          <p>Let's pool our answers together in the same document.</p>
+          <p>First, let's get answers from five pairs and list them on screen. How did
+          you get your solution?</p>
+          <p>Think about the cheapest thing in the produce section, and the easiest thing to eat.</p>
+          <p>This is the thought process your interviewer will likely care the most about.
+            Even if you didn't answer correctly, it's more important that you <span class="bold">visualized</span>
+            the problem and responded with something close or at least informed.</p>
+        </div>
+        <hr class="line-break">
+        <h2>Why are we talking about <span class="italic">bananas?</span></h2>
+        <p>Job candidates in all fields often encounter <span class="note">conceptual problems</span>,
+          questions with no certain means to find answers. Your only recourse is to think high-level and
+          visualize a solution. If you conceive the situation, you'll tend to find a close answer.
+          You must visualize the problem, provide your solution and explain your thought process
+          if you want to impress your interviewers.</p>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <p>Solve this next problem with the same partner from the last activity:</p>
+          <p>I give you an array of 51 cards. Each card contains two properties: the suit,
+            and the title (a string of either a number or a ranking: king, ace, so on).</p>
+          <p>Fifty-two cards form a deck, but I gave you 51. One is missing! How do you find it?</p>
+          <p>Try to come up with the most efficient steps to solve this.</p>
+          <p><span class="note">Hint:</span> Using a for loop against an array of values is not
+            the most efficient solution&mdash;what if the cards aren't sorted?</p>
+          <p>Visualize this problem and try to think up a solution in steps; write those steps out.
+            You can even write a JavaScript solution if you have enough time.</p>
+        </div>
+        <hr class="line-break">
+        <h2>Solution Process</h2>
+        <p>Let's go over a few of your pseudocoded solutions.</p>
+        <p>What was your thought process like?</p>
+        <hr class="line-break">
+        <p>We won't be discussing an actual solution to this problem&mdash;this activity
+          is about spurring you to problem solve. That's more important than coming up
+          with a real answer.</p>
+        <p>This is another type of interview question that you should anticipate.
+          The interviewer won't even care about finding a "real" solution&mdash;maybe there isn't one!
+          They just want to measure your aptitude for thinking about the problems you'll encounter
+          during work:</p>
+        <ul>
+          <li>Will you consider the whole issue before trying to find a solution,
+            or will you rush into the problem and come up with a flimsy response?</li>
+          <li>If you encounter a major snag on one path to a possible solution, will you: give up,
+            stay on the same doubtful train of thought, or think about what other possible
+            answers might exist?</li>
+        </ul>
+        <p>This is why it's important to nail down visualization to conceptualize your problems.</p>
+        <h2>The Interview Process</h2>
+        <p>Let's get right down to the process itself.</p>
+        <p>What's the actual process like? How many rounds of interviews are there?
+          Will they be behavioral? Technical?</p>
+        <p>We'll share some relevant experiences and advice, and maybe a couple of things
+          that are vital to know beforehand.</p>
+        <p>After talking about the process, the rest of the class will be devoted to exercises based on
+          the kind of questions you might expect in a technical interview.</p>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <h3>FizzBuzz</h3>
+          <p>FizzBuzz is a classic programming activity; it's commonly used to test
+            basic knowledge in almost any programming language, whether that's JavaScript,
+            Java, C, Python, PHP, etc. We'll be (obviously) doing this one in JS.</p>
+          <p>For this activity, you must write a script that cycles through a series of
+            numbers and prints them out. In this case, we'll be looping from 1 to 100, outputting the numbers
+            to the console. There are a few caveats:</p>
+          <ul>
+            <li>If the number is a multiple of three, the program will print <span class="bold class">Fizz</span> instead of the number.</li>
+            <li>Likewise, if the number is a multiple of five, the program will print <span class="bold id">Buzz</span>.</li>
+            <li>If a number is a multiple of both three and five, then the script will spit out <span class="bold class">Fizz</span><span class="bold id">Buzz</span>.</li>
+          </ul>
+          <p>Be sure to pseudocode it out, first: don't start coding until you've thought
+            about how to accomplish this task at a high-level. It might seem unnecessary for this activity,
+            but interviewers will expect you to think your problems out at a high level before coding a solution.</p>
+        </div>
+        <hr class="line-break">
+        <h2>Going over FizzBuzz</h2>
+        <p>Let's get someone's solution via Slack. We'll run it and test it out, and debug it
+          if there are any issues.</p>
+        <p>Didn't do it the same way? Let's try someone else's solution and see how it differs.
+          Chances are, solutions will vary&mdash;remember that there can be hundreds of ways
+          to answer a problem.</p>
+        <p>Still, be mindful of how you tackle a problem, though&mdash;if your potential code
+          lacks elegance or repeats itself when <abbr title="Don't Repeat Yourself" class="note">DRY</abbr>
+          is possible, you might want to think a bit longer to come up with another solution.</p>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <h3>Prime Checker</h3>
+          <p>This assignment will be much more challenging than the last two. Spend at least five minutes
+          away from any code to pseudocode your work.</p>
+          <p>Write a function that checks to see if a number is a prime number or not.
+            Have it return <code class='value'>true</code> if it is, or <code class="id">false</code> if it's not.
+          <p>Feel free to Google what constitutes prime numbers. (That's not really the focus of the activity.)</p>
+        </div>
+        <hr class="line-break">
+        <h2>Going Over Prime Checker</h2>
+        <p>Let's get someone's pseudocoding process for this exercise. How long did you spend on pseudocode?
+          What properties of the prime number did you base your code around?</p>
+        <p>Let's get someone else's code, line by line, and break it down live.</p>
+      </section>
+      <div class="page-break">
+        <h1>Break time!</h1>
+      </div>
+      <section>
+        <h1>Welcome Back!</h1>
+        <p>How are we feeling about the activities thus far? Any more questions about the
+          interview process? Types of questions asked? General comments are cool too.</p>
+      </section>
+      <section>
+        <h1>Algorithms, In Brief</h1>
+        <p>The final activity we'll be doing in class is a common demo of a classic (infamous!)
+          computer algorithm: <span class='bold id'>bubble sort</span>.</p>
+        <p>But first, what is a computer algorithm?</p>
+        <p>Easy! It's just a set of steps for a computer to solve a particular problem. They are usually written with both
+          temporal and spatial efficiency in mind, but some (like bubble sort) are not really interested in that,
+          and seek to solve problems quick 'n' dirty.</p>
+        <h2>So, how does an algorithm differ from a program?</h2>
+        <p>While some programs comprise a series of steps, a developer must code them out in a particular language.
+          Algorithms are more high level&mdash;developers can apply the steps of an algorithm to
+          different programs in order to solve various problems, like sorting and searching through data.</p>
+        <p>Bubble sort in particular is an inefficient, slow algorithm for sorting data: it's fine for small
+          amounts of data. You will probably say "Oh, this is fine! It's pretty quick." However,
+          its <span class="note">runtime complexity</span> is abysmal: toss
+          thousands of elements at it to sort and its slowness starts to show.</p>
+        <p>Nevertheless, it's important to know how this algorithm works&mdash;otherwise, how would you avoid it?
+          That's why your last interview activity will be to make a program that uses this algorithm.</p>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <h3>Bubble Sort</h3>
+          <p>Check out <code>12-bubble_sort</code>. Make sure you spend at least 10min visualizing your
+            solution before you code anything. An algorithm is intrinsically high-level, being that it
+            can be written in virtually any language; if you don't know how it works, you won't be able
+            to solve the problem.</p>
+          <hr>
+          <p class="italic">No looking at coded-out solutions!</p>
+          <p>You're only cheating yourself if you don't get a chance to really work on this.</p>
+          <p>The instructions are in the <code>app.js</code> file; the basic overview is to sort a given array
+            of numbers in order using bubble sort, and display the array when the
+            user clicks the given button in the <code>index.html</code>.</p>
+          <p class="note">No jQuery for this assignment! Only vanilla JS is allowed.</p>
+        </div>
+        <hr class="line-break">
+        <h2>Going Over Bubble Sort</h2>
+      </section>
+      <section>
+        <h1>JS/jQuery Checkpoint</h1>
+        <p class="note">Checkpoint time!</p>
+        <p>Yes, it's that time again: take the multiple-choice
+          quiz and answer as best as you can. Remember that this is not graded, doesn't affect your ability
+          to complete the course, and is just a way to gauge how you're doing with the material.</p>
+      </section>
+    </article>
+  </body>
+  <!-- Script to make <pre> tags pretty -->
+  <script type='text/javascript' src="../js/syntaxhighlighter.js"></script>
+  <script type='text/javascript' src="https://code.jquery.com/jquery.js"></script>
+</html>
