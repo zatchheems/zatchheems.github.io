@@ -233,3 +233,13 @@ hr {
   font-weight: 800;
   color: var(--gray);
 }
+
+.redacted::after {
+  content: "[REDACTED]";
+  font-family:PT Mono, Monaco, 'Courier New', Courier, monospace;
+  color:white!important;
+  background-color:black!important;
+  border-radius:1x;
+  padding:4px;
+  font-size:0.8em;
+}
