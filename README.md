@@ -25,4 +25,8 @@
 ### Unit 5: Timers
 * [jQuery Practice](./05-timers/html/review.html)
 * [JS, jQuery, and Timers](./05-timers/html/js-timers.html)
+* [Interview Blitz](./05-timers/html/interview-blitz.html)
+
+### Unit 6: APIs and AJAX
+* [Intro To APIs and AJAX](./06-ajax/html/api-ajax-intro.html)
 
