@@ -14,7 +14,7 @@
   </head>
   <body>
     <header>
-      <pre id='ascii-title' style='font-size:4.25vw; line-height:0.95em; letter-spacing: 0.0em'>
+      <pre id='ascii-title' style='font-size:1.75vw; line-height:0.95em; letter-spacing: 0.0em'>
       .o.       ooooooooo.   ooooo                                           .o8       
      .888.      `888   `Y88. `888'                                          "888       
     .8"888.      888   .d88'  888   .oooo.o       .oooo.   ooo. .oo.    .oooo888       
@@ -32,21 +32,176 @@ o88o     o8888o o888o        o888o 8""888P'      `Y888""8o o888o o888o `Y8bod88P
   .88ooo8888.       888   .88ooo8888.      .8PY888.                                    
  .8'     `888.      888  .8'     `888.    d8'  `888b                                   
 o88o     o8888o .o. 88P o88o     o8888o o888o  o88888o                                 
-                `Y888P   
-</pre>
+                `Y888P</pre>
       <h2 class='date'> June 30th, 2018</h2>
     </header>
     <article class='container'>
       <section id="todo" >
         <h1>To Do's:</h1>
         <ul>
-          <li>Administrivia</li>
-          <li></li>
+          <li>Object Practice</li>
+          <li>API Overview</li>
+          <li>AJAX</li>
         </ul>
       </section>
       <section>
-        <h1>Administrivia</h1>
-        <p>A saturday class for a new unit!</p>
+        <h1>Parsing Objects</h1>
+        <p>A saturday class for a new unit! Exciting stuff.</p>
+        <p>Today, we'll be starting with a warm-up activity.</p>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <p>We'll be beginning today with an activity to practice using JS objects. Open up
+             <code>1-customer-object.html</code> in <code>01-CustomerObject</code>.
+          </p>
+          <p>Using the instructions shown in the comments, write <code>console.log</code> statements
+            that parse out the requested information.</p>
+        </div>
+        <hr class="line-break">
+        <h2>JSON</h2>
+        <p>What is <span class="note">JSON</span>? Using JavaScript Object Notation, or
+          <abbr title='JavaScript Object Notation'>JSON</abbr>, is a convenient way to package data in
+          a format that is easy to read and parse, even between different languages, servers, etc.
+          We will be using a ton of JSON to get data from here on out.</p>
+          <div class="activity">
+            <h2>Instructor demo...</h2>
+            <p>Let's take a look at a site that scrapes data from an API, and what that looks like.</p>
+            <p>We'll be going to
+              <a href="http://nyt-mongo-scraper.herokuapp.com/" target="_blank">http://nyt-mongo-scraper.herokuapp.com/</a> to see how
+            it functions. Check out this site to get a feel for how it functions. Pay attention to the buttons that
+            retrive new articles and load them onto the page in real time.</p>
+            <p>Next. let's check out
+              <a href="http://nyt-mongo-scraper.herokuapp.com/api/headlines" target="_blank">http://nyt-mongo-scraper.herokuapp.com/api/headlines</a>.
+              When we do this, we'll be taking a look under the hoot at the application as it stores
+              each headline as an entry in a JavaScript Object. Just like with the CustomerObject
+            example, this object holds a mix of various data types to store information such as the article's id, headline,
+            summary, date, and whether it is saved or not.
+            </p>
+          </div>
+          <p>This method of storing data as JavaScript objects is a common practice; you will see this
+            again and again. Feel free to take another look at the app and ask any questions you may have.
+          </p>
+          <p>Otherwise... it's activity time!</p>
+          <div class="student-activity">
+            <h2>Student activity!</h2>
+            <p>For the next few moments, research amongst yourselves the answers to the following questions:</p>
+            <ol>
+              <li>What is an API?</li>
+              <li>What does API stand for?</li>
+              <li>What are some examples of APIs? (Find links to specific APIs)</li>
+              <li>What do these specific APIs allow you as a developer to do?</li>
+            </ol>
+          </div>
+          <hr class="line-break">
+          <h2>API Overview</h2>
+          <p>Let's get some answers to the above questions. What did you find?</p>
+          <hr class="line-break">
+          <h2>What is an <span class='italic'>API?</span></h2>
+          <p>API stands for Application Programming Interface. They provide a way for creating user code
+            that utilizes other pre-built code to do various tasks. It can be used to quickly retrieve
+            data from another person's database, to utilize someone elses more complex functionality (like maps),
+              or to control other hardware and software.</p>
+          <p>What are some examples?</p>
+          <p>APIs commonly use JSON to return our data to us in a nice, neat package. It's a great format that
+            even many non-JavaScript languages&mdash;e.g. PHP, Python and Ruby&mdash;support.
+          </p>
+          <div class="activity">
+            <h2>Instructor demo...</h2>
+            <p>Let's take a look at <a href="https://market.mashape.com/ismaelc/yoda-speak" target="_blank">https://market.mashape.com/ismaelc/yoda-speak</a>.
+             The Yoda API takes a string sentence and then outputs a revised sentence.</p>
+            <p>Then, let's check out this URL: <a href="http://www.faceplusplus.com/demo-detect/" target="_blank">http://www.faceplusplus.com/demo-detect/</a>).
+            Let's grab a photo of someone in the class who wears glasses via LinkedIn or something and paste
+            the image URL into the application. The response JSON is intended to analyze "sentiment"
+            based on the image. Values closer to 100 indicate greater likelihood.</p>
+          </div>
+          <div class="student-activity">
+            <h2>Student activity!</h2>
+            <h3>API Experimentation</h3>
+            <p>Using the <a href="https://market.mashape.com/explore" target="_blank">Mashape API library</a> as a starting point experiment with a few APIs of your
+            own.</p>
+            <p><span class="note">Note:</span> You will need to create an account on Mashape first.</p>
+            <p><span class="note">Note:</span> Not all of the APIs are easy to use, just keep experimenting!</p>
+          </div>
+          <div class="activity">
+            <h2>Instructor demo...</h2>
+            <p>So if all this data exists in the world and we have JSON being created, how do we access
+            the data?</p>
+            <p>Let's take a look at the <a href="http://www.omdbapi.com/">OMDb API</a>. 
+              This API provides a database of information on nearly every movie in existence.
+             As we scroll through the basic documentation, we'll notice that in this API, we "build" URLs
+            that point to JSON objects associated with various movies. The parameters allow us to filter results.</p>
+           <p>Unfortunately, the OMDb API is no longer a free API and requires an API key.
+             Fortunately, we have a key! All we have to do is tack on the key to the URL like so:
+             <a href="http://www.omdbapi.com/?t=Space+Jam&apikey=trilogy">http://www.omdbapi.com/?t=Space+Jam&apikey=trilogy</a></p>
+          </div>
+          <div class="student-activity">
+            <h2>Student activity!</h2>
+            <p>In pairs, take a look at the OMDb API yourself.</p>
+            <p>Without using the UI, how would I get the information for any specific movie?</p>
+            <p></p>
+          </div>
+      </section>
+      <div class="page-break">
+        <h1>Break Time!</h1>
+      </div>
+      <section>
+        <h1>Using JavaScript With APIs</h1>
+        <div class="activity">
+          <h2>Instructor Demo</h2>
+          <h3>OMDb API Without The Browser</h3>
+          <p>So, how do we get the data we want without using our browser whatsoever?</p>
+          <p>Let's do it with our favorite language and via its simpler framework.</p>
+        </div>
+        <h2>Using AJAX Calls</h2>
+        <pre class="brush: javascript">
+// The jQuery Way:
+$.ajax({
+  url: "example.url/", // What do we want to get?
+  method: "GET" // or "POST", "PUT", "DELETE"...
+}).then(response => {
+  // Do something with our data if everything went well!
+}).;
+
+// The ES6 way:
+fetch("example.url/", {
+  method: "GET",
+}).then(response => {
+  // do a thing with our data
+}).catch(error => console.log);
+/* We catch errors in case our fetch doesn't work
+   and our promise is broken.*/
+
+        </pre>
+        <h2>What Even <span class="italic">Is</span> AJAX?</h2>
+        <p>Why do we need the <code>.then</code> function? This is known in ES6 as a promise.
+        Why do we want to promise stuff? What does AJAX even stand for?</p>
+        <p>To answer these questions, we have to discuss JavaScript's ability to run things
+          asynchronously. We've already seen some asynchronous behavior with timeouts and intervals.
+        </p>
+        <p>Finally, <abbr title="Asynchronous JavaScript And XML">AJAX</abbr> stands for
+          <span class="note">Asynchronous JavaScript And XML</span>. Any questions on this?</p>
+        <div class="activity">
+          <h2>Student activity!</h2>
+          <p>Check out <code>3-ajax-to-html.html</code> in <code>03-AJAX_to_HTML</code>.
+          Use this file as a starting point to fill in the table.</p>
+          <p>This is your turn to play with AJAX! Using the example AJAX code given to you,
+            create an AJAX call to the OMDb API of your own. Then, try
+          logging any property about the movie to your console.</p>
+          <p><span class="note">Hint</span> you will need multiple AJAX Calls.</p>
+          <p><span class="note">Bonus</span> once you've completed the basic activity,
+            refactor your solution to be more <abbr title="Don't Repeat Yourself">DRY</abbr>
+            by placing repetitive logic inside of functions to be called when needed.</p>
+        </div>
+        <div class="activity">
+          <h2>Student activity!</h2>
+          <p>As partners, using the Giphy API Documentation
+            <a href="https://developers.giphy.com/docs/">(https://developers.giphy.com/docs/)</a>,
+              try to research answers to the following questions:</p>
+            <ul>
+              <li>How would you return back a single gif tied to a search term?</li>
+              <li>How would you return five gifs tied to a search term?</li>
+              <li>How would you return the trending gifs back from this API?</li>
+            </ul></p>
+        </div>
       </section>
     </article>
   </body>

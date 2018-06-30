@@ -1,12 +1,12 @@
 /* declare a few CSS variables */
 :root {
-  --main-color:aquamarine;
-  --alt-color: firebrick;
-  --accent: aqua;
-  --alt-accent: darkgoldenrod;
-  --bright-accent: gold;
-  --mid-accent: goldenrod;
-  --dark-accent: orangered;
+  --main-color:turquoise;
+  --alt-color: coral;
+  --accent: lightseagreen;
+  --alt-accent: seagreen;
+  --bright-accent: darkseagreen;
+  --mid-accent: rosybrown;
+  --dark-accent: rebeccapurple;
   --gray:slategray;
   --light-gray:rgb(210, 210, 210);
 }
