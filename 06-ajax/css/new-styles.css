@@ -12,7 +12,7 @@
 }
 
 body {
-  font-family: 'Roboto Slab', Rockwell, serif;
+  font-family: Rockwell, 'Roboto Slab', serif;
 }
 
 h1, h2, h3 {
@@ -59,6 +59,7 @@ body {
 }
 
 a {
+  outline:0;
   color:var(--mid-accent);
 }
 
@@ -235,11 +236,17 @@ hr {
 }
 
 .redacted::after {
-  content: "[REDACTED]";
-  font-family:PT Mono, Monaco, 'Courier New', Courier, monospace;
+  content: "Redacted!";
+  font-family:Georgia, Cambria, Cochin, Times, 'Times New Roman', serif;
+  font-style:italic;
+  font-variant: small-caps;
   color:white!important;
   background-color:black!important;
-  border-radius:1x;
-  padding:4px;
+  border-radius:10px;
+  border:dashed 10px white;
+  border-style: double;
+  padding:5px;
   font-size:0.8em;
+  transform: rotate(-3deg);
+  display:inline-block;
 }
