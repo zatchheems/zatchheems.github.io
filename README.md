@@ -29,4 +29,5 @@
 
 ### Unit 6: APIs and AJAX
 * [Intro To APIs and AJAX](./06-ajax/html/api-ajax-intro.html)
+* [Advanced AJAX](./06-ajax/html/advanced-ajax.html)
 
