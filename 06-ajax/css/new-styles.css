@@ -237,7 +237,7 @@ hr {
 
 .redacted::after {
   content: "Redacted!";
-  font-family:Futura, Georgia, Cambria, Cochin, Times, 'Times New Roman', serif;
+  font-family:Futura, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-style:italic;
   font-variant: small-caps;
   color:white!important;
@@ -250,4 +250,8 @@ hr {
   transform: rotate(-3deg);
   display:inline-block;
   box-shadow:0 1px 1px rgba(50,50,50,0.5);
+}
+
+.redacted:nth-child(odd)::after {
+  transform: rotate(2deg);
 }
