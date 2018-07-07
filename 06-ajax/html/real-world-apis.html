@@ -14,28 +14,41 @@
   </head>
   <body>
     <header>
-      <pre id='ascii-title' style='font-size:1.6vw; line-height:0.95em; letter-spacing: -0.125em;'>
-.______       _______     ___       __         ____    __    ____  ______   .______       __       _______  
-|   _  \     |   ____|   /   \     |  |        \   \  /  \  /   / /  __  \  |   _  \     |  |     |       \ 
-|  |_)  |    |  |__     /  ^  \    |  |         \   \/    \/   / |  |  |  | |  |_)  |    |  |     |  .--.  |
-|      /     |   __|   /  /_\  \   |  |          \            /  |  |  |  | |      /     |  |     |  |  |  |
-|  |\  \----.|  |____ /  _____  \  |  `----.      \    /\    /   |  `--'  | |  |\  \----.|  `----.|  '--'  |
-| _| `._____||_______/__/     \__\ |_______|       \__/  \__/     \______/  | _| `._____||_______||_______/ 
-                                                                                                            
-     ___      .______    __       _______.                   ___            __       ___      ___   ___     
-    /   \     |   _  \  |  |     /       |     ___          /   \          |  |     /   \     \  \ /  /     
-   /  ^  \    |  |_)  | |  |    |   (----`    ( _ )        /  ^  \         |  |    /  ^  \     \  V  /      
-  /  /_\  \   |   ___/  |  |     \   \        / _ \/\     /  /_\  \  .--.  |  |   /  /_\  \     >   &lt;       
- /  _____  \  |  |      |  | .----)   |      | (_>  <    /  _____  \ |  `--'  |  /  _____  \   /  .  \      
-/__/     \__\ | _|      |__| |_______/        \___/\/   /__/     \__\ \______/  /__/     \__\ /__/ \__\</pre>
-    <h2 class='date'> July 7th, 2018</h2>
+      <pre id='ascii-title' style='font-size:2vw; line-height:0.45em; letter-spacing: -0.25em;'>
+
+
+
+ *******                      **       **       **                  **      **                                
+/**////**                    /**      /**      /**                 /**     /**                                
+/**   /**   *****   ******   /**      /**   *  /**  ******  ****** /**     /**                                
+/*******   **///** //////**  /**      /**  *** /** **////**//**//* /**  ******                                
+/**///**  /*******  *******  /**      /** **/**/**/**   /** /** /  /** **///**                                
+/**  //** /**////  **////**  /**      /**** //****/**   /** /**    /**/**  /**                                
+/**   //**//******//******** ***      /**/   ///**//****** /***    ***//******                                
+//     //  //////  //////// ///       //       //  //////  ///    ///  //////
+
+
+
+
+     **     *******  **                                       **           **          **     **     **     **
+    ****   /**////**/**                                      /**          ****        /**    ****   //**   ** 
+   **//**  /**   /**/**  ******        ******   *******      /**         **//**       /**   **//**   //** **  
+  **  //** /******* /** **////        //////** //**///**  ******        **  //**      /**  **  //**   //***   
+ **********/**////  /**//*****         *******  /**  /** **///**       **********     /** **********   **/**  
+/**//////**/**      /** /////**       **////**  /**  /**/**  /**      /**//////** **  /**/**//////**  ** //** 
+/**     /**/**      /** ******       //******** ***  /**//******      /**     /**//***** /**     /** **   //**
+//      // //       // //////         //////// ///   //  //////       //      //  /////  //      // //     // 
+
+
+
+</pre><h2 class='date'> July 7th, 2018</h2>
     </header>
     <article class='container'>
       <section id="todo" >
         <h1>To Do's:</h1>
         <ul>
           <li>Administrivia</li>
-          <li>Warm-up Activity</li>
+          <li>Warm-up Activities</li>
         </ul>
       </section>
       <section>
@@ -44,19 +57,22 @@
           of full-stack knowledge in an incredibly short amount of time. The majority of the
           front-end technologies used in this course have been completed&mdash;the rest of our
           curriculum focuses mainly on data retrieval/storage as well as several different technologies
-          used on JavaScript-based web servers <span class="gray">(e.g. Node.js, Express, Handlebars, etc.)</span>.
+          based on JavaScript <span class="gray">(e.g. Node.js, ExpressJS, React, Handlebars, etc.)</span>.
+          Later on, we'll go into storing data; right now, we're focusing on getting what we want and 
+          making something useful or cool with it!
+          </span>.
         </p>
         <h2 class="txt-center">Feeling <span class="burnt">burnt-out?</span></h2>
-        <p class="txt-center"><span class="bold">That's okay!</span></p>
+        <h1 class="txt-center bold">That's okay!</h1>
         <p>The amount of material you've
           absorbed and put to real, practical use is astonishing. Today's class will allow you to
           continue putting your knowledge of JS/AJAX to practical use using useful real-world APIs.
-          Much like last time, this class will consist mainly of one large activity and a few smaller
+          Much like last time, this class will consist mainly of one large activity and a handful of smaller
           ones.
         </p>
         <h2>Questions, Comments, Concerns?</h2>
         <p>Feel free to ask away! We can use a little bit of time to review anything you're
-          not sure of. Otherwise, we have a quick example the you'll be building that uses the New York Times' API
+          not sure of. Otherwise, we have a quick example that you'll be building that uses the New York Times' API
           <a href="https://nytarticle-search-fsf.herokuapp.com/" title="NYT Article Search" target="_blank">
            (https://nytarticle-search-fsf.herokuapp.com/)</a>. Let's search for an article or two.
         </p>
@@ -65,14 +81,83 @@
         </p>
       </section>
       <section>
-        <h1>Warm-up Activity</h1>
+        <h1>Warm-up Activities</h1>
         <div class="student-activity">
           <h2>Student activity!</h2>
+          <h3>Ajax Triggered by Buttons</h3>
           <p>Open up <code>01-cat-button-students.html</code> in <code>12-CatButton</code>, check it out
           in your browser. Try to figure out what it does.</p>
           <p>Then, fill in the missing comments that describe what each section does.</p>
         </div>
+        <hr class="line-break">
+        <p>Let's go over this activity, going line-by-line.</p>
+        <hr class="line-break">
+        <div class="student-activity">
+          <h2>Partner activity!</h2>
+          <p>Grab a partner as I demonstrate an application that triggers AJAX calls with buttons.</p>
+          <p>Check out <code>2-button-triggered-ajax-solution.html</code> in <code>13-ButtonTriggeredAJAX</code>.
+          Using the sample code you have and the code comments as a guide, recreate the functionality you observed.</p>
+          <p>Your final application should trigger gifs about your celebrity/author to appear.</p>
+        </div>
+        <hr class="line-break">
+        <p>This is another one of those activities which is actually simpler than you might think.
+          As we go over this, pay special attention to the data attribute "person"&mdash;this is
+          <span title="key!">&#x1F511;</span>.
+        </p>
+        <hr class="line-break">
+        <div class="student-activity">
+          <h2>Partner activity!</h2>
+          <h3>Creating Elements Dynamically</h3>
+          <p>Another partner activity coming your way!</p>
+          <p>Let's build something that creates elemets dynamically using JSON objects. I'll demo it first.</p>
+          <p>Check out <code>3-dynamic-elements-students.html</code> in <code>14-DynamicElements</code>.
+          Use the comments in the code as a guide to replicate the functionality shown to you.</p>
+          <p>Your completed application should trigger gifs to appear related to the animal making the sound
+            listed in the button.
+          </p>
+        </div>
+        <hr class="line-break">
+        <p>What do we have to do with the JSON objects Giphy returns? What do we create for each?</p>
+        <hr class="line-break">
+        <h1>Quick Reiteration...</h1>
+        <p>Let's review:</p>
+        <ul>
+          <li>What does API stand for?</li>
+          <li>What are APIs?</li>
+          <li>What are three use-cases for APIs?</li>
+          <li>What does JSON stand for?</li>
+          <li>Why is JSON useful?</li>
+          <li>How have we been retrieving our data from online sources?</li>
+          <li>Are these requests synchronous or asynchronous? Why?</li>
+        </ul>
+        <p><span class="bold">Questions? Anything unclear?</span> Could you give these answers in a job interview?
+          (Yes, you will likely be asked about APIs and making requests!)
+        </p>
+        <hr class="line-break">
+        <h2>Back to our last partner activity of the day before the NYT activity!</h2>
+      <div class="student-activity">
+        <h2>Partner activity!</h2>
+        <h3>Pausing Gifs</h3>
+        <p>Here's the last partner activity of the day. It's an application that can start and pause the 
+          animation of clicked gifs.
+        </p>
+        <p>Open up
+          <code>4-pausing-gifs-students.html</code> in
+          <code>15-PausingGifs</code>.</p>
+        <p>Using the comments provided in the code, add in the code necessary to provide
+          stop/start animation to your application.</p>
+      </div>
+      <hr class="line-break">
+      <p>Let's review this activity. Again, notice the pivotal role a <code>data</code> attribute plays.</p>
+      <hr class="line-break">
+      <p>Right before we take our break, let's break into groups of four for the remainder of the class.
+        You'll be building the NYT application together! Be sure to sign up for an NYT API key via
+        <a href="https://developer.nytimes.com/signup" target="_blank"> https://developer.nytimes.com/signup</a>.
+      </p>      
       </section>
+      <div class="page-break">
+        <h1>Break time!</h1>
+      </div>
     </article>
   </body>
   <!-- Script to make <pre> tags pretty -->
