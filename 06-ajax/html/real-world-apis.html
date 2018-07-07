@@ -158,6 +158,105 @@
       <div class="page-break">
         <h1>Break time!</h1>
       </div>
+      <section>
+        <h1>NYT Article Search Application</h1>
+        <p>As a refresher, let's revisit the <a href="https://nytarticle-search-fsf.herokuapp.com/" title="NYT Article Search" target="_blank">
+          New York Times Article Search Application</a> (kind of a mouthful, it'll continue to be 
+          NYT from here on out).</p>
+        <p>Remember that the most important functionality is that it allows you to search their
+          article API&mdash;<a href="http://developer.nytimes.com/article_search_v2.json" target="_blank">here's</a> that API in action.
+        </p>
+        <p>Also remember: this is a <span class="note">hard</span> activity to do completely right.
+        It requires you to code quickly, efficiently divide tasks, and deal with bugs. It's also great
+        for gaining mastery over these topics.</p>
+        <p>You should be partnering in sub-pairs, where one pair does UI and the other does API calls.
+          Take honest stock of your abilities and focus on what you're comfortable doing.
+        </p>
+        <h2>Why this specific format?</h2>
+        <p>A specific developer (or team of developers) is often designated to work on a specific feature. When working as separate
+        teams, developers need to learn to communicate needs and expectations with other devs working on related features (i.e. data
+        teams should expect text inputs from the UI team).</p>
+        <h3>Without further ado, let's get into it!</h3>
+        <div class="student-activity">
+          <h2>Group activity!</h2>
+          <h3>Phase I: Prep</h3>
+          <p class="class">&#x1F4D0; UI Team:</p>
+          <ul>
+            <li>Create the layout for the design. Feel free to use Bootstrap or to do something more customized of your own.</li>
+            <li>Make sure to organize your code so as to have the necessary IDs.</li>
+            <li>Incorporate text boxes for capturing User Input. Then research how to retrieve the input values in JavaScript.</li>
+          </ul>
+          <p class="id">&#x1F6E0; Data Team:</p>
+          <ul>
+            <li>Do preliminary research on the <a href="http://developer.nytimes.com/article_search_v2.json">API</a>.</li>
+            <li>Register for an API Key if you have not already done so.</li>
+            <li>Understand what format the URL should look like to make an Article
+            Call.</li>
+            <li>Experiment with console logging various fields.</li>
+          </ul>
+        </div>
+        <div class="student-activity">
+          <h2>Group activity!</h2>
+          <h3>Phase II: Logic</h3>
+          <p>&#x1F4D0; <span class="class">UI Team:</span></p>
+          <ul>
+            <li>Begin creating basic click events. Register the submit button.</li>
+            <li>Get the data from the text-boxes and store as variables.</li>
+            <li>Experiment with creating content regions for where the article will go.</li>
+          </ul>
+          <p>&#x1F6E0; <span class="id">Data Team:</span></p>
+          <ul>
+            <li>Create the AJAX call needed to retrieve data then console.log all of the relevant fields.</li>
+            <li>Incorporate various “optional
+            parameters” (hard code these in initially).</li>
+            <li>Take note of various “bugs” that appear with certain searches.</li>
+          </ul>
+          <p>&#x2699; <span class="value">Everyone:</span></p>
+          <ul>
+            <li>Display the HTML content!</li>
+          </ul>
+        </div>
+        <div class="student-activity">
+          <h2>Group activity!</h2>
+          <h3>Phase III: Bugfixes</h3>
+          <p>&#x1F4D0;
+            <span class="class">UI Team:</span>
+          </p>
+          <ul>
+            <li>Continue polishing the display of content in the HTML.</li>
+            <li>Consider adding styling or other jQuery tricks.</li>
+            <li>Consider using Bootswatch and/or Font Awesome to add more visual appeal.</li>
+          </ul>
+          <p>&#x1F6E0;
+            <span class="id">Data Team:</span>
+          </p>
+          <ul>
+            <li>Put in a hard-effort to deal with bugs. How can you handle missing fields?</li>
+          </ul>
+        </div>
+        <div class="student-activity">
+          <h2>Group activity!</h2>
+          <h3>Phase IV: Refine and Deploy</h3>
+          <p>&#x2699;
+            <span class="value">Everyone:</span>
+          </p>
+          <ul>
+            <li>Deploy your app to GitHub and Github Pages!</li>
+            <li>Slack your links me and the TAs</li>
+          </ul>
+        </div>
+        <hr class="line-break">
+        <h1>Recap</h1>
+        <p>Let's have each group share at least one lesson they learned throughout today's exercise.</p>
+        <p>It should have shown you three main things:</p>
+        <ul>
+          <li>APIs are harder to use than you might expect</li>
+          <li>Working in separate teams requires careful coordination</li>
+          <li>Working in teams can allow you to create cleaner code (as more eyes are tracking/fixing the same bugs).</li>
+        </ul>
+        <hr class="line-break">
+        <h2>That's all for today!</h2>
+      </section>
     </article>
   </body>
   <!-- Script to make <pre> tags pretty -->
