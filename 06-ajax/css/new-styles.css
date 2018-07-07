@@ -11,6 +11,18 @@
   --light-gray:rgb(210, 210, 210);
 }
 
+@keyframes wavy {
+  from {
+    transform: skew(0.25rad, 0);
+    color: mediumvioletred;
+  }
+
+  to {
+    transform: skew(-0.25rad, 0);
+    color: orangered;
+  }
+}
+
 body {
   font-family: 'Roboto Slab', Rockwell, serif;
 }
@@ -254,4 +266,20 @@ hr {
 
 .redacted:nth-child(odd)::after {
   transform: rotate(2deg);
+}
+
+.txt-center {
+  text-align:center;
+}
+
+.burnt {
+  animation: wavy;
+  animation-duration:1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  display: inline-block;
+
+  color: darkslategray;
+  font-weight:800;
 }
