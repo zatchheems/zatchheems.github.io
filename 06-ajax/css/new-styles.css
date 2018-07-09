@@ -9,6 +9,7 @@
   --dark-accent: rebeccapurple;
   --gray:slategray;
   --light-gray:rgb(210, 210, 210);
+  --gray-bg: #404040;
 }
 
 @keyframes wavy {
@@ -141,7 +142,7 @@ fieldset, .activity {
 }
 
 .activity {
-  border-color: var(--dark-accent);
+  border-color: var(--gray-bg);
 }
 
 .activity > h2 {
@@ -149,7 +150,7 @@ fieldset, .activity {
 }
 
 .student-activity > h2 {
-  border-bottom: dashed var(--mid-accent);
+  border-bottom: dashed var(--gray);
 }
 
 .student-activity {
