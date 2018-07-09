@@ -1,0 +1,281 @@
+/* declare a few CSS variables */
+:root {
+  --main-color:lightgreen;
+  --alt-color: mediumvioletred;
+  --accent: slategray;
+  --alt-accent: slateblue;
+  --bright-accent: lavender;
+  --mid-accent: darkmagenta;
+  --dark-accent: midnightblue;
+  --gray:slategray;
+  --light-gray:rgb(210, 210, 210);
+}
+
+@keyframes wavy {
+  from {
+    transform: skew(10deg, 0);
+    color: mediumvioletred;
+  }
+
+  to {
+    transform: skew(-10deg, 0);
+    color: darkmagenta;
+  }
+}
+
+body {
+  font-family: 'Roboto Slab', Rockwell, serif;
+}
+
+h1, h2, h3 {
+  font-family: 'BioRhyme', Rockwell, Georgia, Cambria, serif;
+}
+
+header {
+  border-bottom:outset 20px var(--alt-color);
+}
+
+/* Apply style to first h1 that appears in a section */
+section > h1:first-of-type {
+  color: var(--alt-color);
+  text-shadow:rgba(25,25,25,0.5) 0px 2px 2px;
+}
+
+#ascii-title {
+  border: 25px ridge var(--alt-color);
+}
+
+.special {
+  color:var(--gray);
+  font-weight:800;
+
+  animation: 1000ms infinite alternate special;
+  -moz-animation: 1000ms infinite alternate special;
+  -webkit-animation: 1000ms infinite alternate special;
+}
+
+@keyframes special {
+  from {
+    color:#252525;
+    text-shadow:#000 0 0 2px;
+  }
+
+  to {
+    color:#fff;
+    text-shadow:#000 0 0 15px;
+  }
+}
+
+body {
+  background-color:var(--main-color);
+}
+
+a {
+  outline:0;
+  color:var(--mid-accent);
+}
+
+button {
+  background-color: var(--accent);
+  color: #fff;
+  padding:10px 25px;
+  margin:10px;
+  box-shadow:rgba(25,25,25,0.5) 0px 2px 2px;
+  border:none;
+  border-radius:3%;
+  cursor: pointer;
+  font-size:0.75em;
+  text-shadow:rgba(25,25,25,0.5) 0px -2px 1px;
+  transition-property: all;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-out;
+}
+
+input {
+  padding:10px;
+  border-radius:3px;
+  margin:5px;
+  border:solid 2px slategray;
+}
+
+a:hover {
+  color: var(--alt-color);
+}
+
+a:active {
+  color:var(--dark-accent);
+}
+
+pre {
+  color: var(--bright-accent);
+}
+
+code {
+  color:var(--mid-accent);
+}
+
+blockquote {
+  color:var(--gray);
+}
+
+.date {
+  font-style:italic;
+}
+
+h2.date::before {
+  content:"\1F5D3";
+  font-style: normal;
+}
+
+fieldset, .activity {
+  background-color:#e0e0e8;
+}
+
+.activity, .student-activity {
+  margin:20px 0;
+}
+
+.activity > h2 {
+  border-bottom: dashed #f0ad30;
+}
+
+.student-activity > h2 {
+  border-bottom: dashed darkblue;
+}
+
+.student-activity {
+  background-color:#c9c9d3;
+}
+
+.activity > h2::before {
+  content: "\1F538 ";
+  margin-right:5px;
+}
+
+.student-activity > h2::before {
+  content: "\1F539 ";
+  margin-right:5px;
+}
+
+.recap > h2 {
+  border-bottom:solid 5px skyblue;
+}
+
+.big-serif, .big-sans-serif {
+  font-size: 4em;
+  margin:0;
+  padding:5px;
+}
+
+.big-serif {
+  font-family: Georgia, Times, serif;
+}
+
+.big-sans-serif {
+  font-family: Futura, 'Century Gothic', AppleGothic, Arial, sans-serif;
+}
+
+button:hover {
+  background-color:#119992;
+}
+
+button:active {
+  background-color:#10776e;
+}
+
+hr {
+  border:0;
+  border-bottom: solid 4px var(--dark-accent) ridge;
+  border-bottom-style: ridge;
+  margin: 50px 0;
+}
+
+/* Example of every third child of a selector with class 'class-name' */
+/* Not used in this document, but a good example. */
+.class-name:nth-child(3n) {
+  color:#fff;
+}
+
+.btn-group, .btn {
+  margin:inherit;
+  box-shadow:inherit;
+}
+
+.alert-light {
+  background-color:#edecec;
+  border-color:#e4e4e4;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.monospace {
+  font-family:monospace;
+  font-weight:600;
+}
+
+.line-break {
+  border-color: var(--mid-accent);
+}
+
+.light-gray {
+  color: var(--light-gray);
+}
+
+.page-break{
+  border-top: outset 60px var(--alt-color);
+  border-bottom: outset 60px var(--alt-color);
+  background-color: var(--alt-color);
+  padding:5px;
+  text-align:center;
+}
+
+.syntaxhighlighter {
+  padding:10px;
+  border-radius: 5px;
+  font-size: 1.8vw!important;
+  width: inherit!important;
+}
+
+#to-do {
+  width: 95%;
+}
+
+.note {
+  font-weight: 800;
+  color: var(--gray);
+}
+
+.redacted::after {
+  content: "Redacted!";
+  font-family:Futura, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-style:italic;
+  font-variant: small-caps;
+  color:white!important;
+  background-color:black!important;
+  border-radius:10px;
+  border:dashed 10px white;
+  border-style: double;
+  padding:5px;
+  font-size:0.8em;
+  transform: rotate(-3deg);
+  display:inline-block;
+  box-shadow:0 1px 1px rgba(50,50,50,0.5);
+}
+
+.redacted:nth-child(odd)::after {
+  transform: rotate(2deg);
+}
+
+.burnt {
+  animation: wavy;
+  animation-duration:1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  display: inline-block;
+
+  color: darkslategray;
+  font-weight:800;
+}
