@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Intro to APIs and AJAX</title>
+    <title>Intro to Client Side Storage</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,800" rel="stylesheet">
@@ -14,30 +14,33 @@
   </head>
   <body>
     <header>
-      <pre id='ascii-title' style='font-size:2vw; line-height:0.85em; letter-spacing: -0.25em;'>
-              ___                                                         ___  
-             (   )                                                       (   ) 
-  .---.    .-.| |   ___  ___    .---.   ___ .-.     .--.      .--.     .-.| |  
- / .-, \  /   \ |  (   )(   )  / .-, \ (   )   \   /    \    /    \   /   \ |  
-(__) ; | |  .-. |   | |  | |  (__) ; |  |  .-. .  |  .-. ;  |  .-. ; |  .-. |  
-  .'`  | | |  | |   | |  | |    .'`  |  | |  | |  |  |(___) |  | | | | |  | |  
- / .'| | | |  | |   | |  | |   / .'| |  | |  | |  |  |      |  |/  | | |  | |  
-| /  | | | |  | |   | |  | |  | /  | |  | |  | |  |  | ___  |  ' _.' | |  | |  
-; |  ; | | '  | |   ' '  ; '  ; |  ; |  | |  | |  |  '(   ) |  .'.-. | '  | |  
-' `-'  | ' `-'  /    \ `' /   ' `-'  |  | |  | |  '  `-' |  '  `-' / ' `-'  /  
-`.__.'_.  `.__,'      '_.'    `.__.'_. (___)(___)  `.__,'    `.__.'   `.__,'   
-
-  .---.       .-.    .---.   ___  ___                                          
- / .-, \     ( __)  / .-, \ (   )(   )                                         
-(__) ; |     (''") (__) ; |  | |  | |                                          
-  .'`  |      | |    .'`  |   \ `' /                                           
- / .'| |      | |   / .'| |   / ,. \                                           
-| /  | |      | |  | /  | |  ' .  ; .                                          
-; |  ; |      | |  ; |  ; |  | |  | |                                          
-' `-'  |  ___ | |  ' `-'  |  | |  | |                                          
-`.__.'_. (   )' |  `.__.'_. (___)(___)                                         
-          ; `-' '                                                              
-           .__.'</pre>
+      <pre id='ascii-title' style='font-size:1.4vw; line-height:0.95em; letter-spacing: -0.125em;'>
+  __  __ _  ____  ____   __     ____  __  _   
+ (  )(  ( \(_  _)(  _ \ /  \   (_  _)/  \(_)  
+  )( /    /  )(   )   /(  O )    )( (  O )_   
+ (__)\_)__) (__) (__\_) \__/    (__) \__/(_)  
+      ___          ___               ___          ___       ___                   ___                     ___          ___     
+     /\  \        /\__\   ___       /\  \        /\__\     /\  \                 /\  \         ___       /\  \        /\  \    
+    /::\  \      /:/  /  /\  \     /::\  \      /::|  |    \:\  \               /::\  \       /\  \     /::\  \      /::\  \   
+   /:/\:\  \    /:/  /   \:\  \   /:/\:\  \    /:|:|  |     \:\  \             /:/\ \  \      \:\  \   /:/\:\  \    /:/\:\  \  
+  /:/  \:\  \  /:/  /    /::\__\ /::\~\:\  \  /:/|:|  |__   /::\  \           _\:\~\ \  \     /::\__\ /:/  \:\__\  /::\~\:\  \ 
+ /:/__/ \:\__\/:/__/  __/:/\/__//:/\:\ \:\__\/:/ |:| /\__\ /:/\:\__\         /\ \:\ \ \__\ __/:/\/__//:/__/ \:|__|/:/\:\ \:\__\
+ \:\  \  \/__/\:\  \ /\/:/  /   \:\~\:\ \/__/\/__|:|/:/  //:/  \/__/         \:\ \:\ \/__//\/:/  /   \:\  \ /:/  /\:\~\:\ \/__/
+  \:\  \       \:\  \\::/__/     \:\ \:\__\      |:/:/  //:/  /               \:\ \:\__\  \::/__/     \:\  /:/  /  \:\ \:\__\  
+   \:\  \       \:\  \\:\__\      \:\ \/__/      |::/  / \/__/                 \:\/:/  /   \:\__\      \:\/:/  /    \:\ \/__/  
+    \:\__\       \:\__\\/__/       \:\__\        /:/  /                         \::/  /     \/__/       \::/  /      \:\__\    
+     \___/      ___/__/      ___    \/__/ ___    \/__/ ___          ___          \/__/                   \/__/        \/__/    
+     /\  \     /\  \        /\  \        /\  \        /\  \        /\  \        /\  \                                          
+    /::\  \    \:\  \      /::\  \      /::\  \      /::\  \      /::\  \      /::\  \                                         
+   /:/\ \  \    \:\  \    /:/\:\  \    /:/\:\  \    /:/\:\  \    /:/\:\  \    /:/\:\  \                                        
+  _\:\~\ \  \   /::\  \  /:/  \:\  \  /::\~\:\  \  /::\~\:\  \  /:/  \:\  \  /::\~\:\  \                                       
+ /\ \:\ \ \__\ /:/\:\__\/:/__/ \:\__\/:/\:\ \:\__\/:/\:\ \:\__\/:/__/_\:\__\/:/\:\ \:\__\                                      
+ \:\ \:\ \/__//:/  \/__/\:\  \ /:/  /\/_|::\/:/  /\/__\:\/:/  /\:\  /\ \/__/\:\~\:\ \/__/                                      
+  \:\ \:\__\ /:/  /      \:\  /:/  /    |:|::/  /      \::/  /  \:\ \:\__\   \:\ \:\__\                                        
+   \:\/:/  / \/__/        \:\/:/  /     |:|\/__/       /:/  /    \:\/:/  /    \:\ \/__/                                        
+    \::/  /                \::/  /      |:|  |        /:/  /      \::/  /      \:\__\                                          
+     \/__/                  \/__/        \|__|        \/__/        \/__/        \/__/
+</pre>
       <h2 class='date'> July 2nd, 2018</h2>
     </header>
     <article class='container'>
@@ -45,154 +48,29 @@
         <h1>To Do's:</h1>
         <ul>
           <li>Administrivia</li>
-          <li>Quick review</li>
-          <li>AJAX/API activities</li>
+          <li>Data Persistence and Storage</li>
         </ul>
       </section>
       <section>
         <h1>Administrivia</h1>
+        <p>New week, new unit! Welcome to our unit on <span class="rotate">data storage! &#x1F4E6; &#x1F5C3; &#x1F5C4;</span></p>
+        <hr>
+        <p>Now that y'all are pros at fetching data dynamically with AJAX, it's time to talk about
+          storing data so it persists between sessions&mdash;that is, when you refresh
+          your browser, your data remains the same. Think about every time you log into a site:
+          when you refresh, you're still logged in. After a while, your session expires and you have
+          to log in again. <span class="bold">What allows this to happen?</span>
+        </p>
+        <p>On a related note, on e-commerce sites like Amazon, ebay, Etsy, etc., you have the ability
+          to look at your purchase history. Again, your data has to be stored
+          <span class="italic">somewhere,</span> right?
+        </p>
+        <p>During this class, we'll be talking about <span class="note">data persistence</span> as well as
+        <span class="note">client-side</span> and <span class="note">server-side</span> storage.</p>
+        <p>Today's lesson begins with an activity!</p>
       </section>
       <section>
-        <h1>Quick Refresher</h1>
-        <p>What's an API? Why are they important?</p>
-        <p>How does AJAX fit into this equation?</p>
-        <p><abbr title="Asynchronous Javascript And XML">AJAX</abbr> allows us to make requests in real time; in conjunction
-        with APIs, this essentially means that we can grab data from the web on the fly. There are thousands of APIs, many
-        of which are publicly available. Some are authenticated using API keys&mdash;this usually means that a little extra
-        data is passed as part of the request to make sure you're not a bot and to keep track of your usage.</p>
-        <h3>AJAX Usage:</h3>
-        <pre class="brush: javascript">
-// The jQuery Way:
-$.ajax({
-  url: "https://giphy.com/api/[etc]", // What do we want to get?
-  method: "GET" // or "POST", "PUT", "DELETE"...
-}).then(response => {
-  // Do something with our data if everything went well!
-}).;
-
-// The ES6 way:
-fetch("http://foaas.com/shakespeare/Fred/Waldo", {
-  method: "GET",
-  headers: {
-    "Accept": "application/json" // Optional parameter. We want JSON back
-  }
-}).then(response => response.json())
-  .then(data => {
-  // do a thing with our data
-  console.log(data);
-}).catch(error => { Promise.reject(error); });
-/* We catch errors in case our fetch doesn't work
-    and our promise is broken. Notice that we're using
-    arrow function syntax instead of writing "function". */</pre>
-        <hr class="line-break">
-        <h2>Questions?</h2>
-      </section>
-      <section>
-        <h1>API/AJAX Practice</h1>
-        <div class="student-activity">
-          <h2>Student activity!</h2>
-          <p>Let's check out an application that uses the OpenWeatherMap API.</p>
-          <p>Open up either <code>bujumbura-easier.html</code> or <code>bujumbura-harder.html</code>
-            in <code>05-bujumbura</code>. Do the following to get it working:</p>
-          <ul>
-            <li>Query the OpenWeatherMap API <a href="http://openweathermap.org/api" target="_blank">(http://openweathermap.org/api)</a>
-            for the current weather data on Bujumbura, Burundi.</li>
-            <li>Log the retrieved data from this query to console.</li>
-            <li>Parse the retrieved data to display wind speed, humidity, and temperature information
-            into the HTML.</li>
-          </ul>
-          <p><span class='note'>Hint:</span> You will need to request an API key from the website.</p>
-          <p><span class='note'>Bonus:</span> Figure out how to convert the Kelvin
-          temperature provided into Fahrenheit.</p>
-          <p>Don't worry if this feels hard. Push yourself!</p>
-        </div>
-        <hr class="line-break">
-        <h2>Bujumbura Overview</h2>
-        <p>Let's go over this activity.</p>
-        <p>How would we recycle this code to get the weather in a different city?</p>
-        <hr class="line-break">
-        <div class="activity">
-          <h2>Instructor demo...</h2>
-          <h3>Movie App Demo</h3>
-          <p>Today's class will be mainly dedicated to making the following application, which I'll demo for you.</p>
-        </div>
-        <div class="student-activity">
-          <h2>Student activity!</h2>
-          <h3>Movie App JSON Dump</h3>
-          <p>This time, let's use the OMDb API from last class. I'll demo the finished applciation,
-            then you get to build it!</p>
-          <p>Using <code>2-movie-json-dump.html</code> in <code>06-MovieJSONDump</code> as starter code, add functionality such that
-            clicking "Movie Search" triggers an AJAX call to the OMDb database and the JSON response to be appended onto the page.</p>
-          <p>If you finish early, begin
-          reading about the Bands In Town API <a href="https://app.swaggerhub.com/apis/Bandsintown/PublicAPI/3.0.0" target="_blank">
-            (https://app.swaggerhub.com/apis/Bandsintown/PublicAPI/3.0.0)</a>.
-          Try to understand how to search for a specific artist.!</p>
-        </div>
-        <div class="student-activity">
-          <h2>Student activity!</h2>
-          <h3>Movie Buttons</h3>
-          <p>Using either <code>movie-button-layout-easier.html</code> or <code>movie-button-layout-harder.html</code> in <code>07-MovieButtonLayout</code>
-          as a starting-point, replicate the functionality of the application just demonstrated to you.</p>
-          <p>Your final code should:</p>
-          <ul>
-            <li>Dynamically generate the initial buttons using jQuery</li>
-            <li>Allow users to create new buttons upon entering text in the textbox and clicking the add button</li>
-          </ul>
-          <p>Again, if you finish early, begin reading about the Bands In Town API
-            <a href="https://app.swaggerhub.com/apis/Bandsintown/PublicAPI/3.0.0"
-              target="_blank">
-              (https://app.swaggerhub.com/apis/Bandsintown/PublicAPI/3.0.0)</a>. Try to understand how to search for a specific artist.!</p>
-        </div>
-        <div class="student-activity">
-          <h2>Student activity!</h2>
-          <h3>Log Movie JSON & Click JSON Data Attribute</h3>
-          <p>
-            We'll be taking a look at <code>08-LogMovieName</code> and <code>09-ClickJSON</code>.
-            I'll demonstrate both of these before we begin.
-          </p>
-          <p><span class="bold">Log Movie Name:</span> using the starter code provided, create the missing code snippets inside the `alertMovieName` function necessary to capture
-          the movie name for both the original and new buttons.</p>
-          <p><span class="bold">Click JSON:</span> using the Starter code provided, create the missing code snippets
-          inside the <code>displayMovieInfo()</code> function necessary to display JSON data about each movie.</p>
-          <p><span class="note">Hint:</span> you should use HTML <code>data-</code> attributes.</p>
-        </div>
-      </section>
-      <div class="page-break">
-        <h1>Break Time!</h1>
-      </div>
-      <section>
-        <h1>Activities, Continued</h1>
-        <div class="student-activity">
-          <h2>Student activity!</h2>
-          <p>Using either <code>working-movie-app-easier.html</code> or <code>working-movie-app-harder.html</code>
-            in <code>10-WorkingMovieApp</code>, complete the application so that various snippets of information
-          about your movie are displayed underneath. As a suggestion, display <span class="italic">at least</span>
-          each of the following:</p>
-          <ul>
-            <li>Movie Poster</li>
-            <li>Rating</li>
-            <li>Release Date</li>
-            <li>Plot</li>
-          </ul>
-          </p>
-        </div>
-        <div class="student-activity">
-          <h2>Student activity!</h2>
-          <p>Here's one last activity for the day: we'll be using the Bandsintown API to create an application.</p>
-          <p>Using the starter code provided in <code>bands-in-town-unsolved.html</code> in <code>11-BandsInTown</code>,
-          complete the application such that your code will search the Bands In Town API for
-          the artist specified in the search box.</p>
-          <p>Bands in Town is a service for finding out when and where bands and artists are
-          scheduled to tour. Information on how to use query the Bands In Town API can be found at 
-          <a href="https://app.swaggerhub.com/apis/Bandsintown/PublicAPI/3.0.0">
-            https://app.swaggerhub.com/apis/Bandsintown/PublicAPI/3.0.0</a>. This is a free public API
-            and you will not need to sign up for anything.</p>
-          <p><span class="note">Hint:</span> scroll down the API docs and
-          study the examples. See if you can figure out how to query for an artist's information. You will need to use the <code>/artists/{artistname}
-          endpoint</code>.</p>
-          <p><span class="note">Hint:</span> the <code>app_id</code> parameter described in the docs is required,
-            but can be set to anything you wish.</p>
-        </div>
+        
       </section>
     </article>
   </body>

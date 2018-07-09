@@ -4,7 +4,7 @@
   --alt-color: peru;
   --accent: powderblue;
   --alt-accent: crimson;
-  --bright-accent: indianred;
+  --bright-accent: gold;
   --mid-accent: sienna;
   --dark-accent: maroon;
   --gray:slategray;
@@ -12,15 +12,15 @@
   --gray-bg: #404040;
 }
 
-@keyframes wavy {
+@keyframes rotate {
   from {
-    transform: skew(10deg, 0);
-    color: mediumvioletred;
+    transform: rotate(5deg);
+    color:var(--alt-color)
   }
 
   to {
-    transform: skew(-10deg, 0);
-    color: darkmagenta;
+    transform: rotate(-5deg);
+    color:var(--main-color);
   }
 }
 
@@ -29,7 +29,7 @@ body {
   color: #fff;
   text-shadow:#000 0px 2px 1px; /* Fresh text shadow. Color, left offset, top offset, blur. */
   font-family: 'Roboto Slab', Rockwell, serif;
-  font-size:2.25em; /* 2.25 times the default size. */
+  font-size:2.75em; /* 2.75 times the default size. */
   background-color:var(--main-color);
 }
 
@@ -108,11 +108,6 @@ code {
 
 .gray {
   color:#808080;
-}
-
-.line-break {
-  border-top: none;
-  border-bottom:solid 5px #d05050; /* add a nice border at the bottom */
 }
 
 .italic {
@@ -289,10 +284,11 @@ input {
 }
 
 hr {
-  border:0;
-  border-bottom: solid 4px var(--dark-accent) ridge;
-  border-bottom-style: ridge;
+  border:none;
+  border-top: outset 8px var(--main-color);
+  border-bottom: outset 8px var(--main-color);
   margin: 50px 0;
+  border-radius:10px;
 }
 
 .btn-group, .btn {
@@ -391,14 +387,12 @@ hr {
   transform: rotate(2deg);
 }
 
-.burnt {
-  animation: wavy;
+.rotate {
+  animation: rotate;
   animation-duration:1s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   display: inline-block;
-
-  color: darkslategray;
   font-weight:800;
 }
