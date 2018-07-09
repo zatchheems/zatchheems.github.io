@@ -29,15 +29,17 @@ body {
   color: #fff;
   text-shadow:#000 0px 2px 1px; /* Fresh text shadow. Color, left offset, top offset, blur. */
   font-family: 'Roboto Slab', Rockwell, serif;
-  font-size:2.75em; /* 2.75 times the default size. */
+  font-weight:400;
+  font-size:2.25em; /* 2.75 times the default size. */
   background-color:var(--main-color);
 }
 
 code, pre {
-  font-family: 'PT Mono', Monaco, Courier, monospace;
+  font-family: 'IBM Plex Mono', Monaco, Courier, monospace;
 }
 
 code {
+  font-weight:800;
   color:var(--mid-accent);
 }
 
@@ -51,28 +53,29 @@ pre {
   margin: 10px 0;
 }
 
+h1, h2, h3, h4 {
+  font-family: "Reem Kufi", Futura, Rockwell, Arial;
+}
+
 h1 {
-  font-weight:800;
   margin: 20px 0px;
   padding:10px 0px;
   font-size: 1.75em;
 }
 
 h2 {
-  font-weight:800;
   margin: 20px 0px;
   padding:10px 0px;
   font-size:1.5em;
 }
 
 h3 {
-  font-weight:800;
   margin:10px 0px;
 }
 
 p {
   margin:20px 0px;
-  line-height:115%;
+  line-height:1.33em;
 }
 
 a {
@@ -93,17 +96,12 @@ a:active {
   box-shadow: var(--dark-accent) 0 7px 0 -1px;
 }
 
-code {
-  font-weight:800; 
-  color:#808080;
-}
-
 #ascii-title {
   border: 25px ridge var(--alt-color);
 }
 
 .bold {
-  font-weight:700;
+  font-weight:bolder;
 }
 
 .gray {
@@ -112,9 +110,6 @@ code {
 
 .italic {
   font-style:italic;
-}
-h1, h2, h3 {
-  font-family: 'BioRhyme', Rockwell, Georgia, Cambria, serif;
 }
 
 header {
@@ -201,8 +196,11 @@ fieldset, .activity, .student-activity {
   margin-right:5px;
 }
 
-.recap > h2 {
-  border-bottom:solid 5px var(--bright-accent);
+.review > h2 {
+  border-top:double 16px var(--bright-accent);
+  border-bottom:double 16px var(--bright-accent);
+  margin-top:0;
+  color: var(--alt-color);
 }
 
 small {
@@ -283,11 +281,14 @@ input {
   border:solid 2px slategray;
 }
 
-hr {
+hr, .review {
   border:none;
   border-top: outset 8px var(--main-color);
   border-bottom: outset 8px var(--main-color);
   margin: 50px 0;
+}
+
+hr {
   border-radius:10px;
 }
 
@@ -306,8 +307,7 @@ hr {
 }
 
 .monospace {
-  font-family:monospace;
-  font-weight:600;
+  font-family:'IBM Plex Mono';
 }
 
 .line-break {

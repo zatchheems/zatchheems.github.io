@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Intro to Client Side Storage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Reem+Kufi" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,400i,700,700i,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:200i,400,400i,700,700i" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href="../css/reset.css" >
+    <link rel='stylesheet' type='text/css' href="../css/theme.css">
+    <link rel='stylesheet' type='text/css' href="../css/styles.css" >
+    <link rel='stylesheet' type='text/css' href="../css/new-styles.css" >
+  </head>
+  <body>
+    <header>
+      <pre id='ascii-title' style='font-size:1.4vw; line-height:0.95em; letter-spacing: -0.125em;'>
+  __  __ _  ____  ____   __     ____  __  _   
+ (  )(  ( \(_  _)(  _ \ /  \   (_  _)/  \(_)  
+  )( /    /  )(   )   /(  O )    )( (  O )_   
+ (__)\_)__) (__) (__\_) \__/    (__) \__/(_)  
+      ___          ___               ___          ___       ___                   ___                     ___          ___     
+     /\  \        /\__\   ___       /\  \        /\__\     /\  \                 /\  \         ___       /\  \        /\  \    
+    /::\  \      /:/  /  /\  \     /::\  \      /::|  |    \:\  \               /::\  \       /\  \     /::\  \      /::\  \   
+   /:/\:\  \    /:/  /   \:\  \   /:/\:\  \    /:|:|  |     \:\  \             /:/\ \  \      \:\  \   /:/\:\  \    /:/\:\  \  
+  /:/  \:\  \  /:/  /    /::\__\ /::\~\:\  \  /:/|:|  |__   /::\  \           _\:\~\ \  \     /::\__\ /:/  \:\__\  /::\~\:\  \ 
+ /:/__/ \:\__\/:/__/  __/:/\/__//:/\:\ \:\__\/:/ |:| /\__\ /:/\:\__\         /\ \:\ \ \__\ __/:/\/__//:/__/ \:|__|/:/\:\ \:\__\
+ \:\  \  \/__/\:\  \ /\/:/  /   \:\~\:\ \/__/\/__|:|/:/  //:/  \/__/         \:\ \:\ \/__//\/:/  /   \:\  \ /:/  /\:\~\:\ \/__/
+  \:\  \       \:\  \\::/__/     \:\ \:\__\      |:/:/  //:/  /               \:\ \:\__\  \::/__/     \:\  /:/  /  \:\ \:\__\  
+   \:\  \       \:\  \\:\__\      \:\ \/__/      |::/  / \/__/                 \:\/:/  /   \:\__\      \:\/:/  /    \:\ \/__/  
+    \:\__\       \:\__\\/__/       \:\__\        /:/  /                         \::/  /     \/__/       \::/  /      \:\__\    
+     \___/      ___/__/      ___    \/__/ ___    \/__/ ___          ___          \/__/                   \/__/        \/__/    
+     /\  \     /\  \        /\  \        /\  \        /\  \        /\  \        /\  \                                          
+    /::\  \    \:\  \      /::\  \      /::\  \      /::\  \      /::\  \      /::\  \                                         
+   /:/\ \  \    \:\  \    /:/\:\  \    /:/\:\  \    /:/\:\  \    /:/\:\  \    /:/\:\  \                                        
+  _\:\~\ \  \   /::\  \  /:/  \:\  \  /::\~\:\  \  /::\~\:\  \  /:/  \:\  \  /::\~\:\  \                                       
+ /\ \:\ \ \__\ /:/\:\__\/:/__/ \:\__\/:/\:\ \:\__\/:/\:\ \:\__\/:/__/_\:\__\/:/\:\ \:\__\                                      
+ \:\ \:\ \/__//:/  \/__/\:\  \ /:/  /\/_|::\/:/  /\/__\:\/:/  /\:\  /\ \/__/\:\~\:\ \/__/                                      
+  \:\ \:\__\ /:/  /      \:\  /:/  /    |:|::/  /      \::/  /  \:\ \:\__\   \:\ \:\__\                                        
+   \:\/:/  / \/__/        \:\/:/  /     |:|\/__/       /:/  /    \:\/:/  /    \:\ \/__/                                        
+    \::/  /                \::/  /      |:|  |        /:/  /      \::/  /      \:\__\                                          
+     \/__/                  \/__/        \|__|        \/__/        \/__/        \/__/
+</pre>
+      <h2 class='date'> July 2nd, 2018</h2>
+    </header>
+    <article class='container'>
+      <section id="todo" >
+        <h1>To Do's:</h1>
+        <ul>
+          <li>Administrivia</li>
+          <li>Intro "To-Do" Activity</li>
+          <li>Data Persistence and Storage</li>
+          <li>Cookies</li>
+          <li>Client-Side Storage Practice</li>
+        </ul>
+      </section>
+      <section>
+        <h1>Administrivia</h1>
+        <p>New week, new unit! Welcome to our unit on <span class="rotate">data storage! &#x1F4E6; &#x1F5C3; &#x1F5C4;</span></p>
+        <hr>
+        <p>Now that y'all are pros at fetching data dynamically with AJAX, it's time to talk about
+          storing data so it persists between sessions&mdash;that is, when you refresh
+          your browser, your data remains the same. Think about every time you log into a site:
+          when you refresh, you're still logged in. After a while, your session expires and you have
+          to log in again. <span class="bold">What allows this to happen?</span>
+        </p>
+        <p>On a related note, on e-commerce sites like Amazon, ebay, Etsy, etc., you have the ability
+          to look at your purchase history. Again, your data has to be stored
+          <span class="italic">somewhere,</span> right?
+        </p>
+        <p>During this class, we'll be talking about <span class="note">data persistence</span> as well as
+        <span class="note">client-side</span> and <span class="note">server-side</span> storage.</p>
+        <p>Today's lesson begins with an activity!</p>
+      </section>
+      <section>
+        <h1>Intro "To-Do" Activity</h1>
+        <div class="student-activity">
+          <h2>Group activity!</h2>
+          <p>Break up into groups of three. I'll demonstrate the functionality of a to-do list application, then you
+            build it!
+          </p>
+          <p>Open up <code>1-student-do-todolist.html</code> in <code>01-todolist-nopersistence</code>.
+          </p>
+          <p>Assign one student of the three of you to be the group's typist. All others in the group will help supervise, offer guidance,
+          and help catch bugs that the group's typist might not be able to catch. Throughout this activity (and many of today's activities)
+          you will be switching roles with those in your group.</p>
+          <p>Then, create a Basic To-Do application using the <code>1-student-do-todolist.html</code> as a starting point. The HTML is already created
+          for you so you will only have to fill in the javascript sections where there are large blanks. Alternatively, if you are feeling
+          bold and capable, your group may code it from scratch without the use of the base code provided.</p>
+          <p><span class="note">Helpful Hint:</span> Each of the buttons and text elements should have a dynamically created identifier or
+          data attribute that differentiates one item on the list from another. You should use these attributes to close out the
+          appropriate items when you click on the "✓" beside them.</p>
+        </div>
+        <div class="review">
+          <h2>To-Do List Review</h2>
+          <p>Before we go over this activity, let's talk about what you did to get it working,
+            or anything you may have gotten stuck on. If you didn't get it, what were you stuck on?
+          </p>
+          <p>Pay close attention to how we use jQuery's <code>.val()</code> method to get text from
+          input elements, as well as how we create new elements and close buttons for the input given.</p>
+          <p>Finally, let's demo the final product and get 15 to-do items in our list. What happens
+            when we refresh the page?
+          </p>
+        </div>
+      </section>
+      <section>
+        <h1>Data Persistence and Storage</h1>
+        <h2>&#x23F3; Data Persistence</h2>
+        <p>What we made extremely obvious in that last demo of our to-do list is that our data did not
+          persist between sessions.
+        </p>
+        <p>When we talk about <span class="note">data persistence</span>, we talk about the ability to
+        keep data around beyond the lifetime of a browser instance, satisfying the need to create web applications
+        that require this functionality. Think about EverNote, Remember The Milk, Outlook, Google Calendar:
+        they keep data on hand so that you remain logged in and always have access to your to-do's and upcoming
+        events. They do this in two ways: <span class="note">client-side storage</span> and <span class="note">server-side storage</span></p>
+        <h2>Client vs. Server-Side Storage</h2>
+        <p>&#x1F4BB; Client-side storage involves caching data in your browser so things load faster, credentials are saved,
+          or data is stored temporarily for safe keeping—e.g. how Google Docs can save without an internet connection.
+        </p>
+        <p>&#x1F4BE; Server-side storage, in contrast, is for more permanent storage. Oftentimes, server-side storage
+          is accessed on the fly using AJAX requests (and often in conjunction with APIs); it's mainly for keeping records
+          of users' activity, storing their data indefinitely in a permanent database.
+        </p>
+        <h3>What are the pros and cons of each? What are some other examples of usage for both types?</h3>
+        <hr>
+        <h2>Client-side Storage: How-To</h2>
+        <p>We're focusing specifically on client-side storage today, and there are three ways we will cover: <code>localStorage</code>,
+          <code>sessionStorage</code>, and cookies. Cookies are the most familiar option, and often they're a great one. But the other two methods
+          are important to know as well. They share similar syntax, which will be helpful in learning how they work.
+        </p>
+        <p>Different methods of client-side storage have variable eases-of-use, different compatibility with older browsers, and varying
+          levels of security. Let's get into an activity that will benefit from—but will not implement—client-side storage.
+        </p>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <p>I'll demo a sign-in page application, then you'll be building the same one. This style of page is incredibly common; you'll see
+            it everywhere you have to sign in on virtually any web-based application.
+          </p>
+          <p>Using the code in <code>2-student-do-signin-no-persistence</code> in <code>02-signin-nopersistence</code> as a starting point,
+            fill in the JavaScript code necessary to make the page "save user inputs" and then re-display them on the second panel
+            (most recent member).</p>
+          <p><span class="note">Note:</span> Don't worry about using client-side saving just yet. Just focus on getting the text inside the inputs and then displaying
+          them via html in the second panel.</p>
+        </div>
+        <div class="review">
+          <h2>Sign-In Page Review</h2>
+          <p>Let's walk through the code line-by-line. After we're finished, the solution will be pushed for you to use for the next activity
+            (in case you didn't complete it in time).</p>
+        </div>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <p>I'm going to demo a simple example of an app that uses <code>localStorage</code>. Then, let's talk about the code behind it.</p>
+        </div>
+        <hr>
+        <h2>Using <span class="monospace bold">localStorage</span></h2>
+        <pre class="brush: javascript">
+// localStorage object usage: getters and setters.
+// What it does is basically declare variables that persist in the browser.
+// They are accessible via key:value pairs.
+
+// Sets value of item "foo"
+localStorage.setItem("foo",42);
+
+// Reads value for "foo" and outputs 42
+console.log(localStorage.getItem("foo"));
+console.log(localStorage.foo); // also works
+
+// Clear localStorage object
+localStorage.clear();
+
+// "foo" no longer exists
+console.log(localStorage.getItem("foo"));
+        </pre>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <h3>Sign-In With <span class="monospace">localStorage</span></h3>
+          <p>Take the time now to add onto either your solution or the one we've provided.</p>
+          <p>You will be reconfiguring the application so that it utilizes <code>localStorage</code>.
+           If your code worked it should save/display the last inputted user even if the tab is closed or if the page is closed and
+          reopened.</p>
+        </div>
+        <div class="review">
+          <h2>Sign-In With <span class="monospace bold">localStorage</span> Review</h2>
+          <p>As we walk through the solution, pay particularly close attention to the syntax and usage of the <code>localStorage</code>
+          object.</p>
+        </div>
+        <div class="activity">
+          <h2>Class activity!</h2>
+          <p>If we specify <code>sessionStorage</code> instead of <code>localStorage</code>,
+          what do you think will happen? Give it a try on your machines and see what happens.</p>
+          <p>Why is "session" important here?</p>
+        </div>
+      </section>
+      <div class="page-break">
+        <h1>Break Time!</h1>
+      </div>
+      <section>
+        <h1>Cookies</h1>
+        <p>Really quick: what's a <span class="note">cookie</span>?</p>
+        <p>A cookie is just a piece of information your browser caches. They are the original way of storing data within your browser,
+          and since client-side storage was conceived and implemented they are the oldest tried-and-true method. Athough they work somewhat differently from <code>localStorage</code>/<code>sessionStorage</code>,
+          and are slightly more complicated/cumbersome to get working, they are still a valid way to store client-side data. Cookies win for
+          browser compatibility (all browsers that allow cookies!) and may not be as seamless as <code>localStorage</code>, but have the native ability to be
+          transported back and forth between the machine and web page.</p>
+        <p>As a warning, when using cookies, there is
+          no way to send and receive only "select" bits of information to the server. In essence, any data you collect in cookies is
+          constantly sent back and forth. As with localStorage, you should <span class="bold id">never, ever</span> save sensitive information in cookies.
+        </p>
+        <p>On local pages, Chrome considers cookies a security hazard, which means it doesn't support cookies on static local non-deployed
+         HTML pages. There are workarounds for this, but it is easier to demonstrate on apps deployed to
+         <a href="https://blogs.bmc.com/wp-content/uploads/2017/09/iaas-paas-saas-comparison-1024x759.jpg" title="Service breakdown chart" target="_blank">
+          PaaS</a>s like Heroku, or you can use the local
+         app in a different browser, like Firefox.
+         Also, know that cookies are not necessary for this week's homework.</p>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <p>Let's step through a working cookie example <a href="http://cookie-example-rcb.herokuapp.com/">(http://cookie-example-rcb.herokuapp.com/)</a>,
+          then read line-by-line through the source code.</p>
+        </div>
+        <hr>
+        <div class="student-activity">
+          <h2>Group activity!</h2>
+          <h3>To-Do With <span class="monospace">localStorage</span></h3>
+          <p>Our last activity of the day will be to practice using data persistence to upgrade your To-Do List applications
+          from the beginning of class. Assign a new typist to take over as the group's priamry
+        coder.</p>
+          <p>Using a working example of the to-do application <code>1-student-do-todolist-solution.html</code>, incorporate the use of <code>localStorage</code>
+          to create data persistence. The non-typists should be the typist's supervisors.</p>
+          <p><span class="note">Hint:</span> You will need to create an additional array of todos that you can keep adding todo items to.</p>
+          <p><span class="note">Hint:</span> You will need to selectively delete array elements to get this working properly. (Suggestion: Look into <code>.splice</code>)</p>
+          <p><span class="note">Hint:</span> You will need to take an array and dump the contents into localStorage (Suggestion: Use <code>JSON.stringify(todoArray)</code>).</p>
+          <p><span class="note">Hint:</span> Don't freak out. This is hard, but push yourselves as best you can!</p>
+        </div>
+        <div class="review">
+          <h2>To-Do With <span class="monospace">localStorage</span> Review</h2>
+          <p>Let's walk through the coded solution and the comments.</p>
+          <p>Don't worry if this doesn't click right away, this was a tough activity.</p>
+          <p>The main thing we should focus on for this app is how we can store the array with
+            our to-do items directly in <code>localStorage</code>.
+          </p>
+        </div>
+        <h1>Homework Intro</h1>
+        <p>It is <span class="bold italic">strongly</span> suggested that you aim to do the
+        easier of the two assignments unless you are confident that you're a straight-up JavaScript
+        wizard. Not kidding, the second homework is significantly harder.</p>
+        <p>Both assignments are great milestones because they showcase the ability to work with
+          external data on the backend.
+        </p>
+        <p>The first app allows you to see train schedules in the future based on the current time.
+          When you create a new train you specify the start time and frequency and it will then calculate
+          the next train on the schedule.
+        </p>
+        <p>The harder app allows you to have multiple users all seeing different things on their screens (i.e.
+          if you are the active player you will see one screen while the second player or audience members
+          will see entirely different screens from that of the first). It's hard.</p>
+        <p>Both assignments rely on Firebase, which we'll be covering over the next two classes.</p>
+        <hr>
+        <p>If by some miracle we have time (not likely, but possible), complete the
+        <a href="https://www.firebase.com/docs/web/quickstart.html" target="_blank" title="Firebase Quickstart tutorial">Firebase Quickstart tutorial</a>.</p>
+      </section>
+      <div class="page-break">
+        <h1>That's all for today, see you Wednesday!</h1>
+      </div>
+    </article>
+  </body>
+  <!-- Script to make <pre> tags pretty -->
+  <script type='text/javascript' src="../js/syntaxhighlighter.js"></script>
+  <script type='text/javascript' src="https://code.jquery.com/jquery.js"></script>
+</html>
+</html>
