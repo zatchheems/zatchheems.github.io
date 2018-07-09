@@ -32,3 +32,5 @@
 * [Advanced AJAX](./06-ajax/html/advanced-ajax.html)
 * [Real World APIs and AJAX](./06-ajax/html/real-world-apis.html)
 
+### Unit 7: Firebase
+* [Intro to Client-Side Storage](./07-firebase/html/client-side-storage.html)
