@@ -32,7 +32,7 @@
 ,---.'   |,--.'|    __  ,-.        ,---.'|
 |   |   .'|  |,   ,' ,'/ /|        |   | :                  .--.--.
 :   :  :  `--'_   '  | |' | ,---.  :   : :      ,--.--.    /  /    '     ,---.
-:   |  |-,,' ,'|  |  |   ,'/     \ :     |,-.  /       \  |  :  /`./    /     \ 
+:   |  |-,,' ,'|  |  |   ,'/     \ :     |,-.  /       \  |  :  /`./    /     \
 |   :  ;/|'  | |  '  :  / /    /  ||   : '  | .--.  .-. | |  :  ;_     /    /  |
 |   |   .'|  | :  |  | ' .    ' / ||   |  / :  \__\/: . .  \  \    `. .    ' / |
 '   :  '  '  : |__;  : | '   ;   /|'   : |: |  ," .--.; |   `----.   \'   ;   /|
@@ -49,15 +49,17 @@
           <li>Administrivia</li>
           <li>Client Vs. Server Persistence</li>
           <li>Firebase</li>
+          <li>Practice activities</li>
         </ul>
       </section>
       <section>
         <h1>Administrivia</h1>
         <p>Last class, we talked about data persistence as well as client and server-side storage.
           Today's lesson will continue utilizing the concept of data persistence, applying it to server-side
-          storage with <span class="note">Firebase</span>.
+          storage with <span class="note">Firebase</span>. We'll be learning Firebase primarily through
+          examples, so this will be an activity-heavy, individual work-centric class.
         </p>
-        <p><span class="note">Firebase</span>
+        <p><span class="note">Firebase</span> is
           an easy-to-use server-side database that makes it easy to power
           our front-end applications with expansive datasets. Unlike previous classes, we will be beginning
           to dive into backend technologies—up to this point, everything has been written in the front-end.
@@ -93,7 +95,8 @@
         <p>Firebase website:
           <a href="https://firebase.google.com/" target="_blank" title="Firebase site">https://firebase.google.com/</a>
         </p>
-        <div class="activity">
+        <hr>
+        <div class="student-activity">
           <h2>Class activity!</h2>
           <p>Follow along with me as I create a new Firebase. The steps are as follows:</p>
           <ul>
@@ -135,7 +138,7 @@
           </ul>
           <p>Note that there is no HTML changing in this app—just Firebase data.</p>
         </div>
-        <div class="activity">
+        <div class="student-activity">
           <h2>Class activity!</h2>
           <p>
             Navigate to your app's overview page and click "Add Firebase to your web app".
@@ -154,11 +157,94 @@
         <p>Talk amongst yourselves about the code you've seen thus far.</p>
         <p>Pay deep attention to the process of setting up a new Firebase and <code>.set()</code> specifically.</p>
         <hr>
+        <div class="student-activity">
+          <h2>Class activity!</h2>
+          <p>We're going to continue looking at the click button app we have.</p>
+          <p>As I click, the numbers change. This isn't necessarily groundbreaking&mdash;the really cool part is how I can close my tab and reopen it and find the same data still there,
+          without <code>localStorage</code>.</p>
+          <p>What's cooler than that? Having multiple tabs open and having the data update automatically between
+            all of them. Let's check that out!</p>
+          <hr>
+          <p>For the last part of this activity, in your browser, open up the original file that contains the unedited
+            version of the Firebase config such that we all have the same file open.</p>
+          <p>Feel free to mash the button as much as you want! Notice that you don't even need to refresh
+            the page to see this instantaneous change. Even if we were to use <code>localStorage</code>,
+            it wouldn't be possible for the same data to be altered and shared across multiple browsers and/or
+            computers if we were deploy it.</p>
+        </div>
+        <div class="review">
+          <h2>In-Depth Review</h2>
+          <p>We're going to walk through the code again.</p>
+          <p>The key aspects of this file include:</p>
+          <ul>
+            <li><code>database = firebase.database()</code> references the database</li>
+            <li><code>.set({})</code> saves data</li>
+            <li><code>.ref()</code> specifies where the data will be saved</li>
+            <li><code>.on("value", function(){})</code> creates an on-change event with a callback function
+            that executes when the page is loaded or when the database changes</li>
+          </ul>
+          <p>Why is this cool? What can we use this for?</p>
+        </div>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <h3>Clickbutton Comments</h3>
+          <p>Open up <code>instructor-do-clickbutton-nocomments.html</code>. One last time,
+            go through this file and comment each of the lines of code with what you think is happening
+            on that line.</p>
+          <p>If you finish early visit the Realtime Database Getting Started Guide (<a href = "https://firebase.google.com/docs/database/web/start" title="Realtime Database Getting Started Guide" target="_blank">https://firebase.google.com/docs/database/web/start</a>).</p>
+        </div>
+        <div class="review">
+          <h2>Click Button Comments Review</h2>
+          <p>We're going to walk through the code (yet) again, focusing on the comments.</p>
+          <p>Let's open the floor to questions!</p>
+        </div>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <h3>Countdown Counter</h3>
+          <p>I'm going to demo an application before you build it. You'll have two choices in difficulty.</p>
+          <p>
+            Using either <code>logic.js</code> (easier) or <code>logicOption2.js</code> (harder) in <code>11-countdownbutton</code>, create the click
+            down activity using a Firebase database to store the click data on the backend.
+          </p>
+          <p>
+            Your application should be able to run on multiple browser windows simultaneously and register click
+          events on each screen correctly.
+          </p>
+        </div>
+        <div class="review">
+          <h2>Countdown Activity Review</h2>
+          <p>Let's walk throught the code, stopping where people had issues.</p>
+          <p>It's important to emphasize that there are effectively two pieces in play when trasmitting and receiving
+            data from a Firebase server: <code>on.("value")</code> for retrieval and <code>.set</code> for setting
+            data.</p>
+        </div>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <p>I'll be demoing another Firebase-based app. This one changes multiple properties, all associated
+            with the same database. Changes are reflected in both the Firebase database and in the HTML of this application.</p>
+          <p>Let's dig into the code!</p>
+        </div>
+        <hr>
+        <div class=student-activity>
+          <h2>Student activity!</h2>
+          <h3>Most Recent User</h3>
+          <p>I'll be demonstrating your next activity shortly. The most recent user is changing in realtime to replace
+            the old content when new data is submitted.</p>
+          <p>You'll be attempting to create a webpage that achieves this functionality. The finished product should
+            save the newest user to a Firebase database and change the HTML.
+        </div>
+        <div class="review">
+          <h2>Most Recent User Review</h2>
+          <p>As we go over the code, again we should be focusing on the key aspects: the <code>on.("value")</code>
+            to track changes, the <code>.set({})</code> to add data, etc.</p>
+        </div>
       </section>
       <div class="page-break">
         <h1>Break time!</h1>
       </div>
-      <section></section>
+      <section>
+        <h1>More Activities</h1>
+      </section>
       <div class="page-break">
         <h1>That's all for today, see you Saturday!</h1>
       </div>

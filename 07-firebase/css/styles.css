@@ -326,6 +326,11 @@ hr {
   text-align:center;
 }
 
+.page-break > h1 {
+  color:var(--accent);
+  text-shadow: rgba(25,25,25,0.45)  0 3px 6px;
+}
+
 .syntaxhighlighter {
   padding:10px;
   border-radius: 5px;
