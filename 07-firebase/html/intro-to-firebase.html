@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Intro to Firebase</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Reem+Kufi" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,400i,700,700i,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:200i,400,400i,700,700i" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href="../css/reset.css" >
+    <link rel='stylesheet' type='text/css' href="../css/theme.css">
+    <link rel='stylesheet' type='text/css' href="../css/styles.css" >
+    <link rel='stylesheet' type='text/css' href="../css/new-styles.css" >
+  </head>
+  <body>
+    <header>
+      <pre id='ascii-title' style='font-size:1.5vw; line-height:0.85em; letter-spacing: -0.1em;'>
+   ,---,                ___                                   ___
+,`--.' |              ,--.'|_                               ,--.'|_
+|   :  :      ,---,   |  | :,'   __  ,-.   ,---.            |  | :,'   ,---.
+:   |  '  ,-+-. /  |  :  : ' : ,' ,'/ /|  '   ,'\           :  : ' :  '   ,'\
+|   :  | ,--.'|'   |.;__,'  /  '  | |' | /   /   |        .;__,'  /  /   /   |
+'   '  ;|   |  ,"' ||  |   |   |  |   ,'.   ; ,. :        |  |   |  .   ; ,. :
+|   |  ||   | /  | |:__,'| :   '  :  /  '   | |: :        :__,'| :  '   | |: :
+'   :  ;|   | |  | |  '  : |__ |  | '   '   | .; :          '  : |__'   | .; :
+|   |  '|   | |  |/   |  | '.'|;  : |   |   :    |          |  | '.'|   :    |
+'   :  ||   | |--'    ;  :    ;|  , ;    \   \  /           ;  :    ;\   \  /
+;   |.' |   |/        |  ,   /  ---'      `----'            |  ,   /  `----'
+'---'   '---'          ---`-'                                ---`-'
+    ,---,.
+  ,'  .' |  ,--,                     ,---,
+,---.'   |,--.'|    __  ,-.        ,---.'|
+|   |   .'|  |,   ,' ,'/ /|        |   | :                  .--.--.
+:   :  :  `--'_   '  | |' | ,---.  :   : :      ,--.--.    /  /    '     ,---.
+:   |  |-,,' ,'|  |  |   ,'/     \ :     |,-.  /       \  |  :  /`./    /     \ 
+|   :  ;/|'  | |  '  :  / /    /  ||   : '  | .--.  .-. | |  :  ;_     /    /  |
+|   |   .'|  | :  |  | ' .    ' / ||   |  / :  \__\/: . .  \  \    `. .    ' / |
+'   :  '  '  : |__;  : | '   ;   /|'   : |: |  ," .--.; |   `----.   \'   ;   /|
+|   |  |  |  | '.'|  , ; '   |  / ||   | '/ : /  /  ,.  |  /  /`--'  /'   |  / |
+|   :  \  ;  :    ;---'  |   :    ||   :    |;  :   .'   \'--'.     / |   :    |
+|   | ,'  |  ,   /        \   \  / /    \  / |  ,     .-./  `--'---'   \   \  /
+`----'     ---`-'          `----'  `-'----'   `--`---'                  `----'</pre>
+      <h2 class='date'> July 11th, 2018</h2>
+    </header>
+    <article class='container'>
+      <section id="todo" >
+        <h1>To Do's:</h1>
+        <ul>
+          <li>Administrivia</li>
+          <li>Client Vs. Server Persistence</li>
+          <li>Firebase</li>
+        </ul>
+      </section>
+      <section>
+        <h1>Administrivia</h1>
+        <p>Last class, we talked about data persistence as well as client and server-side storage.
+          Today's lesson will continue utilizing the concept of data persistence, applying it to server-side
+          storage with <span class="note">Firebase</span>.
+        </p>
+        <p><span class="note">Firebase</span>
+          an easy-to-use server-side database that makes it easy to power
+          our front-end applications with expansive datasets. Unlike previous classes, we will be beginning
+          to dive into backend technologies—up to this point, everything has been written in the front-end.
+        </p>
+        <h2>Questions up to this point? Review?</h2>
+        <hr>
+        <p>
+          As a general warning, please begin the homework <span class="italic">as soon as possible!</span>
+          This homework is very challenging, and what makes it challenging isn't the "new" stuff.
+          The challenge is getting a handle on increasingly complex javascript logic,
+          especially the multiplayer RPS game.
+        </p>
+      </section>
+      <section>
+        <h1>Client Vs. Server Persistence</h1>
+        <h2>Quick Review:</h2>
+        <ul>
+          <li>What is "data persistence"?</li>
+          <li>What is the difference between "client side" and "server side" data storage?</li>
+          <li>What is one case where you might use one vs the other?</li>
+          <li>What is one advantage of using each?</li>
+        </ul>
+      </section>
+      <section>
+        <h1>Firebase</h1>
+        <p><span class="note">In short:</span> Firebase offers an extremely easy to use system for relaying
+          data between your application and their dedicated platforms.</p>
+        <p>It offers an easy to use, intuitive GUI for seeing your data in real-time.</p>
+        <p>It offers near instantaneous transmission of data between the Firebase database and your application.
+          Of specific importance is the concept of "real-time" data binding
+        (i.e. when your data changes in the database it will <span class='bold'>immediately</span> reflect
+        that change in your application.)</p>
+        <p>Firebase website:
+          <a href="https://firebase.google.com/" target="_blank" title="Firebase site">https://firebase.google.com/</a>
+        </p>
+        <div class="activity">
+          <h2>Class activity!</h2>
+          <p>Follow along with me as I create a new Firebase. The steps are as follows:</p>
+          <ul>
+            <li>Click "Get Started For Free"</li>
+            <li>Login with your Google account</li>
+            <li>Click "Create New Project"</li>
+            <li>Name your database whatever you like, as long as the name is unique</li>
+          </ul>
+          <p>Once you have a Firebase app, click "Database" on the left navbar.</p>
+          <p>The displayed URL is where all of the data will get stored.</p>
+          <p>
+            <span class="note">Note: </span>It is important to note that by default Firebase requires authentication
+            to read/write to a new database.
+          </p>
+          <p>
+            To complete exercises without worrying about authentication, you need to set your database rules to "public".
+            Please click the "rules" tab, set both ".read" and ".write" to true, and then click Publish.
+          </p>
+        </div>
+        <hr>
+        <h3>Next, let's look at how to use Firebase to store and update data in real-time.</h3>
+        <hr>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <p>Let's take a lok at an application that uses Firebase and a simple button click to store data and
+            update it.
+          </p>
+          <p>Then, we'll look at the code behind the app.</p>
+          <p class="bold">Things to Watch For:</p>
+          <ul>
+            <li>Inclusion of the Firebase.js file</li>
+            <li>Firebase config and initialization</li>
+            <li>Creation of a reference to the database (i.e.
+            <code>var database = firebase.database()</code>)</li>
+            <li>The use of <code>.set()</code> to save the data to the database
+            <li>The use of <code>.ref()</code> to specify
+            where the data will be saved. Since there is nothing inside the parentheses
+            the data is saved to the database's root directory.</li>
+          </ul>
+          <p>Note that there is no HTML changing in this app—just Firebase data.</p>
+        </div>
+        <div class="activity">
+          <h2>Class activity!</h2>
+          <p>
+            Navigate to your app's overview page and click "Add Firebase to your web app".
+            You should see a snippet of code giving you the Firebase source script, a <code>config</code>
+            object and code to initialize Firebase itself.
+          </p>
+          <p>Using this snippet, replace the Firebase config object in the click button app
+            with the config from <span class="italic">your own</span> Firebase database. This object
+            tells Firebase the URL of your database.</p>
+          <p>
+            Click the button a few times and notice the changes being made to the database.
+            Everyone should have a working connection by the end of this activity.
+          </p>
+        </div>
+        <hr>
+        <p>Talk amongst yourselves about the code you've seen thus far.</p>
+        <p>Pay deep attention to the process of setting up a new Firebase and <code>.set()</code> specifically.</p>
+        <hr>
+      </section>
+      <div class="page-break">
+        <h1>Break time!</h1>
+      </div>
+      <section></section>
+      <div class="page-break">
+        <h1>That's all for today, see you Saturday!</h1>
+      </div>
+    </article>
+  </body>
+  <!-- Script to make <pre> tags pretty -->
+  <script type='text/javascript' src="../js/syntaxhighlighter.js"></script>
+  <script type='text/javascript' src="https://code.jquery.com/jquery.js"></script>
+</html>
+</html>
