@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Firebase Application Building</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Reem+Kufi" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,400i,700,700i,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:200i,400,400i,700,700i" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href="../css/reset.css" >
+    <link rel='stylesheet' type='text/css' href="../css/theme.css">
+    <link rel='stylesheet' type='text/css' href="../css/styles.css" >
+  </head>
+  <body>
+    <header>
+      <pre id='ascii-title' style='font-size:2vw; line-height:0.85em; letter-spacing: -0.33em;'>
+ _______  ___   ______    _______  _______  _______  _______  _______                        
+|       ||   | |    _ |  |       ||  _    ||   _   ||       ||       |                       
+|    ___||   | |   | ||  |    ___|| |_|   ||  |_|  ||  _____||    ___|                       
+|   |___ |   | |   |_||_ |   |___ |       ||       || |_____ |   |___                        
+|    ___||   | |    __  ||    ___||  _   | |       ||_____  ||    ___|                       
+|   |    |   | |   |  | ||   |___ | |_|   ||   _   | _____| ||   |___                        
+|___|    |___| |___|  |_||_______||_______||__| |__||_______||_______|                       
+ _______  _______  _______  ___      ___   _______  _______  _______  ___   _______  __    _ 
+|   _   ||       ||       ||   |    |   | |       ||   _   ||       ||   | |       ||  |  | |
+|  |_|  ||    _  ||    _  ||   |    |   | |       ||  |_|  ||_     _||   | |   _   ||   |_| |
+|       ||   |_| ||   |_| ||   |    |   | |       ||       |  |   |  |   | |  | |  ||       |
+|       ||    ___||    ___||   |___ |   | |      _||       |  |   |  |   | |  |_|  ||  _    |
+|   _   ||   |    |   |    |       ||   | |     |_ |   _   |  |   |  |   | |       || | |   |
+|__| |__||___|    |___|    |_______||___| |_______||__| |__|  |___|  |___| |_______||_|  |__|
+ _______  __   __  ___   ___      ______   ___   __    _  _______                            
+|  _    ||  | |  ||   | |   |    |      | |   | |  |  | ||       |                           
+| |_|   ||  | |  ||   | |   |    |  _    ||   | |   |_| ||    ___|                           
+|       ||  |_|  ||   | |   |    | | |   ||   | |       ||   | __                            
+|  _   | |       ||   | |   |___ | |_|   ||   | |  _    ||   ||  |                           
+| |_|   ||       ||   | |       ||       ||   | | | |   ||   |_| |                           
+|_______||_______||___| |_______||______| |___| |_|  |__||_______|
+</pre>
+      <h2 class='date'> July 14th, 2018</h2>
+    </header>
+    <article class='container'>
+      <section id="todo" >
+        <h1>To Do's:</h1>
+        <ul>
+          <li>Administrivia</li>
+          <li>Activity Overview</li>
+          <li>"Child added" Event</li>
+          <li>MomentJS</li>
+          <li>Practice Applications</li>
+          <li>Timers and APIs Checkpoint</li>
+        </ul>
+      </section>
+      <section>
+        <h1>Administrivia</h1>
+        <p>Welcome to day two of Firebase!</p>
+        <p>Let's begin with questions, things you're stuck on, eye-opening revelations, neat stuff you
+          might have figured out or built, etc.
+        </p>
+        <p>Stumped about <code>.set({})</code>? Really confused on <code>ref()</code>? Feel free to ask
+        questions. Otherwise, we'll jump right into today's session.</p>
+        <p>Today's class will be dedicated to building more complex applications with Firebase using
+          some new capabalities and library functions.</p>
+      </section>
+      <section>
+        <h1>Application Overview</h1>
+        <p>You'll be spending a good portion of this class recreating an employee timesheet apllication
+          which uses Firebase to track employee names, roles, start dates, lengths of employment,
+           monthly rates, and total amounts billed.
+        </p>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <p>I'll demo the timesheet application's frontend shortly.</p>
+          <p>We won't be looking at the Firebase storage quite yet, just focusing on the functionality
+            provided for us.
+          </p>
+        </div>
+        <div class="student-activity">
+          <h2>Class activity!</h2>
+          <h3>Where's the data?</h3>
+          <p>Discuss these two questions:</p>
+          <ul>
+            <li>Which fields <span class="bold">must</span> be in the database?</li>
+            <li>Which fields can we avoid sending to the database in favor of calculating locally?</li>
+          </ul>
+        </div>
+        <hr>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <p>Now, let's look at how the backend works, side-by-side with the client.</p>
+          <p>As I demo it, pay special attention to how some fields are inputted on the client side,
+            and how the remaining fields are calculated using the initial inputs.
+          </p>
+        </div>
+        <p>Why might this approach have advantages over uploading every calculated field into
+          into the database?
+        </p>
+        <hr>
+        <p>The main reason for limiting the data we store on the backend is that we drastically
+          reduce the amount of updates we have to send to the database every month&mdash;or, in some cases,
+          every second&mdash; employees' tenures grow.
+        </p>
+        <div class="student-activity">
+          <h2>Group activity!</h2>
+          <h3>Phase I: Main Application Design</h3>
+          <p>This activity will be for focusing your efforts on creating the application layout for the site.</p>
+          <p>This phase involves:</p>
+          <ul>
+            <li>Creating the overall HTML/CSS/Bootstrap Layout</li>
+            <li>Creating the initial <code>.on("click")</code> event that will dynamically trigger new HTML 
+              rows to be generated.</li>
+          </ul>
+          <p>This phase does <span class="italic">not</span> involve sending or receiving data to/from Firebase.</p>
+          <p>If you finish early:</p>
+          <ul>
+            <li>Continue refining the design! Take things to the next level.
+              Make this application portfolio-grade!</li>
+            <li>Begin reading about
+            <code>push({})</code> and <code>.on("child_added")</code> in the Firebase documentation.</li>
+          </ul>
+        </div>
+        <hr>
+        <p>By this point, everyone should have an initial design completed. Unlike other activities,
+          completed code will not be provided, so be sure you have something. If your group does not,
+          during the next phase we'll help you get up to speed.
+        </p>
+        <hr>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <h3>Intro to Push</h3>
+          <p>As a quick break from development, we're going to look at some new syntax.</p>
+          <p>I'll be demoing an application we've worked on before, and it will still have the same
+            functionality.
+          </p>
+          <p>Everything is fine with it, but why don't we try changing the <code>.set({})</code>
+          method with <code>.push({})</code>? What will happen?</p>
+          <p>We'll be able to directly observe how Firebse creates new entries as "children" instead of
+            just overwriting existing data. After this demonstration, we will return to our main task.</p>
+        </div>
+        <div class="student-activity">
+          <h2>Group activity!</h2>
+          <h3>Phase II: Push Phase</h3>
+          <p>Using your newfound knowledge of the <code></code>.push({})</code> method, create the code 
+            necessary to push employee data into the database upon clicking the "submit" button on your
+            webpage.</p>
+          <p><span class="note">Note</span>: Don't worry about getting the data to display in the HTML just
+          yet. Just focus on getting data pushed to the database.</p>
+          <p>If you finish early, begin reading about <code>.on("child_added")</code> in
+          the Firebase documentation and/or the MomentJS library.</p>
+        </div>
+        <hr>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <h3>Intro to <span class="monospace italic">child_added</span></h3>
+          <p>Another quick break for new functionality!</p>
+        </div>
+        <div class="student-activity">
+          <h2>Group activity!</h2>
+          <h3>Phase III: <span class="monospace italic">child_added</span></h3>
+          <p>Using your newfound knowledge of the <code>.on("child_added")</code> method, begin to retrieve your
+            employee data from the database and populating the records into your table.</p>
+          <p><span>Note:</span> Don't worry about calculating Months Worked or the Total Billed just yet.
+            Just focus on retrieving the data that is already in the database.
+          <p>If you finish easily, continue refining the aesthetics of your website,
+            consider incorporating "update" or "delete" employee buttons,
+            or begin reading up on the MomentJS library.</p>
+        </div>
+      </section>
+      <div class="page-break">
+        <h1>Break time!</h1>
+      </div>
+      <section>
+        <h1>Project groups</h1>
+        <p>The next two weeks will be entirely dedicated to building projects.</p>
+        <p>Your goal? <span class="note">Build something awesome!</span></p>
+      </section>
+      <section>
+        <h1>Timers and APIs Checkpoint</h1>
+        <p class="bold">It's that time again!</p>
+        <p>The link to the a checkpoint quiz for your knowledge of timers and APIs will be Slacked out
+          to you. As a reminder, reminded that this quiz is not graded, and cannot hinder your ability to
+          complete the course. It exists so that we can gauge your progress and knowledge/skill retention.
+        </p>
+        <p>During office hours, we can review the answers to the checkpoint if you'd like.</p>
+      </section>
+      <div class="page-break">
+        <h1>That's all for today, see you Saturday!</h1>
+      </div>
+    </article>
+  </body>
+  <!-- Script to make <pre> tags pretty -->
+  <script type='text/javascript' src="../js/syntaxhighlighter.js"></script>
+  <script type='text/javascript' src="https://code.jquery.com/jquery.js"></script>
+</html>
+</html>
