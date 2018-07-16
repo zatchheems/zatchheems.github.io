@@ -1,0 +1,408 @@
+/* declare a few CSS variables */
+:root {
+  --main-color: #2b4570;
+  --alt-color: #cad178;
+  --accent: #acbea3;
+  --alt-accent: #7180ac;
+  --bright-accent: #d59c86;
+  --mid-accent: #937a74;
+  --dark-accent: #824;
+  --gray:slategray;
+  --light-gray:rgb(210, 210, 210);
+  --gray-bg: #404040;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(5deg);
+    color:var(--alt-color)
+  }
+
+  to {
+    transform: rotate(-5deg);
+    color:var(--main-color);
+  }
+}
+
+body {
+  margin:0;
+  color: #fff;
+  text-shadow:#000 0px 2px 1px; /* Fresh text shadow. Color, left offset, top offset, blur. */
+  font-family: 'Roboto Slab', Rockwell, serif;
+  font-weight:400;
+  font-size:2.25em; /* 2.75 times the default size. */
+  background-color:var(--main-color);
+}
+
+img {
+  width:100%;
+}
+
+code, pre {
+  font-family: 'IBM Plex Mono', Monaco, Courier, monospace;
+}
+
+code {
+  font-weight:800;
+  color:var(--mid-accent);
+}
+
+pre {
+  padding:25px;
+  background-color:#252525;
+  color: var(--bright-accent);
+  font-size: 1.6vw; /* View Width. Depends on width of browser window */
+  white-space: pre;
+  line-height:130%;
+  margin: 10px 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Reem Kufi", Futura, Rockwell, Arial;
+}
+
+h1 {
+  margin: 20px 0px;
+  padding:10px 0px;
+  font-size: 1.8em;
+}
+
+h2 {
+  margin: 20px 0px;
+  padding:10px 0px;
+  font-size:1.5em;
+}
+
+h3 {
+  margin:10px 0px;
+  font-size:1.33em
+}
+
+p {
+  margin:20px 0px;
+  line-height:1.33em;
+}
+
+a {
+  text-decoration: none; /* anchor tags have underscores by default; those are ugly. */
+  transition: all 0.25s ease-in;
+  font-weight: 700; /* 100-extralight 200-light 400-regular 700-bold 800-black */
+  outline:0;
+  color:var(--mid-accent);
+}
+
+a:hover {
+  color: var(--alt-color);
+  box-shadow: var(--alt-color) 0 5px 0 -1px;
+}
+
+a:active {
+  color:var(--dark-accent);
+  box-shadow: var(--dark-accent) 0 7px 0 -1px;
+}
+
+#ascii-title {
+  border: 25px ridge var(--alt-color);
+}
+
+.bold {
+  font-weight:bolder;
+}
+
+.gray {
+  color:#808080;
+}
+
+.italic {
+  font-style:italic;
+}
+
+header {
+  padding: 25px 25px 10px 25px;
+  background-color:var(--gray-bg);
+  border-bottom:outset 20px var(--alt-color);
+}
+
+section {
+  color:#252525;
+  background-color:#fff;
+  text-shadow:none;
+  padding:25px;
+  margin:25px;
+  border-radius:5px; /* Nice rounded borders! */
+  box-shadow:var(--gray) 0px 2px 3px 1px; /* shadow color, left offset, top offset, blur, radius. */
+}
+
+/* Apply style to first h1 that appears in a section */
+section > h1:first-of-type {
+  color: var(--alt-color);
+  text-shadow:rgba(25,25,25,0.5) 0px 2px 2px;
+}
+
+blockquote {
+  font-size:1.5em;
+  color:var(--gray);
+  border-left: solid 5px slategray;
+  padding-left:10px;
+  margin: 0 0 25px 15px;
+  line-height:110%;
+}
+
+blockquote::before {
+  content: "\201c";
+}
+blockquote::after {
+  content: "\201d";
+}
+
+fieldset,pre {
+  border: none;
+  margin:25px 5px 25px 5px;
+  border-radius: 5px;
+}
+
+fieldset, .activity, .student-activity {
+  background-color:#e0e0e8;
+  border-radius:5px;
+  padding:5px 25px;
+  margin:20px 0;
+}
+
+.activity, .student-activity {
+  margin:20px 0;
+  border-style:solid;
+  border-width: 7px;
+}
+
+.activity {
+  border-color: var(--gray-bg);
+}
+
+.activity > h2 {
+  border-bottom: dashed #f0ad30;
+}
+
+.student-activity > h2 {
+  border-bottom: dashed darkblue;
+}
+
+.student-activity {
+  background-color:#c9c9d3;
+  border-color: var(--gray);
+}
+
+.activity > h2::before {
+  content: "\1F538 ";
+  margin-right:5px;
+}
+
+.student-activity > h2::before {
+  content: "\1F539 ";
+  margin-right:5px;
+}
+
+.review > h2 {
+  border-top:double 16px var(--bright-accent);
+  border-bottom:double 16px var(--bright-accent);
+  margin-top:0;
+  color: var(--alt-color);
+}
+
+small {
+  font-size: 0.75em;
+}
+
+ul, ol {
+  margin:20px 0px;
+}
+
+li {
+  margin:15px 0px;
+  line-height:110%;
+}
+
+ul > li {
+  list-style: inside;
+}
+
+ol > li {
+  list-style: decimal inside;
+}
+
+ol > li > ol > li {
+  list-style: lower-alpha inside;
+}
+
+ol > li > ol > li > ol > li {
+  list-style: lower-roman inside;
+}
+
+ul > li > ul > li {
+  list-style:circle inside;
+}
+
+li {
+  margin-left:30px;
+}
+
+.date {
+  font-style:italic;
+}
+
+h2.date::before {
+  content:"\1F5D3";
+  font-style: normal;
+}
+
+label {
+  display: block;
+  width:200px;
+}
+
+label > input[type='radio'] {
+  float:right; /* force elements to "float" to the right side of the containing element */
+}
+
+button {
+  background-color: var(--accent);
+  color: #fff;
+  padding:10px 25px;
+  margin:10px;
+  box-shadow:rgba(25,25,25,0.5) 0px 2px 2px;
+  border:none;
+  border-radius:3%;
+  cursor: pointer;
+  font-size:0.75em;
+  text-shadow:rgba(25,25,25,0.5) 0px -2px 1px;
+  transition-property: all;
+  transition-duration: 0.25s;
+  transition-timing-function: ease-out;
+}
+
+input {
+  padding:10px;
+  border-radius:3px;
+  margin:5px;
+  border:solid 2px slategray;
+}
+
+hr, .review {
+  border:none;
+  border-top: outset 8px var(--main-color);
+  border-bottom: outset 8px var(--main-color);
+  margin: 50px 0;
+}
+
+hr {
+  border-radius:10px;
+}
+
+.btn-group, .btn {
+  margin:inherit;
+  box-shadow:inherit;
+}
+
+.alert-light {
+  background-color:#edecec;
+  border-color:#e4e4e4;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.monospace {
+  font-family:'IBM Plex Mono';
+}
+
+.line-break {
+  border-color: var(--mid-accent);
+}
+
+.light-gray {
+  color: var(--light-gray);
+}
+
+.page-break{
+  border-top: outset 60px var(--alt-color);
+  border-bottom: outset 60px var(--alt-color);
+  background-color: var(--alt-color);
+  padding:5px;
+  text-align:center;
+}
+
+.page-break > h1 {
+  color:var(--alt-accent);
+  text-shadow: rgba(25,25,25,0.15)  0 3px 6px;
+}
+
+.syntaxhighlighter {
+  padding:10px;
+  border-radius: 5px;
+  font-size: 1.8vw!important;
+  width: inherit!important;
+}
+
+.selector, .margin {
+  color: darkorange;
+}
+
+.property {
+  color: lightsalmon;
+}
+
+.value, .padding  {
+  color: lightseagreen;
+}
+
+.special-char, .border {
+  color: purple;
+}
+
+.bracket {
+  color: plum;
+}
+
+.id, .size {
+  color:orangered;
+}
+
+.class {
+  color:darkslateblue;
+}
+
+.note {
+  font-weight: 800;
+  color: var(--gray);
+}
+
+.redacted::after {
+  content: "Redacted!";
+  font-family:Futura, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-style:italic;
+  font-variant: small-caps;
+  color:white!important;
+  background-color:black!important;
+  border-radius:10px;
+  border:dashed 10px white;
+  border-style: double;
+  padding:5px;
+  font-size:0.8em;
+  transform: rotate(-3deg);
+  display:inline-block;
+  box-shadow:0 1px 1px rgba(50,50,50,0.5);
+}
+
+.redacted:nth-child(odd)::after {
+  transform: rotate(2deg);
+}
+
+.rotate {
+  animation: rotate;
+  animation-duration:1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  display: inline-block;
+  font-weight:800;
+}
