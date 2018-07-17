@@ -36,3 +36,6 @@
 * [Intro to Client-Side Storage](./07-firebase/html/client-side-storage.html)
 * [Intro to Firebase](./07-firebase/html/intro-to-firebase.html)
 * [Firebase Application Building](./07-firebase/html/firebase-application-building.html)
+
+### Unit 8: Project 1
+* [GitHub Collaboration & Project Week](./08-project-1/html/github-collab-and-project1.html)
