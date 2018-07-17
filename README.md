@@ -36,3 +36,8 @@
 * [Intro to Client-Side Storage](./07-firebase/html/client-side-storage.html)
 * [Intro to Firebase](./07-firebase/html/intro-to-firebase.html)
 * [Firebase Application Building](./07-firebase/html/firebase-application-building.html)
+
+Your are awesome!
+
+Sincerely,
+Max
