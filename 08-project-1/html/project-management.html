@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Reem+Kufi" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,400i,700,700i,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:200i,400,400i,700,700i" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href="../css/reset.css" >
+    <link rel='stylesheet' type='text/css' href="../css/theme.css">
+    <link rel='stylesheet' type='text/css' href="../css/styles.css" >
+    <link rel='stylesheet' type='text/css' href="../css/new-styles.css" >
+  </head>
+  <body>
+    <header>
+      <pre id='ascii-title' style='font-size:1.6vw; line-height:0.85em; letter-spacing: -0.18em; font-weight: 800;'>
+                                    .-'''-.    .---.                           _..._                                               
+                                   '   _    \  |   |                        .-'_..._''.                                            
+_________   _...._               /   /` '.   \ '---'      __.....__       .' .'      '.\                                           
+\        |.'      '-.           .   |     \  ' .---.  .-''         '.    / .'                                                      
+ \        .'```'.    '. .-,.--. |   '      |  '|   | /     .-''"'-.  `. . '               .|                                       
+  \      |       \     \|  .-. |\    \     / / |   |/     /________\   \| |             .' |_                                      
+   |     |        |    || |  | | `.   ` ..' /  |   ||                  || |           .'     |                                     
+   |      \      /    . | |  | |    '-...-'`   |   |\    .-------------'. '          '--.  .-'                                     
+   |     |\`'-.-'   .'  | |  '-                |   | \    '-.____...---. \ '.          .|  |                                       
+   |     | '-....-'`    | |                    |   |  `.             .'   '. `._____.-'/|  |                                       
+  .'     '.             | |                 __.'   '    `''-...... -'       `-.______ / |  '.'                                     
+'-----------'           |_|                |      '                                  `  |   /                                      
+ __  __   ___                _..._         |____.'          __.....__      __  __   ___ `'-'    __.....__        _..._             
+|  |/  `.'   `.            .'     '.            .--./)  .-''         '.   |  |/  `.'   `.   .-''         '.    .'     '.           
+|   .-.  .-.   '          .   .-.   .          /.''\\  /     .-''"'-.  `. |   .-.  .-.   ' /     .-''"'-.  `. .   .-.   .     .|   
+|  |  |  |  |  |    __    |  '   '  |    __   | |  | |/     /________\   \|  |  |  |  |  |/     /________\   \|  '   '  |   .' |_  
+|  |  |  |  |  | .:--.'.  |  |   |  | .:--.'.  \`-' / |                  ||  |  |  |  |  ||                  ||  |   |  | .'     | 
+|  |  |  |  |  |/ |   \ | |  |   |  |/ |   \ | /("'`  \    .-------------'|  |  |  |  |  |\    .-------------'|  |   |  |'--.  .-' 
+|  |  |  |  |  |`" __ | | |  |   |  |`" __ | | \ '---. \    '-.____...---.|  |  |  |  |  | \    '-.____...---.|  |   |  |   |  |   
+|__|  |__|  |__| .'.''| | |  |   |  | .'.''| |  /'""'.\ `.             .' |__|  |__|  |__|  `.             .' |  |   |  |   |  |   
+                / /   | |_|  |   |  |/ /   | |_||     ||  `''-...... -'                       `''-...... -'   |  |   |  |   |  '.' 
+                \ \._,\ '/|  |   |  |\ \._,\ '/\'. __//                                                       |  |   |  |   |   /  
+                 `--'  `" '--'   '--' `--'  `"  `'---'                                                        '--'   '--'   `'-'   
+</pre>
+      <h2 class='date'> July 18th, 2018</h2>
+    </header>
+    <article class='container'>
+      <section id="todo" >
+        <h1>To Do's:</h1>
+        <ul>
+          <li>Administrivia</li>
+          <li>Git Recap</li>
+          <li>MVP</li>
+          <li>Issues</li>
+          <li>Kanban</li>
+          <li>Project Work</li>
+        </ul>
+      </section>
+      <section>
+        <h1>Administrivia</h1>
+        <p>Welcome back to project week!</p>
+        <p>Today, we'll be reviewing the GitHub workflow and learning some
+          project management concepts and tools.
+        </p>
+      </section>
+      <section>
+        <h1>Git Recap</h1>
+        <p>We're going to take some time to review the collaborative git/GitHub workflow.</p>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <p>Follow along as I make changes to my notes to correct a terrriblee tpyo.</p>
+        </div>
+        <hr>
+        <div class="student-activity">
+          <h2>Partner activity!</h2>
+          <p>Refer to the accompanying PDF for help if needed.</p>
+          <p>One partner should create a new repository on GitHub.
+            Name it anything you like. Don't forget to click <span class="gray">"initialize this repository with a README"</span>.</p>
+<p>Add the other partner as a collaborator, by going to "Settings > Collaborators" and adding their email address.</p>
+<p>Under the "Branches" tab in settings, choose master from the drop down under "Branch protection rules" </p>
+<p>Check all of the following: </p>
+<ul>
+  <li>Protect this branch</li>
+  <li>Require pull request reviews before merging</li>
+  <li>Include administrators</li>
+</ul>
+<p>Clone the repository to your local machine using <code>git clone</code> followed by your repository url.</p>
+<p>Create and checkout a new branch using <code>git checkout -b</code> followed by a branch name. Remember that branch names should describe the feature that will be created on that branch.</p>
+<p>Open the project in your editor and make some changes. </p>
+<p>Add and commit the changes using:</p>
+<pre class="brush: shell">
+git add -A
+git commit -m "descriptive message here"</pre>
+<p>Push these changes back up to GitHub using <code>git push origin</code> followed by your branch name.</p>
+<p>Navigate to your repository in GitHub and there will be a prompt to open a pull request (you may need to refresh).</p>
+<p>Click the green button to "create a pull request"</p>
+<p>Assign a collaborator to review your pull request and merge it.</p>
+<p>On your local machine, checkout the master branch using <code>git checkout master</code> and then update the branch to show the latest changes using 'git pull'</p>
+<p>New branches should be made off of the updated master branch.</p>
+        </div>
+      </section>
+      <section>
+        <h1>MVP</h1>
+        <p><acronym title="Minimum Viable Product">MVP</acronym> stands for Minimum Viable Product. Defining an MVP for an application helps to get the application up and going quickly
+        and avoid scope creep. It's a vital step in creating projects or prototypes rapidly.</p>
+        <h2>The Process</h2>
+        <ol>
+          <li>Start with a general idea.</li>
+          <li>Identify the target audience.</li>
+          <li>Identify the problem that the product will address.</li>
+          <li>Write down the primary goal of the product.</li>
+          <li>Identify and prioritize essential user stories.</li>
+        </ol>
+        <p>What are user stories?</p>
+        <p><span class="note">User stories</span> help us identify exactly how we expect something to function from the
+        user's perspective. We can pinpoint exactly they want and why, effectively divorcing our expectations as developers from the
+        product. They help to keep focus on adding value to the <span class="italic">user</span> during the project build and ensure
+        that each feature built is inline with the primary goal of the product.</p>
+        <p>They always looks like this:</p>
+        <blockquote>As a ______, I want ______ so that I can ______.</blockquote>
+        <p>One of the advantages of thinking in this way is avoiding cramming our product with extraneous
+          functionality, "would-be-nice"-s, and other fluff that is super nice, but not necessary.
+          You just want enough you can show to investors, demo for customers, etc. Functionality first; fluff
+          comes later.
+        </p>
+        <p>You can think of the minimum viable product as the minimum <span class="italic">demoable</span> product.</p>
+        <div class="student-activity">
+          <h2>Group activity!</h2>
+          <p> With your group, answer each of the following questions:</p>
+          <ol>
+            <li>Who is your target audience?</li>
+            <li>What is the problem that the product will address?</li>
+            <li>What is the primary goal of the product?</li>
+            <li>Identify and prioritize essential user stories (limit this to 3 or fewer).</li>
+          </ol>
+          <p>Remember, your MVP should be the absolute <span class="bold">minimum</span>
+            product that you need to pitch your idea to investors (or your classmates). Think bare essentials.</p>
+          <p>As an example, the essential features of an instagram-like application might look like:</p>
+          <ol>
+            <li>As a user, I want to post pictures so that I can share my life.</li>
+            <li>As a user, I want to be able to search for other users so that I can find their list of images.</li>
+            <li>As a user, I want to be able to view other people's images so that I can keep up with what's happening in their lives.</li>
+          </ol>
+          <p>Things like liking photos, sending photos to friends, making instagram stories,
+            etc. are cool, but they aren't essential. They should <span class="bold">not</span> be part of the MVP.</p>
+        </div>
+      </section>
+      <section>
+        <h1>Issues</h1>
+        <p>Let's talk about GitHub issues.</p>
+        <p>GitHub issues is a feature that lets you identify bugs and problems within a project
+          and assign them to yourself or collaborators.
+        </p>
+        <p>Before we can open issues, we need to break our user stories into tasks. Each task should be clear, concise, and something
+        that each teammate understands how to implement. Let's show the basic idea of adding an issue to a project, and also use some
+        markdown to create a checklist.</p>
+        <h3>Markdown template:</h3>
+        <pre class="brush: shell">```
+## User Story
+As a ______, I want ______ so that I can ______.
+
+## Acceptance Criteria
+- [ ] Item 1 of user story...
+- [ ] Item 2 of user story...
+- [ ] (...)
+- [ ] Item n of user story....
+```</pre>
+        <hr>
+        <h2>Takeaways</h2>
+        <p>The user story is added to help maintain focus and insure that each issue is linked to one of the MVP user stories.</p>
+        <p>Acceptance criteria outlines are what must be accomplished before the issue is closed. Acceptance criteria tells both the developer
+        and the reviewer what is expected for this feature. These should be as fine-grained as possible.</p>
+        <div class="student-activity">
+          <h2>Group activity!</h2>
+          <p>You'll be creating issues now!</p>
+          <p>Start by listing the tasks involved in completing each of your user stories.</p>
+          <p>Once you have 1-5 tasks written up for each user story, open a GitHub issue for each task by clicking on "Issues" and the
+          green "New Issue" button. Use the template below, replacing the user stories and acceptance criteria with your own.</p>
+          <pre class="brush: shell">```
+## User Story
+As a user, I want to be able to input search queries so that
+I can search Stack Overflow when I'm stuck.
+
+## Acceptance Criteria
+- [ ] index.html has a text input
+- [ ] index.html has a search button
+```
+          </pre>
+          
+          <p>As an example: In a dating website application...</p>
+          <p><span class="bold">User Story:</span> As a user I want to see my closest match, so that I can
+          meet someone with whom I share interests.<p>
+          <p class="bold id">&#x274C; Bad task:</p>
+            <ol>
+              <li>On new member form submit, find and display best match.</li>
+            </ol>
+          <p class="bold class">&#x2705; Good tasks:</p>
+          <ol>
+            <li>Build a form that captures user scores (1-5) to ten questions.</li>
+            <li>On submit, save the ten numerical answers to as an array.</li>
+            <li>Compare the user array to each existing user array and find the closest match.</li>
+            <li>Display the closest match to the user.</li>
+          </ol>
+        </div>
+      </section>
+      <section>
+        <h1>Kanban</h1>
+        <p>It's important to have a management system in place when you tackle a project. For a project of this scope,
+          a Kanban board makes a lot of sense. Kanban boards give us a birds eye view of the tasks we've completed,
+          are working on, and need to do. It's
+          a simple, visual, drag and drop scheduling system. GitHub has several built-in options for organizing projects. In this case,
+          we will be using GitHub Projects.
+        </p>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <p>Follow along as I step through a project in GitHub projects.</p>
+        </div>
+        <hr>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <p>Use the "Projects" tab in GitHub to create a new project (use the automated kanban template).</p>
+          <p>Add a new column called
+          Icebox (You will need to exit the "add card" pop-up to access the "add column" area on the right side).</p>
+          <p>Click "+ Add Cards"
+          and dragging each issue into the correct column, To Do or Icebox.</p>
+          <p><span class="note">Bonus:</span> if you have extra time, let each team member add some additional features to the Icebox. This is a great place to hold future
+          enhancement ideas. Remember that each feature may need to be broken down into smaller tasks in the future before you open
+          issues and start building them.</p>
+        </div>
+        <hr>
+        <h1>Assigning Issues and Stand-up</h1>
+        <p>This platform allows us to assign ourselves issues to work on or other collaborators within the group. This helps the team
+          divide up responsibilities.
+        </p>
+        <p>Nowadays, it's almost impossible to avoid seeing <span class="note">stand-ups</span> within project management.
+        A stand-up is a meeting typically no longer than 10 minutes wherein each member of the team talks about what they worked on last
+        time, what they intend on accomplishing that day and any obstacles blocking their progress.</p>
+        <p>They're called stand-ups because everyone is literally standing up, a 
+        conscious reminder that the meeting should be quick and concise. Most companies use daily stand-up meetings.</p>
+        <div class="student-activity">
+          <h2>Group activity!</h2>
+          <p>Before your first stand-up, each member of the team should go through the To Do column of the Project Board and self-assign
+          at least one issue.</p>
+          <p>To do this, click on the issue and on the right choose "self-assign".</p>
+          <p>Everyone should have a clear idea of what they intend to accomplish today. Now it's time for your first stand-up!</p>
+          <p>Stand if you are able, such that your meeting is short and to the point.</p>
+          <p>Each member of the team should
+          say what they did yesterday, what they plan to do today, and what, if anything, is blocking their progress.</p>
+          <p>Stand-ups should
+          be held <span class="italic">daily</span> from this point forward—even days that we don't have class (use Slack).</p>
+        </div>
+      </section>
+      <div class="page-break">
+        <h1>Break time!</h1>
+      </div>
+      <section>
+        <h1>Project work</h1>
+        <p>This is your time!</p>
+      </section>
+      <div class="page-break">
+        <h1>That's all for today, see you Wednesday!</h1>
+      </div>
+    </article>
+  </body>
+  <!-- Script to make <pre> tags pretty -->
+  <script type='text/javascript' src="../js/syntaxhighlighter.js"></script>
+  <script type='text/javascript' src="https://code.jquery.com/jquery.js"></script>
+</html>
+</html>
