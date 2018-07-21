@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project Workday</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Reem+Kufi" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,400i,700,700i,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:200i,400,400i,700,700i" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href="../css/reset.css" >
+    <link rel='stylesheet' type='text/css' href="../css/theme.css">
+    <link rel='stylesheet' type='text/css' href="../css/styles.css" >
+    <link rel='stylesheet' type='text/css' href="../css/new-styles.css" >
+  </head>
+  <body>
+    <header>
+      <pre id='ascii-title' style='font-size:1.65vw; line-height:0.85em; letter-spacing: -0.05em;'>
+ ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄ 
+▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌
+▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌ ▀▀▀▀▀█░█▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀▀▀▀▀▀  ▀▀▀▀█░█▀▀▀▀ 
+▐░▌       ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌      ▐░▌    ▐░▌          ▐░▌               ▐░▌     
+▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌▐░▌       ▐░▌      ▐░▌    ▐░█▄▄▄▄▄▄▄▄▄ ▐░▌               ▐░▌     
+▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌      ▐░▌    ▐░░░░░░░░░░░▌▐░▌               ▐░▌     
+▐░█▀▀▀▀▀▀▀▀▀ ▐░█▀▀▀▀█░█▀▀ ▐░▌       ▐░▌      ▐░▌    ▐░█▀▀▀▀▀▀▀▀▀ ▐░▌               ▐░▌     
+▐░▌          ▐░▌     ▐░▌  ▐░▌       ▐░▌      ▐░▌    ▐░▌          ▐░▌               ▐░▌     
+▐░▌          ▐░▌      ▐░▌ ▐░█▄▄▄▄▄▄▄█░▌ ▄▄▄▄▄█░▌    ▐░█▄▄▄▄▄▄▄▄▄ ▐░█▄▄▄▄▄▄▄▄▄      ▐░▌     
+▐░▌          ▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░▌    ▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌     ▐░▌     
+ ▀            ▀         ▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀      ▀▀▀▀▀▀▀▀▀▀▀  ▀▀▀▀▀▀▀▀▀▀▀       ▀      
+                                                                                           
+ ▄         ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄    ▄  ▄▄▄▄▄▄▄▄▄▄   ▄▄▄▄▄▄▄▄▄▄▄  ▄         ▄  ▄   
+▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌  ▐░▌▐░░░░░░░░░░▌ ▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░▌  
+▐░▌       ▐░▌▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌▐░▌ ▐░▌ ▐░█▀▀▀▀▀▀▀█░▌▐░█▀▀▀▀▀▀▀█░▌▐░▌       ▐░▌▐░▌  
+▐░▌       ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌▐░▌▐░▌  ▐░▌       ▐░▌▐░▌       ▐░▌▐░▌       ▐░▌▐░▌  
+▐░▌   ▄   ▐░▌▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄█░▌▐░▌░▌   ▐░▌       ▐░▌▐░█▄▄▄▄▄▄▄█░▌▐░█▄▄▄▄▄▄▄█░▌▐░▌  
+▐░▌  ▐░▌  ▐░▌▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░▌    ▐░▌       ▐░▌▐░░░░░░░░░░░▌▐░░░░░░░░░░░▌▐░▌  
+▐░▌ ▐░▌░▌ ▐░▌▐░▌       ▐░▌▐░█▀▀▀▀█░█▀▀ ▐░▌░▌   ▐░▌       ▐░▌▐░█▀▀▀▀▀▀▀█░▌ ▀▀▀▀█░█▀▀▀▀ ▐░▌  
+▐░▌▐░▌ ▐░▌▐░▌▐░▌       ▐░▌▐░▌     ▐░▌  ▐░▌▐░▌  ▐░▌       ▐░▌▐░▌       ▐░▌     ▐░▌      ▀   
+▐░▌░▌   ▐░▐░▌▐░█▄▄▄▄▄▄▄█░▌▐░▌      ▐░▌ ▐░▌ ▐░▌ ▐░█▄▄▄▄▄▄▄█░▌▐░▌       ▐░▌     ▐░▌      ▄   
+▐░░▌     ▐░░▌▐░░░░░░░░░░░▌▐░▌       ▐░▌▐░▌  ▐░▌▐░░░░░░░░░░▌ ▐░▌       ▐░▌     ▐░▌     ▐░▌  
+ ▀▀       ▀▀  ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀  ▀    ▀  ▀▀▀▀▀▀▀▀▀▀   ▀         ▀       ▀       ▀   
+</pre>
+      <h2 class='date'> July 21st, 2018</h2>
+    </header>
+    <article class='container'>
+      <section id="todo" >
+        <h1>To Do's:</h1>
+        <ul>
+          <li>Administrivia</li>
+          <li>Presentations</li>
+          <li>Deployment</li>
+          <li>Project Work</li>
+        </ul>
+      </section>
+      <section>
+        <h1>Administrivia</h1>
+        <p>Welcome to day three of project week: <span class="rotate">Saturday edition!</span></p>
+        <p>Today will be extremely project-work heavy, with less emphasis on
+          management skills and topics.
+        </p>
+        <p>Remember that your Firebase homework is due tonight!</p>
+      </section>
+      <section>
+        <h1>Presentations</h1>
+        <p>At any given point, you should be ready to give a micro-presentation of your app in-progress.</p>
+        <p>This just means that you should be able to adequately describe the purpose, functionality,
+          concepts, etc. of your application.
+        </p>
+        <p>This should cover:</p>
+        <ol>
+          <li>Target audience</li>
+          <li>Problem the application solves</li>
+          <li>Minimum functionality</li>
+        </ol>
+        <p>Always be sure to finish your MVP before woking on the fluff—those
+          less essential, nice to have features.
+        </p>
+      </section>
+      <section>
+        <h1>Deployment</h1>
+        <p>Everyone should be familiar with GitHub pages. During this project,
+          you should have at least one part of your applications in a presentable state.
+          An easy way to do that is merging stable branches into master, then serving GitHub pages
+          from the master branch.
+        </p>
+        <p>By deploying early, you have both something you can demo at all times, as well
+          as a mindset of only merging code that works and has been reviewed into the master branch.
+        </p>
+        <h2>Caveats</h2>
+        <p>Things to keep in mind:</p>
+        <ul>
+          <li>Use "https" instead of "http" for API calls. HTTPS is required
+            for AJAX requests once deployed to GitHub pages.
+          </li>
+          <li>Keep files and directories lowercase to avoid broken files
+            and links.
+          </li>
+          <li>Make sure you have an <code>index.html</code> file in the root directory.
+          This is required.</li>
+        </ul>
+        <hr>
+        <div class="student-activity">
+          <h2>&#x26A1; Lightning Round &#x26A1; Group Activity!</h2>
+          <p>We already protected our master branch, which is step one of continuous
+            deployment.
+          </p>
+          <p>Your master branch should be continuously deployed—when we say that, 
+            we mean that every stable update is automatically available to users. 
+            Make sure right now that your master branch is set up for GitHub Pages.
+          </p>
+          <p>Also, be sure that an <code>index.html</code> file exists in the root of the repo.</p>
+        </div>
+        <hr>
+        <h2>Finishing the MVP</h2>
+        <p>In order to insure that you have something you can demo on presentation day, it's a
+          good idea to stop adding new features at least two days beforehand. That way, new
+          additions don't spontaneously break due to lack of testing, and existing features are 100%
+          tested and stable.</p>
+        <p>If you manage to squeeze in new functionality right before the presentation,
+          <span class="italic id">people will notice.</span> It's not a good look, as it speaks poorly
+          to your project and time management skills. Those who actually do manage to add that functionality
+          find their applications broken on of shortly before presentation day.
+        </p>
+        <h2>Presentation Prep</h2>
+        <p>Every bit of functionality that has been completed should be tested—once confirmed
+          to work, add some polish to it.
+        </p>
+        <p>Groups should have some sort of visual aid. For the upcoming presentation,
+          you should prepare some slides. Consider adding screenshots of the application in action.
+        </p>
+        <p><span class="bold">Every group member must speak.</span> If your work was distributed
+        equally, this should be easy.</p>
+        <p>Don't expect to demonstrate your actual code—instead, be ready to tell a story
+          about your application, e.g. motivations for the project idea, issues you ran into, next steps,
+          inspirations, etc.
+        </p>
+      </section>
+      <section>
+        <h1>Project work!</h1>
+        <p>We've got a nice block of time for you to just plug away at your projects.</p>
+        <p>This is your time!</p>
+      </section>
+      <div class="page-break">
+        <h1>Break time!</h1>
+      </div>
+      <section>
+        <h1>Project work! (continued)</h1>
+        <p>This is your time! Again!</p>
+      </section>
+      <div class="page-break"></div>
+      <section>
+        <h1>Micro Presentations</h1>
+        <p>We'll be spending the last part of the class just talking about
+          the absolute minimum you wish to have done by presentation day.
+          After presenting your overall idea, give your classmates a short amount of time
+          for Q&amp;A.
+        </p>
+      </section>
+      <div class="page-break">
+        <h1>That's all for today, see you Wednesday!</h1>
+      </div>
+    </article>
+  </body>
+  <!-- Script to make <pre> tags pretty -->
+  <script type='text/javascript' src="../js/syntaxhighlighter.js"></script>
+  <script type='text/javascript' src="https://code.jquery.com/jquery.js"></script>
+</html>
+</html>

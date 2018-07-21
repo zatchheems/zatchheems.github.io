@@ -40,3 +40,4 @@
 ### Unit 8: Project 1
 * [GitHub Collaboration & Project Week](./08-project-1/html/github-collab-and-project1.html)
 * [Project Management](./08-project-1/html/project-management.html)
+* [Project Workday](./08-project-1/html/project-workday.html)
