@@ -123,7 +123,7 @@ a:active {
 
 header {
   padding: 25px 25px 10px 25px;
-  background-color:var(--gray-bg);
+  background-color:var(--content);
   border-bottom:outset 20px var(--alt-color);
 }
 
@@ -331,10 +331,7 @@ hr {
   background-color: var(--alt-color);
   padding:5px;
   text-align:center;
-}
-
-.page-break > h1 {
-  color:var(--alt-accent);
+  color:var(--dark-accent);
   text-shadow: rgba(25,25,25,0.15)  0 3px 6px;
 }
 
