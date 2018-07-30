@@ -41,3 +41,9 @@
 * [GitHub Collaboration & Project Week](./08-project-1/html/github-collab-and-project1.html)
 * [Project Management](./08-project-1/html/project-management.html)
 * [Project Workday](./08-project-1/html/project-workday.html)
+
+### Unit 9: Project 1 Workweek
+(No new notes)
+
+### Unit 10: Node
+* [New to Node](./10-node/html/new-to-node.html)
