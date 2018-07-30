@@ -6,8 +6,8 @@
   --alt-accent: #384f38;
   --bright-accent: #f9dc5c;
   --mid-accent: #ffba08;
-  --dark-accent: #3f88c5;
-  --gray:slategray;
+  --dark-accent: #001f22;
+  --muted:#507340;
   --light-gray:rgb(210, 210, 210);
   --gray-bg: #1b1b1b;
   --content:#002b28;
@@ -17,7 +17,19 @@
 @keyframes appear {
   from {
     opacity: 0;
-    transform:translateY(-200%);
+    transform:translateX(-200%);
+  }
+
+  to {
+    opacity: 1.0;
+    transform:translate(0%);
+  }
+}
+
+@keyframes appear-alt {
+  from {
+    opacity: 0;
+    transform:translateX(200%);
   }
 
   to {
@@ -29,12 +41,12 @@
 @keyframes rotate {
   from {
     transform: rotate(5deg);
-    color:var(--alt-color)
+    color: var(--alt-color);
   }
 
   to {
     transform: rotate(-5deg);
-    color:var(--main-color);
+    color: var(--main-color);
   }
 }
 
@@ -45,7 +57,8 @@ body {
   font-family: "Josefin Sans", Futura, "Century Gothic", Helvetica, Arial, sans-serif;
   font-weight:400;
   font-size:2.5em; /* 2.75 times the default size. */
-  background-color:var(--main-color);
+  background-color: var(--main-color);
+  transition: all 0.5s ease-in;
 }
 
 img {
@@ -58,7 +71,13 @@ code, pre {
 
 code {
   font-weight:800;
-  color:var(--mid-accent);
+  background-color:var(--alt-color);
+  color:var(--dark-accent);
+  box-shadow: var(--alt-accent) 8px 8px 0 -3px;
+}
+
+.syntaxhighlighter code {
+  box-shadow:none;
 }
 
 pre {
@@ -104,17 +123,24 @@ p {
   font-weight:200;
 }
 
+/* SVG Styling */
+text{
+  font: 0.075em "Josefin Sans", Futura, "Century Gothic", Helvetica, Arial, sans-serif;
+  font-weight:bold;
+}
+
 a {
   text-decoration: none; /* anchor tags have underscores by default; those are ugly. */
   transition: all 0.25s ease-in;
   font-weight: 700; /* 100-extralight 200-light 400-regular 700-bold 800-black */
   outline:0;
   color:var(--mid-accent);
+  box-shadow: var(--mid-accent) 0 3px 0 -1px;
 }
 
 a:hover {
-  color: var(--alt-color);
-  box-shadow: var(--alt-color) 0 5px 0 -1px;
+  color: var(--bright-accent);
+  box-shadow: var(--bright-accent) 0 7px 0 -1px;
 }
 
 a:active {
@@ -149,12 +175,20 @@ a:active {
   font-weight:700;
 }
 
-.gray {
-  color:#808080;
+.muted {
+  color:var(--muted);
 }
 
 .accent {
   color:var(--accent);
+}
+
+.mid-accent {
+  color:var(--mid-accent);
+}
+
+.bright-accent {
+  color:var(--bright-accent);
 }
 
 .italic {
@@ -178,9 +212,16 @@ section {
   border-top: solid 25px var(--alt-accent);
   border-bottom: solid 25px var(--alt-accent);
 
-  animation: appear;
   animation-duration:1s;
   animation-timing-function: ease-out;
+}
+
+section:nth-child(2n){
+  animation: appear;
+}
+
+section:nth-child(2n+1){
+  animation: appear-alt;
 }
 
 section > p:first-of-type::first-letter {
@@ -203,9 +244,9 @@ section > p:not(:first-of-type)::before {
 
 blockquote {
   font-size:1.5em;
-  color:var(--gray);
-  border-left: solid 5px slategray;
-  padding-left:10px;
+  color:var(--alt-accent);
+  border-left: solid 5px var(--bright-accent);
+  padding-left:20px;
   margin: 0 0 25px 15px;
   line-height:110%;
 }
@@ -224,33 +265,34 @@ fieldset,pre {
 }
 
 fieldset, .activity, .student-activity {
-  background-color:#e0e0e8;
   border-radius:5px;
   padding:5px 25px;
   margin:20px 0;
+  background-color: var(--dark-accent);
 }
 
 .activity, .student-activity {
   margin:20px 0;
-  border-style:solid;
   border-width: 7px;
+  border-style: dashed;
+  border-width:2px;
 }
 
 .activity {
-  border-color: var(--gray-bg);
+  border-color: var(--accent);
+}
+
+.student-activity {
+  border-color: var(--alt-color);
 }
 
 .activity > h2 {
+  color: var(--accent);
   border-bottom: dashed #f0ad30;
 }
 
 .student-activity > h2 {
-  border-bottom: dashed darkblue;
-}
-
-.student-activity {
-  background-color:#c9c9d3;
-  border-color: var(--gray);
+  border-bottom: dashed var(--alt-color);
 }
 
 .activity > h2::before {
@@ -436,7 +478,7 @@ hr {
 
 .note {
   font-weight: 800;
-  color: var(--gray);
+  color: var(--accent);
 }
 
 .redacted::after {
@@ -468,4 +510,32 @@ hr {
   animation-direction: alternate;
   display: inline-block;
   font-weight:800;
+}
+
+@media screen and (max-width:320px) {
+  section {
+    padding: 8px;
+  }
+  code {
+    box-shadow:none;
+  }
+}
+
+@media screen and (max-width:500px) {
+  section {
+    padding: 15px;
+  }
+  code {
+    box-shadow: var(--alt-accent) 4px 4px 0 -3px;
+  }
+}
+
+@media screen and (max-width:720px) {
+  body {
+    font-size:5vw;
+  }
+
+  section {
+    padding: 20px;
+  }
 }
