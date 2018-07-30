@@ -441,49 +441,14 @@ hr {
   color:var(--mid-accent);
 }
 
-.syntaxhighlighter {
-  padding:10px;
-  border-radius: 5px;
-  font-size: 1.8vw!important;
-  width: inherit!important;
-}
-
-.selector, .margin {
-  color: darkorange;
-}
-
-.property {
-  color: lightsalmon;
-}
-
-.value, .padding  {
-  color: lightseagreen;
-}
-
-.special-char, .border {
-  color: purple;
-}
-
-.bracket {
-  color: plum;
-}
-
-.id, .size {
-  color:orangered;
-}
-
-.class {
-  color:darkslateblue;
-}
-
-.note {
+.note, .hint, .bonus {
   font-weight: 800;
   color: var(--accent);
 }
 
 .redacted::after {
   content: "Redacted!";
-  font-family:Futura, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family:"Josefin Sans", Futura, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-style:italic;
   font-variant: small-caps;
   color:white!important;

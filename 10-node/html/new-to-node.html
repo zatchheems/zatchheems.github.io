@@ -8,8 +8,8 @@
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,400i,700" rel="stylesheet">
     <link rel='stylesheet' type='text/css' href="../css/reset.css" >
-    <link rel='stylesheet' type='text/css' href="../css/theme.css">
     <link rel='stylesheet' type='text/css' href="../css/styles.css" >
+    <link rel='stylesheet' type='text/css' href="../css/prism.css">
   </head>
   <body>
     <header>
@@ -39,6 +39,7 @@
           <li>Servers and Clients</li>
           <li>Intro to Node.js</li>
           <li>Node Practice</li>
+          <li>Modularization: Require and Exports</li>
         </ul>
       </section>
       <section>
@@ -156,22 +157,97 @@
         <div class="activity">
           <h2>Instructor activity...</h2>
           <p>Reading your arguments is as easy as the following: <code>console.log(process.argv)</code></p>
-          <p>Let's do a quick example with this.</p>
+          <p>Let's do a quick example with this and see what the contents are.</p>
+          <hr>
+          <p>Let's play with argument addition, paying special attention
+            to types.</p>
+          <p>First, we'll try <code>process.argv[2] + process.argv[3]</code>, then the same thing
+            using <code>parseFloat()</code>.</p>
+        </div>
+        <hr>
+        <div class="student-activity">
+          <h2>Partner activity!</h2>
+          <p>Create a command line Node application that takes in two parameters and outputs whether
+            they are equal or not.</p>
+          <p><span class="hint">Hint:</span> start by simply logging the value of each argument to
+            console. Then use your usual JavaScript approach (recall that Node is still just JavaScript).</p>
+        </div>
+        <div class="review">
+          <h2>Parameter Check Activity Review</h2>
+          <p>The quickest way to do this is as follows:</p>
+          <pre><code class="language-javascript">console.log(process.argv[2] === process.argv[3]);</code></pre>
+          <p>The less efficient, easier way:</p>
+          <pre><code class="language-javascript">let a = process.argv[2];
+let b = process.argv[3];
+
+if (a === b){
+  console.log(true);
+} else {
+  console.log(false);
+}</code></pre>
+        </div>
+        <p>Getting the hang of it? Let's play some more with command line arguments.</p>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <p>Create a command-line node application that takes in parameters like this:</p>
+          <ul>
+            <li><code>node calculator.js add 1 2</code> ... and outputs 3</li>
+            <li><code>node calculator.js subtract 5 2</code> ... and outputs 3</li>
+            <li><code>node calculator.js multiply 3 2</code> ... and outputs 6</li>
+            <li><code>node calculator.js divide 8 2</code> ... and outputs 4</li>
+            <li><code>node calculator.js remainder 7 2</code> ... and outputs 1</li>
+          </ul>
+          <p>In summary: implement add, subtract, multiply, divide and remainder operations on
+            input arguments.</p>
+          <p><span class="bonus">Bonus:</span> enable your calculator application to also handle the below cases:</p>
+          <ul>
+            <li><code>node calculator.js exp 7 2</code> ... and output 49 (7 squared)</li>
+            <li><code>node calculator.js algebra 4x+2=10</code> ... and output 2</li>
+          </ul>
+          <p class="italic muted">(<span class="hint">Hint:</span> assume the algebra will always be in this exact form
+            and will always be addition)</p>
+        </div>
+        <div class="review">
+          <h2>Calculator.js Review</h2>
+          <p>Let's go over the logic and steps to get this thing working.</p>
         </div>
       </section>
       <div class="page-break">
         <h1>Break time!</h1>
       </div>
       <section>
-        <h1></h1>
-        <p></p>
+        <h1>Modularization: Require and Exports</h1>
+        <p>One of Node's greatest strengths is its ability to include objects, libraries and packages. Think about
+        how you include a library on the client side using <code>&lt;script></code> tags&mdash;Node works differently.
+        The object <code>module.exports</code> allows us to use objects, functions and variables from elsewhere, allowing us
+        to use <code>require("./food.js")</code> to get a file called "food.js" in the same directory.</p>
+        <p>Say we wanted an array from "food.js". We can export an array <code>food</code> as follows:</p>
+        <pre><code class="language-javascript">var food = [
+  "spam",
+  "ham",
+  "eggs"
+];
+
+module.exports = {
+  food: food
+}</code></pre>
+      <p>When we want to use that <code>food</code> array, we use <code>require("./food.js")</code> and we've got it!</p>
+      <div class="activity">
+        <h2>Instructor activity...</h2>
+        <p>Let's do a live example of modularization, using <code>module.exports</code>,
+          an external file <code>ess.js</code>, and a main file <code>run.js</code>.</p>
+        <p>We'll be paying particularly close attention to what actually gets stored in
+          the exported object, and what gets ignored.</p>
+      </div>
+      <hr>
+      
       </section>
       <div class="page-break">
         <h1>That's all for today, see you Wednesday!</h1>
       </div>
     </article>
   </body>
-  <!-- Script to make <pre> tags pretty -->
-  <script type='text/javascript' src="../js/syntaxhighlighter.js"></script>
+  <!-- Script to make code pretty -->
+  <script type='text/javascript' src="../js/prism.js"></script>
 </html>
 </html>
