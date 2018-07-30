@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New to Node</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,400i,700" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href="../css/reset.css" >
+    <link rel='stylesheet' type='text/css' href="../css/styles.css" >
+    <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  </head>
+  <body>
+    <header>
+      <pre id='ascii-title' style='font-size:3vw; line-height:0.75em; letter-spacing: -0.25em; font-weight:300;'>
+::::    ::: :::::::::: :::       :::      ::::::::::: .::::::.
+:+:+:   :+: :+:        :+:       :+:          :+:    :+:    :+:
+:+:+:+  +:+ +:+        +:+       +:+          +:+    +:+    +:+
++#+ +:+ +#+ +#++:++#   +#+  +:+  +#+          +#+    +#+    +:+
++#+  +#+#+# +#+        +#+ +#+#+ +#+          +#+    +#+    +#+
+#+#   #+#+# #+#         #+#+# #+#+#           #+#    #+#    #+#
+###    #### ##########   ###   ###            ###     ########
+
+::::    :::  ::::::::  :::::::::  ::::::::::
+:+:+:   :+: :+:    :+: :+:    :+: :+:
+:+:+:+  +:+ +:+    +:+ +:+    +:+ +:+
++#+ +:+ +#+ +#+    +:+ +#+    +:+ +#++:++#
++#+  +#+#+# +#+    +#+ +#+    +#+ +#+
+#+#   #+#+# #+#    #+# #+#    #+# #+#
+###    ####  ########  #########  ##########</pre>
+      <h2 class='date'> July 30th, 2018</h2>
+    </header>
+    <article class='container'>
+      <section id="todo" >
+        <h1>To Do's:</h1>
+        <ul>
+          <li>Administrivia</li>
+          <li>Servers and Clients</li>
+          <li>Intro to Node.js</li>
+          <li>Node Practice</li>
+          <li>Modularization: Require and Exports</li>
+        </ul>
+      </section>
+      <section>
+        <h1>Administrivia</h1>
+        <p>Welcome back from project week! Today's class will entail learning a technology
+        many of you have heard of. For the uninitiated, our discussion on Node might be totally mind-blowing. You'll
+        get firsthand experience with a cutting edge technology that is practically ubiquitous in the industry&mdash;knowledge
+        of this tech is practically your golden ticket.</p>
+        <p>As for addressing the redesign for your instructor notes, I personally felt that the dark-on-light text was hard
+          on the eyes. It also makes sense to change up the notes for a completely different focus for the latter half of the
+          class. You're already golden when it comes to front-end development on the client side, so all the way through November we'll be focusing
+          mainly on server-side development, getting to the heart of what makes some really cool tech tick.</p>
+        <p class="accent">Let's get to work!</p>
+      </section>
+      <section>
+        <h1>Servers and Clients</h1>
+        <p>When we think of <span class='italic'>full-stack development</span>, what do we mean? We use full-stack to refer to both the front-end&mdash;i.e. client-side&mdash;and back-end&mdash;server-side. Up to this point,
+        everything we've written has been client-side, as all the code written is compiled and run on
+        the machine an application runs on. Your browser fetches the necessary files from the webserver, or back-end,
+        then renders everything and executes the necessary script(s). With the exception of Firebase&mdash;a back-end
+        technology&mdash;only front-end technologies have been used thus far.</p>
+        <svg viewBox="0 0 50 15" xmlns="http://www.w3.org/2000/svg">
+          <line x1="6" y1="8" x2="35" y2="8" stroke="black" stroke-width='0.5' />
+          <rect x="1.75" y="1.75" width="12" height="12" rx="0.1" ry="0.1" stroke='black' stroke-width='0.5' fill='lightseagreen'/>
+          <text x="3.5" y="8.5">USER</text>
+          <rect x="16.5" y="1.75" width="12" height="12" rx="0.1" ry="0.1" stroke='black' stroke-width='0.5' fill='gold'/>
+          <text x="5.125" y="22" transform="rotate(-45)">FRONT&ndash;</text>
+          <text x="6" y="24.5" transform="rotate(-45)">END</text>
+          <rect x="31" y="1.75" width="12" height="12" rx="0.1" ry="0.1" stroke='black' stroke-width='0.5' fill='khaki'/>
+          <text x="16.5" y="31.5" transform="rotate(-45)">BACK&ndash;</text>
+          <text x="17" y="34" transform="rotate(-45)">END</text>
+        </svg>
+        <p><span class="note">Servers</span> take requests from <span class="note">clients</span>, returning what they ask
+          for in responses. When your browser navigates to any page, it makes a series of requests like <span class="italic">"What's in this file?"
+          "Can I get the images, stylesheets and fonts for this?" "What are the contents of this JavaScript file I want?"</span></p>
+        <p>Servers can be physical computers, proper enterprise grade tech with absurd specs, virtual machines; pretty much anything.
+        Your own machines can serve requests too. More often, however, they're clients: you direct your browser to a site, it asks
+          the server with HTTP(S) requests for stuff, the server processes the requests, gives back the files you asked for to the browser <span class="italic gray">(provided they
+          don't 404 or worse, the dreaded 500 error)</span>,
+          the browser renders the HTML and runs client-side JavaScript.</p>
+        <blockquote class="note">Here's a thought: what about server-side JavaScript?</blockquote>
+      </section>
+      <section>
+        <h1>Intro to Node.js</h1>
+        <div class="flex-vert">
+          <img src="https://nodejs.org/static/images/logos/nodejs-new-white.png" alt="Node.js logo" style="width:50%" />
+          <small class="italic gray">(Time for Node! Finally!)</small>
+        </div>
+        <p>Enter <span class="bold accent">Node.js</span>. Node is a technology that allows us to write JavaScript
+        code and execute it on the server side. Before 2009, we'd likely still be using a completely different
+        server-side language, like PHP. Node makes it such that a different language isn't even necessary
+        for the back-end. This is incredibly convenient vis-&#x00E1;-vis front-end JavaScript developers
+        not needing to learn a new language to develop on the back-end.</p>
+        <h2>Synchronous vs. Asynchronous Threading</h2>
+        <p>We're going to get into some pretty technical stuff next, with a lot of jargon. Please feel free to slow me down and ask
+          an abundance of questions. We'll begin by just going to the <a href="https://nodejs.org/en/about/" target="_blank">
+            Node.js "About" page</a>.</p>
+            <p>One of the immediate advantages we have in Node is that synchronous threading, which is the
+              traditional method of handling requests, has to make a new thread for each and every request, taking
+              care of them in order and one at a time. For hundreds of requests, that's a lot of threads and a lot of waiting.
+              In contrast, Node is <span class="note">single-threaded and asynchronous</span>&mdash;we already know what
+              asynchronous means, and single-threaded implies that a Node server only has one thread. What this means is that
+              requests not being taken care of are put in the background (like putting them on ice) and eventually resolved with a callback.
+              Yes, that kind of callback!</p>
+              <p>What we get here is a tremendous boost in efficiency under heavy load: less resources, less time, more requests taken care of.</p>
+              <small class='italic muted'>&mdash;Don't worry if this is going over your head. It's hard to visualize.&mdash;</small>
+      </section>
+      <section>
+        <h1>Practice With Node</h1>
+        <p>We've gone over some of the complexities and advantages of Node, so let's get our hands dirty next. You'll
+        finally be able to put the <code>node</code> command in your terminals to good use. I mean, like, a <span class="italic">lot</span>
+        of use.</p>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <p>Verify that you can crack open a terminal and run <code>node</code> with no arguments. When you get a greater-than sign <code>&gt;</code>
+            start typing in some javascript, like:</p>
+          <ul>
+            <li><code>true === false</code></li>
+            <li><code>42*13</code></li>
+            <li><code>let foo = 'foo'</code></li>
+            <li>Etc.</li>
+          </ul>
+        </div>
+        <p>It's just a JavaScript console without the <code>window</code> object and some other browser-based objects. Note that <code>console.log</code>
+          still works!</p>
+        <p>So, without a window, how do we run JavaScript on the backend? It's actually very intuitive, and works very similarly to other
+          server side languages&mdash;PHP and Ruby use this same exact methodology.</p>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <p>Follow along as I show you how to execute a JavaScript file on the backend.</p>
+          <p>I'm going to create a new file, fill it with some basic output stuff, and run it with <code>node</code>.</p>
+          <p>As a general note, there does exist Node-specific syntax not present in vanilla client-side JS. We'll get into that later.
+          Being able to run JavaScript outside of a browser is a huge deal as it is, get hype!</p>
+        </div>
+        <hr>
+        <h3>Think you can do this yourself?<br>Questions, comments, concerns, musings, ideas?</h3>
+        <p>You'll be doing something similar in a bit, so please ask away. Let's talk about how cool this is.</p>
+        <hr>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <p>Create a new file called <code>sriracha.js</code> somewhere easily accessible via your terminal.</p>
+          <p>Inside the file use JavaScript to log the words: <span class="bright-accent"><br>"Sriracha. Goes great on... everything!"</span>
+            or<br><span class="bright-accent">"Sriracha. Goes great on... nothing"</span>. You choose.</p>
+            <small class="italic muted">(I happen to love the stuff. Your Slacked-out instructions will have a different opinion.)</small>
+          <p>Then, run the program using Node in your terminal/bash window. Confirm that it logged the text as you would expect.</p>
+        </div>
+        <hr>
+        <h2>The <span class="italic monospace">process</span> Object</h2>
+        <p>Much like in a browser, Node gives us some objects to help us peer behind the curtain and see what's going on.</p>
+        <p><code>process</code> gives us access to myriad objects for data and functionality, including environment variables, the ability
+          to change directories while the code is executing, process management, command line input, and many, many more. Right now, we're going
+          to be interested in <code>process.argv</code>.</p>
+        <p>What this gives us is our own command-line arguments. Much like <code>cd</code>, <code>mv</code>, every <code>git</code> command, etc.,
+          we can run Node with arguments and use them.</p>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <p>Reading your arguments is as easy as the following: <code>console.log(process.argv)</code></p>
+          <p>Let's do a quick example with this and see what the contents are.</p>
+          <hr>
+          <p>Let's play with argument addition, paying special attention
+            to types.</p>
+          <p>First, we'll try <code>process.argv[2] + process.argv[3]</code>, then the same thing
+            using <code>parseFloat()</code>.</p>
+        </div>
+        <hr>
+        <div class="student-activity">
+          <h2>Partner activity!</h2>
+          <p>Create a command line Node application that takes in two parameters and outputs whether
+            they are equal or not.</p>
+          <p><span class="hint">Hint:</span> start by simply logging the value of each argument to
+            console. Then use your usual JavaScript approach (recall that Node is still just JavaScript).</p>
+        </div>
+        <div class="review">
+          <h2>Parameter Check Activity Review</h2>
+          <p>The quickest way to do this is as follows:</p>
+          <pre><code class="language-javascript">console.log(process.argv[2] === process.argv[3]);</code></pre>
+          <p>The less efficient, easier way:</p>
+          <pre><code class="language-javascript">let a = process.argv[2];
+let b = process.argv[3];
+
+if (a === b){
+  console.log(true);
+} else {
+  console.log(false);
+}</code></pre>
+        </div>
+        <p>Getting the hang of it? Let's play some more with command line arguments.</p>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <p>Create a command-line node application that takes in parameters like this:</p>
+          <ul>
+            <li><code>node calculator.js add 1 2</code> ... and outputs 3</li>
+            <li><code>node calculator.js subtract 5 2</code> ... and outputs 3</li>
+            <li><code>node calculator.js multiply 3 2</code> ... and outputs 6</li>
+            <li><code>node calculator.js divide 8 2</code> ... and outputs 4</li>
+            <li><code>node calculator.js remainder 7 2</code> ... and outputs 1</li>
+          </ul>
+          <p>In summary: implement add, subtract, multiply, divide and remainder operations on
+            input arguments.</p>
+          <p><span class="bonus">Bonus:</span> enable your calculator application to also handle the below cases:</p>
+          <ul>
+            <li><code>node calculator.js exp 7 2</code> ... and output 49 (7 squared)</li>
+            <li><code>node calculator.js algebra 4x+2=10</code> ... and output 2</li>
+          </ul>
+          <p class="italic muted">(<span class="hint">Hint:</span> assume the algebra will always be in this exact form
+            and will always be addition)</p>
+        </div>
+        <div class="review">
+          <h2>Calculator.js Review</h2>
+          <p>Let's go over the logic and steps to get this thing working.</p>
+        </div>
+      </section>
+      <div class="page-break">
+        <h1>Break time!</h1>
+      </div>
+      <section>
+        <h1>Modularization: Require and Exports</h1>
+        <p>One of Node's greatest strengths is its ability to include objects, libraries and packages. Think about
+        how you include a library on the client side using <code>&lt;script></code> tags&mdash;Node works differently.
+        The object <code>module.exports</code> allows us to use objects, functions and variables from elsewhere, allowing us
+        to use <code>require("./food.js")</code> to get a file called "food.js" in the same directory.</p>
+        <p>Say we wanted an array from "food.js". We can export an array <code>food</code> as follows:</p>
+        <pre><code class="language-javascript">var food = [
+  "spam",
+  "ham",
+  "eggs"
+];
+
+module.exports = {
+  food: food
+}</code></pre>
+      <p>When we want to use that <code>food</code> array, we use <code>require("./food.js")</code> and we've got it!</p>
+      <div class="activity">
+        <h2>Instructor activity...</h2>
+        <p>Let's do a live example of modularization, using <code>module.exports</code>,
+          an external file <code>ess.js</code>, and a main file <code>run.js</code>.</p>
+        <p>We'll be paying particularly close attention to what actually gets stored in
+          the exported object, and what gets ignored.</p>
+      </div>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <p>I'm going to demo the following activity, then you'll get some time to build it.</p>
+        <p>Make a JavaScript file called <code>bands.js</code> that exports an object of assorted music genres and
+          bands like the following:</p>
+        <pre><code class="language-javascript">{
+  funk: "The Internet",
+  rap: "Anderson .Paak",
+  metal: "Sleep",
+  folk: "Julie Byrne",
+  experimental: "Animal Collective"
+}
+</code></pre>
+        <p>Require this javascript file in <code>run.js</code>, loop over the values, and <code>console.log</code> them. Make sure the program
+          runs properly when entered into the terminal like the following:</p>
+        <pre><code class="language-javascript">node run.js</code></pre>
+        <p><span class="bonus">Bonus:</span> make it so that your program takes in a parameter like "funk" and then outputs the associated
+          band with it. In this case, "The Internet" would be outputted. If no parameter is given, loop over and output
+        all of them like above.</p>
+      </div>
+      </section>
+      <div class="page-break">
+        <h1>That's all for today, see you Wednesday!</h1>
+      </div>
+    </article>
+  </body>
+  <!-- Script to make code pretty -->
+  <script type='text/javascript' src="../js/prism.js"></script>
+</html>
+</html>
