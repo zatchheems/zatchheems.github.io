@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Node, Continued</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,400i,700" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href="../css/reset.css" >
+    <link rel='stylesheet' type='text/css' href="../css/prism.css">
+    <link rel='stylesheet' type='text/css' href="../css/styles.css" >
+  </head>
+  <body>
+    <header>
+      <pre id='ascii-title' style='font-size:3vw; line-height:0.55em; letter-spacing: -0.33em; font-weight:400;'>                             ,,                                                    
+`7MN.   `7MF'                `7MM                                                    
+  MMN.    M                    MM                                                    
+  M YMb   M   ,pW"Wq.     ,M""bMM   .gP"Ya                                            
+  M  `MN. M  6W'   `Wb  ,AP    MM  ,M'   Yb                                           
+  M   `MM.M  8M     M8  8MI    MM  8M""""""                                           
+  M     YMM  YA.   ,A9  `Mb    MM  YM.    , ,,                                        
+.JML.    YM   `Ybmd9'    `Wbmd"MML. `Mbmmd' dg                                        
+                                            ,j                                        
+                                            ,'                                         
+                                                                                   
+                                          ,,                                           ,,  
+  .g8"""bgd                       mm      db                                         `7MM  
+.dP'     `M                       MM                                                   MM  
+dM'       `  ,pW"Wq. `7MMpMMMb. mmMMmm  `7MM   `7MMpMMMb. `7MM  `7MM   .gP"Ya     ,M""bMM  
+MM          6W'   `Wb  MM    MM   MM      MM     MM    MM   MM    MM  ,M'   Yb  ,AP    MM  
+MM.         8M     M8  MM    MM   MM      MM     MM    MM   MM    MM  8M""""""  8MI    MM  
+`Mb.     ,' YA.   ,A9  MM    MM   MM      MM     MM    MM   MM    MM  YM.    ,  `Mb    MM  
+  `"bmmmd'   `Ybmd9' .JMML  JMML. `Mbmo .JMML. .JMML  JMML. `Mbod"YML. `Mbmmd'   `Wbmd"MML.</pre>
+      <h2 class='date'> August 1st, 2018</h2>
+    </header>
+    <article class='container'>
+      <section id="todo" >
+        <h1>To Do's:</h1>
+        <ul>
+          <li>Administrivia</li>
+          <li>Quick Practice</li>
+          <li>File I/O</li>
+          <li>Requests From the Back-end</li>
+        </ul>
+      </section>
+      <section>
+        <h1>Administrivia</h1>
+        <p>Hello, everyone! Welcome to day two of our discussion on Node. Today's lesson will be mainly
+          activity-focused as we continue past the "Hello, world"&ndash;style activities we did on Monday.
+        </p>
+        <p>Let's get some questions, comments, and/or concerns before we begin.</p>
+      </section>
+      <section>
+        <h1>Quick Practice</h1>
+        <p>We'll be getting started with some very simple review from last time using command line 
+          arguments. Remember how to use <code>process.argv</code>, the argument order and the main "gotcha"
+          for command-line input. For this specific activity, it won't really matter too much, but recall
+          that input from <code>STDIN</code> is always treated as a set of strings delimited by spaces.</p>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <p>Here's an easy one to start with. Starting from a blank JavaScript file, create a Node application that takes in two
+            command line arguments and checks if they are equal. If the two numbers are equal then output: "true". Otherwise, output: "false".</p>
+          <p><span class="bonus">Bonus:</span> Check if the two numbers are both multiples of 7. Again output "true" if they are and output
+            "false" if they are not. <span class="italic">(Be wary of your types.)</span></p>
+          <p><span class="hint">Hint:</span> <code>console.log(process.argv)</code> as a starting point if you are completely lost.</p>
+        </div>
+        <div class="review">
+          <h2>Command Line Equality Review</h2>
+          <p>Let's go over this activity real quick. There's the easy way and less obvious-looking refactored
+            version.
+          </p>
+        </div>
+      </section>
+      <section>
+        <h1>File I/O</h1>
+        <p>One of the advantages of server-side languages is access to <span class="bold accent">file manipulation</span>,
+          which is normally made impossible on the client side. Your machine is, by design, hard-wired to disallow
+          file operations outside of the browser&mdash;i.e. the cache, localStorage, etc.
+          Files can't be read or written on the client side, as doing so would be hilariously
+          disastrous.</p>
+        <p>On the server side, what's stopping us from keeping a JSON file around for storage? A file with
+          Node instructions? What if we want to just write a file with the output from an API call? Absolutely
+          nothing. In fact, it's a great skill to know! Let's dive into writing files on the back-end.</p>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <p>I'm going to show you how to write to a text file using Node's internal <code>fs</code>
+          (file system) package.</p>
+          <p>I'll run some code first, then we'll talk about what's going on here.</p>
+        </div>
+        <hr>
+        <h3>So, if the Node method for writing files is <span class="monospace accent">writeFile</span>, what could the Node method
+          for reading files be?</h3>
+        <hr>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <p>Let's check out a demo with <code>readFile</code>. Notice how the directory I'll be working in has
+            both a <code>read.js</code> file and a <code>movies.txt</code> file within it.
+          </p>
+          <p>Then, we'll see how it works by stepping through the code.</p>
+        </div>
+        <hr>
+        <h2>Discovering New Methods</h2>
+        <p>Let's discuss the process of "discovering" methods like <code>readFile</code> and <code>writeFile</code>.
+          Our process depends very heavily on API documentation, as it always does&mdash;maybe we google implementation if
+          the docs aren't up to snuff, or if overcomplexity hinders our understanding.<span class="star"></span></p>
+        <small><span class="star"></span><span class="muted italic">This happens more often than
+          I'd like, personally. Stack Overflow is great if you remain wary of old answers. That's important to note. It can make or
+          break a solution, culminating in browser incompatibilities, unnecessarily complicated answers, and/or deprecated
+          functionality.</span></small>
+        <p>Let's check out the <a href="http://nodejs.org/api/fs.html" target="_blank" alt="Node Documentation For fs">
+          Node API <span class="monospace">fs</span> documentation</a>. Feel free to follow along with me as we explore
+          the list of methods we're provided with. We'll focus on methods we're now familiar with.</p>
+        <hr>
+        <div class="student-activity">
+          <h2>Partner activity!</h2>
+          <h3>Best Things Ever</h3>
+          <p>Create a Node application that reads the <code>best_things_ever.txt</code> file, parses the comma separated elements, and ultimately
+            console logs each element in the file on separate lines.</p>
+          <p><span class="hint">Hint:</span> If you are struggling to figure out how to loop your way through the text, look into the
+            <code>.split()</code> method. This could make your life a whole lot easier.</p>
+        </div>
+        <div class="review">
+          <h2>Best Things Ever Review</h2>
+          <p>We'll be going over the solution now.</p>
+          <p>Note how we use <code>data.split(',')</code>
+            to separate the elements by commas and push them into an array. This comma is called our <span class="note">delimiter.</p>
+            We then loop through the given array and log each element.</div>
+        </div>
+      </section>
+      <div class="page-break">
+        <h1>Break Time!</h1>
+      </div>
+      <section>
+        <h1>File I/O, Continued</h1>
+        <p>Up until now, we've been using <code>writeFile</code> to write to text files. In a lot of cases,
+          this is totally fine. However, if we try to write to a file that already exists, we'll be overwriting
+          the file's contents before putting in our replacement content. You can probably see why this is
+          far from optimal behavior. In most situations, we're likely more interested in appending text to a file, concatenating
+          our new content to the already existing content.</p>
+        <p>Usage looks something like the following:</p>
+        <pre><code class="language-javascript">data = {
+  foo: 42,
+  bar: 3.1415926535,
+  baz: "hello!"
+};
+
+fs.appendFile('foo.txt', JSON.stringify(data), (err) => {
+  if (err) throw err;
+  console.log('Appended some random data to "foo.txt".');
+});</code></pre>
+        <p>Let's see a demo of this in action.</p>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <p>Let's run a demo application a few times then read the contents of the file to see
+            what happens.</p>
+        </div>
+        <hr>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <h3>bank.js</h3>
+          <p>Starting from scratch, build a Node application called <code>bank.js</code> which takes in user input via the command
+          line to register bank transactions. The transactions possible are:</p>
+          <ul>
+            <li><code>total</code> &mdash; this should tally up all of the money in the bank balance and display it for the user.</li>
+            <li><code>deposit &lt;number></code> &mdash; this should add a positive amount to the bank balance.
+              <span class="italic">(No need to display the total here)</span></li>
+            <li><code>withdraw &lt;number></code> &mdash; this should add a negative amount to the bank balance.
+            <span class="italic">(Again, no need to display the total here)</span>
+            <li><code>lotto</code> &mdash; this should subtract an amount from the bank balance, but if a random number is hit it
+            should add back a larger amount into the bank balance.</li>
+          </ul>
+          <p>For all deposits, withdrawals, or lotto purchases the transaction
+            should be registered in the <code>bank.txt</code> file.</p>
+         
+          <p><span class="hint">Hint:</span> consider making a series of switch-case statements to identify the "type" of transaction
+            and the "amount" involved (if relevant).</p>
+          <p><span class="bonus">Bonus:</span> If you finish early, consider finding creative ways to expand the functionality.
+            Perhaps add a login, perhaps always provide the total, perhaps add a warning if the user tries to withdraw more than they hold, etc.</p>
+          <p class="muted italic">Keep in mind that when you see things in angle brackets or square brackets in code, an input is expected (unless noted
+          otherwise).</p>
+          </div>
+        <div class="review">
+          <h2>bank.js Review</h1>
+          <p>Transaction type and value directly correspond to <code>process.argv[2]</code> and
+            <code>process.argv[3]</code>&mdash;y'all are pros at this already. The main challenge is routing specific
+            functions based on the transaction type, using command-line data where needed.</p>
+          <p>The other challenge is knowing when and how to use <code>readFile</code> and <code>appendFile</code>.
+          We'll go over the code shortly.</p>
+        </div>
+      </section>
+      <section>
+        <h1>Requests From the Back-end</h1>
+        <p>Now that we're working purely from the back-end, we don't have <code>fetch</code> available to us
+          for pure ES6 HTTP requests&mdash;it's one of the cool parts of the <code>window</code> object, which we don't have.
+          The solution? Use a package that does HTTP requests!</p>
+        <p>There are a number of different packages for making HTTP requests:</p>
+        <ul>
+          <li><span class="note">HTTP</span> &mdash; included in the standard library, not as user-friendly</li>
+          <li><span class="note">Request</span> &mdash; popular, quick and the most popular alternative to HTTP</li>
+          <li><span class="note">Axios</span> &mdash; Promise-based HTTP client, which means it works just like
+            <code>fetch</code></li>
+          <li><span class="note">SuperAgent</span> &mdash; popular, quick, allows for chaining for functions on request</li>
+          <li><span class="note">Got</span> &mdash; super lightweight, also uses Promise</li>
+        </ul>
+        <p>We'll be working with the Request package, and I'll show you a demo of how it works.</p>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <p>Time to work with the Request package!</p>
+          <p>We'll do a shallow look at this code and see what it should do, then try it.</p>
+          <hr>
+          <p>To get around the error we got, what do we need?</p>
+          <p>We won't go into tons of detail on <code>npm</code> right now, but we had to make sure the package
+          was installed before trying to use it. Now, let's do a deep dive of the code.</p>
+          <hr>
+          <p>I'm going to demo another example that will make requests to the OMDb API. We'll look at the
+            code after.
+          </p>
+        </div>
+        <hr>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <h3>OMDB-Request Interactive</h3>
+          <p>The last activity of the day will be to use the OMDb API yourself!</p>
+          <p>Using the code sent to you earlier as a reference and using the code provided to you as a starter, create a Node application
+          which takes in a movie name as a command line argument then uses the OMDb API to retrieve and return the release date to
+          the console.</p>
+          <p>For this activity you have two options:</p>
+          <ul>
+            <li><span class="bold accent">Easier:</span> Require that the user provide a movie with a single word in the title <span class="italic">(ex: Beetlejuice)</span></li>
+            <li><span class="bold accent">Harder:</span> Allow the user to provide a movie with as many words as they'd like <span class="italic">(ex: Doctor Strangelove or: How I Learned to Stop Worrying and Love the Bomb).</span></li>
+          </ul>
+          <p><span class="hint">Hint:</span>  Start by figuring out what your API URL should be then use the starter code as a guide.</p>
+          <p><span class="hint">Hint:</span> Remember to <code>npm install request</code> or else your code will not work.</p>
+          <p><span class="hint">Hint:</span> Be sure to use an OMDB API Key with your request. You may use <code>trilogy</code></p>
+        </div>
+        <div class="review">
+          <h2>OMDB-Request Interactive Review</h2>
+          <p>Let's go over how this works.</p>
+        </div>
+      </section>
+      <div class="page-break">
+        <h1>That's all for today, see you Saturday!</h1>
+      </div>
+    </article>
+  </body>
+  <!-- Script to make code pretty -->
+  <script type='text/javascript' src="../js/prism.js"></script>
+</html>
+</html>
