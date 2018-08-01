@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>node, Continued</title>
+    <title>Node, Continued</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
@@ -14,24 +14,24 @@
   <body>
     <header>
       <pre id='ascii-title' style='font-size:3vw; line-height:0.55em; letter-spacing: -0.33em; font-weight:400;'>                             ,,                                                    
-`7MN.   `7MF'              `7MM                                                    
-  MMN.    M                  MM                                                    
-  M YMb   M  ,pW"Wq.    ,M""bMM  .gP"Ya                                            
-  M  `MN. M 6W'   `Wb ,AP    MM ,M'   Yb                                           
-  M   `MM.M 8M     M8 8MI    MM 8M""""""                                           
-  M     YMM YA.   ,A9 `Mb    MM YM.    , ,,                                        
-.JML.    YM  `Ybmd9'   `Wbmd"MML.`Mbmmd' dg                                        
-                                         ,j                                        
-                                        ,'                                         
+`7MN.   `7MF'                `7MM                                                    
+  MMN.    M                    MM                                                    
+  M YMb   M   ,pW"Wq.     ,M""bMM   .gP"Ya                                            
+  M  `MN. M  6W'   `Wb  ,AP    MM  ,M'   Yb                                           
+  M   `MM.M  8M     M8  8MI    MM  8M""""""                                           
+  M     YMM  YA.   ,A9  `Mb    MM  YM.    , ,,                                        
+.JML.    YM   `Ybmd9'    `Wbmd"MML. `Mbmmd' dg                                        
+                                            ,j                                        
+                                            ,'                                         
                                                                                    
-                                      ,,                                       ,,  
-  .g8"""bgd                    mm     db                                     `7MM  
-.dP'     `M                    MM                                              MM  
-dM'       ` ,pW"Wq.`7MMpMMMb.mmMMmm `7MM  `7MMpMMMb.`7MM  `7MM  .gP"Ya    ,M""bMM  
-MM         6W'   `Wb MM    MM  MM     MM    MM    MM  MM    MM ,M'   Yb ,AP    MM  
-MM.        8M     M8 MM    MM  MM     MM    MM    MM  MM    MM 8M"""""" 8MI    MM  
-`Mb.     ,'YA.   ,A9 MM    MM  MM     MM    MM    MM  MM    MM YM.    , `Mb    MM  
-  `"bmmmd'  `Ybmd9'.JMML  JMML.`Mbmo.JMML..JMML  JMML.`Mbod"YML.`Mbmmd'  `Wbmd"MML.</pre>
+                                          ,,                                           ,,  
+  .g8"""bgd                       mm      db                                         `7MM  
+.dP'     `M                       MM                                                   MM  
+dM'       `  ,pW"Wq. `7MMpMMMb. mmMMmm  `7MM   `7MMpMMMb. `7MM  `7MM   .gP"Ya     ,M""bMM  
+MM          6W'   `Wb  MM    MM   MM      MM     MM    MM   MM    MM  ,M'   Yb  ,AP    MM  
+MM.         8M     M8  MM    MM   MM      MM     MM    MM   MM    MM  8M""""""  8MI    MM  
+`Mb.     ,' YA.   ,A9  MM    MM   MM      MM     MM    MM   MM    MM  YM.    ,  `Mb    MM  
+  `"bmmmd'   `Ybmd9' .JMML  JMML. `Mbmo .JMML. .JMML  JMML. `Mbod"YML. `Mbmmd'   `Wbmd"MML.</pre>
       <h2 class='date'> August 1st, 2018</h2>
     </header>
     <article class='container'>
@@ -41,6 +41,7 @@ MM.        8M     M8 MM    MM  MM     MM    MM    MM  MM    MM 8M"""""" 8MI    M
           <li>Administrivia</li>
           <li>Quick Practice</li>
           <li>File I/O</li>
+          <li>Requests From the Back-end</li>
         </ul>
       </section>
       <section>
@@ -131,6 +132,30 @@ MM.        8M     M8 MM    MM  MM     MM    MM    MM  MM    MM 8M"""""" 8MI    M
         <h1>Break Time!</h1>
       </div>
       <section>
+        <h1>File I/O, Continued</h1>
+        <p>Up until now, we've been using <code>writeFile</code> to write to text files. In a lot of cases,
+          this is totally fine. However, if we try to write to a file that already exists, we'll be overwriting
+          the file's contents before putting in our replacement content. You can probably see why this is
+          far from optimal behavior. In most situations, we're likely more interested in appending text to a file, concatenating
+          our new content to the already existing content.</p>
+        <p>Usage looks something like the following:</p>
+        <pre><code class="language-javascript">data = {
+  foo: 42,
+  bar: 3.1415926535,
+  baz: "hello!"
+};
+
+fs.appendFile('foo.txt', JSON.stringify(data), (err) => {
+  if (err) throw err;
+  console.log('Appended some random data to "foo.txt".');
+});</code></pre>
+        <p>Let's see a demo of this in action.</p>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <p>Let's run a demo application a few times then read the contents of the file to see
+            what happens.</p>
+        </div>
+        <hr>
         <div class="student-activity">
           <h2>Student activity!</h2>
           <h3>bank.js</h3>
@@ -138,22 +163,80 @@ MM.        8M     M8 MM    MM  MM     MM    MM    MM  MM    MM 8M"""""" 8MI    M
           line to register bank transactions. The transactions possible are:</p>
           <ul>
             <li><code>total</code> &mdash; this should tally up all of the money in the bank balance and display it for the user.</li>
-            <li><code>deposit</code> &mdash; this should add a positive amount to the bank balance.
+            <li><code>deposit &lt;number></code> &mdash; this should add a positive amount to the bank balance.
               <span class="italic">(No need to display the total here)</span></li>
-            <li><code>withdraw</code> &mdash; this should add a negative amount to the bank balance.
+            <li><code>withdraw &lt;number></code> &mdash; this should add a negative amount to the bank balance.
             <span class="italic">(Again, no need to display the total here)</span>
             <li><code>lotto</code> &mdash; this should subtract an amount from the bank balance, but if a random number is hit it
             should add back a larger amount into the bank balance.</li>
           </ul>
-          <p>For all deposits, withdrawals, or lotto purchases the transaction should be registered in the <code>bank.txt</code> file.</p>
+          <p>For all deposits, withdrawals, or lotto purchases the transaction
+            should be registered in the <code>bank.txt</code> file.</p>
+         
           <p><span class="hint">Hint:</span> consider making a series of switch-case statements to identify the "type" of transaction
             and the "amount" involved (if relevant).</p>
           <p><span class="bonus">Bonus:</span> If you finish early, consider finding creative ways to expand the functionality.
             Perhaps add a login, perhaps always provide the total, perhaps add a warning if the user tries to withdraw more than they hold, etc.</p>
-        </div>
+          <p class="muted italic">Keep in mind that when you see things in angle brackets or square brackets in code, an input is expected (unless noted
+          otherwise).</p>
+          </div>
         <div class="review">
           <h2>bank.js Review</h1>
-          <p></p>
+          <p>Transaction type and value directly correspond to <code>process.argv[2]</code> and
+            <code>process.argv[3]</code>&mdash;y'all are pros at this already. The main challenge is routing specific
+            functions based on the transaction type, using command-line data where needed.</p>
+          <p>The other challenge is knowing when and how to use <code>readFile</code> and <code>appendFile</code>.
+          We'll go over the code shortly.</p>
+        </div>
+      </section>
+      <section>
+        <h1>Requests From the Back-end</h1>
+        <p>Now that we're working purely from the back-end, we don't have <code>fetch</code> available to us
+          for pure ES6 HTTP requests&mdash;it's one of the cool parts of the <code>window</code> object, which we don't have.
+          The solution? Use a package that does HTTP requests!</p>
+        <p>There are a number of different packages for making HTTP requests:</p>
+        <ul>
+          <li><span class="note">HTTP</span> &mdash; included in the standard library, not as user-friendly</li>
+          <li><span class="note">Request</span> &mdash; popular, quick and the most popular alternative to HTTP</li>
+          <li><span class="note">Axios</span> &mdash; Promise-based HTTP client, which means it works just like
+            <code>fetch</code></li>
+          <li><span class="note">SuperAgent</span> &mdash; popular, quick, allows for chaining for functions on request</li>
+          <li><span class="note">Got</span> &mdash; super lightweight, also uses Promise</li>
+        </ul>
+        <p>We'll be working with the Request package, and I'll show you a demo of how it works.</p>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <p>Time to work with the Request package!</p>
+          <p>We'll do a shallow look at this code and see what it should do, then try it.</p>
+          <hr>
+          <p>To get around the error we got, what do we need?</p>
+          <p>We won't go into tons of detail on <code>npm</code> right now, but we had to make sure the package
+          was installed before trying to use it. Now, let's do a deep dive of the code.</p>
+          <hr>
+          <p>I'm going to demo another example that will make requests to the OMDb API. We'll look at the
+            code after.
+          </p>
+        </div>
+        <hr>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <h3>OMDB-Request Interactive</h3>
+          <p>The last activity of the day will be to use the OMDb API yourself!</p>
+          <p>Using the code sent to you earlier as a reference and using the code provided to you as a starter, create a Node application
+          which takes in a movie name as a command line argument then uses the OMDb API to retrieve and return the release date to
+          the console.</p>
+          <p>For this activity you have two options:</p>
+          <ul>
+            <li><span class="bold accent">Easier:</span> Require that the user provide a movie with a single word in the title <span class="italic">(ex: Beetlejuice)</span></li>
+            <li><span class="bold accent">Harder:</span> Allow the user to provide a movie with as many words as they'd like <span class="italic">(ex: Doctor Strangelove or: How I Learned to Stop Worrying and Love the Bomb).</span></li>
+          </ul>
+          <p><span class="hint">Hint:</span>  Start by figuring out what your API URL should be then use the starter code as a guide.</p>
+          <p><span class="hint">Hint:</span> Remember to <code>npm install request</code> or else your code will not work.</p>
+          <p><span class="hint">Hint:</span> Be sure to use an OMDB API Key with your request. You may use <code>trilogy</code></p>
+        </div>
+        <div class="review">
+          <h2>OMDB-Request Interactive Review</h2>
+          <p>Let's go over how this works.</p>
         </div>
       </section>
       <div class="page-break">
