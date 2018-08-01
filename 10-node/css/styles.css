@@ -117,6 +117,10 @@ h3 {
   font-size:1.33em
 }
 
+h1>code, h2>code, h3>code {
+  line-height:1.33em;
+}
+
 p {
   margin:20px 0px;
   line-height:1.33em;
@@ -295,6 +299,14 @@ fieldset, .activity, .student-activity {
   border-bottom: dashed var(--alt-color);
 }
 
+.student-activity > h3 {
+  border: solid 12px var(--accent);
+  outline: dashed 12px var(--accent);
+  padding:15px;
+  margin:55px 0;
+  text-align:center;
+}
+
 .activity > h2::before {
   content: "\1F538 ";
   margin-right:5px;
@@ -310,6 +322,13 @@ fieldset, .activity, .student-activity {
   border-bottom:double 16px var(--bright-accent);
   margin-top:0;
   color: var(--alt-color);
+}
+
+span.star::after {
+  content:"*";
+  color:var(--accent);
+  vertical-align: super;
+  font-size: 25pt;
 }
 
 small {
@@ -396,6 +415,10 @@ hr, .review {
   border-top: outset 4px var(--main-color);
   border-bottom: outset 4px var(--main-color);
   margin: 50px 0;
+}
+
+.review {
+  padding-bottom:20px;
 }
 
 hr {
@@ -493,6 +516,10 @@ hr {
   code {
     box-shadow: var(--alt-accent) 4px 4px 0 -3px;
   }
+  .student-activity > h3 {
+    border-width: 6px;
+    outline-width: 6px;
+  }
 }
 
 @media screen and (max-width:720px) {
@@ -502,5 +529,11 @@ hr {
 
   section {
     padding: 20px;
+  }
+}
+
+@media screen and (max-width:1100px) {
+  section {
+    padding: 30px;
   }
 }
