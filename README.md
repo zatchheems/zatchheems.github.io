@@ -48,3 +48,4 @@
 ### Unit 10: Node
 * [New to Node](./10-node/html/new-to-node.html)
 * [Node, Continued](./10-node/html/node-continued.html)
+* [NPM and Package Management](./10-node/html/npm.html)
