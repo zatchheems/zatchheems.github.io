@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NPM and Package Management</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,400i,700" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href="../css/reset.css" >
+    <link rel='stylesheet' type='text/css' href="../css/prism.css">
+    <link rel='stylesheet' type='text/css' href="../css/styles.css" >
+  </head>
+  <body>
+    <header>
+      <pre id='ascii-title' style='font-size:1.5vw; line-height:0.90em; letter-spacing: -0.25em; font-weight:400;'>
+
+
+                                                                                   88                                          88
+                                                                                   88                                          88
+                                                                                   88                                          88
+8b,dPPYba,   8b,dPPYba,   88,dPYba,,adPYba,      ,adPPYYba,  8b,dPPYba,    ,adPPYb,88     8b,dPPYba,   ,adPPYYba,   ,adPPYba,  88   ,d8   ,adPPYYba,   ,adPPYb,d8   ,adPPYba,
+88P'   `"8a  88P'    "8a  88P'   "88"    "8a     ""     `Y8  88P'   `"8a  a8"    `Y88     88P'    "8a  ""     `Y8  a8"     ""  88 ,a8"    ""     `Y8  a8"    `Y88  a8P_____88
+88       88  88       d8  88      88      88     ,adPPPPP88  88       88  8b       88     88       d8  ,adPPPPP88  8b          8888[      ,adPPPPP88  8b       88  8PP"""""""
+88       88  88b,   ,a8"  88      88      88     88,    ,88  88       88  "8a,   ,d88     88b,   ,a8"  88,    ,88  "8a,   ,aa  88`"Yba,   88,    ,88  "8a,   ,d88  "8b,   ,aa
+88       88  88`YbbdP"'   88      88      88     `"8bbdP"Y8  88       88   `"8bbdP"Y8     88`YbbdP"'   `"8bbdP"Y8   `"Ybbd8"'  88   `Y8a  `"8bbdP"Y8   `"YbbdP"Y8   `"Ybbd8"'
+             88                                                                           88                                                           aa,    ,88
+             88                                                                           88                                                            "Y8bbdP"
+                                                                                                                                ,d                                           
+                                                                                                                                88
+88,dPYba,,adPYba,   ,adPPYYba,  8b,dPPYba,   ,adPPYYba,   ,adPPYb,d8   ,adPPYba,  88,dPYba,,adPYba,    ,adPPYba,  8b,dPPYba,  MM88MMM
+88P'   "88"    "8a  ""     `Y8  88P'   `"8a  ""     `Y8  a8"    `Y88  a8P_____88  88P'   "88"    "8a  a8P_____88  88P'   `"8a   88
+88      88      88  ,adPPPPP88  88       88  ,adPPPPP88  8b       88  8PP"""""""  88      88      88  8PP"""""""  88       88   88
+88      88      88  88,    ,88  88       88  88,    ,88  "8a,   ,d88  "8b,   ,aa  88      88      88  "8b,   ,aa  88       88   88,
+88      88      88  `"8bbdP"Y8  88       88  `"8bbdP"Y8   `"YbbdP"Y8   `"Ybbd8"'  88      88      88   `"Ybbd8"'  88       88   "Y888
+                                                          aa,    ,88                                                                                                           
+                                                           "Y8bbdP"
+
+                                                           
+</pre>
+      <h2 class='date'> August 4th, 2018</h2>
+    </header>
+    <article class='container'>
+      <section id="todo" >
+        <h1>To Do's:</h1>
+        <ul>
+          <li>Administrivia</li>
+          <li>Quick Review</li>
+          <li>Proper Intro to NPM</li>
+        </ul>
+      </section>
+      <section>
+        <h1>Administrivia</h1>
+        <p>Good morning, everyone! Last time, the last activity we did required the use of <abbr class="accent" title="Node Package Manager">NPM</abbr>&mdash;today,
+          we'll be going over exactly what it is, what NPM packages are, why they're useful, and the <code>package.json</code>.
+          This class is critical for your ability to complete the homework due next week, as well as for
+          your broader proficiency as Node developers.</p>
+        <p>Questions, comments, concerns before we begin?</p>
+      </section>
+      <section>
+        <h1>Quick Review</h1>
+        <p>We'll begin by doing a couple of quick refresher activities.</p>
+        <div class="activity">
+          <h2>Student activity!</h2>
+          <h3>CommandSort Refresher</h3>
+          <p>Starting from a blank file, create a Node-based command-line application that takes in a series of numbers from the user and returns the numbers sorted
+          in ascending order.</p>
+          <p><span class="note">Note:</span> feel free to google how to sort integers numerically. This should
+          just be a single method.</p>
+        </div>
+        <div class="review">
+          <h2>CommandSort Review</h2>
+          <p>This activity required using <code>process.argv</code>, taking out the non-filename arguments
+          and pushing them into an array, then sorting them using <code>.sort</code>.</p>
+        </div>
+        <hr>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <h3>Request Refresher</h3>
+          <p>Let's take a look again at an app that makes requests to the OMDb api.</p>
+          <p>We'll go quickly over the code and make sure everyone is comfortable with making
+            HTTP requests from Node. When I demo it, what do I need to make sure I do before running it?</p>
+        </div>
+      </section>
+      <section>
+        <h1>A Proper Intro to NPM</h1>
+        <p>Previously, we used NPM to install the <code>request</code> package. <span class="note">NPM</span>,
+        or <span class="note">Node Package Manager</span> allows us to quickly incorporate pre-made code snippets into our Node applications.
+        Let's take a look at the <a href="https://www.npmjs.com/browse/star">NPM site</a> and how it lists available
+        Node packages for inclusion. We can look up NPM packages for <span class="monospace bold">request</span>, Twitter and Spotify, among
+        many, <span class='italic'>many</span> others that will be unfamiliar at first, like <span class="monospace bold">dotenv</span>.
+        </p>
+        <p>NPM gives us a massive arsenal of libraries and objects that we can leverage
+          to greatly increase the efficiency in which we develop Node applications.
+        </p>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <p>As an example, let's search for a package called <code>weather-js</code>.</p>
+          <p>Using the NPM site, we can get syntax, usage, and other documentation on how to use it.
+            We'll want to use this package to get weather reports.
+          </p>
+          <p>Next, let's briefly skim the code for an application that uses this package, then try to run it.</p>
+          <p>After running it, we'll take a more in-depth look at the code.</p>
+        </div>
+      </section>
+      <div class="page-break">
+        <h1>Break Time!</h1>
+      </div>
+      <div class="page-break">
+        <h1>That's all for today, see you Monday!</h1>
+      </div>
+    </article>
+  </body>
+  <!-- Script to make code pretty -->
+  <script type='text/javascript' src="../js/prism.js"></script>
+</html>
+</html>

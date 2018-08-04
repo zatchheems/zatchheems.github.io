@@ -74,6 +74,7 @@ code {
   background-color:var(--alt-color);
   color:var(--dark-accent);
   box-shadow: var(--alt-accent) 8px 8px 0 -3px;
+  line-height:1.25em;
 }
 
 .syntaxhighlighter code {
