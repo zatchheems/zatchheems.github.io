@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>NPM and Package Management</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,400i,700" rel="stylesheet">
-    <link rel='stylesheet' type='text/css' href="../css/reset.css" >
-    <link rel='stylesheet' type='text/css' href="../css/prism.css">
-    <link rel='stylesheet' type='text/css' href="../css/styles.css" >
-  </head>
-  <body>
-    <header>
-      <pre id='ascii-title' style='font-size:1.5vw; line-height:0.90em; letter-spacing: -0.25em; font-weight:400;'>
+
+<head>
+  <title>NPM and Package Management</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,400i,700" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="../css/reset.css">
+  <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  <link rel='stylesheet' type='text/css' href="../css/styles.css">
+</head>
+
+<body>
+  <header>
+    <pre id='ascii-title' style='font-size:1.5vw; line-height:0.90em; letter-spacing: -0.25em; font-weight:400;'>
 
 
                                                                                    88                                          88
@@ -38,160 +40,280 @@
 
                                                            
 </pre>
-      <h2 class='date'> August 4th, 2018</h2>
-    </header>
-    <article class='container'>
-      <section id="todo" >
-        <h1>To Do's:</h1>
+    <h2 class='date'> August 4th, 2018</h2>
+  </header>
+  <article class='container'>
+    <section id="todo">
+      <h1>To Do's:</h1>
+      <ul>
+        <li>Administrivia</li>
+        <li>Quick Review</li>
+        <li>Proper Intro to NPM</li>
+        <li>Package Management</li>
+        <li>More Advanced Activities</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Administrivia</h1>
+      <p>Good morning, everyone! Last time, the last activity we did required the use of
+        <abbr class="accent" title="Node Package Manager">NPM</abbr>&mdash;today, we'll be going over exactly what it is, what NPM packages are, why they're useful, and the
+        <code>package.json</code>. This class is critical for your ability to complete the homework due next week, as well as for your broader proficiency
+        as Node developers.</p>
+      <p>Questions, comments, concerns before we begin?</p>
+    </section>
+    <section>
+      <h1>Quick Review</h1>
+      <p>We'll begin by doing a couple of quick refresher activities.</p>
+      <div class="activity">
+        <h2>Student activity!</h2>
+        <h3>CommandSort Refresher</h3>
+        <p>Starting from a blank file, create a Node-based command-line application that takes in a series of numbers from the
+          user and returns the numbers sorted in ascending order.</p>
+        <p>
+          <span class="note">Note:</span> feel free to google how to sort integers numerically. This should just be a single method.</p>
+      </div>
+      <div class="review">
+        <h2>CommandSort Review</h2>
+        <p>This activity required using
+          <code>process.argv</code>, taking out the non-filename arguments and pushing them into an array, then sorting them using
+          <code>.sort</code>.</p>
+      </div>
+      <hr>
+      <div class="activity">
+        <h2>Instructor activity...</h2>
+        <h3>Request Refresher</h3>
+        <p>Let's take a look again at an app that makes requests to the OMDb api.</p>
+        <p>We'll go quickly over the code and make sure everyone is comfortable with making HTTP requests from Node. When I
+          demo it, what do I need to make sure I do before running it?</p>
+      </div>
+    </section>
+    <section>
+      <h1>A Proper Intro to NPM</h1>
+      <p>Previously, we used NPM to install the
+        <code>request</code> package.
+        <span class="note">NPM</span>, or
+        <span class="note">Node Package Manager</span> allows us to quickly incorporate pre-made code snippets into our Node applications. Let's
+        take a look at the
+        <a href="https://www.npmjs.com/browse/star" target="_blank">NPM site</a> and how it lists available Node packages for inclusion. We can look up NPM packages for
+        <span class="monospace bold">request</span>, Twitter and Spotify, among many,
+        <span class='italic'>many</span> others that will be unfamiliar at first, like
+        <span class="monospace bold">dotenv</span>.
+      </p>
+      <p>NPM gives us a massive arsenal of libraries and objects that we can leverage to greatly increase the efficiency in
+        which we develop Node applications.
+      </p>
+      <div class="activity">
+        <h2>Instructor activity...</h2>
+        <p>As an example, let's search for a package called
+          <span class="monospace bold">weather-js</span>.</p>
+        <p>Using the NPM site, we can get syntax, usage, and other documentation on how to use it. We'll want to use this package
+          to get weather reports.
+        </p>
+        <p>Next, let's briefly skim the code for an application that uses this package, then try to run it.</p>
+        <p>After running it, we'll take a more in-depth look at the code, paying special attention to
+          <code>weather.find</code> and
+          <code>JSON.stringify</code>.
+        </p>
+      </div>
+      <hr>
+      <p>Now that you've had a chance to take a look at using an NPM package, let's get some questions before you attempt to
+        tackle an application that uses a different package.
+      </p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Geocode NPM</h3>
+        <p>I'll be demoing an application that takes either cities or landmarks then returns a JSON object that geocodes the
+          location. This is incredibly useful for map-based applications!
+        </p>
+        <p>Create a Node application which makes use of the
+          <span class="monospace bold">geocoder</span> NPM package to obtain detailed geocoding information about a location. Then, log the geocoding
+          information to your terminal.</p>
+        <p>You can choose to make one of two assumptions when completing this application:</p>
         <ul>
-          <li>Administrivia</li>
-          <li>Quick Review</li>
-          <li>Proper Intro to NPM</li>
-          <li>Package Management</li>
-        </ul>
-      </section>
-      <section>
-        <h1>Administrivia</h1>
-        <p>Good morning, everyone! Last time, the last activity we did required the use of <abbr class="accent" title="Node Package Manager">NPM</abbr>&mdash;today,
-          we'll be going over exactly what it is, what NPM packages are, why they're useful, and the <code>package.json</code>.
-          This class is critical for your ability to complete the homework due next week, as well as for
-          your broader proficiency as Node developers.</p>
-        <p>Questions, comments, concerns before we begin?</p>
-      </section>
-      <section>
-        <h1>Quick Review</h1>
-        <p>We'll begin by doing a couple of quick refresher activities.</p>
-        <div class="activity">
-          <h2>Student activity!</h2>
-          <h3>CommandSort Refresher</h3>
-          <p>Starting from a blank file, create a Node-based command-line application that takes in a series of numbers from the user and returns the numbers sorted
-          in ascending order.</p>
-          <p><span class="note">Note:</span> feel free to google how to sort integers numerically. This should
-          just be a single method.</p>
-        </div>
-        <div class="review">
-          <h2>CommandSort Review</h2>
-          <p>This activity required using <code>process.argv</code>, taking out the non-filename arguments
-          and pushing them into an array, then sorting them using <code>.sort</code>.</p>
-        </div>
-        <hr>
-        <div class="activity">
-          <h2>Instructor activity...</h2>
-          <h3>Request Refresher</h3>
-          <p>Let's take a look again at an app that makes requests to the OMDb api.</p>
-          <p>We'll go quickly over the code and make sure everyone is comfortable with making
-            HTTP requests from Node. When I demo it, what do I need to make sure I do before running it?</p>
-        </div>
-      </section>
-      <section>
-        <h1>A Proper Intro to NPM</h1>
-        <p>Previously, we used NPM to install the <code>request</code> package. <span class="note">NPM</span>,
-        or <span class="note">Node Package Manager</span> allows us to quickly incorporate pre-made code snippets into our Node applications.
-        Let's take a look at the <a href="https://www.npmjs.com/browse/star">NPM site</a> and how it lists available
-        Node packages for inclusion. We can look up NPM packages for <span class="monospace bold">request</span>, Twitter and Spotify, among
-        many, <span class='italic'>many</span> others that will be unfamiliar at first, like <span class="monospace bold">dotenv</span>.
-        </p>
-        <p>NPM gives us a massive arsenal of libraries and objects that we can leverage
-          to greatly increase the efficiency in which we develop Node applications.
-        </p>
-        <div class="activity">
-          <h2>Instructor activity...</h2>
-          <p>As an example, let's search for a package called <span class="monospace bold">weather-js</span>.</p>
-          <p>Using the NPM site, we can get syntax, usage, and other documentation on how to use it.
-            We'll want to use this package to get weather reports.
-          </p>
-          <p>Next, let's briefly skim the code for an application that uses this package, then try to run it.</p>
-          <p>After running it, we'll take a more in-depth look at the code, paying special attention to
-            <code>weather.find</code> and <code>JSON.stringify</code>.
-          </p>
-        </div>
-        <hr>
-        <p>Now that you've had a chance to take a look at using an NPM package, let's get some questions
-          before you attempt to tackle an application that uses a different package.
-        </p>
-        <div class="student-activity">
-          <h2>Student activity!</h2>
-          <h3>Geocode NPM</h3>
-          <p>I'll be demoing an application that takes either cities or landmarks then returns
-            a JSON object that geocodes the location. This is incredibly useful for map-based applications!
-          </p>
-          <p>Create a Node application which makes use of the <span class="monospace bold">geocoder</span> NPM package to obtain detailed geocoding information about a
-          location. Then, log the geocoding information to your terminal.</p>
-          <p>You can choose to make one of two assumptions when completing this application:</p>
-          <ul>
-            <li><span class="note">Easier Option:</span> The user will always provide a location in the following format: "City, State"
-              <span class="italic">(ex. "Atlanta, GA", "Houston, TX")</span>.</li>
-            <li><span class="note">Harder Option:</span> The user can provide a location in any format. In fact, they can even provide a landmark instead of an address.
-              <span class="italic">("151 Sip Ave, Jersey City NJ", "The Eiffel Tower", etc.)</span></li>
-          </ul>
-          <p>Remember to log the output using <code>JSON.stringify</code> in a pretty-print format.</p>
-        </div>
-        <div class="review">
-          <h2>Geocode NPM Review</h2>
-          <p>For this activity, we need the <span class="monospace bold">geocoder</span> NPM package and <code>process.argv</code>
-          for command-line arguments.</p>
-          <p>Let's look at the code!</code></p>
-        </div>
-        <hr>
-        <div class="student-activity">
-          <h2>Partner activity!</h2>
-          <h3 class="monospace">weatherDest.js</h3>
-          <p>Take a moment to run the <code>weatherDest.js</code> application.
-            Try to figure out what it takes to run on your own. You will need two different NPM packages for this.</p>
-          <p>Then, with a partner, spend a few moments answering the following questions:</p>
-          <ul>
-            <li>What does the code do?</li>
-            <li>How does it work at a general level?</li>
-            <li>How does it work at a line level?</li>
-          </ul>
-        </div>
-        <div class="review">
-          <h2><span class="monospace">weatherDest.js</span> Review</h2>
-          <p>We're going to take a moment for you to explain the code as well as its purpose.</p>
-          <p>Then, we'll run it with an input using <code>node weatherDest.js [location]</code>.</p>
-        </div>
-        <p>Node applications generally have much more than just a handful of packages. We may need
-          dozens at a time, each of which increases the robustness and complexity of the application while simultaneously
-          increasing the overall size.
-        </p>
-      </section>
-      <section>
-        <h1>Package Management</h1>
-        <p>The addition of a package to an application increases its filesize, sometimes by an extremely large amount.
-          Since the filesize of the application tends to balloon extremely quickly and easily, portability comes into question.
-          This is especially relevant regarding collaboration&mdash;even moreso than deployment.
-          The question is phrased thusly:
-        </p>
-        <blockquote>Why might zipping up code containing NPM packages and sending it around be a bad approach for a collaborative team?</blockquote>
-        <hr>
-        <h2>Life Without Package Management</h2>
-        <p>There are three key issues we face:</p>
-        <ol>
-          <li>Each large NPM dependency would have to bundled in every time the code is shared&mdash;
-            this is perhaps the most obvious answer.
+          <li>
+            <span class="note">Easier Option:</span> The user will always provide a location in the following format: "City, State"
+            <span class="italic">(ex. "Atlanta, GA", "Houston, TX")</span>.</li>
+          <li>
+            <span class="note">Harder Option:</span> The user can provide a location in any format. In fact, they can even provide a landmark
+            instead of an address.
+            <span class="italic">("151 Sip Ave, Jersey City NJ", "The Eiffel Tower", etc.)</span>
           </li>
-          <li>If one developer updates the package to use a more recent version, then everyone else's code goes out of sync, requiring a
-          transfer of files again.</li>
-          <li>There is no clear and easy way to know which dependencies are being used. If we had many files with each using different
+        </ul>
+        <p>Remember to log the output using
+          <code>JSON.stringify</code> in a pretty-print format.</p>
+      </div>
+      <div class="review">
+        <h2>Geocode NPM Review</h2>
+        <p>For this activity, we need the
+          <span class="monospace bold">geocoder</span> NPM package and
+          <code>process.argv</code> for command-line arguments.</p>
+        <p>Let's look at the code!</code>
+        </p>
+      </div>
+      <hr>
+      <div class="student-activity">
+        <h2>Partner activity!</h2>
+        <h3 class="monospace">weatherDest.js</h3>
+        <p>Take a moment to run the
+          <code>weatherDest.js</code> application. Try to figure out what it takes to run on your own. You will need two different NPM packages for
+          this.</p>
+        <p>Then, with a partner, spend a few moments answering the following questions:</p>
+        <ul>
+          <li>What does the code do?</li>
+          <li>How does it work at a general level?</li>
+          <li>How does it work at a line level?</li>
+        </ul>
+      </div>
+      <div class="review">
+        <h2>
+          <span class="monospace">weatherDest.js</span> Review</h2>
+        <p>We're going to take a moment for you to explain the code as well as its purpose.</p>
+        <p>Then, we'll run it with an input using
+          <code>node weatherDest.js [location]</code>.</p>
+      </div>
+      <p>Node applications generally have much more than just a handful of packages. We may need dozens at a time, each of which
+        increases the robustness and complexity of the application while simultaneously increasing the overall size.
+      </p>
+    </section>
+    <section>
+      <h1>Package Management</h1>
+      <p>The addition of a package to an application increases its filesize, sometimes by an extremely large amount. Since the
+        filesize of the application tends to balloon extremely quickly and easily, portability comes into question. This
+        is especially relevant regarding collaboration&mdash;even moreso than deployment. The question is phrased thusly:
+      </p>
+      <blockquote class="accent">Why might zipping up code containing NPM packages and sending it around be a bad approach for a collaborative team?</blockquote>
+      <hr>
+      <h2>Life Without Package Management</h2>
+      <p>There are three key issues we face:</p>
+      <ol>
+        <li>Each large NPM dependency would have to bundled in every time the code is shared&mdash; this is perhaps the most
+          obvious answer.
+        </li>
+        <li>If one developer updates the package to use a more recent version, then everyone else's code goes out of sync, requiring
+          a transfer of files again.</li>
+        <li>There is no clear and easy way to know which dependencies are being used. If we had many files with each using different
           dependencies, we'd need to dig into each and every file to figure out the full list.</li>
-        </ol>
-        <p>Luckily for us, we already have a way to keep track of our dependencies!</p>
-        <h2>The <span class="monospace">package.json</span></h2>
-        <p>The <code>package.json</code> is an incredibly important topic as well as an extremely convenient solution for keeping 
-        track of dependencies. It's just a file Node reads for installation and updates whenever a new package is added or removed.
-        They serve as manifests&mdash;or guides&mdash;that completely articulate simple things like the name of the project, its description, and most importantly the packages
-        that are being used in the project. Speaking of convenient, <code>npm</code> has a command for writing a new
-        package.json using a simple set of text-based options.</p>
-      </section>
-      <div class="page-break">
-        <h1>Break Time!</h1>
+      </ol>
+      <p>Luckily for us, we already have a way to keep track of our dependencies!</p>
+      <h2>The
+        <span class="monospace">package.json</span>
+      </h2>
+      <p>The
+        <code>package.json</code> is an
+        <span class="note italic">incredibly important</span> topic as well as an extremely convenient solution for keeping track of dependencies.
+        It's just a file Node reads for installation and updates whenever a new package is added or removed. They serve as
+        manifests&mdash;or guides&mdash;that completely articulate simple things like the name of the project, its description,
+        and most importantly the packages that are being used in the project. Speaking of convenient,
+        <code>npm</code> has a command for writing a new package.json using a simple set of text-based options.</p>
+      <div class="activity">
+        <h2>Instructor activity...</h2>
+        <p>Follow along as I use
+          <code>npm init</code> on a directory with no
+          <code>package.json</code> file. Then, I'll install the
+          <span class="bold monospace">geocoder</span> and
+          <span class="bold monospace">weather-js</span> packages.</p>
+        <p>After I add them, they both will be added to our
+          <code>package.json</code>, as well as the
+          <code>node_modules</code> subdirectory. When this directory is deleted, we can run
+          <code>npm install</code>&mdash;what do you think this will accomplish?</p>
       </div>
-      <div class="page-break">
-        <h1>That's all for today, see you Monday!</h1>
+      <p>The benefits of this system are fairly obvious: portability and reduced redundancy. We can pass the JSON file around
+        and collaborators can install packages themselves; dependencies are updated automatically, reducing deprecation and
+        version inconsistencies.
+      </p>
+      <p>What are some other benefits to using package management?</p>
+      <hr>
+      <div class="student-activity">
+        <h2>Class activity!</h2>
+        <h3>NPM Install weatherdest</h3>
+        <p>Navigate to the folder where your <code>weatherDest.js</code> file is.</p>
+        <p>Delete the <code>node_modules</code> folder. Then do the following:</p>
+        <ul>
+          <li>Create a <code>package.json</code> file (i.e. run <code>npm init</code>)</li>
+          <li>Add your dependencies to the <code>package.json</code> (i.e. run <code>npm install geocoder</code> and <code>npm install weather-js</code>)</li>
+          <li>Confirm that you now have a <code>node_modules</code> folder with the <span class="bold monospace">geocoder</span> and <span class="bold monospace">weather-js</span> packages as a result</li>
+          <li>Finally, re-run your <code>weatherDest.js</code> to confirm that it still works as expected</li>
+        </ul>
+        <p>Now, delete your <code>node_modules</code> folder again but keep your <code>packages.json</code> file. This time...</p>
+        <ul>
+          <li>Simply run <code>npm install</code></li>
+          <li>Confirm that you once again have a <code>node_modules</code> folder with the  <span class="bold monospace">geocoder</span>
+            and <span class="bold monospace">weather-js</span> packages</li>
+          <li>Finally, re-run <code>weatherDest.js</code> to confirm that it still works as expected</li>
+        </ul>
       </div>
-    </article>
-  </body>
-  <!-- Script to make code pretty -->
-  <script type='text/javascript' src="../js/prism.js"></script>
-</html>
+    </section>
+    <div class="page-break">
+      <h1>Break Time!</h1>
+    </div>
+    <section>
+      <h1>More Advanced Activities</h1>
+      <h2>Getting User Input</h2>
+      <p>While using <code>process.argv</code> has been fairly quick and convenient for getting user input,
+      it's a very limited way of doing so. Let's visit the <a href="https://www.npmjs.com/package/inquirer" target="_blank">NPM page</a> for <span class="bold monospace">inquirer</span>
+      and get a feel for how to use a package with more advanced user input, including basic input, confirmations, checkboxes, and list selections.
+      It also has the ability to validate user input as well.</p>
+      <div class="activity">
+        <h2>Instructor activity...</h2>
+        <p>Let's see a demo of Inquirer.js in action. I'll complete some prompts, then let's go over the code.</p>
+        <p>Pay particularly close attention to the <code>.then</code> function, <code>user</code> variable, and the
+        ever-important <code>JSON.stringify</code>.</p>
+      </div>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Practice with Inquirer</h3>
+        <p>Create a basic command line Node application using the inquirer package.</p>
+        <p>Your application should ask the user any five questions of your choosing.</p>
+        <p>The question set should include at least one:</p>
+        <ul>
+          <li>Basic input</li>
+          <li>Password</li>
+          <li>List</li>
+          <li>Checkbox</li>
+          <li>Confirm</li>
+        </ul>
+        <p>Then if a user's password matches a pre-defined password, re-display the data back to the user with some text.</p>
+        <p><span class="hint">Hint:</span> See the inquirer GitHub documentation "examples" page if you need help.</p>
+        <p>Remember to get creative with your code!</p>
+      </div>
+      <div class="review">
+        <h2>Inquirer Practice Review</h2>
+        <p>Let's take a look at the code for one specific solution to this activity.</p>
+      </div>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Inquirer Geocode</h3>
+        <p>Working in pairs, convert the geocoding code from earlier today so that it uses <code>inquirer</code> instead of process.argv to handle
+        the intake of user inputs.</p>
+        <p>Make sure your new code provides the exact same output as it did with <code>process.argv</code>.</p>
+        <p><span class="hint">Hint:</span> Don't forget to create your <code>package.json</code> file and save the correct packages to it.</p>
+        <p><span class="hint">Hint:</span> You should not need to change <span class="italic">that much</span> code.</p>
+        <p><span class="hint">Bonus:</span> If you finish early, start working on the bonus activity (<span class="bold monospace">29-ZombieChallenge</span>).</p>
+      </div>
+      <div class="review">
+        <h2>Inquirer Geocode Review</h2>
+        <p>This solution focuses on removing the previous <code>process.argv</code> code to use <code>inquirer.prompt</code>
+        instead, moving the "resulting" code into Inquirer's <code>.then</code> function. Let's look over the code briefly.</p>
+      </div>
+      <h2>Installing Packages Globally</h2>
+      <p>One of the neat things about NPM is that we can install some packages <span class="note">globally</span>
+      such that we can use them in our command line. Note that this is different from requiring a package within a .JS file.
+      The <code>-g</code> flag makes the difference, here, i.e. <code>npm install -g [package]</code></p>
+      <p>What we can accomplish with these kinds of packages is a greater degree of control and efficiency with regards
+        to managing a Node server from the command line. We'll be playing with <span class="bold monospace">inspect-process</span>,
+        allowing us to open up a debugger just by adding <code>debugger;</code> in various places throughout the code,
+        then running it with <code>inspect [program]</code>. Pretty cool!
+      </p>
+      <p>Of course, if this still feels like too much for you, feel free to stay within your comfort zone, e.g.
+        <code>console.log</code> wherever necessary.
+      </p>
+    </section>
+    <div class="page-break">
+      <h1>That's all for today, see you Monday!</h1>
+    </div>
+  </article>
+</body>
+<!-- Script to make code pretty -->
+<script type='text/javascript' src="../js/prism.js"></script>
 </html>
