@@ -16,17 +16,17 @@
   <header>
     <pre id='ascii-title' style='font-size:2vw; line-height:0.80em; letter-spacing: -0.35em; font-weight:800;'>
                                                                                                                        ______                    ____        
-|         |       .'.       |`````````, |``````.         |         |       .'.       `````|`````        `````````:'  .~      ~.  |..          | |            /'`, 
+|         |       .'.       |`````````, |``````.         |         |       .'.       `````|`````        `````````:'  .~      ~.  |..          | |            .'`, 
 |_________|     .''```.     |'''|'''''  |       |        |_________|     .''```.          |                   ..'   |          | |  ``..      | |______       `'  
-|         |   .'       `.   |    `.     |       |        |         |   .'       `.        |               ..''      |          | |      ``..  | |            /'`,
+|         |   .'       `.   |    `.     |       |        |         |   .'       `.        |               ..''      |          | |      ``..  | |            .'`,
 |         | .'           `. |      `.   |......'         |         | .'           `.      |             .:,,,,,,,,,  `.______.'  |          ``| |___________  `'
                                  
 
    ______      ______                                                                             ______                  ______                                 
- .~      ~.  .~      ~.  |..          |             ..'''' `````|````` |`````````, |         |  .~      ~. `````|`````  .~      ~.  |`````````,             ..''''
+ .~      ~.  .~      ~.  |..          |             ..''.. `````|````` |`````````, |         |  .~      ~. `````|`````  .~      ~.  |`````````,             ..''..
 |           |          | |  ``..      |          .''            |      |'''|'''''  |         | |                |      |          | |'''|'''''           .''     
 |           |          | |      ``..  |       ..'               |      |    `.     |         | |                |      |          | |    `.           ..'        
- `.______.'  `.______.'  |          ``| ....''                  |      |      `.   `._______.'  `.______.'      |       `.______.'  |      `.   ....''           
+ `.______.'  `.______.'  |          ``| ''..''                  |      |      `.   `._______.'  `.______.'      |       `.______.'  |      `.   ''..''           
 
  
                                                           ______                                                                                                 
@@ -43,10 +43,130 @@
       <h1>To Do's:</h1>
       <ul>
         <li>Administrivia</li>
+        <li>Practice With Objects</li>
+        <li>Intro to Constructors</li>
+        <li>Practice Activities</li>
       </ul>
     </section>
     <section>
       <h1>Administrivia</h1>
+      <p>Hello, everyone, and welcome to another new unit! We'll be putting the brakes on NPM for now, working in Node to
+        master your understanding of JavaScript objects. During today's class, we'll be focusing on making your knowledge of objects
+        much more robust such that you can use them creatively and efficiently.</p>
+    </section>
+    <section>
+      <h1>Practice With Objects</h1>
+      <p>Objects are powerful, flexible, and beautifully efficient data structures capable of extensive functionality while offering
+      the ability to minimize repeated code, much like functions. They are the crux of modern JavaScript development: structures with self-contained
+        bundles of functions and data that stay succinct and organized. In Node, the special object
+        <code>module.exports</code> allows us to use prewritten code. Let's focus just on the objects themselves for now.
+      </p>
+      <h2>Syntax Refresher</h2>
+      <p>Recall that objects can have any data type as a child element, stored as a key-value pair&mdash;ints,
+        floats, strings, arrays, functions, other objects, etc. Here's a quick reminder
+        of what that might look like with multiple different types:
+      </p>
+      <pre><code class="language-JavaScript">// Assuming we installed Moment.js
+const moment = require("moment");
+
+var person = {
+  name: "Dr. Thaddeus Venture",
+  birthday: new moment("4/30/1960","MM/DD/YYYY"),
+  occupation: "Super scientist",
+  family: ["Hank Venture", "Dean Venture"],
+  getAge: function(){
+    return moment().diff(this.birthday, "years");
+  }
+};
+
+// Output current age based on stored birthday
+console.log(person.getAge());</code></pre>
+      <p>Let's do a quick activity to refresh your skills with creating objects.
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Raining Cats and Dogs</h3>
+        <p>Make a dogs object with three keys:</p>
+        <ul>
+          <li>First key called "raining" with a value of <code>true</code></li>
+          <li>Second key called "noise" with a value of "Woof!"</li>
+          <li>Third key called "makeNoise" which contains a function which logs the noise to the screen if it is raining dogs</li>
+        </ul>
+        <p>Then, make a cats object with three keys:</p>
+        <ul>
+          <li>First key called "raining" with a value of <code>false</code></li>
+          <li>Second key called "noise" with a value of "Meow!"</li>
+          <li>Third key called "makeNoise" which contains a function which logs the noise to the screen if it is raining cats</li>
+        </ul>
+        <p>Make the dog bark, and make the cat meow.</p>
+        <p><span class="bonus">Bonus:</span> Create a function called "massHysteria" which takes in both the cats and the dogs object and prints "DOGS AND CATS LIVING
+        TOGETHER! MASS HYSTERIA!" if both of the <code>raining</code> keys are equal to true.</p>
+        <p>The focus of this activity is to maintain as much simplicity as possible. After building the required objects, refactor your
+          code until it is as simple as you can make it.
+        </p>
+      </div>
+      <div class="review">
+        <h2>Raining Cats and Dogs Live-coding</h2>
+        <p>Let's get a couple of people to code out different parts of the assignment, explaining
+          logic along the way.
+        </p>
+        <p>As we complete the code, do you see anything that seems redundant?
+          Are there foolproof ways to get rid of this redundancy?
+        </p>
+      </div>
+    </section>
+    <section>
+      <h1>Intro to Constructors</h1>
+      <p>An easy way to think about a <span class="note">constructor</span> is a template function that creates
+        objects with a particular layout. Instead of what we saw earlier with identically-structured
+        objects, we can create a constructor that literally <span class="italic">constructs</span>
+        an object in that format. Let's reduce the redundancy in that previous example after going
+        over the basic syntax.</p>
+      <pre><code class="language-javascript">// Common convention is to capitalize
+//  Constructors plus camelCase (i.e. CamelCase)
+function TestObj(a, b){
+  this.a = a;
+  this.b = b;
+  this.c = "foo"; // default value for all returned objects
+}
+
+var foo = new TestObj("42","ham"),
+    bar = new TestObj("23","spam"),
+    baz = new TestObj("4533","eggs");
+
+console.log(foo.a === bar.a); // false
+console.log(bar.c === baz.c); // true
+</code></pre>
+      <p>Now, let's go over using a constructor with the <code>person</code> object we saw earlier.
+      </p>
+      <pre><code class="language-javascript">// Define a new constructor for a Person object
+function Person(name, birthday, family){
+  // use "this" to set the object's own parameters to the given arguments
+  this.name = name;
+  this.birthday = new moment(birthday, "MM/DD/YYYY");
+  this.occupation = occupation;
+  this.family = family;
+  this.getAge = function(){
+    return moment().diff(this.birthday, "years");
+  }
+}
+
+var doc = new Person(
+  "Dr. Thaddeus Venture",
+  "4/30/1960",
+  "Super scientist",
+  ["Hank Venture", "Dean Venture"]);
+</code></pre>
+      <p>This code doesn't look particularly exciting, but it's a serious boon when we want multiple
+        objects with the same structure. If I wanted to add a new <code>Person</code> like in the code above,
+        what would I do without a constructor? It would be extremely redundant, even more so if I wanted to add more.
+      </p>
+      <p>Let's look at an updated "Raining Cats and Dogs" version.</p>
+      <div class="activity">
+        <h2>Instructor activity...</h2>
+        <p>We already know the basic functionality, so let's just go through the code
+          and see what changed. The resulting code should be visibly more concise.
+        </p>
+      </div>
     </section>
     <div class="page-break">
       <h1>Break Time!</h1>

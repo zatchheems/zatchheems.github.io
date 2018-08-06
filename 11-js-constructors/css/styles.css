@@ -85,7 +85,7 @@ pre {
   padding:25px;
   background-color:#252525;
   color: var(--bright-accent);
-  font-size: 1.6vw; /* View Width. Depends on width of browser window */
+  font-size:0.6em;
   white-space: pre;
   line-height:130%;
   margin: 10px 0;
@@ -218,7 +218,7 @@ section {
 
   animation-duration:1s;
   animation-timing-function: ease-out;
-  outline:8px solid var(--accent);
+  outline:8px solid var(--bright-accent);
   animation: 2s ease-in 0 appear;
 }
 
@@ -530,6 +530,10 @@ hr {
 
   section {
     padding: 20px;
+  }
+
+  pre {
+    font-size:4vw;
   }
 }
 
