@@ -45,7 +45,7 @@
         <li>Administrivia</li>
         <li>Practice With Objects</li>
         <li>Intro to Constructors</li>
-        <li>Practice Activities</li>
+        <li>Building On Constructors</li>
       </ul>
     </section>
     <section>
@@ -179,8 +179,12 @@ var doc = new Person(
         <h2>Student activity!</h2>
         <h3>Character Creation</h3>
         <p>Over the course of this activity you are going to be using constructors to create simplistic
-          characters for use within a very basic Roleplaying Game (RPG)</p>
-        <p>Each character created using your constructor should have the following properties:</p>
+          characters for use within a very basic Roleplaying Game (RPG).</p>
+        <p>Creativity is highly encouraged here&mdash;go
+          above and beyond and this activity will be a blast! Also feel free to modify any of the below properties, so long
+          as there are strings, numbers and at least one function in your constructor. Consider adding a second
+          constructor for attacks and/or spells, then keeping an array of moves a character can make.</p>
+        <p>At the very least, each character created using your constructor should have something like the following:</p>
         <ul>
           <li><span class="note">Name:</span> The character's name <span class="mid-accent">&LongRightArrow;</span> String</li>
           <li><span class="note">Profession:</span> What the character does for a living <span class="mid-accent">&LongRightArrow;</span> String</li>
@@ -191,7 +195,7 @@ var doc = new Person(
           <li><span class="note">PrintStats:</span> Function which prints all of a character's properties to the screen</li>
         </ul>
         <p>Once you have created your constructor, create two new characters and print their properties to the screen.</p>
-        <p>Fool around and get comfortable with your constructor before moving onto the next parts of the activity</p>
+        <p>Fool around and get comfortable with your constructor before moving onto the next parts of the activity.</p>
         Once comfortable with your constructor, it is time to start making this character creation system a little
         more reactive by adding in some more methods:
         <ul>
@@ -204,12 +208,28 @@ var doc = new Person(
         RPG where two characters fight one another. Don't worry if you cannot finish this part of the activity as, by completing
         the above sections you are well on your way to mastering constructors!</p>
       </div>
+      <div class="review">
+        <h2>Character Creation Review</h2>
+        <p>Let's look at a completed Character constructor and go over the code line-by-line.
+          Feel free to interject with your own creative usage of JavaScript to represent RPG elements.
+          We'll also go over a version including the bonus.
+        </p>
+      </div>
     </section>
     <div class="page-break">
       <h1>Break Time!</h1>
     </div>
    <section>
-
+      <h1>Building On Constructors</h1>
+      <p>Now, you should be fairly familiar with what it takes to create a constructor&mdash;they're just
+        functions that store local variables for objects, after all. Oftentimes when we talk about <span class="note">Object-Oriented Programming</span>
+        we refer to <span class="note">polymorphism</span>, wherein the former is a paradigm based on data-driven
+        coding and the latter refers to the ability for an object to take different forms, e.g. a general object and
+        more specific object that extends it. We won't be delving too deep into this but it's worth a quick mention.
+      </p>
+      <p>An important question for the time being is this: if we have a basic Programmer object,
+        how would we make Student and Teacher objects with more specificity?
+      </p>
    </section>
     <div class="page-break">
       <h1>That's all for today, see you Wednesday!</h1>
