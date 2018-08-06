@@ -98,8 +98,8 @@ console.log(person.getAge());</code></pre>
           <li>Third key called "makeNoise" which contains a function which logs the noise to the screen if it is raining cats</li>
         </ul>
         <p>Make the dog bark, and make the cat meow.</p>
-        <p><span class="bonus">Bonus:</span> Create a function called "massHysteria" which takes in both the cats and the dogs object and prints "DOGS AND CATS LIVING
-        TOGETHER! MASS HYSTERIA!" if both of the <code>raining</code> keys are equal to true.</p>
+        <p><span class="bonus">Bonus:</span> Create a function called "massHysteria" which takes in both the cats and the dogs object and prints <span class="italic mid-accent">"DOGS AND CATS LIVING
+        TOGETHER! MASS HYSTERIA!"</span> if both of the <code>raining</code> keys are equal to true.</p>
         <p>The focus of this activity is to maintain as much simplicity as possible. After building the required objects, refactor your
           code until it is as simple as you can make it.
         </p>
@@ -122,8 +122,10 @@ console.log(person.getAge());</code></pre>
         an object in that format. Let's reduce the redundancy in that previous example after going
         over the basic syntax.</p>
       <pre><code class="language-javascript">// Common convention is to capitalize
-//  Constructors plus camelCase (i.e. CamelCase)
+//  Constructors--plus camelCase, do CamelCase.
+// This helps us distinguish functions from Constructors
 function TestObj(a, b){
+  // use "this" to set the object's own parameters to the given arguments
   this.a = a;
   this.b = b;
   this.c = "foo"; // default value for all returned objects
@@ -136,11 +138,14 @@ var foo = new TestObj("42","ham"),
 console.log(foo.a === bar.a); // false
 console.log(bar.c === baz.c); // true
 </code></pre>
-      <p>Now, let's go over using a constructor with the <code>person</code> object we saw earlier.
-      </p>
+      <p>To make something abundantly clear: <span class="mid-accent bold">never,
+        <span class="italic">ever</span> call the constructor function on its own.</span> It
+        will override all the variables of every instance of the object "template" by bringing
+        those variables into the global scope. Remember what <code>this</code> refers to outside of functions:
+        the window in the browser, and on the back-end a set of Node globals including the process and console.</p>
+      <p>Now that we've gotten that out of the way, let's go over using a constructor with the <code>person</code> object we saw earlier.
       <pre><code class="language-javascript">// Define a new constructor for a Person object
 function Person(name, birthday, family){
-  // use "this" to set the object's own parameters to the given arguments
   this.name = name;
   this.birthday = new moment(birthday, "MM/DD/YYYY");
   this.occupation = occupation;
@@ -156,9 +161,10 @@ var doc = new Person(
   "Super scientist",
   ["Hank Venture", "Dean Venture"]);
 </code></pre>
-      <p>This code doesn't look particularly exciting, but it's a serious boon when we want multiple
+      <p>This code doesn't look particularly exciting, but it's demonstrably more efficient when we want multiple
         objects with the same structure. If I wanted to add a new <code>Person</code> like in the code above,
         what would I do without a constructor? It would be extremely redundant, even more so if I wanted to add more.
+        That, or I'd have to use prototypes. More on that later.
       </p>
       <p>Let's look at an updated "Raining Cats and Dogs" version.</p>
       <div class="activity">
@@ -166,6 +172,37 @@ var doc = new Person(
         <p>We already know the basic functionality, so let's just go through the code
           and see what changed. The resulting code should be visibly more concise.
         </p>
+      </div>
+      <h2>Questions, comments before you dive into a new activity?</h2>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Character Creation</h3>
+        <p>Over the course of this activity you are going to be using constructors to create simplistic
+          characters for use within a very basic Roleplaying Game (RPG)</p>
+        <p>Each character created using your constructor should have the following properties:</p>
+        <ul>
+          <li><span class="note">Name:</span> The character's name <span class="mid-accent">&LongRightArrow;</span> String</li>
+          <li><span class="note">Profession:</span> What the character does for a living <span class="mid-accent">&LongRightArrow;</span> String</li>
+          <li><span class="note">Gender:</span> The character's gender <span class="mid-accent">&LongRightArrow;</span> String</li>
+          <li><span class="note">Age:</span> The character's age <span class="mid-accent">&LongRightArrow;</span> Integer</li>
+          <li><span class="note">Strength:</span> Abstraction for how strong the character is <span class="mid-accent">&LongRightArrow;</span> Integer</li>
+          <li><span class="note">HitPoints (HP):</span> abstraction for how much health the character has <span class="mid-accent">&LongRightArrow;</span> Integer</li>
+          <li><span class="note">PrintStats:</span> Function which prints all of a character's properties to the screen</li>
+        </ul>
+        <p>Once you have created your constructor, create two new characters and print their properties to the screen.</p>
+        <p>Fool around and get comfortable with your constructor before moving onto the next parts of the activity</p>
+        Once comfortable with your constructor, it is time to start making this character creation system a little
+        more reactive by adding in some more methods:
+        <ul>
+          <li><span class="note">IsAlive</span> Function which prints whether or not this character is alive by looking into their hitpoints and determining whether they
+          are above or below zero.</li>
+          <li><span class="note">Attack</span> Function which takes in a second character's hitpoints and subtracts this character's strength from it.</li>
+          <li><span class="note">LevelUp</span> Function which increases this character's Age by 1, their Strength by 5, and their HitPoints by 25.</li>
+        </ul>
+        <p><span class="bonus">Bonus:</span>  After completing the previous sections and making sure they work, you now have everything you need to create a very basic
+        RPG where two characters fight one another. Don't worry if you cannot finish this part of the activity as, by completing
+        the above sections you are well on your way to mastering constructors!</p>
       </div>
     </section>
     <div class="page-break">
