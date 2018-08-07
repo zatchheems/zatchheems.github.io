@@ -45,7 +45,7 @@
         <li>Administrivia</li>
         <li>Practice With Objects</li>
         <li>Intro to Constructors</li>
-        <li>Practice Activities</li>
+        <li>Building On Constructors</li>
       </ul>
     </section>
     <section>
@@ -145,7 +145,7 @@ console.log(bar.c === baz.c); // true
         the window in the browser, and on the back-end a set of Node globals including the process and console.</p>
       <p>Now that we've gotten that out of the way, let's go over using a constructor with the <code>person</code> object we saw earlier.
       <pre><code class="language-javascript">// Define a new constructor for a Person object
-function Person(name, birthday, family){
+function Person(name, birthday, occupation, family){
   this.name = name;
   this.birthday = new moment(birthday, "MM/DD/YYYY");
   this.occupation = occupation;
@@ -204,13 +204,105 @@ var doc = new Person(
         RPG where two characters fight one another. Don't worry if you cannot finish this part of the activity as, by completing
         the above sections you are well on your way to mastering constructors!</p>
       </div>
+      <div class="review">
+        <h2>Character Creation Review</h2>
+        <p>Let's go over the code line-by-line, then tackle the bonus version.</p>
+      </div>
     </section>
     <div class="page-break">
       <h1>Break Time!</h1>
     </div>
-   <section>
+    <section>
+      <h1>Building On Constructors</h1>
+      <p>One of the best parts about constructed objects is the ability to mutate their contents
+        whenever it becomes advantageous to do so. How would we go about adding new and unique properties and 
+        methods to constructed objects? In what situation would we want to do this?
+      </p>
+      <p>Perhaps we would like our constructed objects to differ in some way. Perhaps we would like to make a
+        "Person" constructor that returns an object with a name and occupation. If we were to make
+        "Student" and "Instructor" constructors, we wouldn't be able to leverage the already existing code.
+        However, if we <span class="italic">did</span> use the constructor alone, an instructor may end up with
+        an assignments sub-object, and students a lesson plan sub-object.
+      </p>
+      <pre><code class="language-javascript">function Person(name, occupation, color){
+  this.name = name;
+  this.occupation = occupation;
+  this.favoriteColor = color;
+}
 
-   </section>
+var instructor = new Person("Alice", "instructor", "lavender"),
+    student    = new Person("Bob", "student", "chartreuse");
+
+student.homework = {
+  node: {
+    due: "8/11/18",
+    finished: false
+  }
+};
+
+instructor.lessonPlans = {
+  constructors: {
+    date: "8/6/18",
+    url: "zatchheems.github.io/11-js-constructors/html/constructors.html"
+  }
+}</code></pre>
+      <h4>Any questions before we continue?</h4>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Tamagotchi Time: Part I</h3>
+        <p>Remember Tamagotchis? They were those little toys that contained "digital pets" which you could feed, pet, play with, and
+        care for. Kind of like Furbies but a whole lot less terrifying. Over the next thirty minutes or so, you are going to create
+        your own basic Tamagotchi clone using constructors.</p>
+        <p>Create a constructor called "DigitalPal" (or something similar)
+          which will create four properties and four methods:</p>
+        <h4>Properties:</h4>
+        <ol>
+          <li>The first property is <span class="monospace accent">hungry</span> and it initially starts out as false</li>
+          <li>The second property is <span class="monospace accent">sleepy</span> and it initially starts out as false</li>
+          <li>The third property is <span class="monospace accent">bored</span> and it initially starts out as true</li>
+          <li>The fourth property is <span class="monospace accent">age</span> and it initially starts out at 0</li>
+        </ol>
+        <h4>Methods:</h4>
+        <ol>
+          <li>The first method is <code>feed()</code> &mdash; If hungry is true, print "That was yummy!", set hungry to false, and then set sleepy to true.
+          If hungry is false, print "No thanks! I'm full."</li>
+          <li>The second method is <code>sleep()</code> &mdash; If sleepy is true, print "Zzzzzzzz", set sleepy to false, then set bored to true, and then
+          run increaseAge(). If sleepy is false, print "No way! I'm not tired."</li>
+          <li>The third method is <code>play()</code> &mdash; If bored is true, print "Yay! Let's play!", set bored to false, and then set hungry to true.
+          If bored is false, print "Not right now. Later?"</li>
+          <li>The fourth method is <code>increaseAge()</code> &mdash; This method runs within the <code>sleep()</code> method when the DigitalPal goes to sleep and
+          increases the DigitalPal's age by one while also printing <code class="language-JavaScript">`Happy Birthday to me! I am ${age} years old!`</code></li>
+        </ol>
+        <h3>Part II:</h3>
+        <p>Create a variable named "Dog" that is set to a new DigitalPal before adding the following unique properties/methods to it:</p>
+        <ul>
+          <li><span class="monospace accent">Outside</span> &mdash; Initially set to false</li>
+          <li><code>Bark()</code> &mdash; Prints out "Woof! Woof!" when run</li>
+          <li><code>goOutside()</code> &mdash; If outside is false, prints "Yay! I love the outdoors!", sets outside to true, and runs Bark(). If outside is true, prints
+          "We're already outside though..."</li>
+          <li><code>goInside()</code> &mdash; If outside is true, prints "Do we have to? Fine..." and sets outside to false. If outside is false, prints "I'm already inside..."</li>
+        </ul>
+        <p>Make a second variable named "Cat" that is set to a new DigitalPal and add the following methods to it:</p>
+        <ul>
+          <li><span class="monospace accent">HouseCondition</span> &mdash; Initially set to 100, but not for long...</li>
+          <li><code>meow()</code> &mdash; prints out "Meow! Meow!" when run</li>
+          <li><code>destroyFurniture()</code> &mdash; Lowers HouseCondition by 10 and prints `MUAHAHAHAHA! TAKE THAT FURNITURE!` to the screen. Also sets bored to false and sleepy
+          to true. If HouseCondition is equal to 0, then this should not run anymore.</li>
+          <li><code>buyNewFurniture()</code> &mdash; Raises HouseCondition by 50 and prints "Are you sure about that?" to the screen.</li>
+        </ul>
+        <p>Play around with your newly created digital pets for a bit and see what else you could add in order to make them even more
+        exciting!</p>
+        <p><span class="bonus">Bonus:</span> Make it so your Tamagotchis run off of user-input. It may sound easy at first, but this can actually be quite challenging.
+        We will be going over this in more detail during the next class.</p>
+      </div>
+      <div class="review">
+        <h2>Tamagotchi Review</h2>
+        <p>This activity has a lot of moving parts, so let's tackle the solution in sections by breaking it down
+          by method.
+        </p>
+      </div>
+    </section>
     <div class="page-break">
       <h1>That's all for today, see you Wednesday!</h1>
     </div>
