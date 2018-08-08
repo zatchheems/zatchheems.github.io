@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Inputs and Constructors</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,400i,700" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="../css/reset.css">
+  <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  <link rel='stylesheet' type='text/css' href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <pre id='ascii-title' style='font-size:2vw; line-height:1.0em; letter-spacing: -0.20em; font-weight:100;'>
+   __                                _    ,             _                  
+  /  )        _/_       _/_    _/_  ' )  /             ///)                
+ /  ______ _  / __ . ._./     o/     /  /__. .__ _  _ ////  o                
+(__(_) / &lt;/_)&lt;_/ ((_/(_&lt;__   &lt;&lt;__   (__/(_|_// (/_)&lt;/&lt;///_                 
+                                     //               />  o                  
+                                    (/               &lt;/                    
+     _                                      __                             
+    | )           _/_                 /    /  )        _/_       _/_       
+,---|/ ____ _  . ./ _     __. ____ __/    /  ______ _  / __ . ._./ ____ _  
+ \_/ \/ / &lt;/_)(_/&lt;_/_)_  (_/|/ / &lt;(_/_   (__(_) / &lt;/_)&lt;_/ ((_/(_&lt;_(_) (/_)_
+          /                                                                
+         '</pre>
+    <h2 class='date'> August 8th, 2018</h2>
+  </header>
+  <article class='container'>
+    <section id="todo">
+      <h1>To Do's:</h1>
+      <ul>
+        <li>Administrivia</li>
+        <li>Quick Review</li>
+        <li>User Input and Constructors</li>
+        <li>Recursion</li>
+        <li>Practice Activities</li>
+        <li>Nested Constructors</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Administrivia</h1>
+      <p>Welcome back, everyone! Today's class will be about being totally proficient with constructors as well as the basics of
+        recursion. We'll be going over that last topic in detail, but will be skipping the mathematical computer science behind it.
+        Instead, we'll be focusing on its applications with regards to objects and data manipulation. We'll also be focusing on your ability
+        to user constructor functions to link two different objects together.
+      </p>
+      <p>First, a couple of notes on the portfolio assignment and the pace of the homework.</p>
+      <hr>
+      <p>Now, let's do a warm-up exercise before diving into the new material.</p>
+    </section>
+    <section>
+      <h1></h1>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Constructing Programmers</h3>
+        <p>In this activity, we are going to create a constructor function called <span class="monospace accent">Programmer</span> which can be used to create objects containing
+        information on various programmers.</p>
+        <p>Your <span class="monospace accent">Programmer</span> constructor should be able to take in the following information:</p>
+        <ul>
+          <li>The programmer's name</li>
+          <li>Their position/job title</li>
+          <li>How old they are</li>
+          <li>Favorite programming language</li>
+        </ul>
+        <p>Now, create a method for the constructor that would print all of the information contained within an object to the console.</p>
+        <p>Finally, create a <span class="monospace accent">Programmer</span> object and call the method to print its contents.</p>
+      </div>
+      <div class="review">
+        <h2>Constructing Programmers Review</h2>
+        <p>Let's go over the code for this activity.</p>
+        <p>Notice that the process of creating a new <span class="monospace accent">Programmer</span> object might get tiresome, since we constantly
+        have to modify our code each time.</p>
+      </div>
+    </section>
+    <section>
+      <h1>User Input and Constructors</h1>
+      <p>Reminding ourselves about the <code>inquirer</code> package will be useful for the sake of reducing rewritten code on our part&mdash;plus,
+      the package itself is fairly simple to use while providing users with an elegant, verbose, and robust solution for providing input. We can use
+      this input to create objects using constructors.</p>
+      <div class="activity">
+        <h2>Instructor activity...</h2>
+        <p>Let's go over an alternate version of the "Programmers" assignment with a prompt. We'll step through the code shortly.
+        </p>
+        <p>As a small refresher, what do I have to do before using the <code>inquirer</code> package?</p>
+      </div>
+      <hr>
+      <div class="activity">
+        <h2>Class activity!</h2>
+        <p>Try playing with the code in <code>06-ProgrammersWithPrompt</code> to create multiple objects.</p>
+        <p>When you use a loop to accomplish this, what happens?</p>
+        <hr>
+        <p>Next, let's look at a file that uses a loop to try to achieve the correct functionality. What do you think gets printed to the console?</p>
+        <p>Soon, we'll demo it and see. Something might seem off...</p>
+      </div>
+      <p>That <code>for</code> loop is messing everything up! It happens that multiple <code>inquirer</code> instances are being created all at once,
+      creating five identical <span class="monospace accent">Programmer</span> objects. How about we learn a way to deal with this problem?</p>
+      <div class="activity">
+        <h2>Instructor activity...</h2>
+        <p>Let's look at a working solution that doesn't use a loop. What's going on here?</p>
+        <p>How are the objects stored?</p>
+        <hr>
+        <p>It's not quite finished yet, as the objects are only obtainable via the function and not afterwards. It looks like we'll need an array we can
+          store them in. Good thing we have a solution that solves this!
+        </p>
+      </div>
+    </section>
+    <section>
+      <h1>Recursion</h1>
+      <p>Recursion is an interesting concept in computer science, based heavily on mathematical computer science proofs. Generally speaking,
+        they consist of functions with a <span class="note">base case</span>, or a condition in which the function should return. Otherwise,
+        the function calls itself, most often with an argument it repeatedly edits.</p>
+      <p>A classic example of a recursive function is one that returns the factorial of a number:</p>
+      <pre><code class="language-JavaScript">// Declare a recursive function to print out
+//  the factorial of a number
+var factorial = (num) => {
+  if(num <= 1)
+    return 1;
+  return num * factorial(num-1);
+}</code></pre>
+      <p>It may help to draw this out, so after I demo it I'll draw the different stack frames as we recurse through, then "unravel", as it were.</p>
+      <p>Let's get some questions on this before putting it to work.</p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Team Manager: Part I</h3>
+        <p>This activity is pretty large, so we will be working on Part I before the break and Part II after.</p>
+        <p>Over the course of this assignment you are going to put together a function which uses constructors and user input to create
+        and manage a team of players.</p>
+        <p>Start out by creating a constructor function called <code>Player</code> with the following properties and methods:
+        <ul>
+          <li><span class="monospace accent">name</span>: player name</li>
+          <li><span class="monospace accent">position</span>: player's position</li>
+          <li><span class="monospace accent">offense</span>: value between 1 and 10 corresponding to skill on offense</li>
+          <li><span class="monospace accent">defense</span>: value between 1 and 10 corresponding to skill on defense</li>
+          <li><code>goodGame</code>: increase either the player's offense or defense property based upon a coinflip</li>
+          <li><code>badGame</code>: decrease either the player's offense or defense property based upon a coinflip</li>
+          <li><code>printStats</code>: print all of the player's properties to the screen</li>
+        </ul>
+        <p>Now, create a program which allows the user to create 3 unique players; 2 starters and a sub. It should take as user input
+        the name, position, offense, and defense of each player.</p>
+        <p>Once all of the players have been created, print their stats.</p>
+        <p><span class="hint">Hint:</span> Remember to use recursion when looping with inquirer! Otherwise, your program might not return the prompts as you expect.</p>
+      </div>
+    </section>
+    <div class="page-break">
+      <h1>Break Time!</h1>
+    </div>
+    <section>
+      <h1>Team Manager, Continued</h1>
+      <p>Let's do a quick summary of the code in Part I of the Team Manager activity. It prints players' stats to the screen and not too much else,
+      but should give you a good idea of how to better create and use constructor functions with inquirer. After we're done, you'll go on
+      to complete Part II of this activity.</p>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Team Manager: Part II</h3>
+        <p>Once your code is functioning properly, move on to create a function called <code>playGame</code> which will be run after all of the
+        players have been created and will function as follows.</p>
+        <p>Run 5 times. Each time the function runs:</p>
+        <ul>
+          <li>Two random numbers between 1 and 20 are rolled and compared against the starters' offensive and defensive stats:
+          <ul>
+            <li>If the first number is lower than the sum of the team's offensive stat, add one point to the team's score.</li>
+            <li>If the second number is higher than the sum of the team's defensive stat, remove one point from the team's score.</li>
+          </ul></li>
+          <li>After the score has been changed, prompt the user to allow them to substitute a player from within the starters array with
+          the player from within the subs array.</li>
+        </ul>
+        <p>After the game has finished (been run 5 times):</p>
+        <ul>
+          <li>If the score is positive, run <span class="mono accent">goodGame</span> for all of the players currently within the starters array.</li>
+          <li>If the score is negative, run <span class="mono accent">badGame</span> for all of the players currently within the starters array.</li>
+          <li>If the score is equal to zero, do nothing with the starters.</li>
+          <li>Give the user a message about if they won, and the status of their starters.</li>
+          <li>After printing the results, ask the user if they would like to play again:
+          <ul>
+            <li>Run <code>playGame</code> from the start once more if they do.</li>
+            <li>End the program if they don't.</li>
+          </ul></li>
+        </ul>
+      </div>
+      <div class="review">
+        <h2>Team Manager: Part II Summary</h2>
+        <p>Let's look at the code for this activity and walk through it. Don't worry if you go the first part but struggled with the rest&mdash;so
+          long as you got the first part and can follow along as the code is shown to you, you're in good shape.
+        </p>
+      </div>
+    </section>
+    <section>
+      <h1>Nested Constructors</h1>
+      <p>So far we have held our constructed objects within arrays to great affect, but what if we wanted to call upon those constructed
+      objects within another object? What would we do then? Well, as it turns out, we can actually nest a constructor within another constructor fairly easily. In fact, it operates
+      very similarly to creating a method within a constructor.</p>
+      <div class="activity">
+        <h2>Instructor activity...</h2>
+        <p>Let's look at an application that exports a constructor function from one file and uses it within another. We'll also take
+          take a look at the unique ability to add objects created from one constructor into into an array created by another.
+        </p>
+        <p>It uses a few different files; we'll check out all of them.</p>
+      </div>
+      <h4>Questions, comments, concerns before our final activity of the day?</h4>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <p>In this activity we are going to make two constructors in two different files in which one constructor calls upon the other
+        within it.</p>
+        <p>The first constructor function is called "Student" and has the following properties within it:</p>
+        <ul>
+          <li><span class="monospace accent">name</span></li>
+          <li><span class="monospace accent">favoriteSubject</span></li>
+          <li><span class="monospace accent">gpa</span></li>
+        </ul>
+        <p>The second constructor function is called "Class" and has the following properties within it:</p>
+        <ul>
+          <li>An array of students within the class</li>
+          <li>Number of students in the class</li>
+          <li>Name of the professor</li>
+          <li>Room number</li>
+          <li>The Student constructor function from above which adds a new student to the class</li>
+        </ul>
+        <p><span class="bonus">Bonus:</span> Make it so that that your application can take in user input to add new classes
+          and new students to those classes.</p>
+      </div>
+    </section>
+    <div class="page-break">
+      <h1>That's all for today, see you Saturday!</h1>
+    </div>
+  </article>
+</body>
+<!-- Script to make code pretty -->
+<script type='text/javascript' src="../js/prism.js"></script>
+</html>
