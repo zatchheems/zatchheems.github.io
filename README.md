@@ -52,3 +52,4 @@
 
 ### Unit 11: Constructors
 * [Constructors at Work](./11-js-constructors/html/constructors.html)
+* [Inputs and Constructors](./11-js-constructors/html/input-and-constructors.html)
