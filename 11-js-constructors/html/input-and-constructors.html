@@ -36,6 +36,8 @@
         <li>Quick Review</li>
         <li>User Input and Constructors</li>
         <li>Recursion</li>
+        <li>Practice Activities</li>
+        <li>Nested Constructors</li>
       </ul>
     </section>
     <section>
@@ -139,13 +141,88 @@ var factorial = (num) => {
         <p>Now, create a program which allows the user to create 3 unique players; 2 starters and a sub. It should take as user input
         the name, position, offense, and defense of each player.</p>
         <p>Once all of the players have been created, print their stats.</p>
-        <p><span class="hint">Hint:</span> Remember to use recursion when looping with inquirer! Otherwise your program might not return the prompts as you expect.</p>
+        <p><span class="hint">Hint:</span> Remember to use recursion when looping with inquirer! Otherwise, your program might not return the prompts as you expect.</p>
       </div>
     </section>
     <div class="page-break">
       <h1>Break Time!</h1>
     </div>
     <section>
+      <h1>Team Manager, Continued</h1>
+      <p>Let's do a quick summary of the code in Part I of the Team Manager activity. It prints players' stats to the screen and not too much else,
+      but should give you a good idea of how to better create and use constructor functions with inquirer. After we're done, you'll go on
+      to complete Part II of this activity.</p>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Team Manager: Part II</h3>
+        <p>Once your code is functioning properly, move on to create a function called <code>playGame</code> which will be run after all of the
+        players have been created and will function as follows.</p>
+        <p>Run 5 times. Each time the function runs:</p>
+        <ul>
+          <li>Two random numbers between 1 and 20 are rolled and compared against the starters' offensive and defensive stats:
+          <ul>
+            <li>If the first number is lower than the sum of the team's offensive stat, add one point to the team's score.</li>
+            <li>If the second number is higher than the sum of the team's defensive stat, remove one point from the team's score.</li>
+          </ul></li>
+          <li>After the score has been changed, prompt the user to allow them to substitute a player from within the starters array with
+          the player from within the subs array.</li>
+        </ul>
+        <p>After the game has finished (been run 5 times):</p>
+        <ul>
+          <li>If the score is positive, run <span class="mono accent">goodGame</span> for all of the players currently within the starters array.</li>
+          <li>If the score is negative, run <span class="mono accent">badGame</span> for all of the players currently within the starters array.</li>
+          <li>If the score is equal to zero, do nothing with the starters.</li>
+          <li>Give the user a message about if they won, and the status of their starters.</li>
+          <li>After printing the results, ask the user if they would like to play again:
+          <ul>
+            <li>Run <code>playGame</code> from the start once more if they do.</li>
+            <li>End the program if they don't.</li>
+          </ul></li>
+        </ul>
+      </div>
+      <div class="review">
+        <h2>Team Manager: Part II Summary</h2>
+        <p>Let's look at the code for this activity and walk through it. Don't worry if you go the first part but struggled with the rest&mdash;so
+          long as you got the first part and can follow along as the code is shown to you, you're in good shape.
+        </p>
+      </div>
+    </section>
+    <section>
+      <h1>Nested Constructors</h1>
+      <p>So far we have held our constructed objects within arrays to great affect, but what if we wanted to call upon those constructed
+      objects within another object? What would we do then? Well, as it turns out, we can actually nest a constructor within another constructor fairly easily. In fact, it operates
+      very similarly to creating a method within a constructor.</p>
+      <div class="activity">
+        <h2>Instructor activity...</h2>
+        <p>Let's look at an application that exports a constructor function from one file and uses it within another. We'll also take
+          take a look at the unique ability to add objects created from one constructor into into an array created by another.
+        </p>
+        <p>It uses a few different files; we'll check out all of them.</p>
+      </div>
+      <h4>Questions, comments, concerns before our final activity of the day?</h4>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <p>In this activity we are going to make two constructors in two different files in which one constructor calls upon the other
+        within it.</p>
+        <p>The first constructor function is called "Student" and has the following properties within it:</p>
+        <ul>
+          <li><span class="monospace accent">name</span></li>
+          <li><span class="monospace accent">favoriteSubject</span></li>
+          <li><span class="monospace accent">gpa</span></li>
+        </ul>
+        <p>The second constructor function is called "Class" and has the following properties within it:</p>
+        <ul>
+          <li>An array of students within the class</li>
+          <li>Number of students in the class</li>
+          <li>Name of the professor</li>
+          <li>Room number</li>
+          <li>The Student constructor function from above which adds a new student to the class</li>
+        </ul>
+        <p><span class="bonus">Bonus:</span> Make it so that that your application can take in user input to add new classes
+          and new students to those classes.</p>
+      </div>
     </section>
     <div class="page-break">
       <h1>That's all for today, see you Saturday!</h1>
