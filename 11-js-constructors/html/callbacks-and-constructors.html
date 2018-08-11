@@ -180,7 +180,7 @@ node cli actor Andy Griffith</code></pre>
     <div class="page-break">
       <h1>Break time!</h1>
     </div>
-    <!-- <section>
+    <section>
       <h1>Callbacks</h1>
       <p>By this point, you should all be very familiar with the concept of a callback function&mdash;more or less, they are just
         values passed as arguments to functions. These began cropping up around our jQuery lessons, then slowly began to become a
@@ -189,19 +189,35 @@ node cli actor Andy Griffith</code></pre>
       </p>
       <p>Callback functions are also known as <span class="bold accent">lambda</span> functions in some other programming languages.
       The concept itself is quite useful, as it allows a function to do one thing then synchronously offload the results onto
-      that other function, allowing us to clean up and condense our code.</p>
+      that other function, allowing us to clean up and condense our code. Let's do a practice activity
+      implementing our own callback functions.</p>
       <div class="student-activity">
         <h2>Student activity!</h2>
         <h3>Callbacks</h3>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
+        <p>Write a function that accepts a string and a function as arguments. It should log the string, and then run the function.</p>
+        <p>Write a function that accepts a boolean value and a function as arguments. It should run the function if and only if the
+        boolean argument is true.</p>
+        <p>rite a function that accepts a function (F) and a value (V), and returns a function that returns the result of running F
+        on V. This sounds tricky, but it's easier than it sounds—just take it step by step!</p>
+        <p>Finally, write a short message to a file using <code>fs.writeFile</code>. Does this function use callbacks? If so, identify them.</p>
       </div>
+      <div class="review">
+        <h2>Callbacks Review</h2>
+        <p>Let's do a deep dive into these callback functions&mdash;unlike other instances, we are equally interested in methodology
+          as implementation, the former of which we usually take for granted. We are formalizing our rather stripped-down concept of
+          callbacks.
+        </p>
+      </div>
+    </section>
+    <section>
+      <h1>Node Checkpoint</h1>
+      <p>Our last activity of the day will be a Node checkpoint. As usual, this is ungraded and does not affect your grades or ability
+        to complete the program. It's just a nice way for us to gauge your progress.
+      </p>
     </section>
     <div class="page-break">
       <h1>That's all for today, see you Monday!</h1>
-    </div> -->
+    </div>
   </article>
 </body>
 <!-- Script to make code pretty -->
