@@ -39,6 +39,7 @@
       <ul>
         <li>Administrivia</li>
         <li>Practive: Application Development</li>
+        <li>Callbacks</li>
       </ul>
     </section>
     <section>
@@ -107,27 +108,100 @@ node cli actor Andy Griffith</code></pre>
           <p>In these examples, the cli expects input in the following format:</p>
           <code class="language-bash">node cli &lt;show-or-actor> &lt;actor-or-show-name></code>
           <p>To begin, open <span class="monospace accent">cli.js</span> and write code to store the
-          <code>&lt;show-or-actor></code> command line argument in a variable named <span class="monospace accent">search</span>.</p>
-           Store the <code>&lt;actor-or-show-name></code> command line argument in a variable named <span class="monospace accent">term</span>.
+          <span class="monospace accent">&lt;show-or-actor></span> command line argument in a variable named <span class="monospace accent">search</span>.</p>
+           Store the <span class="monospace accent">&lt;actor-or-show-name></span> command line argument in a variable named <span class="monospace accent">term</span>.
            Keep in mind that this argument may contain spaces so it may span multiple
             indexes of <span class="monospace accent">process.argv</span>. Use <code class="language-JavaScrip">slice()</code> for this.
             <p>Then, write an if/else statement to print to the console whether a show or actor is being searched for.</p>
             <p>We will add some functionality to actually perform the API calls in the next activity.</p>
+            <p><span class="bonus">Bonus:</span> Write logic to set up a default search type and default term if either are missing.</p>
         </div>
         <div class="review">
-          <h2></h2>
-          <p></p>
+          <h2>CLI Review</h2>
+          <p>Let's go over the code for the CLI.</p>
+        </div>
+        <hr>
+        <div class="student-activity">
+          <h2>Partner activity!</h2>
+          <h3>Implement Find Show</h3>
+          <p>Open the <span class="monospace accent">tv.js</span> file. This file contains a constructor function that will be used to create a TV object capable of searching
+          the TV Maze API for shows and actors.</p>
+          <p>Install the <code>request</code> package by running <code>npm install request</code> in your terminal. We will use the <code>request</code> module to make
+          AJAX requests to the TV Maze API. Require the <code>request</code> package and the built-in <code>fs</code> package at the top of the <span class="monospace accent">tv.js</span> file.</p>
+          <p>Inside of the <code>TV</code> constructor function's <code>findShow</code> method, use the <code>request</code> package to hit the TV Maze API for the <span class="monospace accent">URL</span>
+          string.</p>
+          <p>Once you have the response body of the AJAX request, use <code>JSON.parse</code> to convert it to JSON (it comes back as a string).</p>
+          <p>After getting the JSON response from the AJAX request, create a string containing the following information from the returned
+          show data:</p>
+          <ul>
+            <li>The name of the show</li>
+            <li>The show's genre(s)</li>
+            <li>The show's average rating</li>
+            <li>The show's network name</li>
+            <li>The show's summary</li>
+          </ul>
+          <p>Save this string to the <span class="monospace accent">log.txt</span> file using the <code>fs.appendFile</code> method.
+            If the file does not already exist, <code>fs.appendFile</code> will create it.</p>
+          <p>After saving the data to the <span class="monospace accent">log.txt</span> file, print this information to the console.</p>
+          <p>Verify your code works by running the cli file and passing in the name of a TV show, e.g. <code>node cli show Scrubs</code>. This should
+          print the specified information to the console and save it to the <span class="monospace accent">log.txt</span> file.</p>
+        </div>
+        <div class="review">
+          <h2>Find Show Review</h2>
+          <p>Let's check out the solution to get TV shows from the TV Maze API.</p>
+        </div>
+        <hr>
+        <div class="student-activity">
+          <h2>Partner activity!</h2>
+          <h3>Implement Find Actor</h3>
+          <p>Open <span class="monospace accent">tv.js</span> and update the constructor function's <code>findActor</code> method. It should use the <code>request</code> package to search the
+          TV Maze API using the provided URL.</p>
+          <p>Once the data has been retrieved from the API, parse it as JSON (it should be a string initially) and grab only the first
+          result (it should be an array of JSON objects).</p>
+          <p>Save the following information about the actor to the <span class="monospace accent">log.txt</span> file using the <code>fs.appendFile</code> method:</p>
+          <ul>
+            <li>Name</li>
+            <li>Birthday</li>
+            <li>Gender</li>
+            <li>Country</li>
+            <li>TV Maze URL</li>
+          </ul>
+          <p>Once the data has been saved to the <span class="monospace accent">log.txt</span> file, print it to the console.</p>
+          <p>Test that your code works properly by running the <code>cli.js</code> file with arguments. e.g. <code>node cli actor Kyle McLaughlin</code>.</p>
+          <p><span class="hint">Hint:</span> this should be very similar to the <code>findShow</code> method.</p>
+        </div>
+        <div class="review">
+          <h2>Implement Find Actor Review</h2>
+          <p>Let's go over this functionality, then demonstrate the completed application. The finished product
+            is very close to possibly being a very useful NPM package someone else may want to use.
+          </p>
         </div>
     </section>
     <div class="page-break">
       <h1>Break time!</h1>
     </div>
-    <section>
-      <h1></h1>
+    <!-- <section>
+      <h1>Callbacks</h1>
+      <p>By this point, you should all be very familiar with the concept of a callback function&mdash;more or less, they are just
+        values passed as arguments to functions. These began cropping up around our jQuery lessons, then slowly began to become a
+        vitally important JavaScript paradigm. Every time we use <code>fs</code>, event listeners, <code>inquirer</code>&mdash;they
+        are practically inescapable, and this is for the better.
+      </p>
+      <p>Callback functions are also known as <span class="bold accent">lambda</span> functions in some other programming languages.
+      The concept itself is quite useful, as it allows a function to do one thing then synchronously offload the results onto
+      that other function, allowing us to clean up and condense our code.</p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Callbacks</h3>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+      </div>
     </section>
     <div class="page-break">
       <h1>That's all for today, see you Monday!</h1>
-    </div>
+    </div> -->
   </article>
 </body>
 <!-- Script to make code pretty -->
