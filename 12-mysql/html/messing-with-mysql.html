@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Messing With MySQL</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,400i,700" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="../css/reset.css">
+  <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  <link rel='stylesheet' type='text/css' href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <pre id='ascii-title' style='font-size:1.5vw; line-height:0.6em; letter-spacing: -0.20em; font-weight:100;'>
+                                                                                                                                              
+     #####   ##    ##                                                                                                                         
+  ######  /#### #####                                #                                                                                        
+ /#   /  /  ##### #####                             ###                                                                                       
+/    /  /   # ##  # ##                               #                                                                                        
+    /  /    #     #                                                                                                                           
+   ## ##    #     #      /##       /###     /###   ###   ###  /###     /###                                                                   
+   ## ##    #     #     / ###     / #### / / #### / ###   ###/ #### / /  ###  /                                                               
+   ## ##    #     #    /   ###   ##  ###/ ##  ###/   ##    ##   ###/ /    ###/                                                                
+   ## ##    #     #   ##    ### ####     ####        ##    ##    ## ##     ##                                                                 
+   ## ##    #     ##  ########    ###      ###       ##    ##    ## ##     ##                                                                 
+   #  ##    #     ##  #######       ###      ###     ##    ##    ## ##     ##                                                                 
+      /     #      ## ##              ###      ###   ##    ##    ## ##     ##                                                                 
+  /##/      #      ## ####    /  /###  ## /###  ##   ##    ##    ## ##     ##                                                                 
+ /  #####           ## ######/  / #### / / #### /    ### / ###   ### ########                                                                 
+/     ##                #####      ###/     ###/      ##/   ###   ###  ### ###                                                                
+#                                                                           ###                                                               
+ ##                                                                   ####   ###                                                              
+                                                                    /######  /#                                                               
+                                                                   /     ###/                                                                 
+                                                                                                                                              
+     ##### /    ##   ###                     /               #####   ##    ##                    #######          # ###         ##### /       
+  ######  /  #####    ###     #            #/             ######  /#### #####                  /       ###      /  /###      ######  /        
+ /#   /  /     #####   ###   ###     #     ##            /#   /  /  ##### #####               /         ##     /  /  ###    /#   /  /         
+/    /  ##     # ##      ##   #     ##     ##           /    /  /   # ##  # ##                ##        #     /  ##   ###  /    /  /          
+    /  ###     #         ##         ##     ##               /  /    #     #                    ###           /  ###    ###     /  /           
+   ##   ##     #         ## ###   ######## ##  /##         ## ##    #     #  ##   ####        ## ###        ##   ##     ##    ## ##           
+   ##   ##     #         ##  ### ########  ## / ###        ## ##    #     #   ##    ###  /     ### ###      ##   ##     ##    ## ##           
+   ##   ##     #         ##   ##    ##     ##/   ###       ## ##    #     #   ##     ###/        ### ###    ##   ##     ##    ## ##           
+   ##   ##     #         ##   ##    ##     ##     ##       ## ##    #     #   ##      ##           ### /##  ##   ##     ##    ## ##           
+   ##   ##     #         ##   ##    ##     ##     ##       ## ##    #     ##  ##      ##             #/ /## ##   ##     ##    ## ##           
+    ##  ##     #         ##   ##    ##     ##     ##       #  ##    #     ##  ##      ##              #/ ##  ##  ## ### ##    #  ##           
+     ## #      #         /    ##    ##     ##     ##          /     #      ## ##      ##               # /    ## #   ####        /            
+      ###      /##      /     ##    ##     ##     ##      /##/      #      ## ##      ##     /##        /      ###     /##   /##/           / 
+       #######/ #######/      ### / ##     ##     ##     /  #####           ## #########    /  ########/        ######/ ##  /  ############/  
+         ####     ####         ##/   ##     ##    ##    /     ##                 #### ###  /     #####            ###   ## /     #########    
+                                                  /     #                              ### |                            ## #                  
+                                                 /       ##                     #####   ### \)                          /   ##                
+                                                /                             /#######  /#                             /                      
+                                               /                             /      ###/                              /                       
+</pre>
+    <h2 class='date'> August 13th, 2018</h2>
+  </header>
+  <article class='container'>
+    <section id="todo">
+      <h1>To Do's:</h1>
+      <ul>
+        <li>Administrivia</li>
+        <li>Intro to SQL and MySQL</li>
+        <li>MySQL Front-end Applications</li>
+        <li>Inserting and Updating Rows</li>
+        <li>Joins and Foreign Keys (In Brief)</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Administrivia</h1>
+      <p>Good afternoon, everyone! Today's class will be focused on a totally new technology, complete with
+        unfamiliar syntax, its own set of commands and applications, and completely different methodology. We're talking about <span class="note">SQL</span> of course,
+        and <span class="note">MySQL</span> in particular. Today will be a little rough in some spots&mdash;unlike every other technology we've used previously,
+        MySQL is rather difficult to use without a front-end if you are not a seasoned SQL developer, so we'll be using a front-end client to access the
+        server. More on that later.
+      </p>
+      <p>On a different note, <span class="italic">congratulations are in order!</span> Today marks exactly half of the program's completion. Many of you started with
+      no programming experience whatsoever. To consider your progress as anything less than remarkable would be an extreme understatement, so give yourselves a 
+      proverbial pat on the back.</p>
+      <p>With that done, let's start some SQL.</p>
+    </section>
+    <section>
+      <h1>Intro to SQL and MySQL</h1>
+      <p>Many of you have likely heard of SQL; pronounced either "ess-cue-ell" or "sequel", it stands for <span class="note">Structured Query Language</span>.
+      What makes it different from languages such as JavaScript, Python, PHP, Ruby, C, etc. is in the name: it's a <span class="note">declarative</span>
+      language, meaning you <span class="italic">declare</span> what you want to do and the server will do it. Other languages are often imperative and/or
+      functional. These languages require you to either define how to do something, or use a palette of built-in functions to accomplish that thing.
+      With SQL, you build a query and it does the rest.</p>
+      <p>The math, algorithms and data structures in database design are complex and extremely detailed&mdash;we're just interested in the language
+        and what we can store in that database.
+      </p>
+      <h2>SQL and <span class="italic">My</span>SQL</h2>
+      <p>MySQL is a popular open-source software for SQL development and database storage. Typically, MySQL runs as a server to which clients connect to.
+        Much like Node, we can run this on our own machines. One of the big differences: Node is much easier to manage without a front-end, which is why we'll
+        need a separate program for MySQL.
+      </p>
+    </section>
+    <section>
+      <h1>MySQL Front-end Applications</h1>
+      <p>Our SQL front-end application of choice will be <a href="https://www.mysql.com/products/workbench/" target="_blank">MySQL Workbench</a>
+        on most platforms. MacOS users will likely want to install <a href="https://www.sequelpro.com/" target="_blank">Sequel Pro</a>, which runs natively
+        and, full-disclosure, has a much prettier interface. Both of these products are free and open-source. If you haven't already,
+        let's take some time to install your application of choice.</p>
+    </section>
+    <div class="page-break">
+      <h1>Break Time!</h1>
+    </div>
+    <section>
+    </section>
+    <div class="page-break">
+      <h1>That's all for today, see you Saturday!</h1>
+    </div>
+  </article>
+</body>
+<!-- Script to make code pretty -->
+<script type='text/javascript' src="../js/prism.js"></script>
+</html>
