@@ -54,3 +54,6 @@
 * [Constructors at Work](./11-js-constructors/html/constructors.html)
 * [Inputs and Constructors](./11-js-constructors/html/input-and-constructors.html)
 * [Callbacks and Constructors](./11-js-constructors/html/callbacks-and-constructors.html)
+
+### Unit 12: MySQL
+* [Messing With MySQL](./12-mysql/html/messing-with-mysql.html)
