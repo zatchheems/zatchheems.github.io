@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Messing With MySQL</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,400i,700" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="../css/reset.css">
+  <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  <link rel='stylesheet' type='text/css' href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <pre id='ascii-title' style='font-size:1.5vw; line-height:0.6em; letter-spacing: -0.20em; font-weight:100;'>
+                                                                                                                                              
+     #####   ##    ##                                                                                                                         
+  ######  /#### #####                                #                                                                                        
+ /#   /  /  ##### #####                             ###                                                                                       
+/    /  /   # ##  # ##                               #                                                                                        
+    /  /    #     #                                                                                                                           
+   ## ##    #     #      /##       /###     /###   ###   ###  /###     /###                                                                   
+   ## ##    #     #     / ###     / #### / / #### / ###   ###/ #### / /  ###  /                                                               
+   ## ##    #     #    /   ###   ##  ###/ ##  ###/   ##    ##   ###/ /    ###/                                                                
+   ## ##    #     #   ##    ### ####     ####        ##    ##    ## ##     ##                                                                 
+   ## ##    #     ##  ########    ###      ###       ##    ##    ## ##     ##                                                                 
+   #  ##    #     ##  #######       ###      ###     ##    ##    ## ##     ##                                                                 
+      /     #      ## ##              ###      ###   ##    ##    ## ##     ##                                                                 
+  /##/      #      ## ####    /  /###  ## /###  ##   ##    ##    ## ##     ##                                                                 
+ /  #####           ## ######/  / #### / / #### /    ### / ###   ### ########                                                                 
+/     ##                #####      ###/     ###/      ##/   ###   ###  ### ###                                                                
+#                                                                           ###                                                               
+ ##                                                                   ####   ###                                                              
+                                                                    /######  /#                                                               
+                                                                   /     ###/                                                                 
+                                                                                                                                              
+     ##### /    ##   ###                     /               #####   ##    ##                    #######          # ###         ##### /       
+  ######  /  #####    ###     #            #/             ######  /#### #####                  /       ###      /  /###      ######  /        
+ /#   /  /     #####   ###   ###     #     ##            /#   /  /  ##### #####               /         ##     /  /  ###    /#   /  /         
+/    /  ##     # ##      ##   #     ##     ##           /    /  /   # ##  # ##                ##        #     /  ##   ###  /    /  /          
+    /  ###     #         ##         ##     ##               /  /    #     #                    ###           /  ###    ###     /  /           
+   ##   ##     #         ## ###   ######## ##  /##         ## ##    #     #  ##   ####        ## ###        ##   ##     ##    ## ##           
+   ##   ##     #         ##  ### ########  ## / ###        ## ##    #     #   ##    ###  /     ### ###      ##   ##     ##    ## ##           
+   ##   ##     #         ##   ##    ##     ##/   ###       ## ##    #     #   ##     ###/        ### ###    ##   ##     ##    ## ##           
+   ##   ##     #         ##   ##    ##     ##     ##       ## ##    #     #   ##      ##           ### /##  ##   ##     ##    ## ##           
+   ##   ##     #         ##   ##    ##     ##     ##       ## ##    #     ##  ##      ##             #/ /## ##   ##     ##    ## ##           
+    ##  ##     #         ##   ##    ##     ##     ##       #  ##    #     ##  ##      ##              #/ ##  ##  ## ### ##    #  ##           
+     ## #      #         /    ##    ##     ##     ##          /     #      ## ##      ##               # /    ## #   ####        /            
+      ###      /##      /     ##    ##     ##     ##      /##/      #      ## ##      ##     /##        /      ###     /##   /##/           / 
+       #######/ #######/      ### / ##     ##     ##     /  #####           ## #########    /  ########/        ######/ ##  /  ############/  
+         ####     ####         ##/   ##     ##    ##    /     ##                 #### ###  /     #####            ###   ## /     #########    
+                                                  /     #                              ### |                            ## #                  
+                                                 /       ##                     #####   ### \)                          /   ##                
+                                                /                             /#######  /#                             /                      
+                                               /                             /      ###/                              /                       
+</pre>
+    <h2 class='date'> August 13th, 2018</h2>
+  </header>
+  <article class='container'>
+    <section id="todo">
+      <h1>To Do's:</h1>
+      <ul>
+        <li>Administrivia</li>
+        <li>Intro to SQL and MySQL</li>
+        <li>MySQL Management</li>
+        <li>Inserting and Updating Rows</li>
+        <li>Joins and Foreign Keys (In Brief)</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Administrivia</h1>
+      <p>Good afternoon, everyone! Today's class will be focused on a totally new technology, complete with
+        unfamiliar syntax, its own set of commands and applications, and completely different methodology. We're talking about <span class="note">SQL</span> of course,
+        and <span class="note">MySQL</span> in particular. Today will be a little rough in some spots&mdash;unlike every other technology we've used previously,
+        MySQL is rather difficult to use without a front-end if you are not a seasoned SQL developer, so we'll be using a front-end client to access the
+        server. More on that later.
+      </p>
+      <p>On a different note, <span class="italic">congratulations are in order!</span> Today marks exactly half of the program's completion. Many of you started with
+      no programming experience whatsoever. To consider your progress as anything less than remarkable would be an extreme understatement, so give yourselves a 
+      proverbial pat on the back.</p>
+      <p>With that done, let's start some SQL.</p>
+    </section>
+    <section>
+      <h1>Intro to SQL and MySQL</h1>
+      <p>Many of you have likely heard of SQL; pronounced either "ess-cue-ell" or "sequel", it stands for <span class="note">Structured Query Language</span>.
+      What makes it different from languages such as JavaScript, Python, PHP, Ruby, C, etc. is in the name: it's a <span class="note">declarative</span>
+      language, meaning you <span class="italic">declare</span> what you want to do and the server will do it. Other languages are often imperative and/or
+      functional. These languages require you to either define how to do something, or use a palette of built-in functions to accomplish that thing.
+      With SQL, you build a query and it does the rest.</p>
+      <p>The math, algorithms and data structures in database design are complex and extremely detailed&mdash;we're just interested in the language
+        and what we can store in that database.
+      </p>
+      <h2>SQL and <span class="italic">My</span>SQL</h2>
+      <p>MySQL is a popular open-source software for SQL development and database storage. Typically, MySQL runs as a server to which clients connect to.
+        Much like Node, we can run this on our own machines. One of the big differences: Node is much easier to manage without a front-end, which is why we'll
+        need a separate program for MySQL.
+      </p>
+    </section>
+    <section>
+      <h1>MySQL Management</h1>
+      <p>Our SQL front-end application of choice will be <a href="https://www.mysql.com/products/workbench/" target="_blank">MySQL Workbench</a>
+        on most platforms. MacOS users will likely want to install <a href="https://www.sequelpro.com/" target="_blank">Sequel Pro</a>, which runs natively
+        and, full-disclosure, has a much prettier interface. Both of these products are free and open-source. If you haven't already,
+        let's take some time to install your application of choice.</p>
+        <hr>
+        <p>Now that we're all set up, we have to connect to a MySQL server. Since we don't have a dedicated remote server,
+          we'll be running one locally.
+        </p>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <p>I'll be demonstrating how to establish a connection to our own machine and referring to it using
+          <code>localhost</code> and port <span class="mono">3306</span>. We're using a standard TCP/IP connection,
+            which means that we're establishing the most basic standard form for connecting to a server.</p>
+          <p>By default, the credentials will be <span class="mono">root</span> with no password.</p>
+          <p>When we connect, we will not specify a default schema. More on what defines a schema later.</p>
+          <p>We'll test the connection, then start it.</p>
+        </div>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <h3>Creating a LocalHost Connection</h3>
+          <p>Either of these applications can be overwhelming at first&mdash;confusion is perfectly normal, and errors may occur. It's important to know
+            how to handle these errors.
+          </p>
+          <p>Crack open your SQL front-end app. There should be a plus <span class="mid-accent">(+)</span> for new connections.</p>
+          <p>Enter the following credentials into the on-screen prompt:</p>
+          <ul>
+            <li>Connection Name: Local Instance MySQL</li>
+            <li>Connection Method: Standard (TCP/IP)</li>
+            <li>Hostname: localhost</li>
+            <li>Port: 3306</li>
+            <li>Username: &lt;Your MySQL Username> (Defaults to "root")</li>
+            <li>Password: &lt;Your MySQL Password> (Defaults to empty)</li>
+            <li>Keep the Default Schema field empty</li>
+          </ul>
+          <p>Hit "Test Connection" and, if the connection is successful, hit okay and double-click on the newly created field under the
+          "MySQL Connections" text on the home page</p>
+          <p>If the connection fails, raise your hand and one of us will come around to help you out. Until we come by, however, take
+          this time to go online and see if there is anything online which might tell you what went wrong. Don't worry if you cannot
+          find anything though, we will make sure to figure this out.</p>
+          <p>If your connection was successful and you have nothing else to do, feel free to help those around you in creating their connections.</p>
+          <p><span class="bonus">Bonus:</span> look into how you can create and use databases using SQL commands</p>
+          <p><span class="bonus">Bonus:</span> look into the reasons why MySQL uses port 3306 as its default</p>
+        </div>
+        <h2>Connections Vs. Databases</h2>
+        <p>Now that we have a connection to <span class="mono">localhost</span>, do we have a database available?</p>
+        <p>In short: <span class="italic">nope!</span> Notice how no "schemas" are listed other than built-in and default databases, if any are listed at all.
+          These normally do not appear on remote servers.</p>
+        <p>Connecting to a server does not mean that you have created a database on that server. This means that, even if we wanted
+        to, we could not yet populate our <span class="mono">localhost</span> connection with data until we create a database to house the data.</p>
+        <p>The connection is a road which leads to an empty lot. Before we can populate the area, we first need to lay the foundations
+        for houses (create a database), and build the houses (create a table). So, without further ado, let's make a database!</p>
+        <p>Feel free to follow along with me, but know that it is not 100% necessary and I will be going rather quickly through it.</p>
+        <p>SQL has two different types of formats: <abbr class="note" title="Data Definition Language">DDL</abbr> and
+          <abbr class="note" title="Data Manipulation Language">DML</abbr>. We can use a tiny bit of DDL to make our first database. We'll be
+          calling it <code>amimals_db</code>, and declaring it with this syntax:</p>
+          <pre><code class="language-sql">CREATE DATABASE &lt;database_name>;</code></pre>
+        <p>We should see some confirmation that this occurred after we run it. If the database isn't visible, we can just refresh
+          and it will become visible in the front-end.
+        </p>
+        <hr>
+        <p>We have a database now, but no tables to store our data. Let's get some more DDL to define a table. Now that we have a database called
+          <code>animals_db</code>, let's define a table that defines people and the pets they own.
+        </p>
+        <p><span class="note">Note:</span> for basic syntax and keywords, SQL is a case-insensitive language. For neatness, you can make keywords all-caps.
+          My personal preference? All lowercase. You will see both formats. I'll be sticking with lowercase.   
+        </p>
+        <pre><code class="language-sql">use animals_db;
+create table people (
+  name varchar(30) not null,
+  has_pet boolean not null,
+  pet_name varchar(30),
+  pet_age integer(10)
+);</code></pre>
+    <p>When we run this, we have to make sure that we don't tell MySQL to run a duplicate command. Since MySQL data is persistent, it is not deleted
+      or overwritten when identical commands are run unless specifically commanded to. If we have duplicate code, we can try to run only the highlighted
+      code, or use comments:</p>
+      <pre><code class="language-sql">--comments look this this on one line
+ 
+/* they also look like this
+    for multiline comments */</code></pre>
+    <hr>
+    <div class="student-activity">
+      <h2>Student activity!</h2>
+      <p>Your turn to create tables with columns!</p>
+      <p>For the table <code>favorite_foods</code>:</p>
+      <ul>
+        <li>Create the column "food" which can take in a 50 character string and cannot be <span class="mono">NULL</span></li>
+        <li>Create the column "score" which can take in an integer</li>
+      </ul>
+      <p>For the table <code>favorite_songs</code>:</p>
+      <ul>
+        <li>Create the column "song" which can take in a 100 character string and cannot be <span class="mono">NULL</span></li>
+        <li>Create the column "artist" which can take in a 50 character string</li>
+        <li>Create the column "score" which can take in an integer</li>
+      </ul>
+      <p>For the table <code>favorite_movies</code>:</p>
+      <ul>
+        <li>Create the column "film" which can take in a string and cannot be <span class="mono">NULL</span></li>
+        <li>Create the column "five_times" which can take in a boolean</li>
+        <li>Create the column "score" which can take in an integer</li>
+      </ul>
+      <p><span class="bonus">Bonus:</span> Go online and look into how one might go about adding data into a table.</p>
+    </div>
+    <div class="review">
+      <h2>FavoriteDB Review</h2>
+      <p>Let's take a look at the DDL behind creating these tables.</p>
+    </div>
+    </section>
+    <div class="page-break">
+      <h1>Break Time!</h1>
+    </div>
+    <!-- <section>
+      <h1>Inserting and Updating Rows</h1>
+      <p>Just like Excel, Google Sheets, and other data storage/charting applications, SQL relies on the concept of tables, each comprised of rows and columns.
+        We've alread defined our columns, which specify our datatype, maximum length, whether they can be <span class="mono">NULL</span>,
+        whether it's a primary key, etc. This is all fine and good, but it's really... <span class="italic">boring</span>. We have no data to work with!
+        To show you what I mean, let me run a quick query on our <span class="mono">people</span> table:
+      </p>
+      <pre><code class="language-sql">select * from people;</code></pre>
+      <p>It should become faily obvious that without and records in our <span class="mono">people</span> table,
+        we cannot expect to get rows back with data when we ask for them. Note the use of the windcard <span class="mid-accent bold">star</span>
+        <span class="mono mid-accent">*</span>
+        to select all columns.</p>
+      <p>Let's add a row to this table then select all stored rows:</p>
+      <pre><code class="language-sql">insert into people(name, has_pet, pet_name, pet_age)
+values ("Seth", true, "Ronnie", "4");
+
+select * from people;</code></pre>
+<p>Picking this apart, we can extrapolate the general syntax:</p>
+<pre><code class="language-sql">insert into table (col1, col2, ... , coln)
+values (val1, val2, ... , valn);</code></pre>
+    <p>What's nice about this command is that we don't have to worry about any of the detail with regards to
+      actually writing any functions, or functionality whatsoever. We say what we want to insert into, define
+      a template for what we will insert, then provide some data. Now, what happens if we run an <code class="language-sql">insert</code>
+      using duplicate data? What if we add the following code between the two statements:
+    </p>
+    <pre><code class="language-sql">insert into people (name, has_pet, pet_name, pet_age)
+values ("Katherine", true, "Gracie", 8);</code></pre>
+    <hr>
+    <p>Notice that despite giving duplicate data, the statement gets executed. This is due to a lack of <span class="note">constraints</span>
+    telling us otherwise. On tables you can force uniqueness for certain columns. This becomes immensely helpful when talking
+    about primary and foreign keys. More on that later.</p>
+    <p>Back to business: what if we don't specify each column when trying to <code class="language-sql">insert</code>
+    into a table? Will it work?</p>
+    <pre><code class="language-sql">insert into people (name, has_pet)
+values ("Larry", false);</code></pre>
+    <hr>
+    <p>In short: <span class="bold">yes!</span> Barring any external factors, SQL doesn't really care if we completely
+    fill a row or not. Nevertheless, the most common of these factors is usually specifying a non-<span class="mono">NULL</span> value
+    for a column.</p>
+    <p>Wait a second: Larry actually <span class="italic">does</span> have a pet! Let's take a look at a statement
+    that can help rectify this:</p>
+    <pre><code class="language-sql">update people
+set has_pet = true,
+    pet_name = "Jackson",
+    pet_age = 6
+where name = "Larry";</code></pre>
+    <p>This is a ridiculously powerful command. If there were any other "Larry"s in the table, they'd all get the same
+      exact values. This is probably bad. It's better than leaving out the <span class="mono">where</span> clause entirely,
+      because without a condition, <span class="note">every single row is overwritten</span>.
+    </p>
+    <p>Enough of me showing you stuff&mdash;your turn to add data into a database!</p>
+    <div class="student-activity">
+      <h2>Student activity!</h2>
+      <h3>Adding Data Into FavoriteDB</h3>
+      <p>It's time to add some data into FavoriteDB! The data that you add should be unique to you and you should try to test your
+      skills in not only adding new data, but also attempt to update old data as well!</p>
+      <p>Try to add at least three rows of data to each table.</p>
+      <p><span class="bonus">Bonus:</span> Look into how you you might go about creating a column that can hold a default value within it and how default values work
+      when creating new rows.</p>
+      <p><span class="bonus">Bonus:</span> Look into how you might go about creating a column with a default value that automatically go up with each new row</p>
+      <p><span class="bonus">Bonus:</span> Look into the concept of making a column the "primary key"</p>
+      <p><span class="bold mid-accent">Ultra Bonus:</span> Try to create a column called <span class="mono">id</span> in one of your tables that can contain an integer, is the primary key for the table, cannot
+      be <span class="mono">NULL</span>, and automatically increments with each new row added.</p>
+    </div>
+    <h2>The Value of Unique Values</h2>
+    <p>So, we have some duplicate data in our table now. Personally, it looks pretty cluttered and ugly, not to mention
+    redundant. So, why not put the <code class="language-sql">delete</code> command to good use?</p>
+    <pre><code class="language-sql">delete from &lt;table>
+where &lt;condition></code></pre>
+  <p>Seems easy enough. Let's use a duplicate name we have as the condition. What do you think will happen?</p>
+  <hr>
+  <p>Kind of predictably, the original row also got deleted. Which is annoying. Since the row appeared twice
+    within the table, SQL assumes that we want to delete every column that matches that condition.
+  </p>
+  </section>
+    <div class="page-break">
+      <h1>That's all for today, see you Wednesday!</h1>
+    </div> -->
+  </article>
+</body>
+<!-- Script to make code pretty -->
+<script type='text/javascript' src="../js/prism.js"></script>
+</html>
