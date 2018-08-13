@@ -63,7 +63,7 @@
       <ul>
         <li>Administrivia</li>
         <li>Intro to SQL and MySQL</li>
-        <li>MySQL Front-end Applications</li>
+        <li>MySQL Management</li>
         <li>Inserting and Updating Rows</li>
         <li>Joins and Foreign Keys (In Brief)</li>
       </ul>
@@ -98,19 +98,123 @@
       </p>
     </section>
     <section>
-      <h1>MySQL Front-end Applications</h1>
+      <h1>MySQL Management</h1>
       <p>Our SQL front-end application of choice will be <a href="https://www.mysql.com/products/workbench/" target="_blank">MySQL Workbench</a>
         on most platforms. MacOS users will likely want to install <a href="https://www.sequelpro.com/" target="_blank">Sequel Pro</a>, which runs natively
         and, full-disclosure, has a much prettier interface. Both of these products are free and open-source. If you haven't already,
         let's take some time to install your application of choice.</p>
+        <hr>
+        <p>Now that we're all set up, we have to connect to a MySQL server. Since we don't have a dedicated remote server,
+          we'll be running one locally.
+        </p>
+        <div class="activity">
+          <h2>Instructor activity...</h2>
+          <p>I'll be demonstrating how to establish a connection to our own machine and referring to it using
+          <code>localhost</code> and port <span class="mono">3306</span>. We're using a standard TCP/IP connection,
+            which means that we're establishing the most basic standard form for connecting to a server.</p>
+          <p>By default, the credentials will be <span class="mono">root</span> with no password.</p>
+          <p>When we connect, we will not specify a default schema. More on what defines a schema later.</p>
+          <p>We'll test the connection, then start it.</p>
+        </div>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <h3>Creating a LocalHost Connection</h3>
+          <p>Either of these applications can be overwhelming at first&mdash;confusion is perfectly normal, and errors may occur. It's important to know
+            how to handle these errors.
+          </p>
+          <p>Crack open your SQL front-end app. There should be a plus <span class="mid-accent">(+)</span> for new connections.</p>
+          <p>Enter the following credentials into the on-screen prompt:</p>
+          <ul>
+            <li>Connection Name: Local Instance MySQL</li>
+            <li>Connection Method: Standard (TCP/IP)</li>
+            <li>Hostname: localhost</li>
+            <li>Port: 3306</li>
+            <li>Username: &lt;Your MySQL Username> (Defaults to "root")</li>
+            <li>Password: &lt;Your MySQL Password> (Defaults to empty)</li>
+            <li>Keep the Default Schema field empty</li>
+          </ul>
+          <p>Hit "Test Connection" and, if the connection is successful, hit okay and double-click on the newly created field under the
+          "MySQL Connections" text on the home page</p>
+          <p>If the connection fails, raise your hand and one of us will come around to help you out. Until we come by, however, take
+          this time to go online and see if there is anything online which might tell you what went wrong. Don't worry if you cannot
+          find anything though, we will make sure to figure this out.</p>
+          <p>If your connection was successful and you have nothing else to do, feel free to help those around you in creating their connections.</p>
+          <p><span class="bonus">Bonus:</span> look into how you can create and use databases using SQL commands</p>
+          <p><span class="bonus">Bonus:</span> look into the reasons why MySQL uses port 3306 as its default</p>
+        </div>
+        <h2>Connections Vs. Databases</h2>
+        <p>Now that we have a connection to <span class="mono">localhost</span>, do we have a database available?</p>
+        <p>In short: <span class="italic">nope!</span> Notice how no "schemas" are listed other than built-in and default databases, if any are listed at all.
+          These normally do not appear on remote servers.</p>
+        <p>Connecting to a server does not mean that you have created a database on that server. This means that, even if we wanted
+        to, we could not yet populate our <span class="mono">localhost</span> connection with data until we create a database to house the data.</p>
+        <p>The connection is a road which leads to an empty lot. Before we can populate the area, we first need to lay the foundations
+        for houses (create a database), and build the houses (create a table). So, without further ado, let's make a database!</p>
+        <p>Feel free to follow along with me, but know that it is not 100% necessary and I will be going rather quickly through it.</p>
+        <p>SQL has two different types of formats: <abbr class="note" title="Data Definition Language">DDL</abbr> and
+          <abbr class="note" title="Data Manipulation Language">DML</abbr>. We can use a tiny bit of DDL to make our first database. We'll be
+          calling it <code>amimals_db</code>, and declaring it with this syntax:</p>
+          <pre><code class="language-sql">CREATE DATABASE &lt;database_name>;</code></pre>
+        <p>We should see some confirmation that this occurred after we run it. If the database isn't visible, we can just refresh
+          and it will become visible in the front-end.
+        </p>
+        <hr>
+        <p>We have a database now, but no tables to store our data. Let's get some more DDL to define a table. Now that we have a database called
+          <code>animals_db</code>, let's define a table that defines people and the pets they own.
+        </p>
+        <p><span class="note">Note:</span> for basic syntax and keywords, SQL is a case-insensitive language. For neatness, you can make keywords all-caps.
+          My personal preference? All lowercase. You will see both formats. I'll be sticking with lowercase.   
+        </p>
+        <pre><code class="language-sql">use animals_db;
+create table people (
+  name varchar(30) not null,
+  has_pet boolean not null,
+  peth_name varchar(30),
+  pet_age integer(10)
+);</code></pre>
+    <p>When we run this, we have to make sure that we don't tell MySQL to run a duplicate command. Since MySQL data is persistent, it is not deleted
+      or overwritten when identical commands are run unless specifically commanded to. If we have duplicate code, we can try to run only the highlighted
+      code, or use comments:</p>
+      <pre><code class="language-sql">--comments look this this on one line
+ 
+/* they also look like this
+    for multiline comments */</code></pre>
+    <hr>
+    <div class="student-activity">
+      <h2>Student activity!</h2>
+      <p>Your turn to create tables with columns!</p>
+      <p>For the table <code>favorite_foods</code>:</p>
+      <ul>
+        <li>Create the column "food" which can take in a 50 character string and cannot be <span class="mono">NULL</span></li>
+        <li>Create the column "score" which can take in an integer</li>
+      </ul>
+      <p>For the table <code>favorite_songs</code>:</p>
+      <ul>
+        <li>Create the column "song" which can take in a 100 character string and cannot be <span class="mono">NULL</span></li>
+        <li>Create the column "artist" which can take in a 50 character string</li>
+        <li>Create the column "score" which can take in an integer</li>
+      </ul>
+      <p>For the table <code>favorite_movies</code>:</p>
+      <ul>
+        <li>Create the column "film" which can take in a string and cannot be <span class="mono">NULL</span></li>
+        <li>Create the column "five_times" which can take in a boolean</li>
+        <li>Create the column "score" which can take in an integer</li>
+      </ul>
+      <p><span class="bonus">Bonus:</span> Go online and look into how one might go about adding data into a table.</p>
+    </div>
+    <div class="review">
+      <h2>FavoriteDB Review</h2>
+      <p>Let's take a look at the DDL behind creating these tables.</p>
+    </div>
     </section>
     <div class="page-break">
       <h1>Break Time!</h1>
     </div>
     <section>
+      <h4>SQL continued...</h4>
     </section>
     <div class="page-break">
-      <h1>That's all for today, see you Saturday!</h1>
+      <h1>That's all for today, see you Wednesday!</h1>
     </div>
   </article>
 </body>

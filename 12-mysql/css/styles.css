@@ -6,7 +6,7 @@
   --alt-accent: #68353e;
   --bright-accent: #ffc691;
   --mid-accent: #bd5038;
-  --dark-accent: #814630;
+  --dark-accent: #271b21;
   --muted:#878c87;
   --light-gray:rgb(210, 210, 210);
   --gray-bg: #1b1b1b;
@@ -75,6 +75,7 @@ code {
   color:var(--dark-accent);
   box-shadow: var(--alt-accent) 8px 8px 0 -3px;
   line-height:1.25em;
+  margin-right:0.15em;
 }
 
 .syntaxhighlighter code {
@@ -184,8 +185,12 @@ a:active {
   color:var(--muted);
 }
 
-.accent {
+.accent, .mono {
   color:var(--accent);
+}
+
+.mono {
+  font-weight:800;
 }
 
 .mid-accent {
@@ -229,7 +234,7 @@ section:nth-child(2n+1){
   animation: appear-alt;
 }
 
-p:first-of-type::first-letter {
+section > p:first-of-type::first-letter {
   float:left;
   display:block;
   font-size:2.5em;
@@ -440,7 +445,7 @@ hr {
   text-decoration: underline;
 }
 
-.monospace {
+.monospace, .mono {
   font-family:'IBM Plex Mono';
 }
 
