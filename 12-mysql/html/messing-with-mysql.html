@@ -169,7 +169,7 @@
 create table people (
   name varchar(30) not null,
   has_pet boolean not null,
-  peth_name varchar(30),
+  pet_name varchar(30),
   pet_age integer(10)
 );</code></pre>
     <p>When we run this, we have to make sure that we don't tell MySQL to run a duplicate command. Since MySQL data is persistent, it is not deleted
@@ -210,12 +210,84 @@ create table people (
     <div class="page-break">
       <h1>Break Time!</h1>
     </div>
-    <section>
-      <h4>SQL continued...</h4>
-    </section>
+    <!-- <section>
+      <h1>Inserting and Updating Rows</h1>
+      <p>Just like Excel, Google Sheets, and other data storage/charting applications, SQL relies on the concept of tables, each comprised of rows and columns.
+        We've alread defined our columns, which specify our datatype, maximum length, whether they can be <span class="mono">NULL</span>,
+        whether it's a primary key, etc. This is all fine and good, but it's really... <span class="italic">boring</span>. We have no data to work with!
+        To show you what I mean, let me run a quick query on our <span class="mono">people</span> table:
+      </p>
+      <pre><code class="language-sql">select * from people;</code></pre>
+      <p>It should become faily obvious that without and records in our <span class="mono">people</span> table,
+        we cannot expect to get rows back with data when we ask for them. Note the use of the windcard <span class="mid-accent bold">star</span>
+        <span class="mono mid-accent">*</span>
+        to select all columns.</p>
+      <p>Let's add a row to this table then select all stored rows:</p>
+      <pre><code class="language-sql">insert into people(name, has_pet, pet_name, pet_age)
+values ("Seth", true, "Ronnie", "4");
+
+select * from people;</code></pre>
+<p>Picking this apart, we can extrapolate the general syntax:</p>
+<pre><code class="language-sql">insert into table (col1, col2, ... , coln)
+values (val1, val2, ... , valn);</code></pre>
+    <p>What's nice about this command is that we don't have to worry about any of the detail with regards to
+      actually writing any functions, or functionality whatsoever. We say what we want to insert into, define
+      a template for what we will insert, then provide some data. Now, what happens if we run an <code class="language-sql">insert</code>
+      using duplicate data? What if we add the following code between the two statements:
+    </p>
+    <pre><code class="language-sql">insert into people (name, has_pet, pet_name, pet_age)
+values ("Katherine", true, "Gracie", 8);</code></pre>
+    <hr>
+    <p>Notice that despite giving duplicate data, the statement gets executed. This is due to a lack of <span class="note">constraints</span>
+    telling us otherwise. On tables you can force uniqueness for certain columns. This becomes immensely helpful when talking
+    about primary and foreign keys. More on that later.</p>
+    <p>Back to business: what if we don't specify each column when trying to <code class="language-sql">insert</code>
+    into a table? Will it work?</p>
+    <pre><code class="language-sql">insert into people (name, has_pet)
+values ("Larry", false);</code></pre>
+    <hr>
+    <p>In short: <span class="bold">yes!</span> Barring any external factors, SQL doesn't really care if we completely
+    fill a row or not. Nevertheless, the most common of these factors is usually specifying a non-<span class="mono">NULL</span> value
+    for a column.</p>
+    <p>Wait a second: Larry actually <span class="italic">does</span> have a pet! Let's take a look at a statement
+    that can help rectify this:</p>
+    <pre><code class="language-sql">update people
+set has_pet = true,
+    pet_name = "Jackson",
+    pet_age = 6
+where name = "Larry";</code></pre>
+    <p>This is a ridiculously powerful command. If there were any other "Larry"s in the table, they'd all get the same
+      exact values. This is probably bad. It's better than leaving out the <span class="mono">where</span> clause entirely,
+      because without a condition, <span class="note">every single row is overwritten</span>.
+    </p>
+    <p>Enough of me showing you stuff&mdash;your turn to add data into a database!</p>
+    <div class="student-activity">
+      <h2>Student activity!</h2>
+      <h3>Adding Data Into FavoriteDB</h3>
+      <p>It's time to add some data into FavoriteDB! The data that you add should be unique to you and you should try to test your
+      skills in not only adding new data, but also attempt to update old data as well!</p>
+      <p>Try to add at least three rows of data to each table.</p>
+      <p><span class="bonus">Bonus:</span> Look into how you you might go about creating a column that can hold a default value within it and how default values work
+      when creating new rows.</p>
+      <p><span class="bonus">Bonus:</span> Look into how you might go about creating a column with a default value that automatically go up with each new row</p>
+      <p><span class="bonus">Bonus:</span> Look into the concept of making a column the "primary key"</p>
+      <p><span class="bold mid-accent">Ultra Bonus:</span> Try to create a column called <span class="mono">id</span> in one of your tables that can contain an integer, is the primary key for the table, cannot
+      be <span class="mono">NULL</span>, and automatically increments with each new row added.</p>
+    </div>
+    <h2>The Value of Unique Values</h2>
+    <p>So, we have some duplicate data in our table now. Personally, it looks pretty cluttered and ugly, not to mention
+    redundant. So, why not put the <code class="language-sql">delete</code> command to good use?</p>
+    <pre><code class="language-sql">delete from &lt;table>
+where &lt;condition></code></pre>
+  <p>Seems easy enough. Let's use a duplicate name we have as the condition. What do you think will happen?</p>
+  <hr>
+  <p>Kind of predictably, the original row also got deleted. Which is annoying. Since the row appeared twice
+    within the table, SQL assumes that we want to delete every column that matches that condition.
+  </p>
+  </section>
     <div class="page-break">
       <h1>That's all for today, see you Wednesday!</h1>
-    </div>
+    </div> -->
   </article>
 </body>
 <!-- Script to make code pretty -->
