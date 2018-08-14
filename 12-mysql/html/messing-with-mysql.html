@@ -210,7 +210,7 @@ create table people (
     <div class="page-break">
       <h1>Break Time!</h1>
     </div>
-    <!-- <section>
+    <section>
       <h1>Inserting and Updating Rows</h1>
       <p>Just like Excel, Google Sheets, and other data storage/charting applications, SQL relies on the concept of tables, each comprised of rows and columns.
         We've alread defined our columns, which specify our datatype, maximum length, whether they can be <span class="mono">NULL</span>,
@@ -238,7 +238,7 @@ values (val1, val2, ... , valn);</code></pre>
     <pre><code class="language-sql">insert into people (name, has_pet, pet_name, pet_age)
 values ("Katherine", true, "Gracie", 8);</code></pre>
     <hr>
-    <p>Notice that despite giving duplicate data, the statement gets executed. This is due to a lack of <span class="note">constraints</span>
+    <p>Notice that despite giving duplicate dfghgfdgfdhgfdgfdata, the statement gets executed. This is due to a lack of <span class="note">constraints</span>
     telling us otherwise. On tables you can force uniqueness for certain columns. This becomes immensely helpful when talking
     about primary and foreign keys. More on that later.</p>
     <p>Back to business: what if we don't specify each column when trying to <code class="language-sql">insert</code>
@@ -284,10 +284,33 @@ where &lt;condition></code></pre>
   <p>Kind of predictably, the original row also got deleted. Which is annoying. Since the row appeared twice
     within the table, SQL assumes that we want to delete every column that matches that condition.
   </p>
+  <p>To prevent this kind of thing from occurring, we oftentimes want to create a column that automatically populates
+  each new row with unique data, such as a numeric ID. This allows us to select and affect that row more easily. Let's see an example of this from a pre-made
+  SQL file. We'll pay attention to how within <span class="mono">animalsDBWithID.sql</span>,
+  the keywords <code>AUTO_INCREMENT</code> and <code>PRIMARY KEY</code> automatically get unique, incrementing values for each table row.</p>
+  <p>Since it auto-increments, we have a guarantee that each row's ID is unique. We can use this ID in a
+    <span class="mono">where</span> clause to just update/delete individual rows.
+  </p>
+  <hr>
+  <div class="student-activity">
+    <h2>Student activity!</h2>
+    <h3>Making and Using ID Columns</h3>
+    <p>Make a new database called <span class="mono">programming_db</span> and switch into it for this activity.</p>
+    <p>Create a table called <span class="mono">programming_languages</span> which includes a primary key named <span class="mono">id</span> which will automatically increment
+    with each new row created, a string column called <span class="mono">languages</span>, and a numeric column called <span class="mono">rating</span>.</p>
+    <p>Insert some data into the table and then modify the data using the id column.</p>
+    <p><span class="bonus">Bonus:</span> tudy up on how to add columns to a table and then create a boolean column called <span class="mono">mastered</span> which has a default value of
+    true.</p>
+    <p><span class="bonus">Bonus:</span> start looking into the concept of joins in SQL.</p>
+  </div>
+  <div class="review">
+    <h2>programming_db Review</h2>
+    <p>Let's look at the SQL that defines what we wanted in this activity.</p>
+  </div>
   </section>
     <div class="page-break">
       <h1>That's all for today, see you Wednesday!</h1>
-    </div> -->
+    </div>
   </article>
 </body>
 <!-- Script to make code pretty -->
