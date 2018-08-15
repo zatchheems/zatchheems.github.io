@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Node and MySQL</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,400i,700" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="../css/reset.css">
+  <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  <link rel='stylesheet' type='text/css' href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <pre id='ascii-title' style='font-size:3.2vw; line-height:1em; letter-spacing: -0.10em; font-weight:100;'>
+   ▄   ████▄ ██▄    ▄███▄       ██       ▄   ██▄   
+    █  █   █ █  █  █▀   ▀      █  █      █  █  █  
+██   █ █   █ █   █ ██▄▄        █▄▄█ ██   █ █   █ 
+█ █  █ ▀████ █  █  █▄   ▄▀     █  █ █ █  █ █  █  
+█  █ █       ███▀  ▀███▀          █ █  █ █ ███▀  
+█   ██                            █  █   ██       
+                                 ▀                
+█▀▄▀█ ▀▄    ▄  ▄▄▄▄▄    ▄▄ █ █                   
+█ █ █   █  █  █     ▀▄ █   █ █                   
+█   █    ▀█ ▄  ▀▀▀▀▄    ▀▀▀█ █                   
+█   █    █   ▀▄▄▄▄▀        █ ███▄                
+   █   ▄▀                   █     ▀               
+  ▀                          ▀                   
+                                                                      
+</pre>
+    <h2 class='date'> August 15th, 2018</h2>
+  </header>
+  <article class='container'>
+    <section id="todo">
+      <h1>To Do's:</h1>
+      <ul>
+        <li>Administrivia</li>
+        <li>Creating a Database Connection</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Administrivia</h1>
+      <p>Hello, everyone! Last time, despite some major hiccups we were able to declare databases, tables in that database,
+        columns in those tables, and data in rows in those tables. All of this is great for data storage, manipulation,
+        and retrieval. However, it's not very useful in a bubble&mdash;today, we'll be using Node to connect to your
+        local MySQL server. After connecting to it, we'll be able to do all of the same commands as we can in a GUI-based
+        SQL management software, or directly via the CLI.</p>
+      <p>For those of you who had issues with installing MySQL last class: we'll work on getting everything sorted out if it isn't already.
+        To use MySQL in Node is to increase the robustness of back-end applications by several magnitudes. If you cannot get connected during
+        this class, it is imperative that you follow along with a working installation.
+      </p>
+    </section>
+    <section>
+      <h1>Creating a Database Connection</h1>
+      <p>Just like in regular SQL, MySQL in Node is extremely&mdash;almost annoyingly&mdash;particular about its syntax, which means it will
+        crash if it finds something not right. If you had problems during the previous class, we can get you caught up and get those errors fixed.
+      </p>
+      <p>I'm going to demonstrate how to connect to our MySQL database using the <span class="mono">mysql</span> plugin for Node.</p>
+      <div class="activity">
+        <h2>Instructor activity...</h2>
+      </div>
+    </section>
+    <div class="page-break">
+      <h1>Break Time!</h1>
+    </div>
+    <section>
+      <h1></h1>
+    </section>
+    <div class="page-break">
+      <h1>That's all for today, see you Wednesday!</h1>
+    </div>
+  </article>
+</body>
+<!-- Script to make code pretty -->
+<script type='text/javascript' src="../js/prism.js"></script>
+</html>
