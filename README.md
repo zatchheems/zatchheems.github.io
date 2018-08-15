@@ -57,3 +57,4 @@
 
 ### Unit 12: MySQL
 * [Messing With MySQL](./12-mysql/html/messing-with-mysql.html)
+* [Messing With MySQL](./12-mysql/html/node-and-mysql.html)

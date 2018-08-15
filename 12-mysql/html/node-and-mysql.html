@@ -13,7 +13,7 @@
 </head>
 <body>
   <header>
-    <pre id='ascii-title' style='font-size:3.2vw; line-height:1em; letter-spacing: -0.10em; font-weight:100;'>
+    <pre id='ascii-title' style='font-size:3.2vw; line-height:0.75em; letter-spacing: -0.10em; font-weight:100;'>
    ▄   ████▄ ██▄    ▄███▄       ██       ▄   ██▄   
     █  █   █ █  █  █▀   ▀      █  █      █  █  █  
 ██   █ █   █ █   █ ██▄▄        █▄▄█ ██   █ █   █ 
@@ -26,8 +26,7 @@
 █   █    ▀█ ▄  ▀▀▀▀▄    ▀▀▀█ █                   
 █   █    █   ▀▄▄▄▄▀        █ ███▄                
    █   ▄▀                   █     ▀               
-  ▀                          ▀                   
-                                                                      
+  ▀                          ▀
 </pre>
     <h2 class='date'> August 15th, 2018</h2>
   </header>
@@ -37,6 +36,9 @@
       <ul>
         <li>Administrivia</li>
         <li>Creating a Database Connection</li>
+        <li>Fetching MySQL Data Via Node</li>
+        <li>CRUD</li>
+        <li>Practice Activity</li>
       </ul>
     </section>
     <section>
@@ -59,17 +61,163 @@
       <p>I'm going to demonstrate how to connect to our MySQL database using the <span class="mono">mysql</span> plugin for Node.</p>
       <div class="activity">
         <h2>Instructor activity...</h2>
+        <p>For the following example, I'm going to have to install the MySQL package via NPM.
+          I'll also be using the <span class="mono">dotenv</span> package, which I'll explain. Then,
+          we'll do the following:
+        </p>
+        <pre><code class="language-javascript">var mysql = require("mysql");
+
+var connection = mysql.createConnection({
+  host: "localhost",
+  port: 3306,
+
+  // Username
+  user: process.env.USER,
+
+  // Password
+  password: process.env.PASSWORD,
+  database: 'ice_creamDB' // DB we want to connect to
+});</code></pre>
+        <p>Now that have all of our credentials set up, let's try establishing a connection:</p>
+<pre><code class="language-javascript">connection.connect((err) => {
+  if(err) throw err;
+  console.log(`connected as id ${connection.threadId}`);
+});</code></pre>
+        <p>Without further ado, let's run it!</p>
       </div>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <p>Throughout this class, we are going to be working on creating an application that takes in music data to create personalized
+        playlists. Make sure to get as far as you can over the course of these assignments, as the coding you do here will be extremely useful
+        to you when you begin working on the homework. <span class="muted">For those of you with MySQL issues
+          still, we'll talk about next steps.</span>
+        </p>
+        <p>For now, we will simply be creating your database in MySQL and then creating a connection to said database using Node.</p>
+        <p class="note">Remember,
+        you must create a database before attempting to connect to it. Doing otherwise will return an error.</p>
+        <p><span class="bonus">Bonus:</span> Using MySQL Workbench, create a table in your database with four columns:</p>
+        <ul>
+          <li>Primary Key of <span class="mono">ID</span> which auto-increments</li>
+          <li>A column called <span class="mono">title</span></li>
+          <li>A column called <span class="mono">artist</span></li>
+          <li>A column called <span class="mono">genre</span></li>
+        </ul>
+        <p><span class="bonus">Bonus:</span> Using MySQL Workbench, populate your table with a few rows of dummy data.</p>
+        <p><span class="bonus">Bonus:</span> Start looking into how you can use the MySQL package to read data from a MySQL database.</p>
+      </div>
+      <p>This is all well and good, but how do we get records from a MySQL database using Node?
+        This thing is not very useful without the ability to grab or insert data. Which brings us to
+        our next section...
+      </p>
+    </section>
+    <section>
+      <h1>Fetching MySQL Data Via Node</h1>
+      <p>Let's look at that initial example I showed you earlier. As we've seen before,
+        making a connection is not terribly difficult. So long as you understand SQL syntax,
+        the Node commands will come naturally to you. The MySQL package just so happens to use
+        an extrememly similar, if not identical syntax as SQL in its usage.
+      </p>
+      <p>In order to demonstrate this, within <code class="language-javascript">connection.connect(...)</code>
+        I'm going to insert the following code snippet:</p>
+<pre><code class="language-javascript">connection.query("SELECT * FROM products", (err, res) => {
+  if (err) throw err;
+  console.log(res);
+});</code></pre>
+      <hr>
+      <p>Through calling <code class="language-javascript">connection.query(&lt;STRING>,(err, res) => {})</code>,
+        we are telling Node to send an SQL query to our database and return the data collected through
+  the <span class="mono">res</span> variable.</p>
+      <p>That <code class="language-javascript">&lt;STRING></code> portion uses SQL syntax and should be contained
+        within a pair of quotes. Because of this, you must be very careful with your syntax&mdash;even
+        small differences could lead to an error being returned. Any query can be run within
+      that field, allowing you to collect specific types of data as well.</p>
+      <p>Notice that we run the query inside of the body of the <code class="language-javascript">connect</code> method's callback function.
+        Since the <code class="language-javascript">connection.connect</code> and <code class="language-javascript">connection.query</code>
+      methods both run asynchronously, there's no guarantee that the <code class="language-javascript">connection.query</code>
+      method will run after <code class="language-javascript">connect</code> if it's
+      run from outside. If we didn't want to put the entire query method inside of the callback, we could also wrap the query method
+      inside of a function. For example:</p>
+      <pre><code class="language-javascript">connection.connect((err) => {
+if (err) throw err;
+  console.log("connected as id " + connection.threadId);
+  selectAll();
+});
+
+var selectAll = () => {
+  connection.query("SELECT * FROM products", (err, res) => {
+    if (err) throw err;
+    console.log(res);
+  });
+}</code></pre>
+      <p>Asynchrony is likely to give you issues in the cutues. With callbacks, we can mitigate
+        the issues from things such as <span class="note">race conditions</span>, wherein the order in which two
+        or more tasks run is nondeterministic. This is bad. Let's run the above code, which does
+        not have this issue, then parse through the response. For reference, <span class="mono">res</span>
+        is a local variable here.
+      </p>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <p>Using the connection and song data you put together earlier into the class, we are going to print playlists to the Git Bash
+        console based upon the genre or artist.</p>
+        <p>First, create code that prints all songs within your database to the terminal.</p>
+        <p>Then, create code that prints songs of a specific genre/artist to the terminal.</p>
+        <p>If you don't have many songs in your database at this point in time, take this moment to add some more to it. Try to give
+        yourself a variety of songs to work with.</p>
+        <p><span class="hint">Hint:</span> Remember that you can call specific data using SQL commands we went over last class. If you are having trouble, make sure
+        to look into SQL commands once more.</p>
+        <p><span class="Bonus">Bonus:</span> Use ES6 template strings or string concatenation to build a MySQL query which allows you to change pieces of the query
+        on the fly (e.g. using a variable to build the <code>where</code> clause, instead of a static string).</p>
+      </div>
+      <div class="review">
+        <h2>Collecting Data From a Database Review</h2>
+        <p>Let's go over what we need to do to get this working.</p>
+      </div>
+    </section>
+    <section>
+      <h1>CRUD</h1>
+      <p>When using a database, a common application programming paradigm is that of
+        <abbr class="note" title="Create Read Update Delete">CRUD</abbr> (Create Read Update Delete).
+        We can visualize this like the following:</p>
+      <pre><code class="language-sql">--CREATE
+  insert into pets (name, type, age) values ("Scooby Doo", "dog", 3);
+--READ
+  select * from pets;
+--UPDATE
+  update pets set name="Courage" where type = "dog";
+--DELETE
+  delete from pets where type = "mouse";</code></pre>
+  <hr>
+  <div class="activity">
+    <h2>Instructor activity...</h2>
+    <p>I'm going to update my own ice cream database using a JS file full of queries, going
+      over each one-by-one.
+    </p>
+  </div>
+  <hr>
+  <div class="student-activity">
+    <h2>Student activity!</h2>
+    <p>It's time to start making our playlist application a little more functional through including all four C.R.U.D elements within
+    it.</p>
+    <p>Add in some pieces of code that CREATE, UPDATE, and DELETE specific pieces of data from your MySQL database. Make sure to
+    include a READ statement at the end as well to ensure that the changes you are making are working properly.</p>
+    <p><span class="bonus">Bonus:</span> After successfully adding CRUD to your application, it's time to test your mettle and see if you can make it so this app
+    is more dynamic. Add the ability for users to dynamically input their own data into the database using the Inquirer NPM package.</p>
+    <p><span class="hint">Hint:</span> Recall that you can create MySQL queries which include variables using question marks. Proper usage of this will help you
+    quite a bit.</p>
+    <p><span class="hint">Hint:</span> Remember to take into account the scope of Inquirer package when putting your application together.</p>
+  </div>
     </section>
     <div class="page-break">
       <h1>Break Time!</h1>
     </div>
-    <section>
+    <!-- <section>
       <h1></h1>
     </section>
     <div class="page-break">
       <h1>That's all for today, see you Wednesday!</h1>
-    </div>
+    </div> -->
   </article>
 </body>
 <!-- Script to make code pretty -->
