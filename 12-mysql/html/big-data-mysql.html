@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Node and MySQL</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,400,400i,700" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="../css/reset.css">
+  <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  <link rel='stylesheet' type='text/css' href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <pre id='ascii-title' style='font-size:2.2vw; line-height:0.9em; letter-spacing: -0.2em; font-weight:100;'>
+              .=-.-.    _,---.                        ,---.   ,--.--------.   ,---.        
+    _..---.  /==/_ /_.='.'-,  \          _,..---._  .--.'  \ /==/,  -   , -\.--.'  \       
+  .' .'.-. \|==|, |/==.'-     /        /==/,   -  \ \==\-/\ \\==\.-.  - ,-./\==\-/\ \      
+ /==/- '=' /|==|  /==/ -   .-'         |==|   _   _\/==/-|_\ |`--`\==\- \   /==/-|_\ |     
+ |==|-,   ' |==|- |==|_   /_,-.        |==|  .=.   |\==\,   - \    \==\_ \  \==\,   - \    
+ |==|  .=. \|==| ,|==|  , \_.' )       |==|,|   | -|/==/ -   ,|    |==|- |  /==/ -   ,|    
+ /==/- '=' ,|==|- \==\-  ,    (        |==|  '='   /==/-  /\ - \   |==|, | /==/-  /\ - \   
+|==|   -   //==/. //==/ _  ,  /        |==|-,   _`/\==\ _.\=\.-'   /==/ -/ \==\ _.\=\.-'   
+`-._`.___,' `--`-` `--`------'         `-.`.____.'  `--`           `--`--`  `--`           
+   .=-.-..-._                       ___                  ,-,--.    _,.---._                
+  /==/_ /==/ \  .-._         .-._ .'=.'\ ,--.-.  .-,--.,-.'-  _\ ,-.' - ,  `.     _.-.     
+ |==|, ||==|, \/ /, /       /==/ \|==|  /==/- / /=/_ //==/_ ,_.'/==/ ,    -  \  .-,.'|     
+ |==|  ||==|-  \|  |        |==|,|  / - \==\, \/=/. / \==\  \  |==| - .=.  ,  ||==|, |     
+ |==|- ||==| ,  | -|        |==|  \/  , |\==\  \/ -/   \==\ -\ |==|  : ;=:  - ||==|- |     
+ |==| ,||==| -   _ |        |==|- ,   _ | |==|  ,_/    _\==\ ,\|==|,  '='  ,  ||==|, |     
+ |==|- ||==|  /\ , |        |==| _ /\   | \==\-, /    /==/\/ _ |\==\ _   -    ;|==|- `-._  
+ /==/. //==/, | |- |        /==/  / / , / /==/._/     \==\ - , / '.='.  ,  ; -\/==/ - , ,/ 
+ `--`-` `--`./  `--`        `--`./  `--`  `--`-`       `--`---'    `--`--'' `--`--`-----'  
+</pre>
+    <h2 class='date'> August 15th, 2018</h2>
+  </header>
+  <article class='container'>
+    <section id="todo">
+      <h1>To Do's:</h1>
+      <ul>
+        <li>Administrivia</li>
+        <li>Intro to Big Data</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Administrivia</h1>
+      <p>Good morning, everyone! Today's class will be a lot gentler and easier than the past two classes, which have been very fast-paced and difficult. Today is
+        your chance to catch up and make sure you're up to speed with MySQL if you've been struggling with all the weird errors and installation-specific
+        problems. We'll be using this class to introduce one new concept that doesn't necessarily change how we've been working&mdash;it only serves to put your
+        new knowledge to good use.
+      </p>
+    </section>
+    <section>
+      <h1>Intro to Big Data</h1>
+   <p>Up until this point, we've been working with unrealistically small datasets. In the wild, very rarely will you encounter tables of under at least 10 records except in some special cases.
+     This is a very specific type of structure to avoid redundancy that we'll talk about later. More importantly, we want to focus on tables that actively get new records and store them.
+    These tables are often relied upon to be queried for records, and due to the efficient data structures MySQL and other SQL servers use, a table can have actual <span class="italic">millions</span>
+    of records. This is what we refer to as <span class="note">big data</span>.</p>
+    <p>Working with big data can seem rather intimidating at first due to the size of the systems you are working with, but it is
+    not terribly different than working on smaller servers. The only major difference here is the amount of information we
+    sift through in order to create programs.</p>
+    <hr>
+    <div class="student-activity">
+      <h2>Partner activity!</h2>
+      <h3>Examining the Dataset</h3>
+      <p>Check out <span class="mono">TopSongs.csv</span> in <span class="mono">12-Top5000Schema</span> and pore through it. It contains 5000 lines of music data within it..</p>
+      <p>Reading from the file, we'll look at the column names.</p>
+      <p>After we discuss the structure, work in pairs to come up with a database/table for this data, then we'll talk about it.</p>
+    </div>
+    <hr>
+    <p>As you can probably imagine, it becomes tedious to have to manually insert data. Many of you may have noticed by now the existence of <span class="mono">.sql</span> files; these are convenient
+      such that you have a <span class="note">seed</span> for which to work with. Typically, <span class="mono">schema.sql</span> files are used to save database/table creation code while <span class="mono">seeds.sql</span>
+      files populate those tables with data. Copying databases becomes as easy as exporting SQL files.</p>
+    <p>It's also very easy to import spreadsheets in formats like <span class="mono">.csv</span> and <span class="mono">.xlsx</span>, but to save the hassle of actually opening up a spreadsheet program
+      it's sometimes more convenient to just work in text editors. <span class="muted">(Your mileage will vary here.)</span></p>
+    <hr>
+    <div class="student-activity">
+      <h2>Student activity!</h2>
+      <h3>Preparing the Database</h3>
+       <p>
+         It's time to test your skills in creating databases and tables! Create a database called <code class="language-sql">top_songsDB</code>,
+         which will eventually house all of the music data contained within <span class="mono">TopSongs.csv</span>
+       </p>
+       <ul>
+         <li>Within your database create a table called <span class="mono">Top5000</span> and create columns capable of holding all of the data contained within
+        `TopSongs.csv` properly</li>
+          <li>Within your database, create a table called <span class="mono">Top5000</span> and create columns capable of holding all of the data contained within <span class="mono">TopSongs.csv</span> properly.</li>
+          <li>All of your code should be written and saved within a filed called <span class="mono">schema.sql</span> so that you can use this same code later should the need ever arise.</li>
+          <li><span class="hint">Hint:</span> Try to have your table's columns match those within the CSV file as closely as possible or else you may find the next step in this assignment more difficult than it would otherwise be.</li>
+          <li><span class="bonus">Bonus:</span> Create a <span class="mono">seeds.sql</span> file that adds the data for the first three songs found within <span class="mono">TopSongs.csv</span> to your table.</li>
+          <li><span class="bonus">Bonus:</span> Look into how MySQL Workbench can import and export data files. What file types does it accept? How does it convert the data?</li>
+       </ul>
+    </div>
+    <div class="review">
+      <h2>Preparing the Database Review</h2>
+      <p>Let's get a volunteer to share their <span class="mono">schema.sql</span> file and walk through their logic.</p>
+      <p>Then, I'll demo importing data using it.</p>
+    </div>
+    <div class="activity">
+      <h2></h2>
+      <p></p>
+    </div>
+    </section>
+    <div class="page-break">
+      <h1>Break Time!</h1>
+    </div>
+    <section>
+      
+    </section>
+    <div class="page-break">
+      <h1>That's all for today, see you Monday!</h1>
+    </div>
+  </article>
+</body>
+<!-- Script to make code pretty -->
+<script type='text/javascript' src="../js/prism.js"></script>
+</html>
