@@ -33,7 +33,7 @@
  /==/. //==/, | |- |        /==/  / / , / /==/._/     \==\ - , / '.='.  ,  ; -\/==/ - , ,/ 
  `--`-` `--`./  `--`        `--`./  `--`  `--`-`       `--`---'    `--`--'' `--`--`-----'  
 </pre>
-    <h2 class='date'> August 15th, 2018</h2>
+    <h2 class='date'> August 18th, 2018</h2>
   </header>
   <article class='container'>
     <section id="todo">
@@ -41,6 +41,8 @@
       <ul>
         <li>Administrivia</li>
         <li>Intro to Big Data</li>
+        <li>Populating Databases</li>
+        <li>Table Decomposition</li>
       </ul>
     </section>
     <section>
@@ -72,8 +74,12 @@
     <p>As you can probably imagine, it becomes tedious to have to manually insert data. Many of you may have noticed by now the existence of <span class="mono">.sql</span> files; these are convenient
       such that you have a <span class="note">seed</span> for which to work with. Typically, <span class="mono">schema.sql</span> files are used to save database/table creation code while <span class="mono">seeds.sql</span>
       files populate those tables with data. Copying databases becomes as easy as exporting SQL files.</p>
-    <p>It's also very easy to import spreadsheets in formats like <span class="mono">.csv</span> and <span class="mono">.xlsx</span>, but to save the hassle of actually opening up a spreadsheet program
-      it's sometimes more convenient to just work in text editors. <span class="muted">(Your mileage will vary here.)</span></p>
+  </section>
+  <section>
+    <h1>Populating Databases</h1>
+    <p>This section will focus on both creating new tables and inserting data into them, this time leveraging large datasets and using them
+      to create a realistic representation of databases in the wild.
+    </p>
     <hr>
     <div class="student-activity">
       <h2>Student activity!</h2>
@@ -84,7 +90,7 @@
        </p>
        <ul>
          <li>Within your database create a table called <span class="mono">Top5000</span> and create columns capable of holding all of the data contained within
-        `TopSongs.csv` properly</li>
+        <span class="mono">TopSongs.csv</span> properly.</li>
           <li>Within your database, create a table called <span class="mono">Top5000</span> and create columns capable of holding all of the data contained within <span class="mono">TopSongs.csv</span> properly.</li>
           <li>All of your code should be written and saved within a filed called <span class="mono">schema.sql</span> so that you can use this same code later should the need ever arise.</li>
           <li><span class="hint">Hint:</span> Try to have your table's columns match those within the CSV file as closely as possible or else you may find the next step in this assignment more difficult than it would otherwise be.</li>
@@ -98,19 +104,56 @@
       <p>Then, I'll demo importing data using it.</p>
     </div>
     <div class="activity">
-      <h2></h2>
-      <p></p>
+      <h2>Instructor activity...</h2>
+      <p>I'm going to navigate into my <span class="mono">TopSongsDB</span> and attempt to select records from it.</p>
+      <pre><code class="language-sql">select * from Top5000;</code></pre>
+      <hr>
+      <p>Now that my table is on display, I'm going to import a CSV file. This can take a while.</p>
+      <p>Then, after the data is finished importing, we'll query the dataset.</p>
+    </div>
+    <hr>
+    <div class="student-activity">
+      <h2>Student activity!</h2>
+      <h3>Importing Big Data</h3>
+      <p>ow that we have learned how to import big collections of data into a server, it is time to put this new knowledge to the
+      test by importing all of the data contained within `TopSongs.csv` into our database.</p>
+      <ul>
+        <li><span class="hint">Hint:</span> Remember, bigger datasets require more time to import properly, so be patient.</li>
+        <li><span class="hint">Hint:</span> If you feel that the import process is taking far too long, feel free to use Top1000Songs.csv instead.  It is highly
+        recommended that you work with the bigger dataset if you can, however.</li>
+      </ul>
+      <p>With all of your data successfully imported into the database, begin working on a Node console application which will allow
+      you to collect more specialized pieces of data. For example...</p>
+      <ul>
+        <li>A query which returns all data for songs sung by a specific artist</li>
+        <li>A query which returns all artists who appear within the top 5000 more than once</li>
+        <li>A query which returns all data contained within a specific range</li>
+        <li>A query which searches for a specific song in the top 5000 and returns the data for it</li>
+      </ul>
+      <p><span class="hint">Hint:</span> There are some MySQL queries which could make some of these tasks even easier to accomplish. Feel free to look at MySQL's
+      documentation to find some of them.</p>
+    </div>
+    <div class="review">
+      <h2>Importing Big Data Review</h2>
+      <p>
+        I'll go over the steps used to create the database and import our table data into it.
+      </p>
+      <p>As a general warning, there are some new keywords we haven't gone over in class yet.</p>
+      <p>Another note: MySQL internally assigns an index to each table's primary key, and we can make any column a primary key.
+        What this means is that individual records are much, much easier to find, as they have unique IDs and we don't have to search
+        the whole table for one value.
+      </p>
     </div>
     </section>
     <div class="page-break">
       <h1>Break Time!</h1>
     </div>
-    <section>
+    <!-- <section>
       
     </section>
     <div class="page-break">
       <h1>That's all for today, see you Monday!</h1>
-    </div>
+    </div> -->
   </article>
 </body>
 <!-- Script to make code pretty -->
