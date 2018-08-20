@@ -55,114 +55,132 @@
     </section>
     <section>
       <h1>Intro to Big Data</h1>
-      <p>Up until this point, we've been working with unrealistically small datasets. In the wild, very rarely will you encounter tables of under at least 10 records except in some special cases.
-        This is a very specific type of structure to avoid redundancy that we'll talk about later. More importantly, we want to focus on tables that actively get new records and store them.
-        These tables are often relied upon to be queried for records, and due to the efficient data structures MySQL and other SQL servers use, a table can have actual <span class="italic">millions</span>
-        of records. This is what we refer to as <span class="note">big data</span>.</p>
-        <p>Working with big data can seem rather intimidating at first due to the size of the systems you are working with, but it is
-          not terribly different than working on smaller servers. The only major difference here is the amount of information we
-          sift through in order to create programs.</p>
-          <hr>
-          <div class="student-activity">
-            <h2>Partner activity!</h2>
-            <h3>Examining the Dataset</h3>
-            <p>Check out <span class="mono">TopSongs.csv</span> in <span class="mono">12-Top5000Schema</span> and pore through it. It contains 5000 lines of music data within it..</p>
-            <p>Reading from the file, we'll look at the column names.</p>
-            <p>After we discuss the structure, work in pairs to come up with a database/table for this data, then we'll talk about it.</p>
-          </div>
-          <hr>
-          <p>As you can probably imagine, it becomes tedious to have to manually insert data. Many of you may have noticed by now the existence of <span class="mono">.sql</span> files; these are convenient
-            such that you have a <span class="note">seed</span> for which to work with. Typically, <span class="mono">schema.sql</span> files are used to save database/table creation code while <span class="mono">seeds.sql</span>
-            files populate those tables with data. Copying databases becomes as easy as exporting SQL files.</p>
-          </section>
-          <section>
-            <h1>Populating Databases</h1>
-            <p>This section will focus on both creating new tables and inserting data into them, this time leveraging large datasets and using them
-              to create a realistic representation of databases in the wild.
-            </p>
-            <hr>
-            <div class="student-activity">
-              <h2>Student activity!</h2>
-              <h3>Preparing the Database</h3>
-              <p>
-                It's time to test your skills in creating databases and tables! Create a database called <code class="language-sql">top_songsDB</code>,
-                which will eventually house all of the music data contained within <span class="mono">TopSongs.csv</span>
-              </p>
-              <ul>
-                <li>Within your database create a table called <span class="mono">Top5000</span> and create columns capable of holding all of the data contained within
-                  <span class="mono">TopSongs.csv</span> properly.</li>
-                  <li>Within your database, create a table called <span class="mono">Top5000</span> and create columns capable of holding all of the data contained within <span class="mono">TopSongs.csv</span> properly.</li>
-                  <li>All of your code should be written and saved within a filed called <span class="mono">schema.sql</span> so that you can use this same code later should the need ever arise.</li>
-                  <li><span class="hint">Hint:</span> Try to have your table's columns match those within the CSV file as closely as possible or else you may find the next step in this assignment more difficult than it would otherwise be.</li>
-                  <li><span class="bonus">Bonus:</span> Create a <span class="mono">seeds.sql</span> file that adds the data for the first three songs found within <span class="mono">TopSongs.csv</span> to your table.</li>
-                  <li><span class="bonus">Bonus:</span> Look into how MySQL Workbench can import and export data files. What file types does it accept? How does it convert the data?</li>
-                </ul>
-              </div>
-              <div class="review">
-                <h2>Preparing the Database Review</h2>
-                <p>Let's get a volunteer to share their <span class="mono">schema.sql</span> file and walk through their logic.</p>
-                <p>Then, I'll demo importing data using it.</p>
-              </div>
-              <div class="activity">
-                <h2>Instructor activity...</h2>
-                <p>I'm going to navigate into my <span class="mono">TopSongsDB</span> and attempt to select records from it.</p>
-                <pre><code class="language-sql">select * from Top5000;</code></pre>
-                <hr>
-                <p>Now that my table is on display, I'm going to import a CSV file. This can take a while.</p>
-                <p>Then, after the data is finished importing, we'll query the dataset.</p>
-              </div>
-              <hr>
-              <div class="student-activity">
-                <h2>Student activity!</h2>
-                <h3>Importing Big Data</h3>
-                <p>ow that we have learned how to import big collections of data into a server, it is time to put this new knowledge to the
-                  test by importing all of the data contained within <span class="mono">TopSongs.csv</span> into our database.</p>
-                  <ul>
-                    <li><span class="hint">Hint:</span> Remember, bigger datasets require more time to import properly, so be patient.</li>
-                    <li><span class="hint">Hint:</span> If you feel that the import process is taking far too long, feel free to use Top1000Songs.csv instead.  It is highly
-                      recommended that you work with the bigger dataset if you can, however.</li>
-                    </ul>
-                    <p>With all of your data successfully imported into the database, begin working on a Node console application which will allow
-                      you to collect more specialized pieces of data. For example...</p>
-                      <ul>
-                        <li>A query which returns all data for songs sung by a specific artist</li>
-                        <li>A query which returns all artists who appear within the top 5000 more than once</li>
-                        <li>A query which returns all data contained within a specific range</li>
-                        <li>A query which searches for a specific song in the top 5000 and returns the data for it</li>
-                      </ul>
-                      <p><span class="hint">Hint:</span> There are some MySQL queries which could make some of these tasks even easier to accomplish. Feel free to look at MySQL's
-                        documentation to find some of them.</p>
-                      </div>
-                      <div class="review">
-                        <h2>Importing Big Data Review</h2>
-                        <p>
-                          I'll go over the steps used to create the database and import our table data into it.
-                        </p>
-                        <p>As a general warning, there are some new keywords we haven't gone over in class yet.</p>
-                        <p>Another note: MySQL internally assigns an index to each table's primary key, and we can make any column a primary key.
-                          What this means is that individual records are much, much easier to find, as they have unique IDs and we don't have to search
-                          the whole table for one value.
-                        </p>
-                      </div>
-                    </section>
-                    <div class="page-break">
-                      <h1>Break Time!</h1>
-                    </div>
-                    <!-- <section>
-                      <h1>Table Decomposition</h1>
-                      <p>When dealing with big databases, it's very likely that you'll have to work with two or more
-                        related datasets with some degree of separation between them. A good example of this would be two
-                        tables containing top songs and top albums, which we happen to have.
-                      </p>
-                      <p>Note that <span class="mid-accent">tables</span> live in &larr; <span class="accent">databases</span></p>
-                      <p><span class="mid-accent">columns</span> &rarr; <span class="accent">rows</span> &rarr; <span class="mid-accent">tables</span></p>
-                    </section>
-                    <div class="page-break">
-                      <h1>That's all for today, see you Monday!</h1>
-                    </div> -->
-                  </article>
-                </body>
-                <!-- Script to make code pretty -->
-                <script type='text/javascript' src="../js/prism.js"></script>
-                </html>
-                
+    <p>Up until this point, we've been working with unrealistically small datasets. In the wild, very rarely will you encounter tables of under at least 10 records except in some special cases.
+     This is a very specific type of structure to avoid redundancy that we'll talk about later. More importantly, we want to focus on tables that actively get new records and store them.
+    These tables are often relied upon to be queried for records, and due to the efficient data structures MySQL and other SQL servers use, a table can have actual <span class="italic">millions</span>
+    of records. This is what we refer to as <span class="note">big data</span>.</p>
+    <p>Working with big data can seem rather intimidating at first due to the size of the systems you are working with, but it is
+    not terribly different than working on smaller servers. The only major difference here is the amount of information we
+    sift through in order to create programs.</p>
+    <hr>
+    <div class="student-activity">
+      <h2>Partner activity!</h2>
+      <h3>Examining the Dataset</h3>
+      <p>Check out <span class="mono">TopSongs.csv</span> in <span class="mono">12-Top5000Schema</span> and pore through it. It contains 5000 lines of music data within it..</p>
+      <p>Reading from the file, we'll look at the column names.</p>
+      <p>After we discuss the structure, work in pairs to come up with a database/table for this data, then we'll talk about it.</p>
+    </div>
+    <hr>
+    <p>As you can probably imagine, it becomes tedious to have to manually insert data. Many of you may have noticed by now the existence of <span class="mono">.sql</span> files; these are convenient
+      such that you have a <span class="note">seed</span> for which to work with. Typically, <span class="mono">schema.sql</span> files are used to save database/table creation code while <span class="mono">seeds.sql</span>
+      files populate those tables with data. Copying databases becomes as easy as exporting SQL files.</p>
+  </section>
+  <section>
+    <h1>Populating Databases</h1>
+    <p>This section will focus on both creating new tables and inserting data into them, this time leveraging large datasets and using them
+      to create a realistic representation of databases in the wild.
+    </p>
+    <hr>
+    <div class="student-activity">
+      <h2>Student activity!</h2>
+      <h3>Preparing the Database</h3>
+       <p>
+         It's time to test your skills in creating databases and tables! Create a database called <code class="language-sql">top_songsDB</code>,
+         which will eventually house all of the music data contained within <span class="mono">TopSongs.csv</span>
+       </p>
+       <ul>
+         <li>Within your database create a table called <span class="mono">Top5000</span> and create columns capable of holding all of the data contained within
+        <span class="mono">TopSongs.csv</span> properly.</li>
+          <li>Within your database, create a table called <span class="mono">Top5000</span> and create columns capable of holding all of the data contained within <span class="mono">TopSongs.csv</span> properly.</li>
+          <li>All of your code should be written and saved within a filed called <span class="mono">schema.sql</span> so that you can use this same code later should the need ever arise.</li>
+          <li><span class="hint">Hint:</span> Try to have your table's columns match those within the CSV file as closely as possible or else you may find the next step in this assignment more difficult than it would otherwise be.</li>
+          <li><span class="bonus">Bonus:</span> Create a <span class="mono">seeds.sql</span> file that adds the data for the first three songs found within <span class="mono">TopSongs.csv</span> to your table.</li>
+          <li><span class="bonus">Bonus:</span> Look into how MySQL Workbench can import and export data files. What file types does it accept? How does it convert the data?</li>
+       </ul>
+    </div>
+    <div class="review">
+      <h2>Preparing the Database Review</h2>
+      <p>Let's get a volunteer to share their <span class="mono">schema.sql</span> file and walk through their logic.</p>
+      <p>Then, I'll demo importing data using it.</p>
+    </div>
+    <div class="activity">
+      <h2>Instructor activity...</h2>
+      <p>I'm going to navigate into my <span class="mono">TopSongsDB</span> and attempt to select records from it.</p>
+      <pre><code class="language-sql">select * from Top5000;</code></pre>
+      <hr>
+      <p>Now that my table is on display, I'm going to import a CSV file. This can take a while.</p>
+      <p>Then, after the data is finished importing, we'll query the dataset.</p>
+    </div>
+    <hr>
+    <div class="student-activity">
+      <h2>Student activity!</h2>
+      <h3>Importing Big Data</h3>
+      <p>ow that we have learned how to import big collections of data into a server, it is time to put this new knowledge to the
+      test by importing all of the data contained within <span class="mono">TopSongs.csv</span> into our database.</p>
+      <ul>
+        <li><span class="hint">Hint:</span> Remember, bigger datasets require more time to import properly, so be patient.</li>
+        <li><span class="hint">Hint:</span> If you feel that the import process is taking far too long, feel free to use Top1000Songs.csv instead.  It is highly
+        recommended that you work with the bigger dataset if you can, however.</li>
+      </ul>
+      <p>With all of your data successfully imported into the database, begin working on a Node console application which will allow
+      you to collect more specialized pieces of data. For example...</p>
+      <ul>
+        <li>A query which returns all data for songs sung by a specific artist</li>
+        <li>A query which returns all artists who appear within the top 5000 more than once</li>
+        <li>A query which returns all data contained within a specific range</li>
+        <li>A query which searches for a specific song in the top 5000 and returns the data for it</li>
+      </ul>
+      <p><span class="hint">Hint:</span> There are some MySQL queries which could make some of these tasks even easier to accomplish. Feel free to look at MySQL's
+      documentation to find some of them.</p>
+    </div>
+    <div class="review">
+      <h2>Importing Big Data Review</h2>
+      <p>
+        I'll go over the steps used to create the database and import our table data into it.
+      </p>
+      <p>As a general warning, there are some new keywords we haven't gone over in class yet.</p>
+      <p>Another note: MySQL internally assigns an index to each table's primary key, and we can make any column a primary key.
+        What this means is that individual records are much, much easier to find, as they have unique IDs and we don't have to search
+        the whole table for one value.
+      </p>
+    </div>
+    </section>
+    <div class="page-break">
+      <h1>Break Time!</h1>
+    </div>
+    <section>
+      <h1>Table Decomposition</h1>
+      <p>When dealing with big databases, it's very likely that you'll have to work with two or more
+        related datasets with some degree of separation between them. A good example of this would be two
+        tables containing top songs and top albums, which we happen to have.
+      </p>
+      <p>Note that <span class="mid-accent">tables</span> live in &rarr; <span class="accent">databases</span>,</p>
+      <p><span class="mid-accent">columns</span>&rarr;<span class="accent">rows</span>&rarr;<span class="mid-accent">tables</span>&rarr;<span class="accent">databases</span></p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Two Tables are Better Than One</h3>
+        <p>Your assignment is to take these two large sets of data and come up with a method to join them together in order to figure
+        out if a given artist's song and album made it into the charts at the time of their release. Use <span class="mono">TopAlbums.csv</span>
+      in <span class="mono">14-TwoTables</span>.</p>
+      <p><span class="hint">Hint:</span> This can be done in a couple different ways using external data as well, but you do have all of the data you need within
+      your database to find the correlations. Give your methods some though before having to rely upon external info.</p>
+      <p><span class="hint">Hint:</span> Remember that MySQL has the ability to combine two or more tables together so long as they share equivalent data. What data
+      is similar between the two lists?</p>
+      <p>Once you have managed to successfully bring the two datasets together, start making queries like those you made earlier to
+      this new table as well.</p>
+      </div>
+      <div class="review">
+        <h2>Two Tables Review</h2>
+        <p>Let's go over this in detail. We have a long, possibly
+          confusing query to go over in detail.
+        </p>
+      </div>
+    </section>
+    <div class="page-break">
+      <h1>That's all for today, see you Monday!</h1>
+    </div>
+  </article>
+</body>
+<!-- Script to make code pretty -->
+<script type='text/javascript' src="../js/prism.js"></script>
+</html>
