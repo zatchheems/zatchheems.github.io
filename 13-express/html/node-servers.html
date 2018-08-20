@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Node Servers</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="../css/reset.css">
+  <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  <link rel='stylesheet' type='text/css' href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <pre id='ascii-title' style='font-size:2.5vw; line-height:0.8em; letter-spacing: -0.1em; font-weight:100;'>
+[...     [..               [..                                
+[. [..   [..               [..                                
+[.. [..  [..   [..         [..   [..                          
+[..  [.. [.. [..  [..  [.. [.. [.   [..                       
+[..   [. [..[..    [..[.   [..[..... [..                      
+[..    [. .. [..  [.. [.   [..[.                              
+[..      [..   [..     [.. [..  [....                         
+                                                              
+  [.. ..                                                      
+[..    [..                                                    
+ [..         [..    [. [...[..     [..   [..    [. [... [.... 
+   [..     [.   [..  [..    [..   [..  [.   [..  [..   [..    
+      [.. [..... [.. [..     [.. [..  [..... [.. [..     [... 
+[..    [..[.         [..      [.[..   [.         [..       [..
+  [.. ..    [....   [...       [..      [....   [...   [.. [..
+</pre>
+    <h2 class='date'> August 20th, 2018</h2>
+  </header>
+  <article class='container'>
+    <section id="todo">
+      <h1>To Do's:</h1>
+      <ul>
+        <li>Administrivia</li>
+        <li>How Servers Work <span class="italic">(In Brief)</span></li>
+        <li>Running a Server</li>
+        <li>URL Parsing and Routing</li>
+        <li>Request Methods</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Administrivia</h1>
+      <p>Good evening, class! Today's class will both test and enrich your understanding of clients and servers in Node.
+        From being able to host applications to handling HTTP requests, Node servers are incredibly versatile. It is no
+        coincidence that it has quickly become an industry favorite. Knowledge of Node servers is incredibly
+        marketable right now, as are frameworks such as Express, templating engines, etc. 
+      </p>
+      <p>Today's class will be one of several <span class="italic accent">very difficult</span>
+      classes over the next few weeks, breaking into true full-stack development, as opposed to
+      strictly frontend.</p>
+    </section>
+    <section>
+      <h1>How Servers Work <span class="italic">(In Brief)</span></h1>
+      <p>Before we even begin, it should be stressed that Node and Express routing and servers are two of the most
+        important concepts we'll cover in this class. If you feel like we're going too quickly and need to slow down,
+        <span class="italic">you are encouraged</span> to slow it down and ask plenty of questions.
+      </p>
+      <h2>Quick Refresher: What is a Server?</h2>
+      <p>As a reminder, a server refers to either a machine, set of running processes or both
+        that handle requests and give back responses. If you make a <code>GET</code> request to a server, it sees that
+        you asked for something, it determines what you want, and does something with that. All webservers do this.
+        It is what allows you to:</p>
+          <ul>
+            <li>Visit a URL and get back an HTML page complete with styles, files and other media</li>
+            <li>Make a request to an API end-point with URL parameters, receiving JSON in return</li>
+            <li>Generating a PDF report in-broswer</li>
+            <li>Image processing webapp that takes an image, manipulates it, then saves a new version</li>
+            <li>Provide search results for various queries</li>
+          </ul>
+      </p>
+      <h2>...What is a client?</h2>
+      <p>Your computer is a client; phones, wearable devices, game consoles, Raspberry Pis,
+        smart-enabled home devices—<span class="bold">everything</span> that can make requests to a server is a client.
+        Users use clients (browsers, frontends, etc.) to talk to servers by way of HTTP/S requests; servers
+        <span class="italic">serve</span> what is asked for by following server-side logic. Normally,
+        these are considered two separate machines. However, servers can be hosted anywhere:</p>
+        <ul>
+          <li>Server racks (hardware)</li>
+          <li>Virtual machines</li>
+          <li>PaaS (AWS, Heroku, Google Cloud Services)</li>
+          <li>Simulated locally (you'll be doing this today!)</li>
+        </ul>
+        <h2>How do I "create" a server?</h2>
+        <p>After you figure out how you want to host it, there is still the task of writing
+          the code that handles what the server will actually <span class="italic">do</span>.
+          So, you'll have to figure out:
+        </p>
+        <ul>
+          <li>Database connections</li>
+          <li>Client-side URL requests
+            <span class="muted">(routing fits in here. Sort of.)</span></li>
+          <li>Server-side processes</li>
+          <li>Authenticating user requests</li>
+          <li>Logging client requests</li>
+        </ul>
+        <h3>Visualize a server like this:</h3>
+        <p><span class="note">A big, empty box.</span> We'll add in code snippets and modules to respond to
+          requests in ways we desire.
+        </p>
+        <p><span class="note">Add a listener.</span> Thus, the server can listen for requests.</p>
+        <p><span class="note">URL parsing</span> should be next. We can decide what the user sent us.</p>
+        <p><span class="note">Routing based on URLs</span> allows us to direct the flow of logic.</p>
+        <p><span class="note">Send HTML</span> or
+          <span class="note">send JSON</span> as a response.</p>
+        <p><span class="note">POST request data</span> should be parsed and used.</p>
+        <p><span class="note">Server-side logic</span> can be as complex as we wish based on
+          how we want to respond to users accessing certain routes and giving us data.</p>
+        <p><span class="bold mid-accent">Much, much, much more.</span> As much stuff
+        as we want to add to this box.</p>
+        <hr>
+        <h2>Questions, comments, concerns before we begin?</h2>
+    </section>
+    <section>
+      <h2>Running a Server</h2>
+      <p>Now that you're a little more familiar with what we want to do and why, let's 
+        immediately start with an example. This example will allow us to do something really cool:
+        make requests to a Node server running locally. 
+      </p>
+      <div class="activity">
+        <h2>Instructor activity...</h2>
+        <p>You don't have to copy exactly what I'm doing, but feel free to follow along if you like.</p>
+        <p>We need the built-in <code>http</code> package for this&mdash;everything else is just logic.</p>
+        <p>When it's up I'll make a request from my terminal, then do something cooler...</p>
+      </div>
+      <div class="review">
+        <h2>Questions? More detail?</h2>
+        <p>Ask away!</p>
+      </div>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Running Two Servers</h3>
+        <p>Using the previous example as a guide, create an app that has two web servers:</p>
+        <ul>
+          <li>One that listens on <span class="accent">port 7000</span> and one that listens on <span class="mid-accent">port 7500</span>.</li>
+          <li>The one listening on <span class="accent">port 7000</span> will always tell the user something good about themselves.</li>
+          <li>The one listening on <span class="mid-accent">port 7500</span> will always tell the user something bad about themselves.</li>
+        </ul>
+        <p>Create a Github repo and commit this code.</p>
+        <p><span class="bonus">Bonus:</span> Look for other ways to expand what your server can do. As a possibility:</p>
+        <ul>
+          <li>
+            Generate the good/bad phrase randomly from a list of predefined phrases
+          </li>
+        </ul>
+      </div>
+    </section>
+    <div class="page-break">
+      <h1>Break Time!</h1>
+    </div>
+    <!-- <section>
+    </section>
+    <div class="page-break">
+      <h1>That's all for today, see you Wednesday!</h1>
+      <p class="muted italic">(Zak's note: see when I get back next Monday!)</p>
+    </div> -->
+  </article>
+</body>
+<!-- Script to make code pretty -->
+<script type='text/javascript' src="../js/prism.js"></script>
+</html>
+                
