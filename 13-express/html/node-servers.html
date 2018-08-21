@@ -152,13 +152,70 @@
     <div class="page-break">
       <h1>Break Time!</h1>
     </div>
-    <!-- <section>
+    <section>
       <h1>URL Parsing and Routing</h1>
+      <p>Now that we've gotten servers up and running, the next portion of our class will be focused on how to specify different behavior based on
+        what URL we get from a request&mdash;this is absolutely vital for everything from creating APIs that return JSON to rendering
+        different webpages. This is a different way to think about how webpages are rendered: instead of the old-fashioned "directory structure"
+        metaphor traditionally used to represent a site, we don't have to have separate directories and files. Instead, we return whatever we feel like
+        based on URLs we intend on accepting and parsing. This is one of the major advantages of routing.</p>
+      <div class="activity">
+        <h2>Instructor activity...</h2>
+        <p>I'm going to walk through a basic url parsing and routing example.</p>
+        <p>The exact syntax of this example isn't what's important. However, you should take the time necessary
+        to understand what is happening here at a conceptual level.</p>
+        <p>I'll go over this and then we'll spend some time for questions.</p>
+      </div>
+      <div class="review">
+        <h2>URL Parsing and Routing Discussion</h2>
+        <p>Ask questions if you're not sure about anything we just went over.</p>
+        <p>Explain back to me what's going on in this example.</p>
+      </div>
+      <div class="activity">
+        <h2>Another instructor activity...</h2>
+        <p>We'll be doing another example. This example will focus on serving HTML using <code>fs</code>.</p>
+        <p>I'll demo using my browser, but first we'll look at the code. What do you think will happen?</p>
+      </div>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Serve-Favorites</h3>
+        <p>Create a website with four routes:</p>
+        <ul>
+          <li>Home</li>
+          <li>Favorite Food</li>
+          <li>Favorite Movies</li>
+          <li>Favorite CSS Frameworks</li>
+        </ul>
+        <p>Each route should be triggered by a different URL.</p>
+        <p>Each route should display an HTML page listing your favorite three things of each.</p>
+        <p>Be sure to use <code>fs</code> to serve your HTML files.</p>
+      </div>
+    </section>
+    <section>
+      <h1>Request Methods</h1>
+      <p>Up until now, all of the previous examples have been built using <span class="mono">GET</span> requests.
+        Every single URL we've visited using our browser? <span class="mono">GET</span> requests.
+        When you visit almost <span class="italic">any</span> URL in your browser? You know what it is. We've talked about other
+        request methods briefly in the past, but let's get everyone introduced others such as <span class="mono">POST</span>,
+        <span class="mono">PUT</span>, and <span class="mono">DELETE</span>.</p>
+      <div class="activity">
+        <h2>Instructor activity...</h2>
+        <p>I'm going to show you an app that logs the type of requests it receives.</p>
+        <p>For this example, I'll be using an app called <a href="https://www.getpostman.com/" target="_blank">Postman</a>. It's a free application interface for performing HTTP
+        requests and is super awesome. Install the desktop application, not the browser component. This app is highly recommended.</p>
+        <p>Alternatively, you can use the built-in command <code>curl</code> to do this. It's a little trickier but works just as well:</p>
+        <pre><code class="language-bash">curl -i -H "Accept: application/json" -X GET -d "firstName=james" http://localhost:8080
+curl -i -H "Accept: application/json" -X POST -d "firstName=james" http://localhost:8080
+curl -i -H "Accept: application/json" -X PUT -d "firstName=james" http://localhost:8080
+curl -i -H "Accept: application/json" -X DELETE -d "firstName=james" http://localhost:8080</code></pre>
+         <p>This is a concept you'll be fleshing out over the course of this week.</p>
+      </div>
     </section>
     <div class="page-break">
       <h1>That's all for today, see you Wednesday!</h1>
-      <p class="muted italic">(Zak's note: see when I get back next Monday!)</p>
-    </div> -->
+      <p class="muted italic">(Zak's note: see you when I get back next Monday!)</p>
+    </div>
   </article>
 </body>
 <!-- Script to make code pretty -->
