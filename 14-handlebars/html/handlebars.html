@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Handlebars</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="../css/reset.css">
+  <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  <link rel='stylesheet' type='text/css' href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <pre id='ascii-title' style='font-size:1.9vw; line-height:0.8em; letter-spacing: -0.28em; font-weight:100;'>
+
+
+
+
+
+
+         _       _    _                   _             _            _             _            _               _                   _          _        
+        / /\    / /\ / /\                /\ \     _    /\ \         _\ \          /\ \         / /\            / /\                /\ \       / /\      
+       / / /   / / // /  \              /  \ \   /\_\ /  \ \____   /\__ \        /  \ \       / /  \          / /  \              /  \ \     / /  \     
+      / /_/   / / // / /\ \            / /\ \ \_/ / // /\ \_____\ / /_ \_\      / /\ \ \     / / /\ \        / / /\ \            / /\ \ \   / / /\ \__  
+     / /\ \__/ / // / /\ \ \          / / /\ \___/ // / /\/___  // / /\/_/     / / /\ \_\   / / /\ \ \      / / /\ \ \          / / /\ \_\ / / /\ \___\ 
+    / /\ \___\/ // / /  \ \ \        / / /  \/____// / /   / / // / /         / /_/_ \/_/  / / /\ \_\ \    / / /  \ \ \        / / /_/ / / \ \ \ \/___/ 
+   / / /\/___/ // / /___/ /\ \      / / /    / / // / /   / / // / /         / /____/\    / / /\ \ \___\  / / /___/ /\ \      / / /__\/ /   \ \ \       
+  / / /   / / // / /_____/ /\ \    / / /    / / // / /   / / // / / ____    / /\____\/   / / /  \ \ \__/ / / /_____/ /\ \    / / /_____/_    \ \ \      
+ / / /   / / // /_________/\ \ \  / / /    / / / \ \ \__/ / // /_/_/ ___/\ / / /______  / / /____\_\ \  / /_________/\ \ \  / / /\ \ \ /_/\__/ / /      
+/ / /   / / // / /_       __\ \_\/ / /    / / /   \ \___\/ //_______/\__\// / /_______\/ / /__________\/ / /_       __\ \_\/ / /  \ \ \\ \/___/ /       
+\/_/    \/_/ \_\___\     /____/_/\/_/     \/_/     \/_____/ \_______\/    \/__________/\/_____________/\_\___\     /____/_/\/_/    \_\/ \_____\/
+
+
+
+
+
+</pre>
+<h2 class='date'> August 27th, 2018</h2>
+  </header>
+  <article class='container'>
+    <section id="todo">
+      <h1>To Do's:</h1>
+      <ul>
+        <li>Administrivia</li>
+        <li>Express Activities</li>
+        <li>Introduction to Handlebars</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Administrivia</h1>
+      <p>Good evening everyone, and welcome to week 14! Now that you're pros at routing, it's time to introduce a new
+        tool to really simplify front-end development: templating engines. We'll be taking a look at Handlebars
+        in particular. This will be the final component you will need to learn in order to complete your homework.
+      </p>
+      <p>Today's class will focus on sending MySQL data from back-end to front-end using Express, understanding semantic templating using
+        Handlebars, and creating an Express connection to a front-end application, which will then print data to the screen using Handlebars.
+      </p>
+      <p>Before we begin a warmup activity, I'll demo the next homework for you shortly.</p>
+    </section>
+    <section>
+      <h1>Express Activities</h1>
+      <p>Before we begin, are there any lingering questions about Express? Routing in general?
+        <code>GET</code> vs. <code>POST</code> vs. <code>PUT</code> etc.? Methodologies behind the whole thing? Ask away!</p>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Express Calculator</h3>
+        <ul>
+          <li>You will create an Express calculator application with one get route that is able to take in three parameters: an operation and two numbers.</li>
+          <li>There are four operation values which a user may use: addition, subtraction, multiplication, and division.</li>
+          <li>When the route is hit, your browser should display the result of the math operation.</li>
+          <li>For example, when the user goes to the url <a href="http://localhost:3000/add/10/1">http://localhost:3000/add/10/1</a>, the page should display 11.</li>
+        </ul>
+      </div>
+      <div class="review">
+        <h2>Express Calculator Review</h2>
+        <p>Let's go through the code for this line-by-line.</p>
+        <p>We know we want different routes for the four mathematical operations&mdash;all we need are the different operators and operands.</p>
+      </div>
+      <p>The reason we aren't jumping directly into Handlebars yet is because we want to make sure everyone is comfortable with Express.
+        Since the former simply builds on the latter, it is imperative that your knowlege is solid before we continue. Express is absolutely
+        <span class="italic">vital</span> for the types of back-end components we want to build.
+      </p>
+      <p>Please do not hesitate to ask questions, even during the next activity.</p>
+      <div class="activity">
+        <h2>Instructor activity...</h2>
+        <p>The next thing I'll show you relies on MySQL for data. I'll run a SQL file then open up a companion JavaScript file.</p>
+        <p>As always, I'll need to run <code class="language-bash">npm install</code> before trying to run the file.</p>
+        <p>When we run it, we'll inspect the HTML and how it's being generated, then sent to the browser.</p>
+      </div>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Seinfeld Application</h3>
+        <p>I'm going to import some data then run this application and demo it for you with the following URLs:</p>
+        <ul>
+          <li>
+          	<a href="http://localhost:3000/cast">http://localhost:3000/cast</a>
+          </li>
+          <li>
+          	<a href="http://localhost:3000/coolness-chart">http://localhost:3000/coolness-chart</a>
+          </li>
+          <li>
+          	<a href="http://localhost:3000/attitude-chart/relaxed">http://localhost:3000/attitude-chart/relaxed</a>
+          </li>
+        </ul>
+        <hr>
+        <h2>Instructions:</h2>
+        <p>Create a seinfeld_db database with an actors table.</p>
+        <p>The actors table will have a column for:</p>
+        <ul>
+          <li><code class="language-sql">id (PRIMARY KEY AUTO_INCREMENT int)</code></li>
+          <li><code class="language-sql">name (varchar)</code></li>
+          <li><code class="language-sql">coolness_points (int)</code> and</li>
+          <li><code class="language-sql">attitude (varchar)</code></li>
+        </ul>
+        <p>Add in four actors with different names, coolness_points, and attitudes.</p>
+        <p>Create a Node Application with Express, MySQL, and Body Parser with three Express routes:</p>
+        <ul>
+          <li><code>/cast</code> route that will display all the actors and their data ordered by their id's.</li>
+          <li><code>/coolness-chart</code> route that will display all the actors and their data ordered by their coolness points.</li>
+          <li><code>/attitude-chart/:att</code> route that will display all the actors for a specific type of attitude.</li>
+        </ul>
+      </div>
+      <div class="review">
+        <h2>Seinfeld Review</h2>
+        <p>We'll go over the activity now. We'll get a different person to explain each part of the exercise.</p>
+      </div>
+      <hr>
+      <h2>SQL + HTML = Nope.</h2>
+      <p>Why wouldn't we want to combine data from MySQL with HTML?</p>
+      <p>The main reason we have is that you'd have to write out a large amount of HTML, which will quickly become an unmanageable
+        rats' nest. This is an awful lot to keep within a server-side JS file.
+      </p>
+      <p>After the break, we'll cover a great alternative: a means to template back-end data on the front-end instead.</p>
+    </section>
+    <div class="page-break">
+      <h1>Break time!</h1>
+    </div>
+    <!-- <section>
+      <h1>Introduction to Handlebars</h1>
+      <p>As a general note, <span class="note">Handlebars</span> is my personal favorite templating engine. It's one of many, actually&mdash;alongside
+        Pug <span class="italic muted">(F.K.A. Jade)</span> it is one of the most popular solutions to having to type out all of your HTML by hand,
+        barring Emmet abbreviations, macros, etc. Handlebars is what is known as a "Semantic Templating" framework for JavaScript and HTML. Frameworks like these are used
+        as a replacement to constructing long strings of HTML within JavaScript code while also providing programmers with a
+        simpler method through which to dynamically create or to fill HTML elements.</p>
+      <p>What makes Handlebars unique is its introduction of moustache brackets, e.g.
+        <code class="language-javascript">{{FOO}}</code>, to directly inject data into our front-end. No concatenation, no problem. It's slightly
+        prettier than ES6 template strings as well; you'll see exactly what I mean by that shortly. We can take a look at the
+        <a href="http://handlebarsjs.com/" target="_blank">Handlebars site</a> to get a feel for this syntax.</p>
+        <p>Other templating engines leverage this as well for the sake of scrubbing user input: if someone types in raw HTML, we don't have
+          to worry about <code class="language-html">&lt;script></code> tags and other nastiness.
+        </p>
+      <h2>Setting Up Handlebars</h2>
+      <p>There's a small bit of overhead besides just using <code class="language-bash">npm install handlebars</code> to get everything set up.
+      </p>
+    </section>
+    <div class="page-break">
+      <h1>That's all for today, see you Wednesday!</h1>
+    </div> -->
+  </article>
+</body>
+<!-- Script to make code pretty -->
+<script type='text/javascript' src="../js/prism.js"></script>
+</html>
+                
