@@ -139,7 +139,7 @@
     <div class="page-break">
       <h1>Break time!</h1>
     </div>
-    <!-- <section>
+    <section>
       <h1>Introduction to Handlebars</h1>
       <p>As a general note, <span class="note">Handlebars</span> is my personal favorite templating engine. It's one of many, actually&mdash;alongside
         Pug <span class="italic muted">(F.K.A. Jade)</span> it is one of the most popular solutions to having to type out all of your HTML by hand,
@@ -148,18 +148,65 @@
         simpler method through which to dynamically create or to fill HTML elements.</p>
       <p>What makes Handlebars unique is its introduction of moustache brackets, e.g.
         <code class="language-javascript">{{FOO}}</code>, to directly inject data into our front-end. No concatenation, no problem. It's slightly
-        prettier than ES6 template strings as well; you'll see exactly what I mean by that shortly. We can take a look at the
-        <a href="http://handlebarsjs.com/" target="_blank">Handlebars site</a> to get a feel for this syntax.</p>
-        <p>Other templating engines leverage this as well for the sake of scrubbing user input: if someone types in raw HTML, we don't have
+        prettier than ES6 template strings as well. You can also use triple moustache brackets, e.g.
+        <code class="language-javascript">{{<p>Ham, spam and eggs</p>}}</code>, to insert unescaped HTML. (You can take a look at the
+        <a href="http://handlebarsjs.com/" target="_blank">Handlebars site</a> to get a feel for this syntax if you're struggling.)</p>
+        <p>Other templating engines leverage similar ideas as well for the sake of scrubbing user input: if someone types in raw HTML, we don't have
           to worry about <code class="language-html">&lt;script></code> tags and other nastiness.
         </p>
       <h2>Setting Up Handlebars</h2>
       <p>There's a small bit of overhead besides just using <code class="language-bash">npm install handlebars</code> to get everything set up.
+        For one, we need a <span class="note">Views</span> folder containing Handlebars files, then a <span class="note">Layouts</span>
+        folder.
       </p>
+      <p>I'll show you what an example folder structure would look like, then we'll check out the code.</p>
+      <div class="student-activity">
+        <h2>Partner activity!</h2>
+        <h3>Explaining Lunches Application</h3>
+        <p>Check out <span class="mono">04-HandlebarsLunch</span> and open it up. Discuss how the code works in
+        partners.</p>
+        <p>After you finish going over <code>main</code> and <code>index</code>, have a look at <code>all-lunches</code>
+          to figure out how it works as well.</p>
+        <p>If you're confused, the <a href="http://handlebarsjs.com/" target="_blank">Handlebars site</a> is a great help.</p>
+      </div>
+      <div class="review">
+        <h2>Explaining Lunches and the "Each" Helper</h2>
+        <p>Let's get a volunteer to explain the code to the rest of the class.</p>
+        <p>We'll start with <code>main.handlebars</code>, then <code>index.handlebars</code>, and <code>server.js</code>.</p>
+        <p>Then, we'll look at <code>all-lunches.handlebars</code>.</p>
+      </div>
+      <hr>
+      <div class="student-activity">
+        <h2>Partner activity!</h2>
+        <h3>Ben and Jerry's App</h3>
+        <p>In this activity, you are going to be creating your own Ben and Jerry's App where users can see all of the different flavors
+        Ben and Jerry's have to offer while also getting specific information on a flavor by searching for it within the URL.</p>
+        <pre><code class="language-javascript">var icecreams = [
+  {name: 'vanilla', price: 10, awesomeness: 3},
+  {name: 'chocolate', price: 4, awesomeness: 8},
+  {name: 'banana', price: 1, awesomeness: 1},
+  {name: 'greentea', price: 5, awesomeness: 7},
+  {name: 'jawbreakers', price: 6, awesomeness: 2},
+];</code></pre>
+        <p>Don't use MySQL for this assignment! Use the <span class="mono">icecreams</span> variable above as your data.
+          Add the variable to your <span class="mono">server.js</span>
+        file.</p>
+         <p>
+           Using Handlebars and express, create a route called <code>/icecreams/:name</code>. When the route is hit, it will display the name,
+          price and awesomeness for that specific ice cream.
+         </p>
+        <p>
+          Create an <code>/icecreams</code> route. It will loop over all the ice creams and display them all to the user.
+        </p>
+      </div>
+      <div class="review">
+        <h2>Ben and Jerry's App Review</h2>
+        <p>Let's go over this exercise together. We'll break it down into individual parts and let you talk about what you did.</p>
+      </div>
     </section>
     <div class="page-break">
       <h1>That's all for today, see you Wednesday!</h1>
-    </div> -->
+    </div>
   </article>
 </body>
 <!-- Script to make code pretty -->
