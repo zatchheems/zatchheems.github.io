@@ -62,3 +62,6 @@
 
 ### Unit 13: Express
 * [Node Servers](./13-express/html/node-servers.html)
+
+### Unit 14: Handlebars
+* [Intro to Handlebars](./14-handlebars/html/handlebars.html)
