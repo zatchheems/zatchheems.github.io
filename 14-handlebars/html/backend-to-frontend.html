@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Back-end to Front-end (and back)</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="../css/reset.css">
+  <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  <link rel='stylesheet' type='text/css' href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <pre id='ascii-title' style='font-size:1.2vw; line-height:0.8em; letter-spacing: -0.28em; font-weight:100;'>          _____                    _____                    _____                    _____                    _____                    _____                    _____                        _____                   _______         
+         /\    \                  /\    \                  /\    \                  /\    \                  /\    \                  /\    \                  /\    \                      /\    \                 /::\    \        
+        /::\    \                /::\    \                /::\    \                /::\____\                /::\    \                /::\____\                /::\    \                    /::\    \               /::::\    \       
+       /::::\    \              /::::\    \              /::::\    \              /:::/    /               /::::\    \              /::::|   |               /::::\    \                   \:::\    \             /::::::\    \      
+      /::::::\    \            /::::::\    \            /::::::\    \            /:::/    /               /::::::\    \            /:::::|   |              /::::::\    \                   \:::\    \           /::::::::\    \     
+     /:::/\:::\    \          /:::/\:::\    \          /:::/\:::\    \          /:::/    /               /:::/\:::\    \          /::::::|   |             /:::/\:::\    \                   \:::\    \         /:::/~~\:::\    \    
+    /:::/__\:::\    \        /:::/__\:::\    \        /:::/  \:::\    \        /:::/____/               /:::/__\:::\    \        /:::/|::|   |            /:::/  \:::\    \                   \:::\    \       /:::/    \:::\    \   
+   /::::\   \:::\    \      /::::\   \:::\    \      /:::/    \:::\    \      /::::\    \              /::::\   \:::\    \      /:::/ |::|   |           /:::/    \:::\    \                  /::::\    \     /:::/    / \:::\    \  
+  /::::::\   \:::\    \    /::::::\   \:::\    \    /:::/    / \:::\    \    /::::::\____\________    /::::::\   \:::\    \    /:::/  |::|   | _____    /:::/    / \:::\    \                /::::::\    \   /:::/____/   \:::\____\ 
+ /:::/\:::\   \:::\ ___\  /:::/\:::\   \:::\    \  /:::/    /   \:::\    \  /:::/\:::::::::::\    \  /:::/\:::\   \:::\    \  /:::/   |::|   |/\    \  /:::/    /   \:::\ ___\              /:::/\:::\    \ |:::|    |     |:::|    |
+/:::/__\:::\   \:::|    |/:::/  \:::\   \:::\____\/:::/____/     \:::\____\/:::/  |:::::::::::\____\/:::/__\:::\   \:::\____\/:: /    |::|   /::\____\/:::/____/     \:::|    |            /:::/  \:::\____\|:::|____|     |:::|    |
+\:::\   \:::\  /:::|____|\::/    \:::\  /:::/    /\:::\    \      \::/    /\::/   |::|~~~|~~~~~     \:::\   \:::\   \::/    /\::/    /|::|  /:::/    /\:::\    \     /:::|____|           /:::/    \::/    / \:::\    \   /:::/    / 
+ \:::\   \:::\/:::/    /  \/____/ \:::\/:::/    /  \:::\    \      \/____/  \/____|::|   |           \:::\   \:::\   \/____/  \/____/ |::| /:::/    /  \:::\    \   /:::/    /           /:::/    / \/____/   \:::\    \ /:::/    /  
+  \:::\   \::::::/    /            \::::::/    /    \:::\    \                    |::|   |            \:::\   \:::\    \              |::|/:::/    /    \:::\    \ /:::/    /           /:::/    /             \:::\    /:::/    /   
+   \:::\   \::::/    /              \::::/    /      \:::\    \                   |::|   |             \:::\   \:::\____\             |::::::/    /      \:::\    /:::/    /           /:::/    /               \:::\__/:::/    /    
+    \:::\  /:::/    /               /:::/    /        \:::\    \                  |::|   |              \:::\   \::/    /             |:::::/    /        \:::\  /:::/    /            \::/    /                 \::::::::/    /     
+     \:::\/:::/    /               /:::/    /          \:::\    \                 |::|   |               \:::\   \/____/              |::::/    /          \:::\/:::/    /              \/____/                   \::::::/    /      
+      \::::::/    /               /:::/    /            \:::\    \                |::|   |                \:::\    \                  /:::/    /            \::::::/    /                                          \::::/    /       
+       \::::/    /               /:::/    /              \:::\____\               \::|   |                 \:::\____\                /:::/    /              \::::/    /                                            \::/____/        
+        \::/____/                \::/    /                \::/    /                \:|   |                  \::/    /                \::/    /                \::/____/                                              ~~              
+         ~~                       \/____/                  \/____/                  \|___|                   \/____/                  \/____/                  ~~                                                                    
+                                                                                                                                                                                                                                     
+          _____                    _____                   _______                   _____                _____                    _____                    _____                    _____                                           
+         /\    \                  /\    \                 /::\    \                 /\    \              /\    \                  /\    \                  /\    \                  /\    \                                          
+        /::\    \                /::\    \               /::::\    \               /::\____\            /::\    \                /::\    \                /::\____\                /::\    \                                         
+       /::::\    \              /::::\    \             /::::::\    \             /::::|   |            \:::\    \              /::::\    \              /::::|   |               /::::\    \                                        
+      /::::::\    \            /::::::\    \           /::::::::\    \           /:::::|   |             \:::\    \            /::::::\    \            /:::::|   |              /::::::\    \                                       
+     /:::/\:::\    \          /:::/\:::\    \         /:::/~~\:::\    \         /::::::|   |              \:::\    \          /:::/\:::\    \          /::::::|   |             /:::/\:::\    \                                      
+    /:::/__\:::\    \        /:::/__\:::\    \       /:::/    \:::\    \       /:::/|::|   |               \:::\    \        /:::/__\:::\    \        /:::/|::|   |            /:::/  \:::\    \                                     
+   /::::\   \:::\    \      /::::\   \:::\    \     /:::/    / \:::\    \     /:::/ |::|   |               /::::\    \      /::::\   \:::\    \      /:::/ |::|   |           /:::/    \:::\    \                                    
+  /::::::\   \:::\    \    /::::::\   \:::\    \   /:::/____/   \:::\____\   /:::/  |::|   | _____        /::::::\    \    /::::::\   \:::\    \    /:::/  |::|   | _____    /:::/    / \:::\    \                                   
+ /:::/\:::\   \:::\    \  /:::/\:::\   \:::\____\ |:::|    |     |:::|    | /:::/   |::|   |/\    \      /:::/\:::\    \  /:::/\:::\   \:::\    \  /:::/   |::|   |/\    \  /:::/    /   \:::\ ___\                                  
+/:::/  \:::\   \:::\____\/:::/  \:::\   \:::|    ||:::|____|     |:::|    |/:: /    |::|   /::\____\    /:::/  \:::\____\/:::/__\:::\   \:::\____\/:: /    |::|   /::\____\/:::/____/     \:::|    |                                 
+\::/    \:::\   \::/    /\::/   |::::\  /:::|____| \:::\    \   /:::/    / \::/    /|::|  /:::/    /   /:::/    \::/    /\:::\   \:::\   \::/    /\::/    /|::|  /:::/    /\:::\    \     /:::|____|                                 
+ \/____/ \:::\   \/____/  \/____|:::::\/:::/    /   \:::\    \ /:::/    /   \/____/ |::| /:::/    /   /:::/    / \/____/  \:::\   \:::\   \/____/  \/____/ |::| /:::/    /  \:::\    \   /:::/    /                                  
+          \:::\    \            |:::::::::/    /     \:::\    /:::/    /            |::|/:::/    /   /:::/    /            \:::\   \:::\    \              |::|/:::/    /    \:::\    \ /:::/    /                                   
+           \:::\____\           |::|\::::/    /       \:::\__/:::/    /             |::::::/    /   /:::/    /              \:::\   \:::\____\             |::::::/    /      \:::\    /:::/    /                                    
+            \::/    /           |::| \::/____/         \::::::::/    /              |:::::/    /    \::/    /                \:::\   \::/    /             |:::::/    /        \:::\  /:::/    /                                     
+             \/____/            |::|  ~|                \::::::/    /               |::::/    /      \/____/                  \:::\   \/____/              |::::/    /          \:::\/:::/    /                                      
+                                |::|   |                 \::::/    /                /:::/    /                                 \:::\    \                  /:::/    /            \::::::/    /                                       
+                                \::|   |                  \::/____/                /:::/    /                                   \:::\____\                /:::/    /              \::::/    /                                        
+                                 \:|   |                   ~~                      \::/    /                                     \::/    /                \::/    /                \::/____/                                         
+                                  \|___|                                            \/____/                                       \/____/                  \/____/                  ~~
+</pre>
+<h2 class='date'> August 29th, 2018</h2>
+  </header>
+  <article class='container'>
+    <section id="todo">
+      <h1>To Do's:</h1>
+      <ul>
+        <li>Administrivia</li>
+        <li>Review Activity</li>
+        <li>REST</li>
+        <li>RESTful Application Development</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Administrivia</h1>
+      <p>Good evening everyone! Today's class will build on the fundamental knowledge you have of semantic
+        templating engines, allowing you to communicate more easily and fluidly between the front-end and
+        back-end components of your applications. Using <code>GET</code>, <code>POST</code>, <code>PUT</code>,
+        and <code>DELETE</code> to make HTTP requests to
+        a back-end will also be key here&mdash;recall what these refer to with regards to database manipulation.
+      </p>
+      <p>We'll begin with a warm-up activity similar to what we did last class then move into RESTful APIs,
+        using HTTP requests outside of <code>GET</code> and <code>POST</code>, then bring everything into the mix.
+      </p>
+      <p>Feel free to ask any lingering questions from last session before we begin.</p>
+    </section>
+    <section>
+      <h1>Review Activity</h1>
+      <div class="student-activity">
+        <h1>Student activity!</h1>
+        <h2>
+          Handlebars Animals
+        </h2>
+        <p>For this application, I'll demo a small application that uses Handlebars and Express, then you'll implement it. This will be 
+          very similar to last class's Ben and Jerry's application. Here are some example routes I'll demo:</p>
+          <ul>
+            <li>
+              <a href="http://localhost:3000/dog">http://localhost:3000/dog</a>
+            </li>
+            <li>
+              <a href="http://localhost:3000/all-pets">http://localhost:3000/all-pets</a>
+            </li>
+            <li>
+              <a href="http://localhost:3000/all-non-pets">http://localhost:3000/all-non-pets</a>
+            </li>
+          </ul>
+        <p>You will edit the <span class="mono">server.js</span> file, the <span class="mono">dog.handlebars</span> file, and the
+          <span class="mono">index.handlebars</span> file in an attempt to recreate
+        the application that we demonstrated just a couple of minutes ago. Instructions on what to do are contained within each file
+        you will have to edit.</p>
+        <p>You won't be using MySQL for this exercise but will instead be using the animals array in the <span class="mono">server.js</span> file.</p>
+      </div>
+      <div class="review">
+        <h2>Handlebars Animals Review</h2>
+        <p>Let's go over this exercise. Recall the specific folder structure and <code class="language-javascript">app.engine(...)</code> parts
+        we need for a templating engine.</p>
+      </div>
+    </section>
+    <section>
+      <h1>REST</h1>
+      <p>With regards to REST, different HTTP requests hold semantic value (<code>GET</code>, <code>POST</code>, <code>PUT</code>, and <code>DELETE</code>).
+      I've gone over this briefly, but let's talk about them in the context of
+      <abbr title="Representational State Transfer" class="note">REST</abbr>&mdash;<span class="bold mid-accent">Representational State Transfer</span>.</p>
+      <p>REST is essentially a set of standards for the web. RESTful applications have a <span class="note">uniform interface</span>, are <span class="note">stateless</span>, are <span class="note">cacheable</span>,
+      keep the <span class="note">server separate from the client</span>, and are a <span class="note">layered system</span> in that there may be intermediary servers between the
+      client and the database with which they are working.</p>
+      <p>Breaking this down further, in less words: RESTful applications don't know what happened previously and don't care; they don't
+        keep track of how many servers talk to each other; they generally work the same way. In fact, the CRUD methodology works marvellously to describe
+        a RESTful application's ability to access data using HTTP requests:
+      </p>
+      <ul>
+        <li>
+          <code>POST</code> requests are used to <span class="mid-accent">create</span> new data into a database.
+        </li>
+        <li>
+          <code>GET</code> requests <span class="mid-accent">read</span> data from a database.
+        </li>
+        <li>
+          <code>PUT</code> requests are used to <span class="mid-accent">update</span> a row within a database.
+        </li>
+        <li>
+          <code>DELETE</code> requests are used to <span class="mid-accent">delete</span> a row from a database.
+        </li>
+      </ul>
+      <blockquote>What's the point of using all these different requests? I can just GET all my data into the database
+      via the URL, right?</blockquote>
+      <p>Well... yes and no. Do you really want private data to be accessible via the URL? Also, does it make sense to use a hammer 
+        on a screw instead of screwdriver? Not exactly: you can, but it's not a good look.
+      </p>
+      <p>If we have the right tools, it makes sense to use
+      them. REST defines using these four separate HTTP requests as a best practice. When you follow this standard, it makes your code
+      amazingly readable and easy to follow while also allowing you to track these requests simply and easily in your browser's dev tools.</p>
+      <p>Let's take about five minutes to talk about this, either in a class conversation, amongst yourselves, or both.</p>
+      <hr>
+      <div class="student-activity">
+        <h2>Class activity!</h2>
+        <p>Let's pick apart an application called Task Saver shortly. First, let's take a look at the code in <span class="mono">07-TaskSaver</span>
+          and see what it does. Then, we can import some SQL and demo it. Pay particular attention to methods we see.</p>
+          <p>Take some time to demo it on your own machines with me and play around with it.</p>
+      </div>
+    </section>
+    <div class="page-break">
+      <h1>Break time!</h1>
+    </div>
+    <!-- <section>
+      <h1>RESTful Application Development</h1>
+      <p>The rest of today's class will be dedicated to activities.
+        If you have any questions throughout the rest of the class, please do not hesitate to ask any of the instructional staff. A lot of different
+      moving parts have been tossed at you the last couple of weeks&mdash;if something isn't clicking, <span class="italic">please, please ask</span>.</p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3></h3>
+        <p></p>
+      </div>
+    </section>
+    <div class="page-break">
+      <h1>That's all for today, see you next Wednesday!</h1>
+      <h2>Enjoy your Labor Day weekend!</h2>
+    </div> -->
+  </article>
+</body>
+<!-- Script to make code pretty -->
+<script type='text/javascript' src="../js/prism.js"></script>
+</html>
+                
