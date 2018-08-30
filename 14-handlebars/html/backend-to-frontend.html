@@ -160,21 +160,82 @@
     <div class="page-break">
       <h1>Break time!</h1>
     </div>
-    <!-- <section>
+    <section>
       <h1>RESTful Application Development</h1>
       <p>The rest of today's class will be dedicated to activities.
         If you have any questions throughout the rest of the class, please do not hesitate to ask any of the instructional staff. A lot of different
       moving parts have been tossed at you the last couple of weeks&mdash;if something isn't clicking, <span class="italic">please, please ask</span>.</p>
       <div class="student-activity">
         <h2>Student activity!</h2>
-        <h3></h3>
-        <p></p>
+        <h3>Wishes</h3>
+        <p>I'm going to demonstrate this application, then you'll build it!</p>
+        <hr/>
+        <p>Create an app with Express, MySQL and Handlebars.</p>
+        <p>Create a <span class="mono">schema.sql</span> file and create the following inside of that file:</p>
+        <ol>
+          <li>Make a database called <span class="mono">wishes_db</span></li>
+          <li>Inside of that database, make a table called <span class="mono">wishes</span> which will have a wish column and an id column. The id will be automatically incremented while also being the primary key.</li>
+          <li>Run your <span class="mono">schema.sql</span> file within MySQL Workbench before moving onto the next steps.</li>
+        </ol>
+        <p>In your <span class="mono">server.js</span> file, you will have to create two routes: a GET route for <span class="mono">/</span> and a POST route for <span class="mono">/</span>.</p>
+        <ul>
+          <li>Render all of the wishes from the wishes table when the <span class="mono">/</span> get route is hit. Additionally, show the form that the user
+          can use to create a new wish. The form will POST to the <span class="mono">/</span> route.</li>
+          <li>The <span class="mono">/</span> POST route will insert the wish from the form into the wishes table and will redirect the user back to the <span class="mono">/</span>
+          get route.</li>
+        </ul>
+      </div>
+      <div class="review">
+        <h2>Wishes Summary</h2>
+        <p>Let's go over this line-by-line.</p>
+      </div>
+      <h2>Putting and Deleting</h2>
+      <p>Let's take a look at an application that uses <code>PUT</code> and <code>DELETE</code> requests.</p>
+      <div class="student-activity">
+        <h2>Class activity!</h2>
+        <p>Let's go over <span class="mono">09-DayPlanner</span>, running it as well as picking apart
+        how it works. When we use jQuery, note that we can also use <code class="language-javascript">window.fetch(...)</code>.
+        This is infinitely preferable.</p>
+        <p>Take some time on your own after we're done running it yourselves, explaining to each other line-by-line.
+          After we're done and questions are answered, we'll begin a new activity.
+        </p>
+      </div>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Watch List</h3>
+        <p>Create a full-stack application with Express, MySQL and Handlebars. <span class="note">Warning:</span> this
+        one is fairly involved.</p>
+        <p>Create a <span class="mono">schema.sql</span> file. Within it, do the following:</p>
+        <ol>
+          <li>Make a database called <span class="mono">moviePlannerDB</span></li>
+          <li>Inside of that database, make a <span class="mono">movies</span> table which will contain a movie column and an id column. The id will be automatically incremented while also being the <span class="italic">primary key</span>.</li>
+          <li>Run your <span class="mono">schema.sql</span> file within MySQL Workbench before moving onto the next steps.</li>
+        </ol>
+        <p>In your <span class="mono">server.js</span> file, you will create four routes: <code>get</code>, <code>post</code>, <code>put</code>, and <code>delete</code>.</p>
+        <p>Render the main `index.handlebars` when the <span class="mono">/</span> get route is hit with all of the movies from the movies table.</p>
+        <p>Your application should have a set of routes on <span class="mono">/movies</span> for create, update, and delete operations on the movies table.</p>
+        <p>Show a delete button next to each movie. When one of the delete buttons is clicked, the code should send a DELETE request to  delete the associated movie from your database.</p>
+        <p>Additionally, show the form that the user can use to add a movie to be watched.  When the submit button is clicked, the code will post to the <span class="mono">/movies</span> route, which will insert the movie from the form into the movies table and return the ID of the new movie.</p>
+        <p>Have another form that will update a movie in the movies table. The form will include two inputs: an id input and a movie title input. Remember to leverage a PUT method.</p>
+        <p>Remember: best practices for REST include:</p>
+        <ul>
+          <li>Put your REST API on it's own URL (e.g. <span class="mono">/todos</span>).</li>
+          <li>A POST that creates an item should return the ID of the item it created.</li>
+          <li>PUT and DELETE should specify the ID of the item they're intended to affect in the URL (e.g. <span class="mono">/todos/123</span>).</li>
+          <li>If the ID for the item specified in a PUT or DELETE couldn't be found, return a 404.</li>
+          <li>If an error occurs in the server, return an error code (e.g. 500).</li>
+        </ul>
+      </div>
+      <div class="review">
+        <h2>Watch List Review</h2>
+        <p>Let's go over the code line-by-line.</p>
       </div>
     </section>
     <div class="page-break">
       <h1>That's all for today, see you next Wednesday!</h1>
       <h2>Enjoy your Labor Day weekend!</h2>
-    </div> -->
+    </div>
   </article>
 </body>
 <!-- Script to make code pretty -->
