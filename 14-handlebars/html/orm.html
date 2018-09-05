@@ -55,6 +55,7 @@ S*S.     .S*S  S*S                S*S       S*S    S*S  S*S.          S*S.     .
         <li>ORMs and Asynchronicity</li>
         <li>The MVC Framework</li>
         <li><span class="mono">{{#if}}</span> and <span class="mono">{{#unless}}</span></li>
+        <li>Express Checkpoint</li>
       </ul>
     </section>
     <section>
@@ -165,16 +166,41 @@ S*S.     .S*S  S*S                S*S       S*S    S*S  S*S.          S*S.     .
     <div class="page-break">
       <h1>Break time!</h1>
     </div>
-    <!-- <section>
+    <section>
       <h1>The MVC Framework</h1>
       <p>Some mention has been made of us but never in as much detail as we will right now: the <span class="note">Model-View-Controller</span> (MVC) will be our
       next topic of interest. It's an excellent way to divorce your expectactions of how an app should function from the data it shows with from the transactions it
       makes with the database.</p>
       <span><span class="accent">Model-View-Controller</span> &lrarr; <span class="mid-accent">Database-Display-Input</span></span>
+      <p>Let's look at <span class="mono">17-MvcExample</span> to get a feel for what the MVC framework looks like.</p>
+    </section>
+    <section>
+      <h1><span class="mono">{{#if}}</span> and <span class="mono">{{#unless}}</span></h1>
+      <p>The <code class="language-javascript">{{#if}}</code> helper does just what you would expect it to do. It allows you to implement an <span>if</span> block into your Handlebars
+      code. The <code class="language-javascript">{{#if}}</code> helper outputs the block that it contains if the value given to it is truthy. The tricky bit here is
+      that you cannot use conditionals within these statements. In other words, you are checking to see whether or not a specific
+      variable exists or whether it contains a value inside of it.</p>
+      <p>The <code class="language-javascript">{{#unless}}</code> statement is pretty much the exact opposite of the
+        <code class="language-javascript">{{#if}}</code>
+        statement since it will run the block of codecontained inside of it if the given expression is false.</p>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Cats Application</h3>
+        <p>Check out and run <span class="mono">18-CatsApp/Unsolved</span>.
+           Add a delete button into the `index.handlebars` file next to each cat.</p>
+        <p>Add onto the following:</p>
+        <ul>
+          <li>The <span class="mono">cats.js</span> file to add a jQuery/vanilla JS event handler for the delete button.</li>
+          <li>The ORM to include a delete key and function</li>
+          <li>The cat model to include a delete key and function that uses the ORM</li>
+          <li>The <span class="mono">catsController.js</span> file to have a <span class="mono">/api/cats/:id</span> delete route, to call the delete key of the cat model, and to pass in arguments as necessary</li>
+        </ul>
+      </div>
     </section>
     <div class="page-break">
       <h1>That's all for today, see you Saturday!</h1>
-    </div> -->
+    </div>
   </article>
 </body>
 <!-- Script to make code pretty -->
