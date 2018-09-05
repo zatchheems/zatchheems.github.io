@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Power of the ORM</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="../css/reset.css">
+  <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  <link rel='stylesheet' type='text/css' href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <pre id='ascii-title' style='font-size:2.25vw; line-height:0.65em; letter-spacing: -0.28em; font-weight:100;'>sdSS_SSSSSSbs   .S    S.     sSSs         .S_sSSs      sSSs_sSSs     .S     S.     sSSs   .S_sSSs             
+YSSS~S%SSSSSP  .SS    SS.   d%%SP        .SS~YS%%b    d%%SP~YS%%b   .SS     SS.   d%%SP  .SS~YS%%b            
+     S%S       S%S    S%S  d%S'          S%S   `S%b  d%S'     `S%b  S%S     S%S  d%S'    S%S   `S%b           
+     S%S       S%S    S%S  S%S           S%S    S%S  S%S       S%S  S%S     S%S  S%S     S%S    S%S           
+     S&S       S%S SSSS%S  S&S           S%S    d*S  S&S       S&S  S%S     S%S  S&S     S%S    d*S           
+     S&S       S&S  SSS&S  S&S_Ss        S&S   .S*S  S&S       S&S  S&S     S&S  S&S_Ss  S&S   .S*S           
+     S&S       S&S    S&S  S&S~SP        S&S_sdSSS   S&S       S&S  S&S     S&S  S&S~SP  S&S_sdSSS            
+     S&S       S&S    S&S  S&S           S&S~YSSY    S&S       S&S  S&S     S&S  S&S     S&S~YSY%b            
+     S*S       S*S    S*S  S*b           S*S         S*b       d*S  S*S     S*S  S*b     S*S   `S%b           
+     S*S       S*S    S*S  S*S.          S*S         S*S.     .S*S  S*S  .  S*S  S*S.    S*S    S%S           
+     S*S       S*S    S*S   SSSbs        S*S          SSSbs_sdSSS   S*S_sSs_S*S   SSSbs  S*S    S&S           
+     S*S       SSS    S*S    YSSP        S*S           YSSP~YSSY    SSS~SSS~S*S    YSSP  S*S    SSS           
+     SP               SP                 SP                                              SP                   
+     Y                Y                  Y                                               Y                    
+                                                                                                              
+  sSSs_sSSs      sSSs        sdSS_SSSSSSbs   .S    S.     sSSs          sSSs_sSSs     .S_sSSs     .S_SsS_S.   
+ d%%SP~YS%%b    d%%SP        YSSS~S%SSSSSP  .SS    SS.   d%%SP         d%%SP~YS%%b   .SS~YS%%b   .SS~S*S~SS.  
+d%S'     `S%b  d%S'               S%S       S%S    S%S  d%S'          d%S'     `S%b  S%S   `S%b  S%S `Y' S%S  
+S%S       S%S  S%S                S%S       S%S    S%S  S%S           S%S       S%S  S%S    S%S  S%S     S%S  
+S&S       S&S  S&S                S&S       S%S SSSS%S  S&S           S&S       S&S  S%S    d*S  S%S     S%S  
+S&S       S&S  S&S_Ss             S&S       S&S  SSS&S  S&S_Ss        S&S       S&S  S&S   .S*S  S&S     S&S  
+S&S       S&S  S&S~SP             S&S       S&S    S&S  S&S~SP        S&S       S&S  S&S_sdSSS   S&S     S&S  
+S&S       S&S  S&S                S&S       S&S    S&S  S&S           S&S       S&S  S&S~YSY%b   S&S     S&S  
+S*b       d*S  S*b                S*S       S*S    S*S  S*b           S*b       d*S  S*S   `S%b  S*S     S*S  
+S*S.     .S*S  S*S                S*S       S*S    S*S  S*S.          S*S.     .S*S  S*S    S%S  S*S     S*S  
+ SSSbs_sdSSS   S*S                S*S       S*S    S*S   SSSbs         SSSbs_sdSSS   S*S    S&S  S*S     S*S  
+  YSSP~YSSY    S*S                S*S       SSS    S*S    YSSP          YSSP~YSSY    S*S    SSS  SSS     S*S  
+               SP                 SP               SP                                SP                  SP   
+               Y                  Y                Y                                 Y                   Y    
+</pre>
+<h2 class='date'> September 5th, 2018</h2>
+</header>
+  <article>
+    <section id="todo">
+      <h1>To-Do's:</h1>
+      <ul>
+        <li>Administrivia</li>
+        <li>Warm-Up Activity</li>
+        <li>Introducing the ORM</li>
+        <li>ORMs and Asynchronicity</li>
+        <li>The MVC Framework</li>
+        <li><span class="mono">{{#if}}</span> and <span class="mono">{{#unless}}</span></li>
+      </ul>
+    </section>
+    <section>
+      <h1>Administrivia</h1>
+      <p>Good evening everyone, and welcome back from the long Labor Day weekend break. Today's class will be chock-full of new concepts that will test your knowledge
+        of SQL/CRUD apps and expand your skills using a concept that will seem very familiar. In fact, this concept is the crux of thie entire unit: reducing code
+        and modularizing applications. We'll be diving into this today.
+      </p>
+      <p>But first, let's begin with an activity!</p>
+    </section>
+    <section>
+      <h1>Warm-Up Activity</h1>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Quotes App</h3>
+        <p>I'll demo this application, then you'll build it.</p>
+        <p>Using Express, MySQL, Handlebars, and the starter code in our repo as a jumping-off point, you will be creating
+        a simple web application which allows users to create, read, update, and delete popular quotes.</p>
+        <p>Your application will have two pages:</p>
+        <ul>
+          <li>One will show all of the quotes within a database and will allow users to create a new quote or delete an existing one.</li>
+          <li>A button next to each quote, labeled "Update This Quote," will take users to the other page which shows the quote selected and
+          will allow them to update it with new information.</li>
+        </ul>
+        <p>Make sure to run the code contained within the <span class="mono">schema.sql</span> and <span class="mono">seeds.sql</span>
+          files beforehand so that you have a database with which to work.</p>
+      </div>
+      <div class="review">
+        <h2>Quotes App Review</h2>
+        <p>Let's step through the server and Handlebars code to make this thing work.</p>
+        <p>We'll also make mention of the <span class="mono">express.static</span> middleware, which automatically responds to requests with static files
+        if a request is made that matches a path in the defined folder. This is useful for images, CSS files, and other static files. In this context, <span class="italic">static</span>
+        implies that these files do not change.</p>
+      </div>
+    </section>
+    <section>
+      <h1>Introducing the ORM</h1>
+      <p>One of the major annoyances of dealing with databases through Node is having to write/rewrite code
+      in order to accomplish repetitive tasks, tasks that don't really change much between different activities. In fact, there have even been times
+      where you've had to rewrite identical MySQL queries within the very same application. We need a way to make this code reusable for our sanity and to be nice to our
+      fingers&mdash;there's been <span class="bold">way</span> too much <code>CTRL-c CTRL-v</code>/<code>CMD-c CMD-v</code>.</p>
+      <p>We already have the concept of functions to help us with our repetitive code. Fun fact: there's a way to do this with MySQL queries as well.</p>
+      <p><abbr title="Object-Relational Mappers" class='note'>ORMs</abbr>, or <span class="note">Object Relational Mappers</span>, serve this purpose quite well. Instead
+      of cramming all of our MySQL in with our Node, it makes more sense to break everything out into its own file. The difference here is that we can call the same
+      query as many times as we like&mdash;often with different inputs&mdash;and completely disregard any notion of writing the same thing over and over again.</p>
+      <p>You didn't want to write <code class="language-sql">select * from &lt;table> where ?;</code> over and over again, did you?</p>
+      <h2>Example Time</h2>
+      <p>I'm going to walk through <span class="mono">12-OrmExample</span> with you, then install and run it. Notice how the methods we'll use take in variables
+      that alter the properties of our queries. What's also very interesting is how we don't even need another library to accomplish this: it's
+      just a matter of exporting an object. Pretty neat stuff.</p>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>ORM Discussion</h3>
+        <p>Take some time amongst yourselves to alk to each other about the pros of ORM.
+          See if you can come up with specific situations in which an ORM would be considered valuable.</p>
+      </div>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Party Database App</h3>
+        <p>You will be creating a holiday party planner application. We want to help create parties for our clients whilst also keeping
+        track of all the events that we are host. In MySQL, create a database called <span class="mono">party_db</span> with two tables structured like the
+        tables below. Utilize the provided <span class="mono">schema.sql</span> and <span class="mono">seeds.sql</span> file in order to build the tables and seed initial values.</p>
+        <p>Create a Node MySQL application with an ORM that executes once the server is launched.</p>
+        <p>You will not need Express or Handlebars for this assignment. Use <code class="language-JavaScript">console.log</code> to print the data collected to the console.</p>
+        <p>Create a MySQL database with the tables and data which were slacked out to you.</p>
+        <p>Create a Node app and connect it to MySQL with a <span class="mono">config</span> folder and with a <span class="mono">connection.js</span> file inside of that folder.</p>
+        <p>Create an <span class="mono">orm.js</span> file, and make an ORM that will do the following:</p>
+        <ul>
+          <li>Console log all the party names.</li>
+          <li>Console log all the client names.</li>
+          <li>Console log all the parties that have a party-type of "grown-up".</li>
+          <li>Console log all the clients and their parties.</li>
+        </ul>
+        <p><span class="bonus">Bonus:</span> create a function within your ORM that will let the user add more clients and parties to the database.</p>
+      </div>
+      <div class="review">
+        <h2>Party Database App Review</h2>
+        <p>Let's go over the code line-by-line.</p>
+      </div>
+    </section>
+    <section>
+      <h1>ORMs and Asynchronicity</h1>
+      <p>Let's show a demo of an application. Before we run it and after we go over the code, let's hear your expectations of what might happen when this code is run. What gets
+        returned from the database?
+      </p>
+      <p></p>
+      <p></p>
+      <hr>
+      <p></p>
+      <p></p>
+      <p>What happened? The query to our MySQL database is asynchronous to the rest of our JavaScript code, and as such, our server is not waiting
+      for a response from the database before running our <code class="language-javascript">console.log</code> command. This, as you might imagine, is a big problem and
+      we are going to need to come up with some way to fix it. Poke around in <span class="mono">14-TheAsynchProblem</span> to see if you can figure this out.</p>
+      <hr>
+      <h3>Problem:</h3>
+      <p>Our query and the rest of our code are asynchronous and thus no data is being returned before the <code class="language-javascript">console.log</code> is being
+      executed.</p>
+      <h3>Solution:</h3>
+      <p>Provide our ORM with a callback function which serves to tell the server to wait until the data has been returned before
+      moving on.</p>
+      <hr>
+      <h2>Asynchronous Solution</h2>
+      <p>Let's check out a solution to this issue in <span class="mono">15-TheAsynchSolution/Solved</span>, looking at both side-by-side.</p>
+      <p>We'll be paying special attention to a new callback function.</p>
+    </section>
+    <div class="page-break">
+      <h1>Break time!</h1>
+    </div>
+    <!-- <section>
+      <h1>The MVC Framework</h1>
+      <p>Some mention has been made of us but never in as much detail as we will right now: the <span class="note">Model-View-Controller</span> (MVC) will be our
+      next topic of interest. It's an excellent way to divorce your expectactions of how an app should function from the data it shows with from the transactions it
+      makes with the database.</p>
+      <span><span class="accent">Model-View-Controller</span> &lrarr; <span class="mid-accent">Database-Display-Input</span></span>
+    </section>
+    <div class="page-break">
+      <h1>That's all for today, see you Saturday!</h1>
+    </div> -->
+  </article>
+</body>
+<!-- Script to make code pretty -->
+<script type='text/javascript' src="../js/prism.js"></script>
+</html>
+                
