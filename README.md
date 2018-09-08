@@ -67,3 +67,6 @@
 * [Intro to Handlebars](./14-handlebars/html/handlebars.html)
 * [Backend to Frontend (and back)](./14-handlebars/html/backend-to-frontend.html)
 * [The Power of the ORM](./14-handlebars/html/orm.html)
+
+### Unit 15: Sequelize
+* [The Sequel to MySQL](./15-sequelize/html/sequel-to-mysql.html)
