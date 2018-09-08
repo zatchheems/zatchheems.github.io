@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Sequel to MySQL</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="../css/reset.css">
+  <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  <link rel='stylesheet' type='text/css' href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <pre id='ascii-title' style='font-size:2.25vw; line-height:0.9em; letter-spacing: -0.2em; font-weight:100;'>
+ _________  ___   ___   ______       ______   ______   ______    __  __   ______   __
+/________/\/__/\ /__/\ /_____/\     /_____/\ /_____/\ /_____/\  /_/\/_/\ /_____/\ /_/\
+\__.::.__\/\::\ \\  \ \\::::_\/_    \::::_\/_\::::_\/_\:::_ \ \ \:\ \:\ \\::::_\/_\:\ \
+   \::\ \   \::\/_\ .\ \\:\/___/\    \:\/___/\\:\/___/\\:\ \ \ \_\:\ \:\ \\:\/___/\\:\ \
+    \::\ \   \:: ___::\ \\::___\/_    \_::._\:\\::___\/_\:\ \ /_ \\:\ \:\ \\::___\/_\:\ \____
+     \::\ \   \: \ \\::\ \\:\____/\     /____\:\\:\____/\\:\_-  \ \\:\_\:\ \\:\____/\\:\/___/\
+      \__\/    \__\/ \::\/_\_____\/     \_____\/ \_____\/ \___|\_\_/\_____\/ \_____\/ \_____\/
+ _________  ______       ___ __ __   __  __   ______   ______    __
+/________/\/_____/\     /__//_//_/\ /_/\/_/\ /_____/\ /_____/\  /_/\ 
+\__.::.__\/\:::_ \ \    \::\| \| \ \\ \ \ \ \\::::_\/_\:::_ \ \ \:\ \
+   \::\ \   \:\ \ \ \    \:.      \ \\:\_\ \ \\:\/___/\\:\ \ \ \_\:\ \
+    \::\ \   \:\ \ \ \    \:.\-/\  \ \\::::_\/ \_::._\:\\:\ \ /_ \\:\ \____
+     \::\ \   \:\_\ \ \    \. \  \  \ \ \::\ \   /____\:\\:\_-  \ \\:\/___/\
+      \__\/    \_____\/     \__\/ \__\/  \__\/   \_____\/ \___|\_\_/\_____\/
+</pre>
+<h2 class='date'> September 8th, 2018</h2>
+</header>
+  <article>
+    <section id="todo">
+      <h1>To-Do's:</h1>
+      <ul>
+        <li>Administrivia</li>
+        <li>Review</li>
+        <li>Introduction to Sequelize</li>
+        <li>Sequelize Practice</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Administrivia</h1>
+      <p>Good morning all! Last session was hectic, plus the entirety of the Handlebars unit was pretty advanced. Before we even get into today's
+        lesson, it should be said that for all the difficult activities, frustration at non-working application components, and time crunches,
+        everyone is still doing awesome. I'd like to take this time to remind you that <span class="note italic">what you're doing is hard</span>
+        and you deserve as much credit and praise as you can get. Well done!
+      </p>
+      <p>Building on the admittedly complicated ORM+MVC concepts we went through last time, today's lesson will introduce you to a helpful tool
+        that will assist you in remaining on top of your MySQL. There is a learning curve, however&mdash;there is new documentation for you to digest.
+        After that, it should be smooth sailing. If it isn't, your instructional staff is here to help!
+      </p>
+    </section>
+    <section>
+      <h1>Review</h1>
+      <p>Recall that the <span class="note"><abbr title="Model-View-Controller">MVC</abbr> (Model-View-Controller)</span> is a framework
+      for developing applications, one that focuses on clear dividing lines between how the data is used, how it is displayed to the user, and how
+      it is manipulated. In short:</p>
+      <ul>
+        <li>The Model represents the application core (our database and its hook to our back-end).</li>
+        <li>The View displays the data (our HTML routes and the public files).</li>
+        <li>The Controller handles the input to our database
+          (accepting input from the view, sending it to the model, taking a response from the model, and sending it back to the view.)</li>
+      </ul>
+      <p>Let's do a review MySQL activity to get started.</p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Chirpy</h3>
+        <p>I'll demo this app for you, then you will build it.</p>
+        <p>Using the app skeleton provided to you:</p>
+        <ul>
+          <li>Create a MySQL database named <span class='mono'>chirpy</span> with a <span class='mono'>chirps</span> table to hold your data.</li>
+          <li>Your <span class='mono'>chirp</span> table should include a field for id, author, chirp, and time created.</li>
+          <li>Modify the <span class="mono">connection.js</span> file to create a connection to your database.</li>
+          <li>Modify the <span class="mono">api-routes.js</span> file so that there is a route for adding a new chirp, as well as retrieving all chirps.</li>
+          <li>Modify the <span class="mono">chirps.js</span> file so that the page interacts with the database.</li>
+        </ul>
+        <p>If you find yourself with extra time, work on routes for editing and deleting chirps.</p>
+      </div>
+      <div class="review">
+        <h2>Chirpy review</h2>
+        <p>Let's go over this application relatively quickly.</p>
+      </div>
+    </section>
+    <section>
+      <h1>Introduction to Sequelize</h1>
+      <p>While the Chirpy app you just created is functional, there's a way to make it work with our database with a lot less hassle. It might take time to learn,
+        and this unit will be a tough one, but this tool is going to take you from beginners to truly adept MySQL coders
+        We're speaking of <span class="note">Sequelize</span> of course; the <a href="http://http://docs.sequelizejs.com/en/latest/">Sequelize docs</a> can
+        help us quite a bit with learning it, just like with most APIs and frameworks we've encountered.</p>
+       <h2>What is Sequelize?</h2>
+       <p>Sequelize is a premade ORM that simplifies database queries in Node applications, allowing us to do complex data management with simple
+          JavaScript methods&mdash;much, much simpler than the ORMs we used last time, despite their simplicity. Today, we'll be focusing on getting Sequelize
+          set up on your machines and navigating a Sequelize project.</p>
+        <div class="student-activity">
+          <h2>Partner activity!</h2>
+          <h3>Sequelize Quiz</h3>
+          <p>Take a look at <span class="mono">02-SequelizeQuestions</span> with a partner. Each group will need to come up with answers to the questions in the quiz.</p>
+          <p>Feel free to use the Sequelize documentation as well as any info you may find on the usual sites (stack overflow, quora, etc.) to answer these questions.</p>
+        </div>
+        <div class="review">
+          <h2>Sequelize Quiz Answers</h2>
+          <p>Let's go through the answers to these questions one-by-one, seeing how your new knowledge stacks up.</p>
+          <p>After that and just for fun, let's try to answer an old question...</p>
+          <blockquote>How would you define full-stack development?</blockquote>
+        </div>
+        <p>Now that we've had some time to poke through the documentation for Sequelize, let's take a look at it in action using a different
+          version of the solved Chirpy app. We'll be taking note of the key differences between Sequelize and stock MySQL.
+        </p>
+        <hr>
+        <div class="student-activity">
+          <h2>Student activity!</h2>
+          <h3>Star Wars MySQL to Sequelize</h3>
+          <p>Now, it's your turn to get your hands dirty with Sequelize! I'll demonstrate its functionality, the you'll convert it to use the new framework.</p>
+          <p>Using the instructions in server.js, reconfigure the Star Wars app to use the Sequelize ORM.</p>
+          <p>If you need help, refer to the previous example for guidance.</p>
+        </div>
+        <div class="review">
+          <h2>Star Wars Example Review</h2>
+          <p>Let's point out the key differences and advantages of the converted Sequelize version.</p>
+        </div>
+    </section>
+    <div class="page-break">
+      <h1>Break time!</h1>
+    </div>
+    <!-- <div class="page-break">
+      <h1>That's all for today, see you Saturday!</h1>
+    </div> -->
+  </article>
+</body>
+<!-- Script to make code pretty -->
+<script type='text/javascript' src="../js/prism.js"></script>
+</html>
+                
