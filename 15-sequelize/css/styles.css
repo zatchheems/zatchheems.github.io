@@ -234,7 +234,7 @@ section:nth-child(2n+1){
   animation: appear-alt;
 }
 
-section > p:first-of-type::first-letter {
+section > p:first-of-type:not(.no-letter)::first-letter {
   float:left;
   display:block;
   font-size:2.5em;

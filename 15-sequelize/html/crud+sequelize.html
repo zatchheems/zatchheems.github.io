@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CRUD+Sequelize</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="../css/reset.css">
+  <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  <link rel='stylesheet' type='text/css' href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <pre id='ascii-title' style='font-size:3.5vw; line-height:0.9em; letter-spacing: -0.4em; font-weight:100;'>
+           _           _      _              _                   _
+         /' `\       /' `\   ' )       )   /' `\               /' `\                                         /'
+       /'   ._)    /'     )  /'      /'  /'     )            /'   ._)                                      /' 
+     /'          /' (___,/'/'      /'  /'      /'     /'    (____    ____     ____              ____     /' O ____   ____
+   /'          /'   ;    /'      /'  /'      /' ___ /___         ) /'    )  /'    )  /'    /  /'    )  /' /' '  _/'/'    )
+ /'          /'    /'  /'      /'  /'      /'     /'           /'/(___,/' /'    /' /'    /' /(___,/' /' /'   _/' /(___,/'
+(_____,/'(,/'     (_, (_____,/'(,/' (___,/'     /'    (_____,/' (________(___,/(__(___,/(__(________(__(___/'__,(________
+                                                                            /'                                            
+                                                                         -/'-                                             
+                                                                        /'
+</pre>
+<h2 class='date'> September 10th, 2018</h2>
+</header>
+  <article>
+    <section id="todo">
+      <h1>To-Do's:</h1>
+      <ul>
+        <li>Administrivia</li>
+        <li>App Demo: TodoList</li>
+        <li>ORM-To-Sequelize</li>
+        <li>New CRUD Methods</li>
+        <li>Validations</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Administrivia</h1>
+      <p>Good evening, all! Today's class will be dedicated to introducing new Sequelize methods for updating and deleting records as well as
+        introduce some useful validation. This information will help round out your existing knowledge of Sequelize&mdash;e.g. creating models, selecting
+        inserting, etc.&mdash;and extend it to include support
+        for CRUD-based applications. We'll also want to get used to the CLI when creating new projects from scratch.
+      </p>
+      <p>Do keep in mind that this stuff is <span class="italic">not easy</span>; you are expected to struggle a bit through this unit as a whole.
+      If you're not getting the material immediately, that's perfectly fine. Just be sure to ask plenty of questions, request more thorough explanations
+      of examples, and stay for office hours. <span class="muted italic">(Seriously! Come hang out with us and we'll clear up anything and everything
+        you may be fuzzy on.)</span></p>
+      <p>Throughout the course of this class, please be warned that many of these activities have a lot of working parts that we don't necessarily
+        need to focus on right now. We'll be sticking with Sequelize, as is the focus of this unit.
+      </p>
+      <hr>
+      <p>Before we begin, how do you feel about this unit so far? How about Sequelize? What is it, what is a model, what are <code>findOne</code>, <code>findAll</code>, and
+      <code>create</code>?</p>
+    </section>
+    <section>
+      <h1>App Demo: TodoList</h1>
+      <p>To start things off: everyone deserves a ton of praise for picking up these new concepts. In order to test your knowledge and make it more
+        robust&mdash;this is also the main method in which new concepts have been introduced to you the past four months. Our method of doing so today?
+        A big application! After introducing it, I'll be domoing the final version of an application called <span class="note">TodoList</span> which is
+        already built, but uses an ORM instead of Sequelize.
+      </p>
+      <p>Since the app is already complete, there will be no need to write anything other than JavaScript for the majority of this class, as you will be
+        converting it to use Sequelize. It makes use of each CRUD action, allowing users to:.</p>
+        <ul>
+          <li><span class="note">CREATE</span> new to-dos</li>
+          <li><span class="note">READ</span> their to-do list</li>
+          <li><span class="note">UPDATE</span> to-do items</li>
+          <li><span class="note">DELETE</span> delete to-dos</li>
+        </ul>
+    </section>
+    <section>
+      <h1>ORM-To-Sequelize</h1>
+      <p class="no-letter">Your first task today will be simply to connect to Sequelize and create a "todo" model.</p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>ORM-To-Sequelize</h3>
+        <ul>
+          <li>
+            Create a new local MYSQL database called <span class="mono">todolist</span>, but don't create any tables.
+          </li>
+          <li>
+            Delete any references to the orm.js file inside the <span class="mono">api-routes.js</span> file.
+          </li>
+          <li>
+            Delete the config folder.
+          </li>
+          <li>
+            While inside the activity folder, run <code class="language-bash">npm install</code> in terminal.
+          </li>
+          <li>
+            In terminal, type in the following command: <code class="language-bash">sequelize init:models & sequelize init:config</code>. If this produces an error, then you may not have the sequelize and the sequelize-cli installed globally.
+            Fix this by running <code class="language-bash">npm install -g sequelize sequelize-cli</code> in your terminal and trying again.
+          </li>
+          <li>
+            Step 5 should have created a config and a models folder for us. Navigate to the config folder, open <span class="mono">config.json</span>, and modify the development object's "database","username" and "password" values to match your MYSQL database on your machine.
+          </li>
+          <li>
+            Navigate to the models folder and create a new file called <span class="mono">todo.js</span>. Create a Todo model with columns for "text" (<code>DataTypes.STRING</code>), and "complete" (<code>DataTypes.BOOLEAN</code>).
+          </li>
+          <li>
+            Navigate to the <span class="mono">server.js</span> file and require all of our models by requiring the models folder. Save this to a variable and name it "db".
+          </li>
+          <li>
+            Sync the models by running <code class="language-javascript">db.sequelize.sync()</code> before we start the express server.
+          </li>
+          <li>
+            In your terminal, run <code class="language-bash">node server</code>. Check MYSQL Workbench to see if a Todos table was created. If so, you were successful. If not, check your terminal for any errors.
+          </li>
+        </ul>
+      </div>
+      <div class="review">
+        <h2>ORM-To-Sequelize Review</h2>
+        <p>Let's take a look at how this is done.</p>
+      </div>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>findAll and create</h3>
+          <ol>
+            <li>Open the folder and run <code class="language-bash">npm install</code>.</li>
+            <li>Update the <span class="mono">config.json</span> file's development object with your own local MYSQL database settings.</li>
+            <li>Navigate to the <span class="mono">api-routes.js</span> folder.</li>
+            <li>Add a Sequelize findAll method inside the GET route which finds all of the todos and returns them to the user as JSON.</li>
+            <li>Add a Sequelize create method to the POST route to save a new todo to the database using the data sent to the server in req.body.</li>
+            <li>To test if this worked, open your terminal and run <code class="language-bash">node server</code> and navigate to <span class="mono">localhost:8080</span>. If you are able to save new todos, you were successful.</li>
+            <li><span class="hint">Hint:</span> We can access the Todo model here with <span class="mono">db.Todo</span>.</li>
+          </ol>
+  <p>
+    If you get stuck or finish early, check out the Sequelize Star Wars solution from last class, or try and see if those around you can make sense of Sequelize's docs for the <span class="mono">findAll</span> and <span class="mono">create</span> methods:
+    <a href="http://docs.sequelizejs.com/class/lib/model.js~Model.html#static-method-findAll" target="_blank">findAll reference</a>,
+    <a href="http://docs.sequelizejs.com/class/lib/model.js~Model.html#static-method-create" target="_blank">create reference</a>.
+  </p>
+  
+      </div>
+      <div class="review">
+        <h2>findAll and create Review</h2>
+        <p>Next verse, just like the first. Let's go over this part of the application.</p>
+      </div>
+    </section>
+    <section>
+      <h1>New CRUD Methods</h1>
+      <p class="no-letter">Continuing to convert our application requires some new methods. I'll be demoing updating and deleting
+        todo items. Not only will we be able to delete items&mdash;we can also update the todos by ticking the checkbox associated with each one.
+        This executes an update statement.
+      </p>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Update and Delete</h3>
+        <ol>
+          <li>Open up <span class="mono">09-Sequelize-Update-Delete</span>.</li>
+          <li>Run <code class="language-bash">npm install</code>.</li>
+          <li>Update the <span class="mono">config.json</span> file's development object with your own local MySQL database settings.</li>
+          <li>Inside the <span class="mono">api-routes.js</span> file, look for the DELETE route and add a Sequelize method to delete the todo with the id available to us in <span class="mono">req.params.id</span>.</li>
+          <li>Inside of the same file, look for the PUT route and add a Sequelize method to update a todo with the new todo data available to us inside <span class="mono">req.body</span>.</li>
+          <li>Again, you won't need to touch the front end HTML or JavaScript to make any of this work.</li>
+          <li><span class="hint">Hint:</span> you will need to pass in an options object with a "where" attribute into both methods in order to filter these queries to target the Todos we want to update or delete.</li>
+          <li><http://docs.sequelizejs.com/en/latest/docs/querying/#where></li>
+          <li>Navigate to <span class="mono">localhost:8080</span>. If you can update and delete todos without errors, you were successful.</li>
+          <li>If you get stuck or finish early, discuss the documentation for the update and destroy methods with a partner here:
+          <a href="http://docs.sequelizejs.com/class/lib/model.js~Model.html#static-method-update" target="_blank">update reference</a>,
+          <a href="http://docs.sequelizejs.com/class/lib/model.js~Model.html#static-method-destroy" target="_blank">destroy reference</a>.</li>
+        </ol>
+      </div>
+    </section>
+    <div class="page-break">
+      <h1>Break time!</h1>
+    </div>
+    <!-- <section>
+    </section>
+    <div class="page-break">
+      <h1>That's all for today, see you Monday!</h1>
+    </div> -->
+  </article>
+</body>
+<!-- Script to make code pretty -->
+<script type='text/javascript' src="../js/prism.js"></script>
+</html>
+                
