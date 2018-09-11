@@ -166,15 +166,43 @@
           <a href="http://docs.sequelizejs.com/class/lib/model.js~Model.html#static-method-destroy" target="_blank">destroy reference</a>.</li>
         </ol>
       </div>
+      <hr>
+      <p>We'll review this activity after the break.</p>
     </section>
     <div class="page-break">
       <h1>Break time!</h1>
     </div>
-    <!-- <section>
+    <section>
+      <h1>Validations</h1>
+      <p>As some of you may have already noticed, there's a small flaw with our TodoList application. While our Todos table's text column won't save
+      any datatype other than a <span class="mono">Sequelize.STRING</span>, it is possible to save a todo with an empty or null text value.</p>
+      <p>While it's possible to restrict this functionality on the client side&mdash;and we <span class="italic">definitely</span> should be doing this&mdash;if someone knows
+    how to use Chrome Developer Tools, they can circumvent any restrictions we put in our front-end JavaScript. 
+    Knowing that any code we write on the client is potentially available for the user to tamper with, we should take steps
+    on the back-end to validate what we're receiving before putting it into our database.</p>
+    <p>Sequelize has built-in validations and flags we can include with our models, like making sure that any given text is a URL or email,
+      or that a credit card number is formatted correctly. A flag might include making sure a value is not null before entering it into the database or having a default value for a
+      field if one is not supplied. The difference is that flags are ways for us to implement MYSQL constraints we're already familiar with such as <code class="language-sql">NOT NULL</code>
+      or <code class="language-sql">DEFAULT</code> and validations are additional built in or custom methods we can run before Sequelize inserts a record.</p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Sequelize Validations</h3>
+        <ol>
+          <li>Open the folder slacked out to you.</li>
+          <li>Run <code class="language-bash">npm install</code>.</li>
+          <li>Update the <span class="mono">config.json</span> file's development object with your own local MySQL database settings.</li>
+          <li>Modify the <span class="mono">todo.js</span> file so that the Todo model has a flag to prevent the text field from being null. Also add a validation to make sure the text field is at least one character, but no more than 140 characters.</li>
+          <li>Modify the complete field in our Todo model so that it supplies a default value of false if one is not supplied during Todo creation.</li>
+          <li>Once a Sequelize model has been created and synced for the first time, any changes we make to our Todo model won't be picked up by our database.
+            The easiest way to get around this during the development process is to pass <code class="language-javascript">{ force: true }</code> as an argument into our sync method inside the <span class="mono">server.js</span> file. This will make it so that every time we run our app, our Todos table will be dropped and recreated with the new configuration. More info here under: <a href="http://docs.sequelizejs.com/class/lib/sequelize.js~Sequelize.html#instance-method-sync" target="_blank">sync reference</a></li>
+          <li>Navigate to <span class="mono">localhost:8080</span> to test that this worked. Try to save a Todo without any text in it, and then try and save a Todo with over 140 characters. If these didn't save and you see errors in your console that have to do with validation, you were successful.</li>
+          <li><span class="note">Big Hint:</span> Sequelize documentation on validations with examples can be found here: <a href="http://docs.sequelizejs.com/en/latest/docs/models-definition/#validations" target="_blank">validations reference</a></li>
+        </ol>
+      </div>
     </section>
     <div class="page-break">
-      <h1>That's all for today, see you Monday!</h1>
-    </div> -->
+      <h1>That's all for today, see you Wednesday!</h1>
+    </div>
   </article>
 </body>
 <!-- Script to make code pretty -->
