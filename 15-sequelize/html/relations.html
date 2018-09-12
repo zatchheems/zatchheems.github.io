@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Getting Associated with Relations</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="../css/reset.css">
+  <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  <link rel='stylesheet' type='text/css' href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <pre id='ascii-title' style='font-size:1.3vw; line-height:1em; letter-spacing: 0.0001em; font-weight:700;'>
+
+
+
+
+
+           .-.         .      .                             /\                                              .           
+    .;;.`-'        ...;......;....-.                    _  / |                             .-.          ...;...      .' 
+   ;; (_;   .-.     .'     .'    `-' . ,';.  ,:.,'     (  /  |  .    .    . .-.   .-.      `-' .-.       .'.-.  .-..'   
+  ;;      .;.-'   .;     .;     ;'   ;;  ;; :   ;       `/.__|_.'  .';  .';;   ;';        ;'  ;   :    .;.;.-' :   ;    
+ ;;    `;;'`:::'.;     .;    _.;:._.';  ;;   `-:'   .:' /    |   .' .'.' .'`;;'  `;;;;'_.;:._.`:::'-'.;   `:::'`:::'`.  
+ `;.___.'                           ;    `.-._:'   (__.'     `-''    '                                                  
+
+                         .          .-.                .;             .                                                 
+.;.       .-.  .-.   ...;....;     (_) )-.            .;'         ...;....-.                                            
+  `;     ;'    `-'    .'    ;;-.     .:   \   .-.    .;  .-.       .'    `-' .-.  . ,';.     .                          
+   ;;    ;    ;'    .;     ;;  ;    .::.   ).;.-'   ::  ;   :    .;     ;'  ;   ;';;  ;;   .';                          
+  ;;  ;  ;;_.;:._..;      .;`  `  .-:. `:-'  `:::'_;;_.-`:::'-'.;    _.;:._.`;;' ';  ;;  .' .'                          
+  `;.' `.;'                      (_/     `:._.                                   ;    `.'
+
+
+
+  
+  
+</pre>
+<h2 class='date'> September 12th, 2018</h2>
+</header>
+  <article>
+    <section id="todo">
+      <h1>To-Do's:</h1>
+      <ul>
+        <li>Administrivia</li>
+        <li>Quick review</li>
+        <li>CRUD Blog Application:</li>
+        <ul>
+          <li>Warm-Up</li>
+          <li>CRUD Actions</li>
+          <li>Relations</li>
+        </ul>
+        <li>Sequelize Associations</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Administrivia</h1>
+      <p>Good evening, all! We'll be spending today reinforcing the concepts we've covered in the last two days, particularly
+        CRUD and model creation with Sequelize. We'll also talk about the concept of <span class="italic">relations</span> in
+        Sequelize in addition to using the <span class="mono">include</span> option to perform joins. One of today's main goals
+        is for you to leave able to fully articulate how Sequelize works;
+        how models fit into the MVC framework with Express and MySQL is absolutely essential.
+      </p>
+      <p>Before we begin, let it be known that the Sequelize unit is historically <span class="note">one of the most difficult weeks in the
+        entire cohort,
+      </span> so kudos for making it through! Without further ado, any questions before we begin?</p>
+      <p>Just like last time, we'll be focusing on one large application throughout the duration of the class.</p>
+    </section>
+    <section>
+      <h1>Quick Review</h1>
+      <p class="no-letter">Right off the bat, let's begin with some review. Let's define each CRUD method we've used thus far:</p>
+      <ul>
+        <li><code class="language-javascript">findOne</code></li>
+        <li><code class="language-javascript">findAll</code></li>
+        <li><code class="language-javascript">create</code></li>
+        <li><code class="language-javascript">update</code></li>
+        <li><code class="language-javascript">destroy</code></li>
+      </ul>
+      <p>Recall that <span class="mono">where</span> is an object we can pass to a Sequelize query. Why do we use it?</p>
+      <p>What's the difference between <span class="note">validations</span> and <span class="note">flags</span>?</p>
+    </section>
+    <section>
+      <h1>CRUD Blog Application</h1>
+      <p>
+        The main activity you'll be tackling during this class is one that takes full advantage of the Sequelize methods you've learned over the past
+        two days. I'll be demoing it shortly. Just like last time, you'll be setting up much of the backend, this time for a blogging Content Management
+        System. Front-end code is already totally done, so all you'll be writing today is in Node.
+      </p>
+      <h1>Warm-Up</h1>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Post Model</h3>
+        <p>The goal of this exercise is to create a Post model using Sequelize.</p>
+          <ol>
+            <li>Open <span class="mono">11-Post-Model</span>, run <span class="language-bash">npm install</span></li>
+            <li>Create a new MySQL database and name it <span class="mono">blogger</span>. Don't create any tables.</li>
+            <li>Open the <span class="mono">config</span> folder and update the <span class="mono">config.json</span> file's <span class="mono">development</span> object to match your own local MySQL database.</li>
+            <li>Go to the <span class="mono">models</span> folder and open the <span class="mono">post.js</span> file.</li>
+            <li>Create a Sequelize <span class="mono">Post</span> model here. The model should have a title property of type <span class="mono">DataTypes.STRING</span>, a body property of <span class="mono">DataTypes.TEXT</span>, and a category property of <span class="mono">DataTypes.STRING</span>.</li>
+            <li>To check if this worked, run <code class="language-bash">node server</code> in your terminal. Then open MySQL Workbench or Sequel Pro to check if a Posts table has been created.</li>
+          </ol>
+          <p>
+            <span class="note">Note</span>: We still have some code to add in the next exercise to get this app fully functioning,
+            just concentrate on creating the Post model and verifying that you were successful for now.
+          </p>
+          <hr>
+          <h4 class="bonus">Bonus:</h4>
+          <p>
+            If you complete the activity before time's up, try adding the following:
+          </p>
+          <ol>
+            <li>Flags to the title and body to prevent <code>NULL</code> values from being entered.</li>
+            <li>A validation to the title so that it must be between 1 and 160 characters.</li>
+            <li>A validation to the body so that it must be at least 1 character long.</li>
+            <li>A flag to the category so that it has a default value of "Personal" if a value is not supplied.</li>
+          </ol>
+      </div>
+      <div class="review">
+        <h2>Post Model Review</h2>
+        <p>Let's go over the model we had to create. The validations and flags were optional, but let's spend a moment going over those as well.</p>
+      </div>
+      <hr>
+      <h1>CRUD Activity</h1>
+      <p>As a proper introduction to this activity, we should make note of how a blogging app needs not only to create posts, but read, update, and
+        delete, just like most CRUD apps of this style. Again, no client-side code should be touched whatsoever to get everything to work.
+      </p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>CRUD Activity</h3>
+        <p> The goal of this exercise is to add Sequelize CRUD methods inside each route specified in the comments in the <span class="mono">api-routes.js</span>
+        file.</p>
+        <ol>
+          <li>Open <span class="mono">12-Blog-CRUD</span>, run <code class="language-bash">npm install</code></li>
+          <li>Open the <span class="mono">config</span> folder and update the <span class="mono">config.json</span> file's <span class="mono">development</span> object to match your own local MySQL database.</li>
+          <li>Navigate to the <span class="mono">api-routes.js</span> file inside of the <span class="mono">routes</span> folder.</li>
+          <li>Fill in each route with the code described in the comments to add each CRUD action.</li>
+        </ol>
+        <p>We can test our code works by checking to see if we have the following functionality (recommended order):</p>
+        <ul>
+          <li>Create a new post</li>
+          <li>Get a list of all posts</li>
+          <ul>
+             <li>Get a list of all posts of a category</li>
+             <li>Edit a post</li>
+             <li>Delete a post</li>
+          </ul>
+        </ul>
+    <p class="note italic">If things aren't working as expected, check to see if any errors logged to the terminal.</p>
+      </div>
+      <div class="review">
+        <h2>CRUD Activity Review</h2>
+        <p>Let's go over this one method-by-method.</p>
+      </div>
+      <hr>
+      <h1>Relations</h1>
+      <p>Another demo incoming! The app I'll show you will have changed somewhat.
+        It eliminates categories but has a second model called <span class="bold">Authors</span>.
+        In this example, Authors have Posts, and Posts belong to Authors. More will be available to learn from demoing the app itself.</p>
+      <p>It will also be useful to visit <span class="mono">localhost:8080/api/posts</span> to take a peek under the hood at the data returned
+      from the API looks like.</p>
+      <p>Here are a couple of questions for you to think about:</p>
+      <ul>
+        <li>How can we restructure our database tables if we wanted the ability to form a relationship between a Post and an Author?</li>
+        <li>What would we have to change with these tables to make that possible?</li>
+        <ul>
+          <li>Which table would have a foreign key and why?</li>
+          <li>What would that look like?</li>
+        </ul>
+      </ul>
+      <p>Remember, an Author can and will have multiple Posts, but a Post will only have a single Author. This is what's known as a
+        <span class="note">one-to-many</span> relationship, and may be useful to draw out. Assume we won't be making
+      a third table.</p>
+
+    </section>
+    <div class="page-break">
+      <h1>Break time!</h1>
+    </div>
+    <!-- <section>
+    </section>
+    <div class="page-break">
+      <h1>That's all for today, see you Saturday!</h1>
+    </div> -->
+  </article>
+</body>
+<!-- Script to make code pretty -->
+<script type='text/javascript' src="../js/prism.js"></script>
+</html>
+                
