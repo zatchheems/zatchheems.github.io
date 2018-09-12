@@ -71,3 +71,4 @@
 ### Unit 15: Sequelize
 * [The Sequel to MySQL](./15-sequelize/html/sequel-to-mysql.html)
 * [CRUD+Sequelize](./15-sequelize/html/crud+sequelize.html)
+* [Getting Associated with Relations](./15-sequelize/html/relations.html)
