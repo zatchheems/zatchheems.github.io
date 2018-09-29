@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Intro to MongoDB</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="../css/reset.css">
+  <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  <link rel='stylesheet' type='text/css' href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <pre id='ascii-title' style='font-size:2.5vw; line-height:0.8em; letter-spacing: 0.001em; font-weight:700;'>
+
+
+
+ ___ ___   ___   ____    ____   ___   ___    ____  
+|   |   | /   \ |    \  /    | /   \ |   \  |    \ 
+| _   _ ||     ||  _  ||   __||     ||    \ |  o  )
+|  \_/  ||  O  ||  |  ||  |  ||  O  ||  D  ||     |
+|   |   ||     ||  |  ||  |_ ||     ||     ||  O  |
+|   |   ||     ||  |  ||     ||     ||     ||     |
+|___|___| \___/ |__|__||___,_| \___/ |_____||_____|
+
+
+
+</pre>
+<h2 class='date'> September 29th, 2018</h2>
+</header>
+  <article>
+    <section id="todo">
+      <h1>To-Do's:</h1>
+      <ul>
+        <li>Mongo Installation</li>
+        <li>Administrivia</li>
+        <li>Intro to MongoDB</li>
+        <li>Initial Queries and Basics</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Administrivia</h1>
+      <p>Good morning, all! Congratulations on finishing your projects. The hard work you all put in was clearly evident in
+        the quality of your applications. Before we begin today's lesson on MongoDB and NoSQL, let's take inventory of your
+        thoughts about the project in the form of a plus/delta (+/&Delta;) list.
+      </p>
+      <p>With the technologies you've learned thus far, most of you are already hireable. This would be a great time to start
+        looking for employment if you want to find work now. The roadmap for the rest of the cohort will include MongoDB/NoSQL, React, some computer science and other technologies.
+        Without further ado, let's get into MongoDB!
+      </p>
+    </section>
+    <section>
+      <h1>Intro to MongoDB</h1>
+      <p>What's a NoSQL database? Simply put, a NoSQL database doesn't use SQL's table-based relationship model.
+        Instead, MongoDB uses a <span class="note">document-oriented model</span>. One of the most convenient parts of NoSQL databases
+        is that they store data as BSON, or "Binary JSON". When these objects get returned, they are usable as
+        regular JSON objects. It's important to note that ongoDB is still an inherently different style of data storage than MySQL.
+        A BSON document is basically a more flexible
+        JSON, and individual documents can include strings, ints, booleans and even other objects.</p>
+      <p>Relational databases such as MySQL, Oracle, SQL Server, etc. rely on joins to get data from multiple tables.
+        A BSON version of this data doesn't always need to be joined for certain complex data structures, since BSON supports Objects Within Objects.
+        Once we get this data toa site, it's a cinch to traverse&mdash;it's the same routine as picking out JSON
+        data.
+      </p>
+      <p>Lastly, MongoDB has tons of drivers and packages for connecting to Node, C++, Java, Ruby, Python, etc.
+      This means that we can use this tech for pretty much any project you can think of</p>
+      <h2>Quick Questions</h2>
+      <ul>
+        <li>What are the advantages of using a NoSQL database like MongoDB according to the MongoDB Website?</li>
+        <li>What are the advantages of using a NoSQL database like MongoDB according to the web?</li>
+        <li>What are the disadvantages of using a NoSQL database like MongoDB according to the web?</li>
+      </ul>
+      <hr>
+      <p>From the MongoDB site:</p>
+      <blockquote>"Relational databases require that schemas be defined before you can add data. For example, you might want to store
+      data about your customers such as phone numbers, first and last name, address, city and state – a SQL database needs to
+      know what you are storing in advance... Object-oriented programming that is easy to use and flexible."</blockquote>
+      <hr>
+      <blockquote>Deep query-ability. MongoDB supports dynamic queries on documents using a document-based query language that's nearly
+      as powerful as SQL. No schema migrations. Since MongoDB is schema-free, your code defines your schema.</blockquote>
+      <hr>
+      <blockquote>Sometimes, using joins and having strict schemas is actually preferable to MongoDB.
+      "If your database has a lot of relations and normalization, it might make little sense to use something like MongoDB.
+      It's all about finding the right tool for the job."</blockquote>
+      <hr>
+      <p>Make sure your installation of MongoDB works properly&mdash;we're about to start our first queries!</p>
+    </section>
+    <section>
+      <h1>Initial Queries and Basics</h1>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <p>Check out <span class="mono">01-Create-Insert-and-Find</span>. This file includes comments that will
+        help you learn how to create a database, insert data into a collection, and find stored data.</p>
+      </div>
+      <hr>
+      <h2>Query Basics</h2>
+      <pre><code class="language-mongo">use &lt;database> // create and use a database
+db // show current database
+db.&ltdbname>.insert({...}) // insert data into a collection
+db.&ltdbname>.find() // show all data in collection
+db.&ltdbname>.find().pretty() // pretty-print it!
+db.&ltdbname>.find({ "&lt;key>":"&lt;value>" }) // find specfic data
+db.&ltdbname>.find({_id: ObjectId("&lt;unique ID>")}) // find object by ID</code></pre>
+<hr>
+</section>
+<div class="page-break">
+  <h1>Break time!</h1>
+</div>
+<section>
+  <h1>MongoDB Syntax Continued</h1>
+  <p class='no-letter'>Let's continue our study of Mongo syntax with an activity.</p>
+  <div class="student-activity">
+    <h2>Student activity!</h2>
+    <h3>Starting With Mongo</h3>
+    <p>Check out <span class="mono">02-Starting-With-Mongo</span>.</p>
+    <ul>
+      <li>
+        Use the command line to create a classroom database. Insert entries for yourself and the people in your row in a
+        students collection. Each document should have:
+      </li>
+      <ol>
+        <li>A field of name with the person's name.</li>
+        <li>A field of rownumber which will contain the row number that they are in.</li>
+        <li>A field of os which will contain the Operating System of the computer they are using: 'Mac', 'Win', etc</li>
+        <li>A field of hobbies with an array of the hobbies the person likes to do.</li>
+      </ol>
+      <li>Use find commands to get:</li>
+      <ol>
+        <li>A list of everyone in your row.</li>
+        <li>An entry for a single person.</li>
+        <li>The entries for all the Mac users in your row.</li>
+      </ol>
+    </ul>
+    <p><span class="bonus">Bonus:</span> If you finish early, check out the MongoDB documentation and figure out how to find users by an entry in an array.</p>
+  </div>
+  <div class="review">
+    <h2>Starting With Mongo</h2>
+    <p>Let's go over the queries necessary to fill this collection with the required info.</p>
+  </div>
+  <p>Now, let's check out <span class='mono'>03-Update-Delete-and-Drop</span> and demo the commands contained within.
+    We want to be able to remove,
+    update and drop data within MongoDB. I'll demo this functionality for you.
+  </p>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Taking Candy from Basket Weavers</h3>
+        <p>
+          Open up <span class="mono">04-Student-Update-Delete-and-Drop</span> and go back to your classroom database.
+        </p>
+        <p>
+          You've decided to take on a new hobby. Add Extreme Basket Weaving to your array of hobbies.
+        </p>
+        <p>While practicing for your Extreme Basket Weaving Competition, you broke the computer of the person next to you. They're
+        using a new Operating System now. Change their os field.</p>
+        <p>Another student in your row saw you break that computer and wisely decided to move. Remove them from your database.</p>
+        <p>You are worried everyone else will leave and you'll have to sit all alone. You decide to bribe everyone who didn’t
+        leave with candy. Add a field of gavecandy with a value of false to everyone in the array so you can keep track.</p>
+        <p>All this work made you hungry, so you bought yourself some candy. Change the value of gavecandy to true in your entry.</p>
+      </div>
+      <div class="review">
+        <h2>Taking Candy from Basket Weavers Review</h2>
+        <p>Let's go over the solution to this exercise.</p>
+      </div>
+      </section>
+    <div class="page-break">
+      <h1>That's all for today, see you Monday!</h1>
+    </div>
+  </article>
+</body>
+<!-- Script to make code pretty -->
+<script type='text/javascript' src="../js/prism.js"></script>
+</html>
+                

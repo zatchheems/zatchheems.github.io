@@ -72,3 +72,12 @@
 * [The Sequel to MySQL](./15-sequelize/html/sequel-to-mysql.html)
 * [CRUD+Sequelize](./15-sequelize/html/crud+sequelize.html)
 * [Getting Associated with Relations](./15-sequelize/html/relations.html)
+
+### Unit 16: Project 2
+* [Linting and Projects](./16-project-2/html/linting-and-projects.html)
+
+### Unit 17: Project 2 (Continued)
+_No new notes_
+
+### Unit 18: MongoDB and Mongoose
+* [Intro to MongoDB](./18-mongo-mongoose/html/mongodb.html)
