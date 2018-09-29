@@ -1,17 +1,17 @@
 /* declare a few CSS variables */
 :root {
-  --main-color: #e95419;
-  --alt-color: #a9dac5;
-  --accent: #f89a2f;
-  --alt-accent: #75493b;
-  --bright-accent: #ffdb39;
-  --mid-accent: #c2651a;
-  --dark-accent: #293a33;
-  --muted:#878b8c;
+  --main-color: #ffb0ee;
+  --alt-color: #6aa344;
+  --accent: #c5ff83;
+  --alt-accent: #4f384b;
+  --bright-accent: #ff8dd9;
+  --mid-accent: #c02c82;
+  --dark-accent: #220018;
+  --muted:#735340;
   --light-gray:rgb(210, 210, 210);
-  --gray-bg: #070707;
-  --content:#5c2514;
-  --txt:#f3f7f0;
+  --gray-bg: #1b1b1b;
+  --content:#002b28;
+  --txt:#ead6eb;
 }
 
 @keyframes appear {
