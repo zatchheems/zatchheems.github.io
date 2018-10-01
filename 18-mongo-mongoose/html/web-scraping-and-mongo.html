@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web Scraping and Server-Side Mongo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="../css/reset.css">
+  <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  <link rel='stylesheet' type='text/css' href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <pre id='ascii-title' style='font-size:1.25vw; line-height:0.8em; letter-spacing: 0.0001em; font-weight:700;'>
+
+
+▄▀▀▄    ▄▀▀▄  ▄▀▀█▄▄▄▄  ▄▀▀█▄▄       ▄▀▀▀▀▄  ▄▀▄▄▄▄   ▄▀▀▄▀▀▀▄  ▄▀▀█▄   ▄▀▀▄▀▀▀▄  ▄▀▀█▀▄    ▄▀▀▄ ▀▄  ▄▀▀▀▀▄   
+█   █    ▐  █ ▐  ▄▀   ▐ ▐ ▄▀   █     █ █   ▐ █ █    ▌ █   █   █ ▐ ▄▀ ▀▄ █   █   █ █   █  █  █  █ █ █ █         
+▐  █        █   █▄▄▄▄▄    █▄▄▄▀         ▀▄   ▐ █      ▐  █▀▀█▀    █▄▄▄█ ▐  █▀▀▀▀  ▐   █  ▐  ▐  █  ▀█ █    ▀▄▄  
+  █   ▄    █    █    ▌    █   █      ▀▄   █    █       ▄▀    █   ▄▀   █    █          █       █   █  █     █ █ 
+   ▀▄▀ ▀▄ ▄▀   ▄▀▄▄▄▄    ▄▀▄▄▄▀       █▀▀▀    ▄▀▄▄▄▄▀ █     █   █   ▄▀   ▄▀        ▄▀▀▀▀▀▄  ▄▀   █   ▐▀▄▄▄▄▀ ▐ 
+         ▀     █    ▐   █    ▐        ▐      █     ▐  ▐     ▐   ▐   ▐   █         █       █ █    ▐   ▐         
+               ▐        ▐                    ▐                          ▐         ▐       ▐ ▐
+
+                                     ▄▀▀█▄   ▄▀▀▄ ▀▄  ▄▀▀█▄▄                                                   
+                                    ▐ ▄▀ ▀▄ █  █ █ █ █ ▄▀   █                                                  
+                                      █▄▄▄█ ▐  █  ▀█ ▐ █    █                                                  
+                                     ▄▀   █   █   █    █    █                                                  
+                                    █   ▄▀  ▄▀   █    ▄▀▄▄▄▄▀                                                  
+                                    ▐   ▐   █    ▐   █     ▐                                                   
+                                            ▐        ▐               
+
+ ▄▀▀▀▀▄  ▄▀▀█▄▄▄▄  ▄▀▀▄▀▀▀▄  ▄▀▀▄ ▄▀▀▄  ▄▀▀█▄▄▄▄  ▄▀▀▄▀▀▀▄      ▄▀▀▀▀▄  ▄▀▀█▀▄    ▄▀▀█▄▄   ▄▀▀█▄▄▄▄            
+█ █   ▐ ▐  ▄▀   ▐ █   █   █ █   █    █ ▐  ▄▀   ▐ █   █   █     █ █   ▐ █   █  █  █ ▄▀   █ ▐  ▄▀   ▐            
+   ▀▄     █▄▄▄▄▄  ▐  █▀▀█▀  ▐  █    █    █▄▄▄▄▄  ▐  █▀▀█▀         ▀▄   ▐   █  ▐  ▐ █    █   █▄▄▄▄▄             
+▀▄   █    █    ▌   ▄▀    █     █   ▄▀    █    ▌   ▄▀    █      ▀▄   █      █       █    █   █    ▌             
+ █▀▀▀    ▄▀▄▄▄▄   █     █       ▀▄▀     ▄▀▄▄▄▄   █     █        █▀▀▀    ▄▀▀▀▀▀▄   ▄▀▄▄▄▄▀  ▄▀▄▄▄▄              
+ ▐       █    ▐   ▐     ▐               █    ▐   ▐     ▐        ▐      █       █ █     ▐   █    ▐              
+         ▐                              ▐                              ▐       ▐ ▐         ▐    
+
+                         ▄▀▀▄ ▄▀▄  ▄▀▀▀▀▄   ▄▀▀▄ ▀▄  ▄▀▀▀▀▄    ▄▀▀▀▀▄                                          
+                        █  █ ▀  █ █      █ █  █ █ █ █         █      █                                         
+                        ▐  █    █ █      █ ▐  █  ▀█ █    ▀▄▄  █      █                                         
+                          █    █  ▀▄    ▄▀   █   █  █     █ █ ▀▄    ▄▀                                         
+                        ▄▀   ▄▀     ▀▀▀▀   ▄▀   █   ▐▀▄▄▄▄▀ ▐   ▀▀▀▀                                           
+                        █    █             █    ▐   ▐                                                          
+                        ▐    ▐             ▐
+
+
+</pre>
+<h2 class='date'> October 1st, 2018</h2>
+</header>
+  <article>
+    <section id="todo">
+      <h1>To-Do's:</h1>
+      <ul>
+        <li>Administrivia</li>
+        <li>Web Scraping</li>
+        <li>Using Cheerio</li>
+        <li>Mongo Practice and MongoJS</li>
+        <li>MongoJS + Frontend</li>
+        <li>Scraping Into MongoDB</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Administrivia</h1>
+      <p>Good evening, everyone! Welcome to day two of our discussion on MongoDB and NoSQL. By this point,
+        Mongo should still seem fresh but familiar in a way&mdash;think Firebase. The storage of data in BSON,
+        relation-less collections and ease-of-use should seem remarkably similar. Before we begin, let's get any questions,
+        comments, or concerns about this new tech, be it usage, popularity in the wild, advantages/disadvantages, etc.
+      </p>
+    </section>
+    <section>
+      <h1>Web Scraping</h1>
+      <p class='no-letter'>What is <span class="note">web scraping</span>? This is a common topic in web development; if you already
+      know about it, explain what it is in your own words.</p>
+      <hr>
+      <p>Simply put, web scraping is essentially a programmatic means of taking data from any web site. Programmers mark sections of a site
+      for their apps to scrape (certain divs, certain element tags, etc.), which lets them store site data elsewhere.
+      Why might we want to do that? Why are there legal ramifications for scraping certain sites?</p>
+      <hr>
+      <p>Truth be told, it's a bit of a gray area. Web scraping is not a lawful solution for every project.
+        Within the last year, certain projects and companies have been slapped with hefty fines for scraping at-scale.
+        This begs the question: <span class="italic">is it worth it?</span> In situations where the data is acquired lawfully, oftentimes it is.
+        This class will be partially focused on executing our own web scraping using an npm package called <span class="mono">cheerio</span>.
+      </p>
+      <h2>Using Cheerio</h2>
+      <p>Let's check out the <a href="https://github.com/cheeriojs/cheerio">Cheerio documentation (https://github.com/cheeriojs/cheerio)</a>.
+      We'll notice how the syntax looks remarkably similar to a technology we used a while ago... nearly identical, in fact.</p>
+</section>
+<section>
+  <h1>Using Cheerio</h1>
+  <p class="no-letter">First things first, I'm going to demonstrate how to use Cheerio. Please follow along with me:</p>
+  <div class="activity">
+    <h2>Class activity!</h2>
+    <p>Open up <span class="mono">05-Scraping</span> to follow along with me. As a reminder, you'll need to <code class="language-bash">npm install</code>
+    to get all the necessary packages.</p>
+    <p>Let's check out a website we'd like to scrape, then crack open <span class="mono">server.js</span> to see what will happen. 
+    We want to pay special attention to the <span class="mono">request package</span>, usage of <code>$</code> as a variable
+    <span class="muted italic">(any guesses as to why?)</span> and the usage.</p>
+    <p>Then, we'll check out the other server files.</p>
+  </div>
+  <hr>
+  <div class="student-activity">
+    <h2>Student activity!</h2>
+    <h3>Web Scraping Starter</h3>
+    <p>Check out <span class="mono">06-Scrape-Starter</span>.</p>
+    <p>Using this template, the cheerio documentation, and what you've learned in class so far, scrape a website of your
+    choice, save information from the page in a result array, and log it to the console.</p>
+    <p>The file will include sections marked off where you should add your code.</p>
+  </div>
+  <div class="review">
+    <h2>Web Scraping Starter Review</h2>
+    <p>What sites did everyone choose and why? How did everyone go about selecting the elements you wanted to scrape?</p>
+    <p>Did anyone find it difficult or not possible to get the data they wanted from just the HTML? Keep in mind that much of the data
+      we provide in our own sites requires client-side JavaScript. When we disable it, oftentimes we don't get anything we want whatsoever.
+      This is evident on sites where when we disable JavaScript in a browser's dev tools.
+    </p>
+  </div>
+  <p>Pretty interesting stuff. <span class="accent italic">And now, time for something completely different!</span></p>
+</section>
+<section>
+  <h1>Mongo Practice and MongoJS</h1>
+  <p>Some of you may be wondering how this all figures into what we learned yesterday. Well, it will all make sense by the end of
+  class; all of this is going to tie together rather neatly.
+  For now, we're going to swing back to MongoDB, and this time, get it to interact with Node.</p>
+  <div class="student-activity">
+    <h2>Student activity!</h2>
+    <h3>Zoo DB</h3>
+    <p>Startup <span class="mono">mongod</span> and the mongo shell and switch to a new db named zoo.</p>
+    <p>Insert into a collection named <span class="mono">animals</span>:
+    One entry for each of your five favorite animals.</p>
+    <p>Each entry should have:</p>
+    <ol>
+      <li>A field of <code>numLegs</code> with an integer of the number of legs that animal has.</li>
+      <li>A field of <code>class</code> with that animal's class (mammal, reptile, etc).</li>
+      <li>A field of <code>weight</code> with an integer of the weight of the animal in pounds (any reasonable weight, really).</li>
+      <li>A field of <code>name</code>, with the animal's name.</li>
+      <li>A field of <code>whatIWouldReallyCallIt</code> with the name of what you would call the animal if you got to name it.</li>
+    </ol>
+    <p>An example:</p>
+<pre><code class="language-json">{
+  "name": "Zebra",
+  "numLegs": 4,
+  "class": "mammal",
+  "weight": 880,
+  "whatIWouldReallyCallIt": "DOUBLEHORSE"
+}</code></pre>
+  </div>
+  <div class="review">
+    <h2>Zoo DB Review</h2>
+    <p>This should have been a relatively easy assignment. Please feel free to ask questions if you need something cleared up.</p>
+  </div>
+  <h2>Sorting With MongoDB</h2>
+  <p>Before we get Mongo properly connected to Node, we have to be able to sort our data. This is possibly the last holdover from MySQL we
+    haven't gone over. This is vital for organizing our data before displaying it on a website. Let's crack open <span class="mono">08-Sorting</span>
+    and go through it line-by-line&mdash;feel free to try these commands as we go over them.
+  </p>
+  <hr>
+  <h2>MongoJS</h2>
+  <p>Now that we've all become MongoDB masters, it's time to use our craft with Node. Let's look up <span class="mono">MongoJS</span> on the npm website.</p>
+  <p>After doing so, we don't need to worry about connecting to the database just yet:
+    the main focus is how to call the MongoDB methods we've already used. For instance, how would we find, insert, remove, and sort?</p>
+    <p>The main theme here is that using these methods is nearly identical to running them in the <span class="mono">mongo</span> shell,
+    just with a callback function to handle the results in a server. From there, it's really just using Express to
+    send the data to the browser, same as we did with MySQL.</p>
+  <div class="student-activity">
+    <h2>Student activity!</h2>
+    <h3>MongoJS and Sorting</h3>
+    <p>In this activity, you will make four routes that display results from your zoo collection:</p>
+    <ol>
+      <li>Root: Displays a simple "Hello World" message (no mongo required).</li>
+      <li>All: Send JSON response with all animals</li>
+      <li>Name: Send JSON response sorted by name in ascending order</li>
+      <li>Weight: Send JSON response sorted by weight in descending order</li>
+    </ol>
+  </div>
+  <div class="review">
+    <h2>MongoJS and Sorting Review</h2>
+    <p>Let's go over the solution to this activity.</p>
+  </div>
+</section>
+<div class="page-break">
+  <h1>Break time!</h1>
+</div>
+    <!-- <section>
+      <h1></h1>
+    </section>
+    <div class="page-break">
+      <h1>That's all for today, see you Wednesday!</h1>
+    </div> -->
+  </article>
+</body>
+<!-- Script to make code pretty -->
+<script type='text/javascript' src="../js/prism.js"></script>
+</html>
+                
