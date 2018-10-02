@@ -60,7 +60,7 @@
         <li>Web Scraping</li>
         <li>Using Cheerio</li>
         <li>Mongo Practice and MongoJS</li>
-        <li>MongoJS + Frontend</li>
+        <li>MongoJS + Front-end</li>
         <li>Scraping Into MongoDB</li>
       </ul>
     </section>
@@ -185,12 +185,68 @@
 <div class="page-break">
   <h1>Break time!</h1>
 </div>
-    <!-- <section>
-      <h1></h1>
+    <section>
+      <h1>MongoJS + Front-end</h1>
+      <p>Now that we have our back end working without MongoDB, we have one last component to add to make this a fullstack app:
+        the front-end.</p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>MongoJS and the Front-end</h3>
+        <p>I'm going to demo this activity, then you'll build it!</p>
+        <p>Open up <span class="mono">10-MongoJS-and-the-Front-End</span> and check out <span class="mono">public/app.js</span>. The instructions
+        within are as follows:</p>
+        <ol>
+          <li>
+            Make a reusable function for creating a table body in <span class="mono">index.html</span> with the results from your MongoDB query
+            Each row should have info for one animal.
+          </li>
+          
+          <li>
+            Make two AJAX functions that fire when users click the two buttons on index.html.
+            <ol>
+              <li>When the user clicks the Weight button, the table should display the animal data sorted by weight.</li>
+              <li>When the user clicks the Name button, the table should display the animal data sorted by name.</li>
+            </ol>
+          </li>
+          <p>Good luck!</p>
+          <p><span class="hint">Hint:</span> We don't want to keep adding to the table with each button click. We only want to show the new results.
+          What can we do to the table to accomplish this?</p>
+        </ol>
+      </div>
+      <div class="review">
+        <h2>MongoJS and the Front-end Review</h2>
+        <p>How did we do on this activity? Any questions before we go over it?</p>
+      </div>
+    </section>
+    <section>
+      <h1>Scraping Into MongoDB</h1>
+      <p>Time to tie it all together! We've got scraping, <span class="mono">MongoJS</span> and MongoDB at our disposal
+      to bring everything into the realm of full-stack. Today's final activity will have you do just that.</p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Scraping Into a DB</h3>
+        <p>Using the tools and techniques you learned so far,
+        you will scrape a website of your choice, then place the data
+        in a MongoDB database. Be sure to make the database and collection
+        before running this exercise.</p>
+        <p>You'll have to use two routes:</p>
+        <ol>
+          <li>Route 1: This route will retrieve all of the data
+          from the <span class="mono">scrapedData</span> collection as json (this will be populated
+          by the data you scrape using the next route)</li>
+          <li>Route 2:
+          When you visit this route, the server will
+          scrape data from the site of your choice, and save it to
+          MongoDB.
+          <span class="hint">Tip:</span> Think back to how you pushed website data
+          into an empty array earlier in the class. How do you
+          push it into a MongoDB collection instead?</li>
+        </ol>
+      </div>
     </section>
     <div class="page-break">
       <h1>That's all for today, see you Wednesday!</h1>
-    </div> -->
+    </div>
   </article>
 </body>
 <!-- Script to make code pretty -->
