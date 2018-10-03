@@ -82,3 +82,4 @@ _No new notes_
 ### Unit 18: MongoDB and Mongoose
 * [Intro to MongoDB](./18-mongo-mongoose/html/mongodb.html)
 * [Web Scraping and Server-Size Mongo](./18-mongo-mongoose/html/web-scraping-and-mongo.html)
+* [Mongoose](./18-mongo-mongoose/html/mongoose.html)
