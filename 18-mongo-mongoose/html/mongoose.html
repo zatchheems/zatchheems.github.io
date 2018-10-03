@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mongoose</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="../css/reset.css">
+  <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  <link rel='stylesheet' type='text/css' href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <pre id='ascii-title' style='font-size:1.6vw; line-height:auto; letter-spacing: auto; font-weight:700;'>
+                                                                                            
+          ____                                                                              
+        ,'  , `.                                                                            
+     ,-+-,.' _ |                                                                            
+  ,-+-. ;   , ||   ,---.        ,---,               ,---.     ,---.                         
+ ,--.'|'   |  ;|  '   ,'\   ,-+-. /  |  ,----._,.  '   ,'\   '   ,'\   .--.--.              
+|   |  ,', |  ': /   /   | ,--.'|'   | /   /  ' / /   /   | /   /   | /  /    '     ,---.   
+|   | /  | |  ||.   ; ,. :|   |  ,"' ||   :     |.   ; ,. :.   ; ,. :|  :  /`./    /     \  
+'   | :  | :  |,'   | |: :|   | /  | ||   | .\  .'   | |: :'   | |: :|  :  ;_     /    /  | 
+;   . |  ; |--' '   | .; :|   | |  | |.   ; ';  |'   | .; :'   | .; : \  \    `. .    ' / | 
+|   : |  | ,    |   :    ||   | |  |/ '   .   . ||   :    ||   :    |  `----.   \'   ;   /| 
+|   : '  |/      \   \  / |   | |--'   `---`-'| | \   \  /  \   \  /  /  /`--'  /'   |  / | 
+;   | |`-'        `----'  |   |/       .'__/\_: |  `----'    `----'  '--'.     / |   :    | 
+|   ;/                    '---'        |   :    :                      `--'---'   \   \  /  
+'---'                                   \   \  /                                   `----'   
+                                         `--`-'                                             
+
+</pre>
+<h2 class='date'> October 3rd, 2018</h2>
+</header>
+  <article>
+    <section id="todo">
+      <h1>To-Do's:</h1>
+      <ul>
+        <li>Administrivia</li>
+        <li>Mongo Warm-Up</li>
+        <li>Intro to Mongoose</li>
+        <li>Models</li>
+        <li>Population with Mongoose</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Administrivia</h1>
+      <p>Good evening, everyone! Today's class will build on your existing Mongo knowledge and extend it further. Just like with Sequelize
+        and SQL, the material we will be going over today makes your Mongo workflow just a teensy bit easier, and a <span class="italic">lot</span>
+        more flexible. We've been going over a lot of technology fairly quickly this week; to make sure
+        it's all friend in your minds, let's get right into this lesson with a warm-up!
+      </p>
+    </section>
+   <section>
+     <h1>Mongo Warm-Up</h1>
+    <div class="student-activity">
+      <h2>Student activity!</h2>
+      <h3>Mongo Warm-Up</h3>
+      <p>Check out <span class="mono">13-Warm-Up</span>. The finished version of this application allows one to 
+      add books, and mark books as read or unread.</p>
+      <p>Your goal is to complete the routes in the server file so the site can display and edit the book data. Don't worry about
+      the front end, just use MongoJS to finish the routes.</p>
+    </div>
+    <div class="review">
+      <h2>Warm-Up Review</h2>
+      <p>Let's go over this quickly, and stop anywhere there may be questions or unclear steps.</p>
+    </div>
+   </section>
+   <section>
+     <h1>Intro to Mongoose</h1>
+     <p>Mongo is very flexible, and makes it a cinch to save and retrieve data. However, sometimes we need to be stricter.
+      We don't want to save <span class="mono">true</span> or an actual array as a book, or save a book without a
+      title, or save a book with the same name and author. Nevertheless, the flexibility of MongoDB makes that possible.</p>
+      <p>Pivoting to a more relational use-case: sometimes, we want to combine two collections for information.
+        What if we have our authors and their books stored separately? How would we display a list of all author data along
+        with all of the books they wrote? Relational databases make that possible with joins, but how do we do that with MongoDB?</p>
+      <h2>Enter <span class="mono">Mongoose</span></h2>
+      <p>Mongoose is to Mongo as Sequelize is to SQL. Pretty nice that we have that convenient analogy. Some of things we can use in
+        Mongoose are as follows:
+      </p>
+      <ul>
+        <li>Lets us define models for our Mongo data such that there are no surprise data types for particular fields</li>
+        <li>Set required fields</li>
+        <li>Create custom functions to handle our data in ways that aren't already baked into the framework</li>
+        <li>Combine collections with <code>populate</code>, a method that offers very similar functionality to a SQL join</li>
+      </ul>
+      <h2>When should we use it?</h2>
+      <p>We should use Mongoose when we want the simplicity of parsing BSON data in a website along with the same kinds of benefits
+        that MySQL schemas offer. In this way, we leverage the most convenient parts of SQL in a NoSQL environment.
+      </p>
+   </section>
+   <section>
+     <h1>Models</h1>
+     <p>In order to get a feel for the tech we'll be using, let's check out <span class="mono">14-SchemaExample</span>. We want
+    to pay attention to two files in particular: <span class="mono">server.js</span> and <span class="mono">exampleModel.js</span>.
+    Main concepts to pay attention to:</p>
+    <ul>
+      <li><span class="mono">server.js</span> loads Mongoose, uses the URL path of the MongoDB database to connect with MongoDB</li>
+      <li><span class="mono">server.js</span> loads in <span class="mono">exampleModel.js</span> with <code class="language-javascript">require</code>;
+      this model is similar to that of a Sequelize model, defining a schema for it then using the model to query a DB</li>
+    </ul>
+    <p>We'll pay attention to how we set up a schema class, define a schema, then use it to create a model. After that, we use the model's
+      <code>create</code> method, accepting an object that describes the new document to be inserted.</p>
+    <hr>
+    <div class="student-activity">
+      <h2>Student activity!</h2>
+      <h3>Make a Model Schema</h3>
+      <p>Check out <span class="mono">15-User-Schema</span>. I'll demo this for you shortly. What this app does within Mongoose
+        is validate that there aren't any duplicate emails.</p>
+      <p>The instructions are outlined in the assignment; your work consists of fleshing out a schema already outlined for you.</p>
+    </div>
+    <div class="review">
+      <h2>Model Schema Review</h2>
+      <p>Let's check out how this schema looks.</p>
+    </div>
+    <p>What if we want more functionality than what these schema properties offer?</p>
+    <p>What if we want to create new entries with the information that the user sends automatically?
+      If we wanted a full-name field that gets created on the fly, we can do so by concatenating the first and last name of a user in a
+      custom method. Maybe we simply want to update a field with a simple function call in our server file.
+    </p>
+    <p>Let's check out an example file in <span class="mono">16-Custom-Methods</span>, paying particular attention to <span class="mono">server.js</span>,
+    <span class="mono">usermodel.js</span> and <span class="mono">public/index.html</span>. This particular example makes changes to users
+    as they get inserted into the database. We'll be going over <span class="mono">userModel.js</span>
+    first.</p>
+    <hr>
+    <p>Any questions on the files we just went over?</p>
+    <hr>
+    <div class="student-activity">
+      <h2>Student activity!</h2>
+      <h3>Custom Methods</h3>
+      <p>Crack open <span class="mono">17-Custom-Method-Exercise</span>. Your work should be done in <span class="mono">server.js</span>
+      and <span class="mono">userModel.js</span>. Your instructions are as follows:</p>
+      <ol>
+        <li>Go to userModel.js, and create custom methods based on the details offered in the file.</li>
+        <li>Once you've made those custom methods, use them in this file's <span class="mono">POST</span> request.</li>
+      </ol>
+    </div>
+    <div class="review">
+      <h2>Custom Methods Review</h2>
+      <p>Let's go over a solved <span class="mono">server.js</span> and <span class="mono">userModel.js</span>.</p>
+    </div>
+   </section>
+  <div class="page-break">
+    <h1>Break time!</h1>
+  </div>
+  </article>
+</body>
+<!-- Script to make code pretty -->
+<script type='text/javascript' src="../js/prism.js"></script>
+</html>
+                
