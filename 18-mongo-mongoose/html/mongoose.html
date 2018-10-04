@@ -145,6 +145,53 @@
   <div class="page-break">
     <h1>Break time!</h1>
   </div>
+    <section>
+      <h1>Population with Mongoose</h2>
+      <p>Populate allows users to relate one collection to another. This is not to say that it supports very advanced relations; relational databases
+        still have that covered much, much better. But, it does give some similar functionality to Mongoose-powered sites.</p>
+      <p>We'll continue our discussion with an example: I'll be checking out <span class="mono">18-Intro-Populate</span> and demoing it for you
+        by saving a few books. Then, I'll visit <span class="mono">/books</span> to see books listed.
+        After that, we'll look at <span class="mono">/library</span> to see the data in JSON, including a list of <span class="mono">ObjectIds</span>.
+        There are associated with each book we've made.</p>
+      <p>If we wanted to see the data for all the books in our library again? We could go back to books, but we want all of the information about
+        our library and our books: <span class="mono">/populated</span> will do just that.</p>
+      <p>To see how this happened, we'll be talking a look at <span class="mono">Library.js</span>,
+      <span class="mono">Book.js</span>, <span class="mono">index.js</span>, and, lastly, <span class="mono">server.js</span>.</p>
+      <p>When working with multiple models, it's often useful to be able to require all of them at once, rather than
+      individually. By exporting an object containing all of our models from the <span class="mono">index.js</span>
+      file in the models folder, we can then require this object and access all of our models inside of <span class="mono">server.js</span>.</p>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Finish User Model</h3>
+        <p>Check out <span class="mono">19-Populate-Exercise</span>.</p>
+        <p>Your work is located in <span class="mono">server.js</span>, but
+        check out the <span class="mono">Note.js</span> and <span class="mono">User.js</span>
+        models to see how the schemas there make the populate method possible.</p>
+      </div>
+      <div class="review">
+        <h2>Finish User Model Review</h2>
+        <p>How did this one go? This activity is an essential part of your
+          homework, so please feel free to ask any questions you may have.
+        </p>
+      </div>
+      <h2>Scraping with Mongoose</h2>
+      <p>Our final activity of the day will be to combine the technologies used
+        in the previous class with our new framework. We'll be using Cheerio just like
+        last time.
+      </p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Scraping with Mongoose</h3>
+        <p>Check out <span class="mono">20-Scraping-With-Mongoose</span>. The files
+        contained within, most importantly <span class="mono">server.js</span>, will
+        be used to scrape data from the web, then manipulate that data with Cheerio.</p>
+        <p>If you can do this assignment, you should be all set for the homework!</p>
+      </div>
+      </section>
+    <div class="page-break">
+      <h1>That's all for today, see you Wednesday!</h1>
+    </div>
   </article>
 </body>
 <!-- Script to make code pretty -->
