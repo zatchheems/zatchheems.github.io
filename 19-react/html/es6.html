@@ -100,7 +100,7 @@
     <hr>
     <div class="student-activity">
       <h2>Student activity!</h2>
-      <h3>Convert Warm-Up ES6 &rarr; ES6 Const/Let</h3>
+      <h3>Convert Warm-Up ES5 &rarr; ES6 Const/Let</h3>
       <p>Check out <span class="mono">103-Stu_RedoWarmup/Unsolved/function-scoped.js</span>, which is a simplified version of the warmup. Go
       through it and convert all of the variables to be appropriately block-scoped.</p>
       <p>Does the code still work the same way as it did before your refactor?</p>
@@ -163,9 +163,193 @@ Today's a perfect day for some ES6!`
     <div class="page-break">
       <h1>Break time!</h1>
     </div>
-    <!-- <div class="page-break">
+    <section>
+      <h1>Array Methods and Arrow Functions</h1>
+      <p>In the past, I've mentioned <span class="mono">Array.map</span>,
+        <span class="mono">Array.fiter</span> and <span class="mono">Array.reduce</span>. Without giving you a review of these methods, I'd like
+      for you to go over these methods by yourselves in the following activity...</p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>New Array Methods</h3>
+        <p>Open up 106-Stu_Arrays/Unsolved. You'll be using the new array methods to accomplish given tasks.</p>
+      </div>
+      <div class="review">
+        <h2>Array Methods Review</h2>
+        <p>Let's go over each array method in detail.</p>
+        <p>Think about how much easier they make things as opposed to for loops.</p>
+      </div>
+      <h2>Arrow Functions</h2>
+      <p>As all of you know, I'm not particularly fond of writing <span class="mono">function</span> over and over and over and over ad nauseum.
+      <span class="note">Arrow functions</span> allow us to significantly clean up our code, and not just by removing the function keyword.</p>
+<pre><code class="language-javascript">// old school
+function foobar(foo, bar){
+  return foo+bar;
+}
+
+// Arrow function, but we can do better.
+const foobar = (foo, bar) => {
+  return foo+bar;
+}
+
+// Arrow functions without brackets are implicit returns
+const foobar = (foo, bar) => ( foo + bar );</code></pre>
+      <p>You might recall that arrow functions have different usage and use the <span class="note">lexical <span class="mono">this</span></span>.
+      Let's look at a couple of examples in <span class="mono">107-Ins_ArrowExample</span>.</p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Convert to Arrow Functions</h3>
+        <p>Open up <span class="mono">108-Stu_ArrowArrays/Unsolved</span>.</p>
+        <p>Go back through the previous example and convert it to use
+          arrow functions. Going forward, you will <span class="note">not
+            be using ES5 functions by default</span>. Arrow functions will
+            become the norm.
+          </span>
+        </p>
+      </div>
+      <div class="review">
+        <h2>Example Arrow Function Review</h2>
+        <p>Let's go over this quickly.</p>
+      </div>
+    </section>
+    <section>
+      <h1>Destructuring and Object Notation</h1>
+      <p>In addition to array and function changes, there are also object
+        changes. I've talked about them briefly, but just as a refresher,
+        <span class="note">object destructuring</span> allows us to pull properties
+        out of objects into new variables with less code. It looks like the following:
+      </p>
+      <pre><code class="language-javascript">// object declaration
+const obj = { foo: 42, bar: 'foobar' };
+
+// object destructuring
+const { foo, bar } = obj;
+
+// we have our own foo and bar now!
+console.log(foo); //42
+console.log(bar); //foobar</code></pre>
+      <p>It doesn't seem like it yet, but this becomes <span class="italic">absurdly</span>
+      useful in React, especially with imports.</p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Object Destructuring Example</h3>
+        <p>Open up <span class="mono">109-Stu_ObjDestruct/Unsolved</span>.
+        You'll be updating a JS file to utilize object destructuring.</p>
+      </div>
+      <div class="review">
+        <h2>Object Destructuring Review</h2>
+        <p>Let's go over this quickly.</p>
+      </div>
+    </section>
+    <section>
+      <h1>Import</h1>
+      <p>In addition to the new syntax and functionality we've looked at, ES6 introduces new ways to organize and think about
+      the architecture of your code. Everyone is familiar with CommonJS modules available in Node, specifically
+      <span class="mono">module.exports</span> and <span class="mono">require()</span> to share code
+      between files. ES6 uses <span class="note">ES2015 modules</span> to make sharing code
+      between files a cinch. Let's open up <span class="mono">111-Ins_ES2015Modules</span> and then run it with
+      <span class="mono">babel-node</span>.</p>
+      <p>Things to keep in mind: how <span class="mono">import</span> differs depending on whether the export is a default export or a named export,
+      only one <span class="mono">default</span> export per module, object destructuring when getting multiple modules from multiple named exports.</p>
+      <p>ES2015 modules also take advantage of <a href="https://webpack.js.org/guides/tree-shaking/" target="_blank">tree shaking</a>.
+        Tree shaking is a term commonly used in the JavaScript context for dead code elimination.
+        When working with CommonJS modules, whenever we require <span class="italic">anything</span> from another JavaScript file, the entire file is
+        essentially loaded, even if parts of the code aren't actually being used. On the server, this isn't normally a problem.
+        But as we begin working with React we'll be using modules in our front-end code and bundle size will definitely matter.</p>
+        <p class="accent">Larger bundle size? Slower load times.</p>
+        <p>When working with ES2015 modules, we can configure our project to take advantage of tree shaking and effectively not
+        import any more code than we mean to into our final project. While ES2015 modules are awesome, they are new to JavaScript and not currently supported inside of Node out of the box.
+        In order to take advantage of them, we'll need a JavaScript transpiler!</p>
+    </section>
+    <section>
+      <h1>Transpilers</h1>
+      <p>Not every environment supports all of these new features. While much of what we've covered so far has decent support on
+      relatively modern browsers, many of the features we'll use moving forward won't have as widespread usage or support.
+      We can see a table of what works and what doesn't at
+      <a href="http://kangax.github.io/compat-table/es6/" target="_blank">http://kangax.github.io/compat-table/es6/</a>.</p>
+      <p>For our code to work in every environment, we'll use a tool called <span class="note">Babel</span>
+        to convert our spottily-supported ES6 code to good old fashioned ES5 code. This process of transforming and compiling ES6 to
+        ES5 is called "transpiling". We are translating our new ES6 code
+        (that not every environment can parse) into something that they can still understand.</p>
+      <p>Let's open the <a target="_blank"
+        href="https://babeljs.io/repl/#?babili=false&browsers=&build=&builtIns=false&code_lz=MYewdgzgLgBAEgUQDJIPIwLwwERwKYA2BIMA6iAE4EAmAhNgNxA&debug=false&circleciRepo=&evaluate=true&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=6.26.0">
+        Babel REPL - babeljs.io/repl
+      </a> to convert ES6 to ES5 in real-time. There's also a babel-repl extension in VS Code you can use.</p>
+      <p>Babel has a ton of additional presets and extensions that allow you to take advantage of even newer ECMAScript features
+      - ES2015 and beyond. We'll touch on this again when we use React. The biggest takeaway is that this allows us to use the newer
+      (even not yet officially approved) JavaScript features everywhere today, even ES7 and ES8 features.</p>
+      <h2>Babel Install</h2>
+      <p>All you have to do is the following:</p>
+<pre><code class="language-bash">npm i -g babel-cli</code></pre>
+      <p>To use it, all you need is this:</p>
+<pre><code class="language-bash">babel-node script.js</code></pre>
+      <p>It really is <span class="bold">that</span> easy. Create a simple JS file and run:</p>
+<pre><code class="language-bash">babel-node script.js</code></pre>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Discuss ES2015 Modules</h3>
+        <p>Pop open <span class="mono">112-Stu_ES2015Modules/Unsolved</span>.
+          Your task is to correctly utilize ES2015 module syntax in order to pass data around a small JavaScript application.</p>
+      </div>
+      <div class="review">
+        <h2>ES2015 Modules Review</h2>
+        <p>The most important thing you have to understand between exports and default exports:</p>
+        <ul>
+          <li>A file can have multiple named exports and multiple values can be exported from a single file.</li>
+          <li>A file may <span class="italic">only</span> have one default export. This is the default value imported if no named import is specified.</li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <h1>Classes</h1>
+      <p>Remember constructor functions?
+        They're special JavaScript functions that can be used as a blueprint to create multiple instances of the same type of object.
+        When was the last time you used one?</p>
+      <p>Object inheritance works differently in JavaScript than it does for other object oriented languages. Other programming
+      languages have the concept of classes, which are written more or less the same way across languages. Classes don't
+      really exist in JavaScript, what we use instead are constructor functions. Compared to classes in other programming languages, the syntax for writing constructor functions, prototypes and
+      reusing code across constructors can be confusing. This is a common source of frustration for both for brand new
+      developers and seasoned veterans.</p>
+      <p>With ES6, we finally have support for classes in JavaScript!</p>
+      <pre><code class="language-javascript">// basic syntax
+class foo {
+  constructor(){
+    bar = 42;
+    foobar = 'foobar';
+  }
+
+  func(){
+    console.log(this.bar);
+  }
+
+  // etc. etc....
+}</code></pre>
+      <p>Let's open up <span class="mono">113-Ins_Classes</span> and run <span class="mono">Vehicle.js</span>, then we'll go through it.</p>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>From Constructors to Classes</h3>
+        <p>Open up <span class="mono">114-Stu_ConstructorsToClasses/Unsolved</span>. You'll be converting what was previously a
+        constructor into new ES6 syntax.</p>
+      </div>
+      <div class="review">
+        <h2>Constructors to Classes Review</h2>
+        <p>Let's go over this activity.</p>
+      </div>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>SpaceX Example</h3>
+        <p>Open up <span class="mono">115-Stu_SpaceX/Unsolved</span>. For our final activity, you'll be SpaceX developers.
+          You'll be using a SpaceX API to report on launch failures. Check out the README for instructions.</p>
+      </div>
+      <div class="review">
+        <h2>SpaceX Review</h2>
+        Let's go over this code line-by-line.
+      </div>
+    </section>
+    <div class="page-break">
       <h1>That's all for today, see you Monday!</h1>
-    </div> -->
+    </div>
   </article>
 </body>
 <!-- Script to make code pretty -->
