@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ES6travaganza!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="../css/reset.css">
+  <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  <link rel='stylesheet' type='text/css' href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <pre id='ascii-title' style='font-size:4.5vw; line-height:0.8em; letter-spacing: 0.001em; font-weight:700;'>                   
+                                
+`7MM"""YMM   .M"""bgd    .6*"   
+  MM    `7  ,MI    "Y  ,M'      
+  MM   d    `MMb.     ,Mbmmm.   
+  MMmmMM      `YMMNq. 6M'  `Mb. 
+  MM   Y  , .     `MM MI     M8 
+  MM     ,M Mb     dM WM.   ,M9 
+.JMMmmmmMMM P"Ybmmd"   WMbmmd9
+
+</pre>
+<h2 class='date'> October 6th, 2018</h2>
+</header>
+  <article>
+    <section id="todo">
+      <h1>To-Do's:</h1>
+      <ul>
+        <li>Administrivia</li>
+        <li>ES5 Warm-Up</li>
+        <li>Const/Let and Template Literals</li>
+        <li>Array Methods and Arrow Functions</li>
+        <li>Destructuring and Object Notation</li>
+        <li>Import</li>
+        <li>Transpilers</li>
+        <li>Classes</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Administrivia</h1>
+      <p>Good morning, all! Today's class marks the beginning of something you've all be waiting for:
+        <span class="bold">React week</span>! However, we have to rein it in a little to talk about something we've briefly used before:
+      ES6. In React, you'll absolutely <span class="italic">need</span> to understand ES6, and not just arrow functions and template strings.
+      For this class, you are no longer using ES6 as a suggestion&mdash;it is a requirement. What does this mean for you?</p>
+      <p>For starters, it means cleaner, easier-to-read code. Incidentally, this is what can make you stand out as a top contender
+        for JavaScript-heavy jobs. Once you start using ES6 (and some ES7 features too!), you'll be primed and ready for React.
+      </p>
+    </section>
+    <section>
+      <h1>ES5 Warm-Up</h1>
+      <p class="no-letter">Today's class begins with an activity to review functional scope. This is a good segue into how we'll be thinking about scope for the
+        rest of the class.
+      </p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>ES5 Warm-Up</h3>
+        <p>Check out <span class="mono">101-Stu_ES5Warmup</span>. Go over this file either alone or with a partner and discuss what you
+        expect the value to be at each line <span class="italic">without running it in your browser</span>.</p>
+        <p><span class="mono">console.log</span> has been replaced with a similar method that logs the line of code for each function call.</p>
+      </div>
+      <div class="review">
+        <h2>ES5 Warm-Up Review</h2>
+        <p>Let's take a look at this file and get individual answers to why each stop logs the line it does.</p>
+      </div>
+      <p>Here's a reminder about the concept of functional scoping: variables are hoisted to the top of and available only in the scope of the containing
+      function (or globally, if there exists no containing function). Functional scoping can be confusing, and knowing what the value of a variable is at
+      any point can require a significant amount of thought.</p>
+      <p>Two big problems with functionally scoped variables:</p>
+      <ol>
+        <li>You can use variables before their definition, which can lead to unexpected or confusing behavior.</li>
+        <li><span class="mono">for</span> loop iterator variables are functionally scoped, which means they can't be specific to a single loop iteration,
+        making it harder for things like nested asynchronous functions to use the iterator variable (since that variable will
+        be the value of the last iteration of that loop)</li>
+      </ol>
+      <p><span class="mono">var</span>s are difficult to deal with sometimes, and we don't use them very much in React. Instead,
+      we'll use two classic keywords from a while back...</p>
+    </section>
+    <section>
+      <h1>Const/Let</h1>
+      <p>Believe it or not, <span class="mono">const</span> and <span class="mono">let</span> are actually ES6 keywords. These two keywords
+      help us declare block-scoped variables such that they are specific to the containing block statement, i.e. anything in curly braces.
+    You may have noticed that when I convert examples to ES6, I use <span class="mono">const</span> for required code and <span class="mono">let</span>
+    within <code class="language-javascript">for(let i in obj)</code> loops. Why?</p>
+    <p>Constants are just that: they remain constant and are unchanging. This is great for included middlewares, numeric and string values.
+      <span class="mono">const</span> implicitly tells readers of your code that these values are never going to be reassigned. From here on out,
+      you should default to <span class="mono">const</span> unless you're certain that the value is going to change.
+    </p>
+    <p>In contrast, <span class="mono">let</span> signals clearly to the reader that the variable is likely to be reassigned (especially if you follow default to using
+    <span class="mono">const</span> if it won't change). This lets the reader know immediately that this value is going to change. Great care should be
+      taken when replacing instances of <span class="mono">var</span> with <span class="mono">let</span>. They do behave differently and can change
+      your code's behavior.</p>
+    <p>If you recall our fun with scoping from a while ago, you'll recall the value and convenience of block-scoped variables. 
+      It's easy to declare variables closer to where they are used in the code, improving readability. Stylistically, you're
+      saying "don't use the variable anywhere but right here."
+    </p>
+    <hr>
+    <div class="student-activity">
+      <h2>Student activity!</h2>
+      <h3>Convert Warm-Up ES6 &rarr; ES6 Const/Let</h3>
+      <p>Check out <span class="mono">103-Stu_RedoWarmup/Unsolved/function-scoped.js</span>, which is a simplified version of the warmup. Go
+      through it and convert all of the variables to be appropriately block-scoped.</p>
+      <p>Does the code still work the same way as it did before your refactor?</p>
+    </div>
+    <div class="review">
+      <h2>ES5 &rarr; ES6 Review</h2>
+      <p>You should have noticed that the biggest difference in behavior is that
+        <span class="mono">setTimeout</span>'s callback function actually prints <span class="mono">i</span>
+      as expected. Also, the iterator variable throws reference errors if you try to use it outside of the for loop.</p>
+    </div>
+    <div class="student-activity">
+      <h2>Student activity!</h2>
+      <h3>Debugging ES5</h3>
+      <p>Open up <span class="mono">104-Stu_ES5Debug/Unsolved</span>. Work with a partner to identify and
+      resolve an issue in an example using ES5 code. <span class="mono">const</span> and <span class="mono">let</span>
+      will be useful here.</p>
+    </div>
+    <div class="review">
+      <h2>Bug squashing!</h2>
+      <p>What was the bug? What's the fix?</p>
+      <hr>
+      <p>Everyone was eating the same number of tacos in the buggy version. If you're anything like me,
+        <span class="italic">you're eating much, much more</span> than everyone else. To get proper representation
+        for those with voracious appetites, using the loop iterator variable to count the number of tacos each person ate
+        is problematic when using <span class="mono">var</span>s instead of block-scoped variables.
+      </p>
+      </div>
+      <h2>Template Literals</h2>
+      <p>By now, everyone should be familiar with string template literals. As a refresher:</p>
+      <pre><code class="language-javascript">// Boooooring. And tedious, too!
+"Hello "+username+".\n\nToday is a boring day to learn ES5."
+
+// This is what we want! No \n or concats
+`What's good, ${username}?
+
+Today's a perfect day for some ES6!`
+
+// Another good example
+`Your balance is ${balance < 100 ? 'looking kinda low...' : 'a-okay!'}`</code></pre>
+    <p>It should be noted that within the template, you can put <span class="note">any</span> valid JavaScript inside.
+      When we start React, a very common paradigm is to use conditionally-rendered content, like the above.</p>
+    <p>We also have a few convenient methods:
+      <span class="mono">startsWith</span>, <span class="mono">endsWith</span>, and
+      <span class="mono">includes</span>. These methods are exactly what they say on the tin.</p>
+    <div class="student-activity">
+      <h2>Student activity!</h2>
+      <h3>Template Literals and String methods</h3>
+      <p>Crack open <span class="mono">105-Stu_GameOfStrings/Unsolved</span>.</p>
+      <p>In this activity, you will convert an application to use string template literals and string methods.</p>
+      <p>Convert the <span class="mono">game-of-strings.js</span> into ES6 using what we've learned so far.
+      This activity is simply converting the code over to ES6. It isn't necessary to understand every line of code to know
+      where improvements can be made. Use <span class="mono">startsWith</span>,
+      <span class="mono">endsWith</span>, and <span class="mono">includes</span> where appropriate.</p>
+    </div>
+    <div class="review">
+      <h2>Template Literals and String methods Review</h2>
+      <p>Let's go over these changes.</p>
+    </div>
+    </section>
+    <div class="page-break">
+      <h1>Break time!</h1>
+    </div>
+    <!-- <div class="page-break">
+      <h1>That's all for today, see you Monday!</h1>
+    </div> -->
+  </article>
+</body>
+<!-- Script to make code pretty -->
+<script type='text/javascript' src="../js/prism.js"></script>
+</html>
+                
