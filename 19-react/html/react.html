@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>React, Components and JSX</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="../css/reset.css">
+  <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  <link rel='stylesheet' type='text/css' href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <pre id='ascii-title' style='font-size:1.25vw; line-height:1em; letter-spacing: 0.0001em; font-weight:700;'> _______                                   __
+|       \                                 |  \                                                             
+| $$$$$$$\  ______    ______    _______  _| $$_                                                            
+| $$__| $$ /      \  |      \  /       \|   $$ \                                                           
+| $$    $$|  $$$$$$\  \$$$$$$\|  $$$$$$$ \$$$$$$                                                           
+| $$$$$$$\| $$    $$ /      $$| $$        | $$ __                                                          
+| $$  | $$| $$$$$$$$|  $$$$$$$| $$_____   | $$|  \ __                                                      
+| $$  | $$ \$$     \ \$$    $$ \$$     \   \$$  $$|  \                                                     
+ \$$   \$$  \$$$$$$$  \$$$$$$$  \$$$$$$$    \$$$$ | $$                                                     
+                                                   \$
+  ______                                                                              __                   
+ /      \                                                                            |  \                  
+|  $$$$$$\  ______   ______ ____    ______    ______   _______    ______   _______  _| $$_     _______     
+| $$   \$$ /      \ |      \    \  /      \  /      \ |       \  /      \ |       \|   $$ \   /       \    
+| $$      |  $$$$$$\| $$$$$$\$$$$\|  $$$$$$\|  $$$$$$\| $$$$$$$\|  $$$$$$\| $$$$$$$\\$$$$$$  |  $$$$$$$    
+| $$   __ | $$  | $$| $$ | $$ | $$| $$  | $$| $$  | $$| $$  | $$| $$    $$| $$  | $$ | $$ __  \$$    \     
+| $$__/  \| $$__/ $$| $$ | $$ | $$| $$__/ $$| $$__/ $$| $$  | $$| $$$$$$$$| $$  | $$ | $$|  \ _\$$$$$$\ __ 
+ \$$    $$ \$$    $$| $$ | $$ | $$| $$    $$ \$$    $$| $$  | $$ \$$     \| $$  | $$  \$$  $$|       $$|  \
+  \$$$$$$   \$$$$$$  \$$  \$$  \$$| $$$$$$$   \$$$$$$  \$$   \$$  \$$$$$$$ \$$   \$$   \$$$$  \$$$$$$$ | $$
+                                  | $$                                                                  \$ 
+                                  | $$                                                                     
+                                   \$$                                                                     
+                           __           _____   ______   __    __                                          
+                          |  \         |     \ /      \ |  \  |  \                                         
+  ______   _______    ____| $$          \$$$$$|  $$$$$$\| $$  | $$                                         
+ |      \ |       \  /      $$            | $$| $$___\$$ \$$\/  $$                                         
+  \$$$$$$\| $$$$$$$\|  $$$$$$$       __   | $$ \$$    \   >$$  $$
+ /      $$| $$  | $$| $$  | $$      |  \  | $$ _\$$$$$$\ /  $$$$\
+|  $$$$$$$| $$  | $$| $$__| $$      | $$__| $$|  \__| $$|  $$ \$$\
+ \$$    $$| $$  | $$ \$$    $$       \$$    $$ \$$    $$| $$  | $$
+  \$$$$$$$ \$$   \$$  \$$$$$$$        \$$$$$$   \$$$$$$  \$$   \$$
+</pre>
+<h2 class='date'> October 8th, 2018</h2>
+</header>
+  <article>
+    <section id="todo">
+      <h1>To-Do's:</h1>
+      <ul>
+        <li>Administrivia</li>
+        <li>What is React?</li>
+        <li>Installation and Documentation Research</li>
+        <li>Create React App</li>
+        <li>"Hello World!"</li>
+        <li>CSS Frameworks and React</li>
+        <li>JSX</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Administrivia</h1>
+      <p>Good evening, y'all! This is the lesson you've all been waiting for: React! By beginning this new material,
+        we are entering the final frontier of our modern JavaScript material, i.e. front-end frameworks. Today's lesson will
+        be gentle, easy, and comfortably-paced so as to not overload you with information all at once. We'll be thinking about
+        HTML, CSS and client-side JavaScript much differently than before, so it will help to go slowly as we begin.
+      </p>
+      <p>Without further ado, let's get into it!</p>
+    </section>
+    <section>
+      <h1>What is React?</h1>
+      <p>Simply put, <span class="note">React</span> is a front-end JavaScript framework that focuses on interactivity and
+      dynamic content whose engine minimizes the amount of re-rendering of components when that content changes. It's loosely
+      object-oriented and focuses on breaking a front-end down into <span class="note">components</span>&mdash;each
+      component has its own properties and state and is completely standalone. Still with me?</p>
+      <h2>Components</h2>
+      <p>A component is a self-contained module responsible for producing part of an application's UI and functionality.
+        This is radically ifferent from the concept of separating the view and logic layers. When we split up our application into components,
+        we're still separating its concerns, but we aren't necessarily separating its technologies.
+      </p>
+      <p>Example: with Express, Mongo and Handlebars, you provide data to a Handlebars template that renders a chat client.
+        In React, you have separate components for the chat view, reaction button, share menu, etc. that all have their own logic and
+        take different slices of data.</p>
+      <p>This might seem weird at first, but today's class is just a primer, not comprehensive coverage. Let's do some basic
+        installation and documentation research.
+      </p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Installation + Documentation Research</h3>
+        <p>Open up <span class="mono">01-Stu_DocumentationQuestions/README.md</span>. These instructions contain tasks to
+        install Create React App and Yarn, then do some research questions based on the React.js documentation.</p>
+        <p>The official documentation may seem challenging, but please feel free to visit it again after today's class.</p>
+        <p><span class="note">Note:</span> that task seems trivial, but you are urged to take this task seriously; it will
+        help you gain a basic sense of what we are trying to accomplish with this new tech.</p>
+        <p><span class="note">Note:</span> you may also find it helpful to get the React dev tools plugin for your browser.</p>
+      </div>
+      <div class="review">
+        <h2>Questions Review</h2>
+        <p>You'll be given the solved version of the questions shortly; let's go over them aloud.</p>
+      </div>
+      <p>As a small review: we use components as a way to separate our application into reusable pieces of its UI. This allows us to think about
+      each part of our application's interface in isolation and allows us to quickly build new views into our apps over time
+      since we'll be able to reuse components we've already created. Using <span class="note">JSX</span> is optional but most React projects make use of it.
+      </p>
+      <p><span class="note">JSX</span> allows us to describe the UI our components using
+      familiar HTML-like markup in our JavaScript. This allows us to quickly describe and understand the UI our components
+      will produce as well take advantage of the full power of JavaScript, rather than be limited to the features available
+      in a templating language such as Handlebars.</p>
+    </section>
+    <section>
+      <h1>Create React App</h1>
+      <p>Now that everyone has <span class="mono">create-react-app</span> installed, let's talk about it and use it. It should
+      be noted that this package was not always available: the old way of React installation involved a tedious process involving
+      Webpack. Speaking from experience, it was pretty terrible! <span class="mono">create-react-app</span> is as easy as
+      running the following:</p>
+      <pre><code class="language-bash">create-react-app reactpractice</code></pre>
+      <p>What this command does is create the scaffolding for a totally new React application, complete with the name we
+        specify. How about running it?
+      </p>
+      <pre><code class="language-bash">yarn start</code></pre>
+      <p>And viewing it is as easy as going to <span class="mono">localhost:3000</span>. By default, this command starts our app
+        in development mode, i.e. this "mode" is meant for development as our application will
+        auto-reload as we make changes to it. Pretty convenient!</p>
+      <h2>The SRC Folder</h2>
+      <p>The generated boilerplate is interesting: we've got an <span class="mono">src</span> folder automatically processed by Babel,
+      then bundled into a single <span class="mono">bundle.js</span> file by Webpack, which is the server React applications run on.
+      You can see what the combined <span class="mono">bundle.js</span> file looks like if you were to navigate to
+        <span class="mono">
+        localhost:3000/static/js/bundle.js
+      </span> in your browser. This folder is where our React components will live. These files normally produce JSX,
+      which corresponds to the web page we have rendered in the browser.</p>
+      <p>We have an <span class="mono">index.js</span> file in the <span class="mono">src</span> directory. This is where execution of our React application begins. In this
+      way, it is similar to the <span class="mono">server.js</span> file we've been starting all of our node applications with. In order to run any
+      code in our React app, it needs to be directly written here, or else required/imported here.</p>
+      <p>We can also put any tests we'd like to associate with our components. Create React App ships with
+      <a href='https://facebook.github.io/jest/' target="_blank">Jest</a>), a library for running JavaScript tests that work with React out of the box.
+      For our purposes of learning to use React to build applications, we won't dive into writing tests for React apps, but
+      it's nice to know that we <span class="italic">can</span> without any extra overhead.
+      <span class="muted italic">(General note: Jest is awesome. Syntax is nearly identical to Mocha and Chai. Highly recommended.)</span></p>
+      <h2>The Public Folder</h2>
+      <p>This one should be fairly self-explanatory based on your static Express usage. This folder is primarily for containing the <span class="mono">index.html</span> that will eventually be served to users visiting our application.
+      The <span class="mono">#root</span> element contains our entire rendered, React application, much like the <span class="mono">:root</span>
+      pseudoelement contains all of our static HTML. When we build our React application for production, a <span class="mono">bundle.js</span> file containing all of our application's
+      JavaScript is generated and added inside of the <span class="mono">index.html</span> file.</p>
+      <p>We can also store files in this folder which we
+      don't want to be processed by Webpack and Babel. For example, we can place static CSS files here or link to external
+      CDNs in the <span class="mono">head</span> tag of the <span class="mono">index.html</span>. This particular use case is
+      probably the most familiar.</p>
+      <hr>
+      <p>We're going to see this setup over and over again, and there isn't a need to completely memorize every aspect of the
+      Create React App boilerplate right now. The most important takeaways are:</p>
+      <ol>
+        <li>Most code goes in <span class="mono">src</span></li>
+        <li>The entry point into a React app is the <span class="mono">index.js</span></li>
+        <li>We start up a React app in development mode with <code class="language-bash">yarn start</code>, where it live-updates.
+        This is why we run it on a server, despite being served client-side to the user.</li>
+      </ol>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Hello World</h3>
+        <p>Now that you have a high-level understanding of Create React App, you'll going to work in groups to dissect a
+          simpler example and answer some questions.</p>
+        <p>Your code is within <span class="mono">02-Stu_HelloReact/Unsolved</span>;
+          instructions are within <span class="mono">02-Stu_HelloReact/README.md</span>.</p>
+      </div>
+      <div class="review">
+        <h2>Hello World Review</h2>
+        <p>Let's go over this example and walk through the solution. Notice how JSX can either represent HTML primitives
+          or React components, and how we use ES2015 Modules.
+        </p>
+      </div>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>HelloDiv</h3>
+        <p>Crack open <span class="mono">03-Stu_HelloDiv/README.md</span>.</p>
+        <p>This activity will focus on <span class="italic">doing</span> rather than just parsing. You'll be 
+        writing a React component that displays your name and some information about yourself.</p>
+      </div>
+      <div class="review">
+        <h2>HelloDiv Review</h2>
+      <p>Let's go over this one together. We have multiple ways of returning multiple elements without a wrapper element
+        if you ran into some issues there.
+      </p>
+      </div>
+    </section>
+    <div class="page-break">
+      <h1>Break time!</h1>
+    </div>
+    <!-- <section>
+      <h1>CSS Frameworks and React</h1>
+      <p>There exist plenty of CSS frameworks, as you're already aware. Materialize, Bootstrap, Semantic UI, you name it&mdash;they're
+        all compatible with React. Of course, there is a key difference: React uses <span class="mono">className</span> instead of class.
+      Why?</p>
+      <p>Recall that in ES6, class is a reserved word.
+
+    </section>
+    <div class="page-break">
+      <h1>That's all for today, see you Wednesday!</h1>
+    </div> -->
+  </article>
+</body>
+<!-- Script to make code pretty -->
+<script type='text/javascript' src="../js/prism.js"></script>
+</html>
+                

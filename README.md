@@ -86,3 +86,4 @@ _No new notes_
 
 ### Unit 19: React
 * [ES6](./19-react/html/es6.html)
+* [React, Components and JSX](./19-react/html/react.html)
