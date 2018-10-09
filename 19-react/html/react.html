@@ -190,17 +190,79 @@
     <div class="page-break">
       <h1>Break time!</h1>
     </div>
-    <!-- <section>
+    <section>
       <h1>CSS Frameworks and React</h1>
       <p>There exist plenty of CSS frameworks, as you're already aware. Materialize, Bootstrap, Semantic UI, you name it&mdash;they're
         all compatible with React. Of course, there is a key difference: React uses <span class="mono">className</span> instead of class.
       Why?</p>
-      <p>Recall that in ES6, class is a reserved word.
-
+      <p>Recall that in ES6, <span class="italic">class</span> is a reserved word. Since this word denotes a new class declaration, React uses
+        <span class="mono">className</span> instead. There are some other differences between HTML and JSX we'll cover soon. As a reminder,
+        since JSX isn't HTML, there are some caveats. JSX is syntactic sugar for calls to the <span class="mono">React.createElement</span>
+        method, and according to <a href="https://facebook.github.io/react/docs/introducing-jsx.html#specifying-children-with-jsx" target="_blank">Facebook's React Docs</a>: "JSX is closer to
+        JavaScript than HTML".</p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Hello Bootstrap</h3>
+        <p>Check out <span class="mono">05-Stu_HelloBootstrap/README.md</span>. This file will have the instructions you need to
+        create a React application which renders Bootstrap components to the page.</p>
+        <p><span class="note">Note:</span> although Bootstrap is a bit dated and has fallen out of popularity,
+        you can (and are encouraged to) apply this to Materialize, Semantic UI, etc.</p>
+      </div>
+      <div class="review">
+        <h2>Hello Bootstrap Review</h2>
+        <p>Let's go over this activity.</p>
+        <p>The most important takeaways are how to render multiple JSX elements (a container element or array),
+          void elements (self-closing tags), imports, and <span class="mono">className</span>.
+        </p>
+      </div>
+    </section>
+    <section>
+      <h1>JSX</h1>
+      <p>Let's take a look at <span class="mono">06-Ins_JSXVariables/src/components/JSXVariables.js</span>
+      and dissect it. What's different? When we run a Webpack server with this code,
+      it doesn't appear much differently when rendered.</p>
+      <hr>
+      <p><span class="bold">Some key points:</span> We can write comments inside of our JSX using JavaScript's multi-line comment syntax inside of curly braces. If we were
+      to try and write regular JavaScript comments inside of our JSX, the code would break. In addition to being able to write comments inside of the curly braces, we can also embed JavaScript expressions. This
+      works similarly to the <span class="mono">{{ }}</span> double curly braces we've worked with in Handlebars.</p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>JSX Variables</h3>
+        <p>In this activity, you will render JavaScript expressions inside of JSX curly braces.</p>
+        <p><span class="mono">07-Stu_JSXVariables/README.md</span> has the instructions.</p>
+      </div>
+      <div class="review">
+        <h2>JSX Variables Review</h2>
+        <p>Let's go over the solved version of this activity.</p>
+      </div>
+      <p>Much like how <span class="mono">className</span> has different syntax from HTML,
+      CSS looks different as well. We can import CSS directly into our components, which is really
+      convenient. In doing so, we aren't saving the stylesheet to a variable. Instead, whenever we import a stylesheet, an internal style tag is
+      created and added to the document.</p>
+      <p>This approach may be a good idea if we want to keep our component more closely coupled to its styles. How many times have you
+        worked on a project or homework assignment and had a CSS issue because of CSS that was a little messy? By separating our CSS files by component, we'll generally have smaller, more manageable stylesheets. Adding new styles
+        or changing existing ones should be easier as our applications grow larger.
+      </p>
+      <p>Though it is <span class="italic accent">not recommended</span>, we are also able to add inline styles to JSX elements.
+      We can set a <span class="mono">style</span> similarly to how we can when writing regular HTML code, but with two key differences:</p>
+      <ol>
+        <li>React expects the style property to be an object, rather than a string.</li>
+        <li>We're using JSX curly braces to embed the style object.</li>
+      </ol>
+      <p>Object properties are camelCased and non-numeric values are strings. Numeric values will default to pixels if a
+      unit of measurement is expected. It is recommended that you conditionally render classes instead of inline styles.
+      Of course, it's up to you to decide how we want to organize your component styles, but there is value in being consistent in
+      whichever approach or hybrid approach you take.</p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>CSS Props</h3>
+        <p>In this activity, you will change the appearance of an application's components using inline styles.</p>
+        <p><span class="mono">09-Stu_StyleProp/README.md</span> has everything you need to know.</p>
+      </div>
     </section>
     <div class="page-break">
       <h1>That's all for today, see you Wednesday!</h1>
-    </div> -->
+    </div>
   </article>
 </body>
 <!-- Script to make code pretty -->
