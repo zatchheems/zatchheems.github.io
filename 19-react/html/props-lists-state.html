@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Props, Lists and Stateful Components</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="../css/reset.css">
+  <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  <link rel='stylesheet' type='text/css' href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <pre id='ascii-title' style='font-size:1.1vw; line-height:1em; letter-spacing: -0.1em; font-weight:700;'>__/\\\\\\\\\\\\\_________________________________________________________________                                                                              
+ _\/\\\/////////\\\_______________________________________________________________                                                                             
+  _\/\\\_______\/\\\_______________________________/\\\\\\\\\______________________                                                                            
+   _\/\\\\\\\\\\\\\/___/\\/\\\\\\\______/\\\\\_____/\\\/////\\\__/\\\\\\\\\\________                                                                           
+    _\/\\\/////////____\/\\\/////\\\___/\\\///\\\__\/\\\\\\\\\\__\/\\\//////_________                                                                          
+     _\/\\\_____________\/\\\___\///___/\\\__\//\\\_\/\\\//////___\/\\\\\\\\\\__/\\\\_                                                                         
+      _\/\\\_____________\/\\\_________\//\\\__/\\\__\/\\\_________\////////\\\_\///\\_                                                                        
+       _\/\\\_____________\/\\\__________\///\\\\\/___\/\\\__________/\\\\\\\\\\__/\\/__                                                                       
+        _\///______________\///_____________\/////_____\///__________\//////////__\//____                                                                      
+__/\\\_________________________________________________________________________________________________________________/\\\__                                  
+ _\/\\\________________________________________________________________________________________________________________\/\\\__                                 
+  _\/\\\______________/\\\__________________/\\\________________________________________________________________________\/\\\__                                
+   _\/\\\_____________\///___/\\\\\\\\\\__/\\\\\\\\\\\__/\\\\\\\\\\___________________/\\\\\\\\\_____/\\/\\\\\\__________\/\\\__                               
+    _\/\\\______________/\\\_\/\\\//////__\////\\\////__\/\\\//////___________________\////////\\\___\/\\\////\\\____/\\\\\\\\\__                              
+     _\/\\\_____________\/\\\_\/\\\\\\\\\\____\/\\\______\/\\\\\\\\\\__/\\\\_____________/\\\\\\\\\\__\/\\\__\//\\\__/\\\////\\\__                             
+      _\/\\\_____________\/\\\_\////////\\\____\/\\\_/\\__\////////\\\_\///\\____________/\\\/////\\\__\/\\\___\/\\\_\/\\\__\/\\\__                            
+       _\/\\\\\\\\\\\\\\\_\/\\\__/\\\\\\\\\\____\//\\\\\____/\\\\\\\\\\__/\\/____________\//\\\\\\\\/\\_\/\\\___\/\\\_\//\\\\\\\/\\_                           
+        _\///////////////__\///__\//////////______\/////____\//////////__\//_______________\////////\//__\///____\///___\///////\//__                          
+_____/\\\\\\\\\\\____________________________________________________________________/\\\\\________________/\\\\\\____                                         
+ ___/\\\/////////\\\________________________________________________________________/\\\///________________\////\\\____                                        
+  __\//\\\______\///______/\\\_________________________/\\\_________________________/\\\_______________________\/\\\____                                       
+   ___\////\\\__________/\\\\\\\\\\\__/\\\\\\\\\_____/\\\\\\\\\\\_____/\\\\\\\\___/\\\\\\\\\____/\\\____/\\\____\/\\\____                                      
+    ______\////\\\______\////\\\////__\////////\\\___\////\\\////____/\\\/////\\\_\////\\\//____\/\\\___\/\\\____\/\\\____                                     
+     _________\////\\\______\/\\\________/\\\\\\\\\\_____\/\\\_______/\\\\\\\\\\\_____\/\\\______\/\\\___\/\\\____\/\\\____                                    
+      __/\\\______\//\\\_____\/\\\_/\\___/\\\/////\\\_____\/\\\_/\\__\//\\///////______\/\\\______\/\\\___\/\\\____\/\\\____                                   
+       _\///\\\\\\\\\\\/______\//\\\\\___\//\\\\\\\\/\\____\//\\\\\____\//\\\\\\\\\\____\/\\\______\//\\\\\\\\\___/\\\\\\\\\_                                  
+        ___\///////////_________\/////_____\////////\//______\/////______\//////////_____\///________\/////////___\/////////__                                 
+________/\\\\\\\\\_____________________________________________________________________________________________________________________________________        
+ _____/\\\////////______________________________________________________________________________________________________________________________________       
+  ___/\\\/_______________________________________________/\\\\\\\\\_______________________________________________________________/\\\___________________      
+   __/\\\_________________/\\\\\_______/\\\\\__/\\\\\____/\\\/////\\\_____/\\\\\_____/\\/\\\\\\_______/\\\\\\\\___/\\/\\\\\\____/\\\\\\\\\\\__/\\\\\\\\\\_     
+    _\/\\\_______________/\\\///\\\___/\\\///\\\\\///\\\_\/\\\\\\\\\\____/\\\///\\\__\/\\\////\\\____/\\\/////\\\_\/\\\////\\\__\////\\\////__\/\\\//////__    
+     _\//\\\_____________/\\\__\//\\\_\/\\\_\//\\\__\/\\\_\/\\\//////____/\\\__\//\\\_\/\\\__\//\\\__/\\\\\\\\\\\__\/\\\__\//\\\____\/\\\______\/\\\\\\\\\\_   
+      __\///\\\__________\//\\\__/\\\__\/\\\__\/\\\__\/\\\_\/\\\_________\//\\\__/\\\__\/\\\___\/\\\_\//\\///////___\/\\\___\/\\\____\/\\\_/\\__\////////\\\_  
+       ____\////\\\\\\\\\__\///\\\\\/___\/\\\__\/\\\__\/\\\_\/\\\__________\///\\\\\/___\/\\\___\/\\\__\//\\\\\\\\\\_\/\\\___\/\\\____\//\\\\\____/\\\\\\\\\\_ 
+        _______\/////////_____\/////_____\///___\///___\///__\///_____________\/////_____\///____\///____\//////////__\///____\///______\/////____\//////////__</pre>
+<h2 class='date'> October 10th, 2018</h2>
+</header>
+  <article>
+    <section id="todo">
+      <h1>To-Do's:</h1>
+      <ul>
+        <li>Administrivia</li>
+        <li>Props</li>
+        <li>Stateful Components</li>
+        <li>Forms</li>
+        <li>Mongo Checkpoint</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Administrivia</h1>
+      <p>Good evening, everyone! Today's class serves to deepen your surface-level understanding of ReactJS.
+        Last time, we briefly talked about props but neglected to touch on statefulness, class components vs. pure components,
+        and programmatically rendering from a list of data. We also talked in little detail about the concept of parent vs.
+        child components as well as the use cases for state vs. props. Today's class will demystify some of these concepts.
+      </p>
+      <p>As a general note, today's concepts are more important thatn the syntax itself. The syntax can be learned by repetition;
+        the concepts must be understood in-depth for that syntax to make sense.
+      </p>
+    </section>
+    <section>
+      <h1>Props</h1>
+      <p>Since we've begun talking about them, their usage begs the question: what exactly <span class="italic">are</span>
+      props? A simple definition: <span class="note">props</span> are read-only properties passed down from a parent 
+      component to child, which begs a similar question. The answer:</p>
+      <pre><code class="language-js">// Sample component.
+// Notice that props is just an object passed as a function argument
+const child = props => &lt;h1>{props.foo}&lt;/h1>;
+
+&lt;Parent>
+  &lt;Child className="my-class" foo="Foo!"/>
+  &lt;AnotherChild bar="42" style={/* styles are props */}>
+    &lt;GrandChild baz="Props can be called anything we like!" />
+  &lt;AnotherChild>
+&lt;/Parent></code></pre>
+      <p>In short: props are anything we want to pass to a React component&mdash;this is easy to think about as just
+        passing arguments to a function, and we can conceptualize React components as JavaScript functions. Components exist
+        to describe and return some part of our application's UI; props are read-only arguments to them.
+      </p>
+      <p>We can demo this easily in a sandbox React app. Note that since we can provide any props we'd like, we can
+        reuse these components in different situations. Props can contain any datatype and other components&mdash;this is useful for
+        "wrapper" elements and higher-order-components, the latter of which we'll defer on explaining until later.
+      </p>
+      <p>In passing props from parent to child, we do so in a top-down, unidirectional data flow.
+        Keeping this in mind, we can deduce that if a prop inside of our component isn't what we expect it to be,
+        the parent component must be the culprit.
+      </p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Calculator Props</h3>
+        <p>Seems like we use a lot of calculator examples, huh?</p>
+        <p>This activity involves writing a component that accepts props, performs arithmetic and renders the result.
+          Check out <span class="mono">11-Stu_PropsCalculator/README.md</span> for the details.
+        </p>
+      </div>
+      <div class="review">
+        <h2>Calculator Props Review</h2>
+        <p>Let's go over this activity, seeing what we should pass as props.</p>
+      </div>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Props Review</h3>
+        <p>Here's another activity on props! In this activity you will make an existing React application more DRY through the use of
+        reusable components and props.</p>
+        <p>Instructions at <span class="mono">12-Stu_PropsReview/README.md</span>.</p>
+      </div>
+      <div class="review">
+        <h2>Props Review (Review)</h2>
+        <p>The rendered application won't look any different, but using a reusable component makes it much more DRY.</p>
+        <p>Notice the inclusion of an <span class="mono">index.js</span>. This file, when included inside of each component's
+          folder, allows us to export the component from the
+        <span class="mono">index.js</span>, in addition to its own file (<span class="mono">FriendCard.js</span>).
+        Whenever we require/import a folder instead of a file, the folder's <span class="mono">index.js</span>1 file is required/imported by default
+        (if it exists).</p>
+      </div>
+      <p>We have just one more activity to go before we tackle the next section of our lesson:</p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Component Map</h3>
+        <p>In this activity, you will utilize the ES6 <span class="mono">map()</span> method in order to render JSX
+          from an array of objects.</p>
+        <p>Check out <span class="mono">13-Stu_ComponentMap</span> for your instructions.</p>
+      </div>
+      <div class="review">
+        <h2>Component Map Review</h2>
+        <p>This activity demonstrates an extremely common pattern in React that you should all get very
+          familiar with; you'll be using it more often than you think.
+        </p>
+      </div>
+    </section>
+    <section>
+      <h1>Stateful Components</h1>
+      <p>Thus far, we've only talked about props, and used them in functional&mdash;or pure&mdash;components. In practice,
+        most components shouldn't really care too much about storing state. They get some new data, rerender what needs to
+        change as their props change, and go about their lives carefree. Pure components are easy to test, debug,
+        and they tend to be more reusable (even across applications) because they
+        usually don't depend on how the rest of the application works.
+      <p>So far, we've been using stateless components to create static, unchanging UIs. In a real application, we'd want to give
+        some of our components more complex, dynamic behavior.
+      I mentioned briefly that writing ES6 classes was going to be absolutely vital for your React knowledge:
+      you need classes for stateful components. If we're being technical, ES6 classes are just syntactic sugar for JavaScript
+      constructor functions. So...</p>
+      <h2>What is "State"?</h2>
+      <p>Basically, <span class="mono">state</span> is a special type of property attached to a class component that can contain data we want to associate with that
+      component. Values stored in a component's state are different from regular variables because unlike regular variables, when a
+      component updates its state, the React application will update itself in the browser to reflect the change wherever
+      necessary.</p>
+      <h2>What's the Difference?</h2>
+      <p>A component can set and update its own state, whereas its props are always received from up above and considered
+      immutable (can't/shouldn't be changed). Additionally, the state should be set directly
+      (<code class="language-js">state = {...}</code>) only <span class="italic">once</span> in the constructor, otherwise <code class="language-js">this.setState(...)</code>
+      should be used. The latter method tells React to re-render the component where necessary.</p>
+      <p>Let's see an example of this in action with a simple click counter
+      (<span class="mono">14-Ins_BasicState</span>).</p>
+      <p>Class components need a <span class="mono">render()</span> method and normally use a constructor.
+      Constructors aren't strictly necessary, but you'll be using them more often than not. There are tons of different
+      built-in functions that React gives us, like <span class="mono">componentDidMount</span>,
+      <span class="mono">componentWillReceiveProps</span>, etc. These are all easily referenced in the API docs.</p>
+      <p>Overall:</p>
+      <ul>
+        <li>We use state to associate data with a component and keep track of any values we want to update the UI when changed.</li>
+        <li>We can define methods on a class component and pass them as props.</li>
+        <li>The <span class="mono">onClick</span> prop can be used to set a click event listener to an element.</li>
+      </ul></p>
+      <hr>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>Decrement Counter</h3>
+        <p>In this activity, you will add a "Decrement" button and event handler to the previous Click Counter example.</p>
+        <p><span class="mono">15-Stu_DecrementCounter/README.md</span> has what you need to know.</p>
+      </div>
+      <div class="review">
+        <h2>Decrement Counter Review</h2>
+        <p>Let's go over the steps necessary to add a decrement functionality.</p>
+      </div>
+    </section>
+    <div class="page-break">
+      <h1>Break time!</h1>
+    </div>
+    <!-- <section>
+    </section>
+    <div class="page-break">
+      <h1>That's all for today, see you Wednesday!</h1>
+    </div> -->
+  </article>
+</body>
+<!-- Script to make code pretty -->
+<script type='text/javascript' src="../js/prism.js"></script>
+</html>
+                
