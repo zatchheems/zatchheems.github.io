@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Forms, Conditional Rendering and React Router</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="../css/reset.css">
+  <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  <link rel='stylesheet' type='text/css' href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <pre id='ascii-title' style='font-size:1.25vw; line-height:1em; letter-spacing: 0.0001em; font-weight:700;'>
+</pre>
+<h2 class='date'> October 13th, 2018</h2>
+</header>
+  <article>
+    <section id="todo">
+      <h1>To-Do's:</h1>
+      <ul>
+        <li>Administrivia</li>
+        <li>Review</li>
+        <li>AJAX</li>
+        <li>Conditional Rendering</li>
+        <li>React Router</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Administrivia</h1>
+      <p>Good morning, everyone! Today, we'll be continuing learning about React. Today's class will focus specifically on forms, conditionally rendering components,
+        making AJAX requests and routing. We'll be talking about some new class component syntax, the component lifecycle (receiving props, mounting, etc.) making requests with Axios, and topping it all off with
+        the React Router Library. All of the activities we'll be doing today require a clean boilerplate with <span class="mono">create-react-app</span> wherein
+        the <span class="mono">/src</span> directory will be swapped out repeatedly, so before we begin,
+        if you haven't already it would be a good idea to create a new React install and work from that directory.
+      </p>
+    </section>
+    <section>
+      <h1>Review</h1>
+      <p class='no-letter'>Today's lesson begin with a review activity to refresh everyone on their basic React syntax.</p>
+      <div class="student-activity">
+        <h2>Student activity!</h2>
+        <h3>A Formal Review</h3>
+        <p>In this activity, you will work to connect a simple form to a component's state.</p>
+        <p>Instructions are available at <span class="mono">01-Stu_FormalReview/README.md</span>. Note that we are working out of the second React folder,
+          i.e. <span class="mono">/20-react</span>.</p>
+      </div>
+      <div class="review"><h2>
+        A Formal Review, Review
+      </h2>
+      <p>The key aspects of this activity are the input tag props, the <span class="mono">onChange</span> method and the class method is links to,
+      and preventing the default event on form submission.</p></div>
+      <p>It seems weird that we still need to use <span class="mono">event.preventDefault()</span>, right? As a reminder, since React transpiles down to client-side
+      ES5 in the browser, we still have to take care of any potential weirdness we might get with the browser's default behavior. Plus, what if we want to define
+      that behavior? For instance, what if we want to make an AJAX request to a backend?</p>
+      <p>All those questions will be answered and more in the next section!</p>
+    </section>
+    <section>
+      <h1>AJAX</h1>
+        <p>I'll be demonstrating an application that uses Axios to make requests. Note that instead of using NPM, since we're already using Yarn I'll have to add
+        the <span class="mono">axios</span> library using <code class="language-bash">yarn add axios</code>. This demo uses the Giphy API to search and display the
+        results in the application. After this demo, we'll dive into the code, taking stock of which components are stateful and which are pure (dumb) components.
+      </p>
+      <p>So, why do we have smart components and dumb ones? <span class="note">Container components</span> are primarily concerned with how things <span class="bold">work</span> and render very
+        little, if any of their own markup. Instead, they mostly render other components and pass down the logic and data they need to work.
+        In contrast, <span class="note">presentational components</span> are concerned with how things <span class="bold">look</span> and typically don't contain any logic that doesn't have to
+      do with their own individual UI.</p>
+    </section>
+    <div class="page-break">
+      <h1>Break time!</h1>
+    </div>
+    <!-- <section>
+    </section>
+    <div class="page-break">
+      <h1>That's all for today, see you Wednesday!</h1>
+    </div> -->
+  </article>
+</body>
+<!-- Script to make code pretty -->
+<script type='text/javascript' src="../js/prism.js"></script>
+</html>
+                
