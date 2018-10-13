@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Forms, Conditional Rendering and React Router</title>
+  <title>Forms, Conditional Rendering, and React Router</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
@@ -13,8 +13,74 @@
 </head>
 <body>
   <header>
-    <pre id='ascii-title' style='font-size:1.25vw; line-height:1em; letter-spacing: 0.0001em; font-weight:700;'>
-</pre>
+    <pre id='ascii-title' style='font-size:0.5vw; line-height:1em; letter-spacing: 0.0001em; font-weight:700;'>
+                                                                                                                                                                                 dddddddd
+FFFFFFFFFFFFFFFFFFFFFF                                                                                               CCCCCCCCCCCCC                                               d::::::d  iiii          tttt            iiii                                                       lllllll 
+F::::::::::::::::::::F                                                                                            CCC::::::::::::C                                               d::::::d i::::i      ttt:::t           i::::i                                                      l:::::l 
+F::::::::::::::::::::F                                                                                          CC:::::::::::::::C                                               d::::::d  iiii       t:::::t            iiii                                                       l:::::l 
+FF::::::FFFFFFFFF::::F                                                                                         C:::::CCCCCCCC::::C                                               d:::::d              t:::::t                                                                       l:::::l 
+  F:::::F       FFFFFFooooooooooo   rrrrr   rrrrrrrrr      mmmmmmm    mmmmmmm       ssssssssss                C:::::C       CCCCCC   ooooooooooo   nnnn  nnnnnnnn        ddddddddd:::::d iiiiiiittttttt:::::ttttttt    iiiiiii    ooooooooooo   nnnn  nnnnnnnn      aaaaaaaaaaaaa    l::::l 
+  F:::::F           oo:::::::::::oo r::::rrr:::::::::r   mm:::::::m  m:::::::mm   ss::::::::::s              C:::::C               oo:::::::::::oo n:::nn::::::::nn    dd::::::::::::::d i:::::it:::::::::::::::::t    i:::::i  oo:::::::::::oo n:::nn::::::::nn    a::::::::::::a   l::::l 
+  F::::::FFFFFFFFFFo:::::::::::::::or:::::::::::::::::r m::::::::::mm::::::::::mss:::::::::::::s             C:::::C              o:::::::::::::::on::::::::::::::nn  d::::::::::::::::d  i::::it:::::::::::::::::t     i::::i o:::::::::::::::on::::::::::::::nn   aaaaaaaaa:::::a  l::::l 
+  F:::::::::::::::Fo:::::ooooo:::::orr::::::rrrrr::::::rm::::::::::::::::::::::ms::::::ssss:::::s            C:::::C              o:::::ooooo:::::onn:::::::::::::::nd:::::::ddddd:::::d  i::::itttttt:::::::tttttt     i::::i o:::::ooooo:::::onn:::::::::::::::n           a::::a  l::::l 
+  F:::::::::::::::Fo::::o     o::::o r:::::r     r:::::rm:::::mmm::::::mmm:::::m s:::::s  ssssss             C:::::C              o::::o     o::::o  n:::::nnnn:::::nd::::::d    d:::::d  i::::i      t:::::t           i::::i o::::o     o::::o  n:::::nnnn:::::n    aaaaaaa:::::a  l::::l 
+  F::::::FFFFFFFFFFo::::o     o::::o r:::::r     rrrrrrrm::::m   m::::m   m::::m   s::::::s                  C:::::C              o::::o     o::::o  n::::n    n::::nd:::::d     d:::::d  i::::i      t:::::t           i::::i o::::o     o::::o  n::::n    n::::n  aa::::::::::::a  l::::l 
+  F:::::F          o::::o     o::::o r:::::r            m::::m   m::::m   m::::m      s::::::s               C:::::C              o::::o     o::::o  n::::n    n::::nd:::::d     d:::::d  i::::i      t:::::t           i::::i o::::o     o::::o  n::::n    n::::n a::::aaaa::::::a  l::::l 
+  F:::::F          o::::o     o::::o r:::::r            m::::m   m::::m   m::::mssssss   s:::::s              C:::::C       CCCCCCo::::o     o::::o  n::::n    n::::nd:::::d     d:::::d  i::::i      t:::::t    tttttt i::::i o::::o     o::::o  n::::n    n::::na::::a    a:::::a  l::::l 
+FF:::::::FF        o:::::ooooo:::::o r:::::r            m::::m   m::::m   m::::ms:::::ssss::::::s ,,,,,,       C:::::CCCCCCCC::::Co:::::ooooo:::::o  n::::n    n::::nd::::::ddddd::::::ddi::::::i     t::::::tttt:::::ti::::::io:::::ooooo:::::o  n::::n    n::::na::::a    a:::::a l::::::l
+F::::::::FF        o:::::::::::::::o r:::::r            m::::m   m::::m   m::::ms::::::::::::::s  ,::::,        CC:::::::::::::::Co:::::::::::::::o  n::::n    n::::n d:::::::::::::::::di::::::i     tt::::::::::::::ti::::::io:::::::::::::::o  n::::n    n::::na:::::aaaa::::::a l::::::l
+F::::::::FF         oo:::::::::::oo  r:::::r            m::::m   m::::m   m::::m s:::::::::::ss   ,::::,          CCC::::::::::::C oo:::::::::::oo   n::::n    n::::n  d:::::::::ddd::::di::::::i       tt:::::::::::tti::::::i oo:::::::::::oo   n::::n    n::::n a::::::::::aa:::al::::::l
+FFFFFFFFFFF           ooooooooooo    rrrrrrr            mmmmmm   mmmmmm   mmmmmm  sssssssssss     ,:::,,             CCCCCCCCCCCCC   ooooooooooo     nnnnnn    nnnnnn   ddddddddd   dddddiiiiiiii         ttttttttttt  iiiiiiii   ooooooooooo     nnnnnn    nnnnnn  aaaaaaaaaa  aaaallllllll
+                                                                                                 ,:::,                                                                                                                                                                                      
+                                                                                                 ,,,,                                                                                                                                                                                       
+                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                            
+                                                                      dddddddd                                                                                                                                               dddddddd                                                       
+RRRRRRRRRRRRRRRRR                                                     d::::::d                                         iiii                                                                                                  d::::::d                                                       
+R::::::::::::::::R                                                    d::::::d                                        i::::i                                                                                                 d::::::d                                                       
+R::::::RRRRRR:::::R                                                   d::::::d                                         iiii                                                                                                  d::::::d                                                       
+RR:::::R     R:::::R                                                  d:::::d                                                                                                                                                d:::::d                                                        
+  R::::R     R:::::R    eeeeeeeeeeee    nnnn  nnnnnnnn        ddddddddd:::::d     eeeeeeeeeeee    rrrrr   rrrrrrrrr  iiiiiiinnnn  nnnnnnnn       ggggggggg   ggggg              aaaaaaaaaaaaa  nnnn  nnnnnnnn        ddddddddd:::::d                                                        
+  R::::R     R:::::R  ee::::::::::::ee  n:::nn::::::::nn    dd::::::::::::::d   ee::::::::::::ee  r::::rrr:::::::::r i:::::in:::nn::::::::nn    g:::::::::ggg::::g              a::::::::::::a n:::nn::::::::nn    dd::::::::::::::d                                                        
+  R::::RRRRRR:::::R  e::::::eeeee:::::een::::::::::::::nn  d::::::::::::::::d  e::::::eeeee:::::eer:::::::::::::::::r i::::in::::::::::::::nn  g:::::::::::::::::g              aaaaaaaaa:::::an::::::::::::::nn  d::::::::::::::::d                                                        
+  R:::::::::::::RR  e::::::e     e:::::enn:::::::::::::::nd:::::::ddddd:::::d e::::::e     e:::::err::::::rrrrr::::::ri::::inn:::::::::::::::ng::::::ggggg::::::gg                       a::::ann:::::::::::::::nd:::::::ddddd:::::d                                                        
+  R::::RRRRRR:::::R e:::::::eeeee::::::e  n:::::nnnn:::::nd::::::d    d:::::d e:::::::eeeee::::::e r:::::r     r:::::ri::::i  n:::::nnnn:::::ng:::::g     g:::::g                 aaaaaaa:::::a  n:::::nnnn:::::nd::::::d    d:::::d                                                        
+  R::::R     R:::::Re:::::::::::::::::e   n::::n    n::::nd:::::d     d:::::d e:::::::::::::::::e  r:::::r     rrrrrrri::::i  n::::n    n::::ng:::::g     g:::::g               aa::::::::::::a  n::::n    n::::nd:::::d     d:::::d                                                        
+  R::::R     R:::::Re::::::eeeeeeeeeee    n::::n    n::::nd:::::d     d:::::d e::::::eeeeeeeeeee   r:::::r            i::::i  n::::n    n::::ng:::::g     g:::::g              a::::aaaa::::::a  n::::n    n::::nd:::::d     d:::::d                                                        
+  R::::R     R:::::Re:::::::e             n::::n    n::::nd:::::d     d:::::d e:::::::e            r:::::r            i::::i  n::::n    n::::ng::::::g    g:::::g             a::::a    a:::::a  n::::n    n::::nd:::::d     d:::::d                                                        
+RR:::::R     R:::::Re::::::::e            n::::n    n::::nd::::::ddddd::::::dde::::::::e           r:::::r           i::::::i n::::n    n::::ng:::::::ggggg:::::g  ,,,,,,     a::::a    a:::::a  n::::n    n::::nd::::::ddddd::::::dd                                                       
+R::::::R     R:::::R e::::::::eeeeeeee    n::::n    n::::n d:::::::::::::::::d e::::::::eeeeeeee   r:::::r           i::::::i n::::n    n::::n g::::::::::::::::g  ,::::,     a:::::aaaa::::::a  n::::n    n::::n d:::::::::::::::::d                                                       
+R::::::R     R:::::R  ee:::::::::::::e    n::::n    n::::n  d:::::::::ddd::::d  ee:::::::::::::e   r:::::r           i::::::i n::::n    n::::n  gg::::::::::::::g  ,::::,      a::::::::::aa:::a n::::n    n::::n  d:::::::::ddd::::d                                                       
+RRRRRRRR     RRRRRRR    eeeeeeeeeeeeee    nnnnnn    nnnnnn   ddddddddd   ddddd    eeeeeeeeeeeeee   rrrrrrr           iiiiiiii nnnnnn    nnnnnn    gggggggg::::::g  ,:::,,       aaaaaaaaaa  aaaa nnnnnn    nnnnnn   ddddddddd   ddddd                                                       
+                                                                                                                                                          g:::::g ,:::,                                                                                                                     
+                                                                                                                                              gggggg      g:::::g ,,,,                                                                                                                      
+                                                                                                                                              g:::::gg   gg:::::g                                                                                                                           
+                                                                                                                                               g::::::ggg:::::::g                                                                                                                           
+                                                                                                                                                gg:::::::::::::g                                                                                                                            
+                                                                                                                                                  ggg::::::ggg                                                                                                                              
+                                                                                                                                                     gggggg                                                                                                                                 
+                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                            
+RRRRRRRRRRRRRRRRR                                                                   tttt               RRRRRRRRRRRRRRRRR                                             tttt                                                                                                                   
+R::::::::::::::::R                                                               ttt:::t               R::::::::::::::::R                                         ttt:::t                                                                                                                   
+R::::::RRRRRR:::::R                                                              t:::::t               R::::::RRRRRR:::::R                                        t:::::t                                                                                                                   
+RR:::::R     R:::::R                                                             t:::::t               RR:::::R     R:::::R                                       t:::::t                                                                                                                   
+  R::::R     R:::::R    eeeeeeeeeeee    aaaaaaaaaaaaa      ccccccccccccccccttttttt:::::ttttttt           R::::R     R:::::R   ooooooooooo   uuuuuu    uuuuuuttttttt:::::ttttttt        eeeeeeeeeeee    rrrrr   rrrrrrrrr                                                                    
+  R::::R     R:::::R  ee::::::::::::ee  a::::::::::::a   cc:::::::::::::::ct:::::::::::::::::t           R::::R     R:::::R oo:::::::::::oo u::::u    u::::ut:::::::::::::::::t      ee::::::::::::ee  r::::rrr:::::::::r                                                                   
+  R::::RRRRRR:::::R  e::::::eeeee:::::eeaaaaaaaaa:::::a c:::::::::::::::::ct:::::::::::::::::t           R::::RRRRRR:::::R o:::::::::::::::ou::::u    u::::ut:::::::::::::::::t     e::::::eeeee:::::eer:::::::::::::::::r                                                                  
+  R:::::::::::::RR  e::::::e     e:::::e         a::::ac:::::::cccccc:::::ctttttt:::::::tttttt           R:::::::::::::RR  o:::::ooooo:::::ou::::u    u::::utttttt:::::::tttttt    e::::::e     e:::::err::::::rrrrr::::::r                                                                 
+  R::::RRRRRR:::::R e:::::::eeeee::::::e  aaaaaaa:::::ac::::::c     ccccccc      t:::::t                 R::::RRRRRR:::::R o::::o     o::::ou::::u    u::::u      t:::::t          e:::::::eeeee::::::e r:::::r     r:::::r                                                                 
+  R::::R     R:::::Re:::::::::::::::::e aa::::::::::::ac:::::c                   t:::::t                 R::::R     R:::::Ro::::o     o::::ou::::u    u::::u      t:::::t          e:::::::::::::::::e  r:::::r     rrrrrrr                                                                 
+  R::::R     R:::::Re::::::eeeeeeeeeee a::::aaaa::::::ac:::::c                   t:::::t                 R::::R     R:::::Ro::::o     o::::ou::::u    u::::u      t:::::t          e::::::eeeeeeeeeee   r:::::r                                                                             
+  R::::R     R:::::Re:::::::e         a::::a    a:::::ac::::::c     ccccccc      t:::::t    tttttt       R::::R     R:::::Ro::::o     o::::ou:::::uuuu:::::u      t:::::t    tttttte:::::::e            r:::::r                                                                             
+RR:::::R     R:::::Re::::::::e        a::::a    a:::::ac:::::::cccccc:::::c      t::::::tttt:::::t     RR:::::R     R:::::Ro:::::ooooo:::::ou:::::::::::::::uu    t::::::tttt:::::te::::::::e           r:::::r                                                                             
+R::::::R     R:::::R e::::::::eeeeeeeea:::::aaaa::::::a c:::::::::::::::::c      tt::::::::::::::t     R::::::R     R:::::Ro:::::::::::::::o u:::::::::::::::u    tt::::::::::::::t e::::::::eeeeeeee   r:::::r                                                                             
+R::::::R     R:::::R  ee:::::::::::::e a::::::::::aa:::a cc:::::::::::::::c        tt:::::::::::tt     R::::::R     R:::::R oo:::::::::::oo   uu::::::::uu:::u      tt:::::::::::tt  ee:::::::::::::e   r:::::r                                                                             
+RRRRRRRR     RRRRRRR    eeeeeeeeeeeeee  aaaaaaaaaa  aaaa   cccccccccccccccc          ttttttttttt       RRRRRRRR     RRRRRRR   ooooooooooo       uuuuuuuu  uuuu        ttttttttttt      eeeeeeeeeeeeee   rrrrrrr</pre>
 <h2 class='date'> October 13th, 2018</h2>
 </header>
   <article>
@@ -67,6 +133,48 @@
         little, if any of their own markup. Instead, they mostly render other components and pass down the logic and data they need to work.
         In contrast, <span class="note">presentational components</span> are concerned with how things <span class="bold">look</span> and typically don't contain any logic that doesn't have to
       do with their own individual UI.</p>
+      <p>Smart components also take full advantage of the <span class="note">component lifecycle</span>. When a component is about to
+      receive props, about to be mounted, is about to unmount, etc., class components inherit special methods by extending
+      React components. <span class="mono">componentWillMount</span>, <span class="mono">componentWillReceiveProps</span>,
+      <span class="mono">componentDidMount</span>, and <span class="mono">componentWillUnmount</span> are all such methods.
+      We can thingk of <span class="mono">componentDidMount</span> like the React equivalent of <code class="language-js">$(document).ready</code>.
+      </p>
+      <p>Oftentimes, we'll want to run an AJAX request to fetch some data from an API. Since the constructor is run
+      synchronously,
+      we might not see any data when our component is rendered&mdash;the state won't update and trigger a render. If we put this call
+      in <span class="mono">componentDidMount</span>, we avoid this race condition entirely. We can update the state after the component
+      is rendered, triggering a re-render. These lifecycle methods are also useful in performing any cleanup we might need
+      after the component is unmounted, such as removing timeouts and intervals. More info is available in the React API docs.</p>
+    <div class="student-activity">
+      <h2>Student activity!</h2>
+      <h3>AJAX</h3>
+      <p>In this activity, you will create a simple React application with which users can query the OMDB API and display
+        information about the movie searched for.
+      </p>
+      <p><span class="mono">03-Stu_AJAX/README.md</span> has what you need.</p>
+    </div>
+    <div class="review">
+      <h2>AJAX Review</h2>
+      <p>Let's go over the steps necessary to get the behavior you need. We have to leverage component lifecycle methods
+        and Axios to make it happen.
+      </p>
+    </div>
+    <hr>
+    <h2>Conditional Rendering</h2>
+    <p>If you need a refresher on conditional rendering, the <a href="https://facebook.github.io/react/docs/conditional-rendering.html">Conditional Rendering API
+    doc</a> would be good to review. We'll be doing that next!</p>
+    <hr>
+    <div class="student-activity">
+      <h2>Student activity!</h2>
+      <h3>Conditional Render</h3>
+      <p>In this activity, you will render one of four different components based upon a component's state.
+        We'll be investigating a different way to do this later in the class...</p>
+      <p>For now, <span class="mono">04-Stu_ConditionalRender/README.md</span> has what you need.</p>
+    </div>
+    <div class="review">
+      <h2>Conditional Render Review</h2>
+      <p>Let's go over this activity.</p>
+    </div>
     </section>
     <div class="page-break">
       <h1>Break time!</h1>

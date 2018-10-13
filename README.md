@@ -88,3 +88,6 @@ _No new notes_
 * [ES6](./19-react/html/es6.html)
 * [React, Components and JSX](./19-react/html/react.html)
 * [Props, Lists and Stateful Components](./19-react/html/props-lists-state.html)
+
+### Unit 20: React
+* [Forms, Conditional Rendering, and React Router](./20-react/html/forms-rendering-router.html)
