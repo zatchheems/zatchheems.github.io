@@ -91,3 +91,5 @@ _No new notes_
 
 ### Unit 20: React
 * [Forms, Conditional Rendering, and React Router](./20-react/html/forms-rendering-router.html)
+* [Mern](./20-react/html/mern.html)
+* [Review, Homework, Final Projects](./20-react/html/review.html)
