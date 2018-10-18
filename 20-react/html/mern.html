@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MERN</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="../css/reset.css">
+  <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  <link rel='stylesheet' type='text/css' href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <pre id='ascii-title' style='font-size:3.5vw; line-height:1em; letter-spacing: -0.0625em; font-weight:700;'>___       ____________ ________   ___      ___
+`MMb     dMM`MMMMMMMMM `MMMMMMMb. `MM\     `M'
+ MMM.   ,PMM MM      \  MM    `Mb  MMM\     M 
+ M`Mb   d'MM MM         MM     MM  M\MM\    M 
+ M YM. ,P MM MM    ,    MM     MM  M \MM\   M 
+ M `Mb d' MM MMMMMMM    MM    .M9  M  \MM\  M 
+ M  YM.P  MM MM    `    MMMMMMM9'  M   \MM\ M 
+ M  `Mb'  MM MM         MM  \M\    M    \MM\M 
+ M   YP   MM MM         MM   \M\   M     \MMM 
+ M   `'   MM MM      /  MM    \M\  M      \MM 
+_M_      _MM_MMMMMMMMM _MM_    \M\_M_      \M</pre>
+<h2 class='date'> October 15th, 2018</h2>
+</header>
+  <article>
+    <section id="todo">
+      <h1>To-Do's:</h1>
+      <ul>
+        <li>Administrivia</li>
+        <li>Mern Demo</li>
+        <li>React + Express</li>
+        <li>React + Express + Mongo</li>
+        <li>Bringing It All Together</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Administrivia</h1>
+      <p>Good evening, all! Today's class involves tying together a whole slew of technologies to fully comprise the entirety of our dev environment:
+        <span class="note">the Mern stack</span>. This involves connecting Create React App to an Express backend, passing data back and forth between
+        front-end and back-end, and using React Router. Today's activities will contain significantly more boilerplate than the previous React lessons;
+        it will take a bit of focus to pay slightly less attention to this code as you accomplish given objectives.
+      </p>
+      <p>There is little new material here but plenty of opportunities to review what we've covered the past several classes.</p>
+      <p>Before we begin: any questions? Comments? Concerns? How do you feel about React?</p>
+    </section>
+    <section>
+      <h1>Mern Demo</h1>
+      <p>Let's begin today's class with a demo of a full Mern app. As a general reminder: <abbr title="Mongo, Express, React, Node" class="note">Mern</abbr>
+        stands for:</p>
+        <ul>
+          <li>MongoDB</li>
+          <li>Express</li>
+          <li>ReactJS</li>
+          <li>NodeJS</li>
+        </ul>
+        <p>Since beginning to learn React ,we've only been working with front-end code. We haven't set up a database, or an Express
+          server; we've just been working on the front-end with React. Though <span class="bold">we have</span> been using a dev server with Create React App,
+          this server exists simply for live reloading and compiling. Recall that everything gets transpiled and minified into a
+          <span class="mono">bundle.js</span>&mdash;this is what gets deployed. In most real applications, we'll also need a production quality server such as
+          Express for connecting to a database or setting up API routes.</p>
+          <p>You will be provided with a Create React App Express boilerplate that you can use for homework or projects. There's no need to completely understand
+            every aspect of the code in order to be productive, but we're going to walk through an example to give you a working high level understanding.</p>
+            <p>Let's take a look at <span class="mono">07-Ins_Mern</span>. Within the <span class="mono">client</span> folder, there's something weird here.
+              Unusually, we have not one, but two <span class="mono">package.json</span> files, each with different sets of dependencies. Running
+              <code class="language-bash">yarn install</code> will install two different servers to be used together. We'll also want to pay attention to the
+              <span class="mono">proxy</span> setting in Create React App and pore through the two package files.</p>
+              <p>We have our usual <code class="language-bash">yarn start</code> to run the app, and also <code class="language-bash">yarn build</code>
+                for a static version of our React app that can be deployed.</p>
+                <hr>
+                <h3>Any questions?</h3>
+              </section>
+              <section>
+                <h2>React + Express</h2>
+                <div class="student-activity">
+                  <h2>Student activity!</h2>
+                  <h3>React Recipes</h3>
+                  <p>Check out <span class="mono">08-Stu_Recipes/Unsolved</span>. Instructions at <span class="mono">08-Stu_Recipes/README.md</span>.</p>
+                  <p>In this example, you will complete a recipe finder application by adding code to render a list of recipes retrieved
+                    from an AJAX request.</p>
+                  </div>
+                  <div class="review">
+                    <h2>React Recipes Review</h2>
+                    <p>Let's review this activity and check out a demo. As a reminder, the server-side code is not really the focus here&mdash;it's all
+                      stuff you've already done before.
+                    </p>
+                  </div>
+                  <p>While that activity was interesting, it didn't have any kind of persistent storage. The next few activities will utilize a Mongo database
+                    and should help prepare you all for your homework assignment and final projects.</p>
+                    <div class="student-activity">
+                      <h2>Student activity!</h2>
+                      <h3>AJAX Books</h3>
+                      <p>In this activity, you will work to add functionality to a full stack React Reading List app.</p>
+                      <p>Check out <span class="mono">09-Stu_AJAXBooks/README.md</span> for your instructions.</p>
+                    </div>
+                    <div class="review">
+                      <h2>AJAX Book List Review</h2>
+                      <p>Let's review this activity.</p>
+                      <p>The goal of this activity was just to render the initial list of books. We'll work on actually making the form
+                      functional in the next activity.</p>
+                    </div>
+                    <hr>
+                    <div class="student-activity">
+                      <h2>Student activity!</h2>
+                      <h3>AJAX Form Delete</h3>
+                      <p>This activity will have you add functionality to the React Reading List app to save and delete books.</p>
+                      <p>Instructions in <span class="mono">10-Stu_AJAXFormDelete/README.md</span>.</p>
+                    </div>
+                    <div class="review">
+                      <h2>AJAX Form Delete Review</h2>
+                      <p>Let's go over this activity. The only changes that needed to be made are in
+                        <span class="mono">client/src/pages/Books/Books.js</span>.</p>
+                    </div>
+                  </section>
+                  <div class="page-break">
+                    <h1>Break time!</h1>
+                  </div>
+                    <section>
+                      <h1>React Router</h1>
+                      <p class="no-letter">We'll get right back into this with an activity using React Router!</p>
+                      <div class="student-activity">
+                        <h2>Student activity!</h2>
+                        <h3>React Router</h3>
+                        <p>In this activity, you will add React Router to the React Reading List in order to add a books Detail page and a
+                        "NoMatch" 404 page. You will need to look up how to use route params with React Router.</p>
+                      </div>
+                      <div class="review">
+                        <h2>React Router Review</h2>
+                        <p>Route parameters are key here, and are usable using nearly the same syntax as Express.
+                          Let's go over the routing necessary to get this sorted out.
+                        </p>
+                      </div>
+                      <p>We've got one more activity for you today: deployment.</p>
+                      <hr>
+                      <div class="student-activity">
+                        <h2>Student activity!</h2>
+                        <h3>Deploy</h3>
+                        <p>In this final activity, you will be tasked with deploying the React Reading List app to Heroku.
+                          You will be given the solved version of the previous activity to use if you wish.
+                        </p>
+                        <p>Instructions at <span class="mono">12-Stu_Deployment/README.md</span></p>
+                      </div>
+                      <p>When it comes to homework assignments and final projects, make sure you have deployment figured out
+                      sooner rather than later&mdash;many of you have already figured this out. There are now more reasons why
+                      a Heroku deployment could fail than there ever have been before, you are urged to not
+                      try and push to Heroku for the first time right before an assignment is due.</p>
+                      <p>Don't be afraid to ask the instructional staff (us!) for help, either over Slack or during office hours.</p>
+                    </section>
+                    <section>
+                      <h1>Final Project Requirements</h1>
+                      <p class="no-letter">Here are the requirements for the final project:</p>
+                      <ul>
+                        <li>Must use React, Vue, or Angular in some way (even if minimal)</li>
+                        <li>Must use a Node and Express Web Server</li>
+                        <li>Must be backed by a MySQL or MongoDB Database with a Sequelize or Mongoose ORM</li>
+                        <li>Must have both GET and POST routes for retrieving and adding new data</li>
+                        <li>Must be deployed using Heroku (with Data)</li>
+                        <li>Must utilize at least two libraries, packages, or technologies that we haven’t discussed</li>
+                        <li>Must have a polished frontend / UI</li>
+                        <li>Must have folder structure that meets MVC Paradigm</li>
+                        <li>Must meet good quality coding standards (indentation, scoping, naming)</li>
+                        <li>Must not expose sensitive API key information on the server</li>
+                      </ul>
+                    </section>
+                    <div class="page-break">
+                      <h1>That's all for today, see you Wednesday!</h1>
+                    </div>
+                  </article>
+                </body>
+                <!-- Script to make code pretty -->
+                <script type='text/javascript' src="../js/prism.js"></script>
+                </html>
+                
