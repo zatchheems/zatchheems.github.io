@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>First Steps With Django</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i,800" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,700" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="../css/reset.css">
+  <link rel='stylesheet' type='text/css' href="../css/prism.css">
+  <link rel='stylesheet' type='text/css' href="../css/styles.css">
+</head>
+<body>
+  <header>
+    <pre id='ascii-title' style='font-size:3.5vw; line-height:1em; letter-spacing: -0.0625em; font-weight:700;'></pre>
+<h2 class='date'> October 22nd, 2018</h2>
+</header>
+  <article>
+    <section id="todo">
+      <h1>To-Do's:</h1>
+      <ul>
+        <li>Administrivia</li>
+        <li>Python and <span class="mono">virtualenv</span> Setup</li>
+        <li>Django and MVC</li>
+        <li>Views and URLs</li>
+        <li>Templates</li>
+        <li>Models and Models API</li>
+      </ul>
+    </section>
+    <section>
+      <h1>Administrivia</h1>
+      <p>Good evening, all! We'll be continuing our discussion of Python by introducing <span class="note">Django</span>, one of the most
+      popular Python web frameworks. It is an MVC framework, representing the Model-View-Controller methodology quite well, and should seem
+      like an interesting mix between Mongoose/Sequelize and Express. Much of this will seem totally weird and alien, since Python is new to you.
+      <span class="muted italic">(Full disclosure: Python's not my best language. Your patience is appreciated.)</span>
+      </p>
+    </section>
+    <section>
+    <h1>Python and <span class="mono">virtualenv</span> Setup</h1>
+    <p>Before we begin, we will verify that our environments are identical&mdash;barring operating system differences, of course&mdash;such that
+      we don't have any version-specific problems or errors. The same rings true for Node and NPM versions: different versions will actually function
+      differently. It is common to use <abbr title="Node Version Manager">NVM</abbr> for Node.</p>
+    <p>However, since we're in Python land, we have some different tools to manage, specifically Python itself. Python 3.x is the version we want. Many
+    older machines come with 2.7.x by default. This difference in numbering is known as a <span class="note">major revision</span>, and as such, breaks a
+    lot of old stuff and adds a lot of new stuff. Run the following to check that you have Python 3 and above:</p>
+    <pre><code class="language-bash">python --version</code></pre>
+    <p>If you're rocking above 3.0, you're in good hands. You can immediately run the following to initialize a new virtual environment, which will
+    keep a totally standalone, local instance of whatever is inside it (just like installing Node packages locally):</p>
+    <pre><code class="language-bash"># replace "env" here with whatever you like.
+ENV="env"
+virtualenv $ENV</code></pre>
+    <p>For those with Python versions less than 3, your command will look like this:</p>
+    <pre><code class="language-bash"># env can be whatever you like, but should be the same as above
+virtualenv -p `which python3` env</code></pre>
+    <p>You can find the path to your Python3 install by running <code class="language-bash">which python3</code>. You can use inline
+    command substitution to do this with backticks ("`"), like above.</p>
+    <p>To activate the virtualenv, run:</p>
+    <pre><code class="language-bash">source $ENV_NAME/Scripts/activate</code></pre>
+    <p>Easy as that, hopefully. We'll help troubleshoot any rockiness along the way.</p>
+    </section>
+    <section>
+      <h1>Django and the MVC</h1>
+      <p>As mentioned briefly before, Django is an MVC framework. Why is this important?
+        Well, say you're building a Node app with Express. You have complete control over 
+        <i class="italic">exactly</i> how you'd like your data to be saved and structured.
+        This is powerful, but super inconvenient, as you are now required to "glue" everything
+        together manually.
+      </p>
+      <p>This brings into question the advantages of convention of configuration.
+        It's like the ease of use of React vs. the lightness and customizability of Handlebars.
+        One requires a lot more overhead; the other requires more code.
+      </p>
+      <p>Django favors convention. It follows a more M<span class="bold">T</span>C structure,
+        using templates. Django's "views" have controller-like responsibilities. Think about 
+        how Express can choose to send raw HTML. Upgrade that to accept Handlebars-like templates
+        and we're good to go.</p>
+      <h2>Django Installation and Create Project</h2>
+      <p>Time to actually install this thing! Be sure to source your virtualenv if you haven't
+        already. After doing so, use Python's package manager to install Django like so:
+      </p>
+      <pre><code class="language-bash"># note: you don't have to use pip3 within a virtualenv
+pip install Django==1.10.1</code></pre>
+      <p>Django provides a command-line tool for creating new projects called <span class="mono">django-admin</span>.
+      Create a new project with the following:</p>
+      <pre><code class="language-bash"># feel free to name it whatever you like.
+# I'll be using "app"
+django-admin startproject app</code></pre>
+      <p>If you run <code>tree .</code>, you'll see the entirety of the app's contents.</p>
+      <p>The <span class="mono">app</span> directory contains project-wide configuration files—this is where we set up database configuration, tell Django
+      where static files are located, etc.</p>
+      <p><span class="mono">manage.py</span> is where Django's utility toolchain lives.
+      This is the tool you'll use to migrate databases, run the development server, create administrators, etc.</p>
+      <p>This directory contains all of the files for a Django project, but we develop specific functionality in what
+      Django calls <span class="note">apps</span>.
+      Ideally, each app is responsible for a specific set of related features.
+      A web app is a collection of different "feature sets." A Django project is the web app; each "feature set" is a Django
+      app.</p>
+      <p>To initialize a new app, we use the <span class="mono">manage.py</span> tool.
+      Create a new app with <code class="language-bash">python manage.py startapp users</code>.
+      The general formula is <code class="language-bash">pythonmanage.py startapp $APP_NAME.</code></p>
+      <p>Running this command creates a new folder with our app name. This directory is where we'll spend
+        most of our development time.
+      </p>
+      <p>Finally, when you create a new app like this, you need to "register" it in Django's internal settings
+      file. This allows it to find important, app-specific files. Within <span class="mono">app/settings.py</span>,
+      under <span class="mono">INSTALLED_APPS</span>, we'll add <span class="mono">users.apps.UsersConfig</span>
+      to set up this new app called "users". This is a one-time thing we do for each new app.</p>
+    </section>
+    <section>
+      <h1>Views and URLs</h1>
+      <p>Since Django follows the MVC paradigm, we'll be exploring the Controller layer
+        first, since this is what allows us to bind UIs to data. As a reminder, the 
+        "controller" in MVC is called a "view" in Django. Let's check out <span class="mono">users/views.py</span>.
+        This is where things might get confusing. You have to remember that <span class="mono">views.py</span>
+        is where you define controllers, not UI details.
+      </p>
+      <p>Each view is just a Python function. When a user hits a URL/route on your website,
+        Django calls a function defined in <span class="mono">views.py</span>, much like Express.
+        It passes the request as a parameter to each view function&mdash;here's where you determine
+      if it was a GET or POST. You need to tell Django which function to call when a user hits a given route elsewhere. We'll get to that after
+      defining a few view functions.</p>
+    </section>
+    <div class="page-break">
+      <h1>Break time!</h1>
+    </div>
+    <section>
+    </section>
+      <!--<div class="page-break">
+        <h1>That's all for today, see you Wednesday!</h1>
+      </div>-->
+  </article>
+</body>
+<!-- Script to make code pretty -->
+<script type='text/javascript' src="../js/prism.js"></script>
+</html>
+        
